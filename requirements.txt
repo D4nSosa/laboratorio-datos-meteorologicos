@@ -1,0 +1,5 @@
+# Dependencias previstas para los análisis reproducibles.
+# Se fijarán versiones concretas cuando los scripts iniciales estén probados.
+pandas
+matplotlib
+requests
