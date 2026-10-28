@@ -99,3 +99,27 @@ https://repositorio.unne.edu.ar/xmlui/bitstream/handle/123456789/56284/RIUNNE_FH
 El documento contiene una tabla de precipitación para la estación “Gobernador Virasoro”: media mensual y anual de 1.419 mm, además de valores máximos y mínimos. En el fragmento consultado no queda suficientemente establecido el período exacto que sustenta la tabla ni la continuidad de la estación. Se registra como referencia climatológica por verificar, no como base apta para calcular tendencias hasta confirmar período, procedencia y definición de máximos/mínimos.
 
 **Lectura conjunta:** ahora hay al menos tres pistas documentales distintas para Virasoro —una figura histórica 1950–2000 citada en una tesis, registros locales de establecimiento para 2019–2022 y cifras difundidas por prensa para 2023–2025—, pero todavía no forman una única serie homogénea. No se deben concatenar ni calcular tendencias mezclándolas sin validar estación, ubicación, período y método.
+
+## 8. Tabla climatológica de la UNNE: valores recuperados y límites
+
+La consulta del documento digitalizado “Atlas geográfico de la provincia de Corrientes” (UNNE, 1997) permitió recuperar la tabla titulada “Estación: Gobernador Virasoro”. La tabla informa estos promedios mensuales (mm): enero 107; febrero 106; marzo 130; abril 156; mayo 152; junio 115; julio 80; agosto 82; septiembre 123; octubre 140; noviembre 121; diciembre 107; total anual 1.419 mm. También muestra una fila de máximos y otra de mínimos, pero el período de cálculo y el significado exacto de esos extremos no quedaron identificados en el texto extraído.
+
+Fuente: https://repositorio.unne.edu.ar/xmlui/bitstream/handle/123456789/56284/RIUNNE_FHUM_AR_Bruniard-Alberto-Falcon.pdf?isAllowed=y&sequence=1
+
+**Uso permitido en esta etapa:** referencia climatológica histórica publicada, útil para describir el ciclo mensual que recoge esa fuente. **Uso no permitido todavía:** tratar 1.419 mm como normal climatológica oficial de período estándar, comparar directamente con ERA5 como si el período y el punto fueran idénticos, o usar los máximos/mínimos para detectar récords sin recuperar la documentación original.
+
+## 9. Revisión del acceso público del ICAA
+
+Se consultaron:
+
+- Aviso de apertura del acceso a estaciones (27/10/2026): https://icaa.gov.ar/disponible-acceso-directo-a-datos-de-estaciones-hidro-meteorologicas-en-tiempo-real/
+- Instructivo del mapa de estaciones: https://icaa.gov.ar/instructivo-acceso-estacion-icaa/
+- Registro histórico de la estación automática del ICAA: https://icaa.gov.ar/registro-de-datos-meteorologicos/
+
+El instructivo explica que el mapa interactivo permite consultar datos en tiempo real, últimos registros e históricos, pero el propio sitio requiere JavaScript para desplegar el mapa. La versión textual consultada no permite identificar ni verificar una estación en Gobernador Virasoro. El registro histórico que sí es accesible en texto corresponde a la estación automática del ICAA en Corrientes Capital (domicilio Bolívar 2275), con archivos mensuales listados desde julio de 2012; no es una estación local de Virasoro y no debe sustituirla.
+
+**Resultado de la búsqueda:** el acceso del ICAA queda como una vía pendiente de consulta interactiva o de solicitud directa al organismo. No se afirma que no exista una estación en Virasoro; se afirma que con la evidencia textual accesible no se pudo confirmar su identidad, cobertura histórica ni descarga. Para cerrar esta vía hay que consultar el mapa en un navegador con JavaScript o pedir al ICAA/SNIH el inventario de estaciones y sus metadatos.
+
+## 10. Pendientes de validación técnica
+
+Los scripts de ERA5 y Santo Tomé están versionados, pero la presencia del código en GitHub no prueba que hayan sido ejecutados correctamente en un entorno limpio. Antes de cerrar la investigación, se deben ejecutar con dependencias instaladas, guardar la respuesta real de la API y metadatos, verificar los gráficos, y comparar solamente períodos y estaciones identificables. Si el entorno disponible no permite ejecutar una descarga, dejarlo explícito en el informe en lugar de declarar la ejecución como validada.
