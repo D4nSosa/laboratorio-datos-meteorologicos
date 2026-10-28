@@ -2,19 +2,17 @@
 
 ## Qué se analizó
 
-Se procesó el archivo público `data/rainfall.json` del proyecto **Registro y Seguimiento de Precipitaciones**, publicado por el Departamento de Economía Agraria del Ministerio de Producción de Corrientes. La base contiene filas mensuales por departamento y año. Consulta realizada: 28 de octubre de 2026.
+Se procesó el archivo público `data/rainfall.json` del proyecto **Registro y Seguimiento de Precipitaciones**, publicado por el Departamento de Economía Agraria del Ministerio de Producción de Corrientes. Consulta documentada: 28 de octubre de 2026.
 
 - [Tablero público](https://deaeconomiactes.github.io/Precipitaciones-Lluvias/)
 - [Archivo de datos consultado](https://github.com/deaeconomiactes/Precipitaciones-Lluvias/blob/main/data/rainfall.json)
 - [Repositorio y descripción del proyecto fuente](https://github.com/deaeconomiactes/Precipitaciones-Lluvias)
 
-Este análisis usa únicamente los 12 valores mensuales de cada año para el departamento de Santo Tomé. No se mezclaron registros diarios ni valores de otros departamentos.
+Este análisis usa únicamente los 12 valores mensuales de cada año completo para el departamento de Santo Tomé. No se mezclaron registros diarios ni valores de otros departamentos.
 
-## Control de cobertura
+## Control de cobertura y resultados descriptivos
 
-La base contiene 34 registros anuales de Santo Tomé entre 1993 y 2026. Para comparar totales anuales se usaron 32 años completos: 1993–2025, excluyendo 1999 (10 meses con valor) y 2026 (enero–mayo; cinco meses). No se rellenaron los meses faltantes.
-
-## Resultados descriptivos
+La base consultada contiene registros de 1993 a 2026. Se excluyeron los años incompletos y se usaron 32 años completos (1993–2025, sin 1999 ni 2026).
 
 | Indicador | Resultado |
 |---|---:|
@@ -27,36 +25,39 @@ La base contiene 34 registros anuales de Santo Tomé entre 1993 y 2026. Para com
 | Mayo de 2025 | 480.73 mm |
 | Mayo de 2017 | 480.70 mm |
 
-En esta base, 2023 acumuló 2.213,73 mm; 2024, 2.140,43 mm; y 2025, 2.507,23 mm. Frente a la media de los 32 años completos, los desvíos son +24,3%, +20,2% y +40,7%, respectivamente. Estos porcentajes describen esta serie y este período; no prueban por sí solos una tendencia climática.
+En esta base, 2023 acumuló 2.213,73 mm; 2024, 2.140,43 mm; y 2025, 2.507,23 mm. Estos resultados describen esta serie y este período; no prueban por sí solos una tendencia climática ni constituyen un récord oficial de estación.
 
-Mayo de 2025 fue el valor mensual más alto de mayo en los años completos de esta base, por una diferencia de apenas 0,03 mm respecto de mayo de 2017. La afirmación se limita a este archivo y su método de agregación; no se presenta como récord meteorológico oficial de una estación.
+## Archivos derivados
 
-## Gráficos y tablas derivados
-
-- `datos/santo_tome_totales_anuales.csv`: totales recalculados a partir de los 12 meses de cada año completo.
-- `datos/santo_tome_promedios_mensuales.csv`: promedios mensuales calculados con los mismos 32 años.
-- `datos/santo_tome_mayo_por_anio.csv`: valores de mayo de todos los años completos.
-- `investigaciones/01-precipitacion-virasoro/graficos/santo_tome_totales_anuales.svg`: evolución anual.
-- `investigaciones/01-precipitacion-virasoro/graficos/santo_tome_promedio_mensual.svg`: ciclo mensual promedio.
+- `datos/santo_tome_totales_anuales.csv`: totales recalculados a partir de los doce meses.
+- `datos/santo_tome_promedios_mensuales.csv`: promedios mensuales calculados con los años completos.
+- `datos/santo_tome_mayo_por_anio.csv`: valores de mayo por año completo.
+- Gráficos de Santo Tomé: se generan si están incluidos en la versión de trabajo; la automatización de este flujo publica los CSV como artefactos.
 
 ## Límites y relación con Virasoro
 
-Santo Tomé es un departamento, no una medición puntual de Gobernador Virasoro. Estos datos no deben reemplazar los valores publicados para la ciudad ni compararse con ellos como si fueran una misma estación. Por ejemplo, las cifras de prensa que atribuyen a Virasoro 2.609,3 mm en 2023 y 2.346 mm en 2024 difieren de los totales departamentales de esta base. Esa diferencia no significa automáticamente que una fuente esté equivocada: la cobertura geográfica, los pluviómetros, el período de corte y la agregación pueden ser distintos.
+Santo Tomé es un departamento, no una medición puntual de Gobernador Virasoro. Estos datos no deben reemplazar valores publicados para la ciudad ni compararse como si fueran la misma estación. Diferencias con otras fuentes pueden deberse a cobertura geográfica, pluviómetros, períodos de corte y métodos de agregación.
 
-Este resultado sirve como contexto regional y como una primera comprobación de la estructura de datos. Para cerrar la investigación de Virasoro aún falta verificar la fuente primaria de las cifras locales y ejecutar/contrastar una serie de reanálisis homogénea. No se evaluó todavía la relación estadística con ENSO.
+Para cerrar una investigación de tendencias locales en Virasoro todavía hace falta verificar la fuente primaria de las cifras locales y contrastarla con una serie observada homogénea. No se evaluó aquí la relación estadística con ENSO.
 
 ## Reproducción
 
-El cálculo utilizado para estos resultados se documenta en `scripts/analizar_santo_tome.py`. Si no existe una copia local, el script descarga `rainfall.json` desde el repositorio fuente y conserva una copia en `datos/fuente/`; no redistribuye la base como si fuera propia. El script excluye los años incompletos del cálculo anual. Los resultados de esta página se calcularon directamente a partir de la fuente consultada el 28 de octubre de 2026; la reproducción automatizada queda pendiente de ejecución en un entorno limpio.
+Desde la raíz del repositorio, con Python 3.12:
+
+```bash
+python -m pip install -r requirements.txt
+python investigaciones/01-precipitacion-virasoro/scripts/analizar_santo_tome.py
+```
+
+El script valida la estructura JSON, los doce valores mensuales, los tipos numéricos, valores finitos/no negativos y registros anuales duplicados. Si no existe una copia local, descarga la fuente desde el repositorio original. Como la fuente externa puede actualizarse, los resultados reproducidos pueden cambiar; la fecha y la URL de consulta deben acompañar cualquier publicación.
 
 ## Fuentes históricas locales identificadas para la siguiente fase
 
-Se encontró un antecedente de la Universidad Nacional del Nordeste que indica que la estación meteorológica del Instituto Agrotécnico Víctor Navajas Centeno (IAVNC), en Gobernador Virasoro, cuenta con una figura de precipitación y temperatura media mensual histórica para 1950–2000. El documento también menciona observaciones meteorológicas locales de 1993–2003 y, en otra sección, registros de precipitación de 2015–2018 de la estación ACPA ubicada en el Instituto Agrotécnico.
+La tesis de Andrés Gustavo Batalla (UNNE, 2019) documenta una figura histórica de precipitación y temperatura mensual de la estación del Instituto Agrotécnico Víctor Navajas Centeno para 1950–2000 y menciona registros locales posteriores. La figura no equivale a disponer de la serie original diaria o mensual. Antes de comparar cuantitativamente hay que localizar las planillas primarias y confirmar ubicación, cobertura y metodología.
 
-- Batalla, Andrés Gustavo (2019), tesis de Maestría en Producción Vegetal, UNNE: [PDF en el repositorio institucional](https://repositorio.unne.edu.ar/bitstream/handle/123456789/47752/RIUNNE_FCA_TM_Batalla_AG.pdf?isAllowed=y&sequence=1). Ver capítulo II, sección del clima local y figura 3 (págs. impresas 15–17), y resultados de precipitación 2015–2018 (págs. impresas 33–35).
+- [Tesis de la UNNE](https://repositorio.unne.edu.ar/bitstream/handle/123456789/47752/RIUNNE_FCA_TM_Batalla_AG.pdf?isAllowed=y&sequence=1)
+- [Aviso del ICAA sobre estaciones](https://icaa.gov.ar/disponible-acceso-directo-a-datos-de-estaciones-hidro-meteorologicas-en-tiempo-real/)
+- [Instructivo del mapa](https://icaa.gov.ar/instructivo-acceso-estacion-icaa/)
+- [Registro histórico del ICAA accesible en texto](https://icaa.gov.ar/registro-de-datos-meteorologicos/)
 
-Este antecedente es importante porque confirma que existen referencias históricas observadas para la localidad, pero la figura histórica no equivale a disponer de la serie diaria o mensual original. Antes de comparar cuantitativamente hay que localizar la planilla primaria, confirmar qué años cubre realmente y revisar si cambió la estación o el método.
-
-El ICAA informó el 27 de octubre de 2026 que habilitó acceso directo a estaciones hidrometeorológicas de Corrientes, con datos de lluvia, temperatura, humedad, presión y viento. El instructivo indica que el mapa interactivo permite consultar registros históricos, pero requiere JavaScript. La página estática no permite verificar una estación en Virasoro; el registro histórico de ICAA accesible como texto corresponde a Corrientes Capital, no a la localidad. Por eso la búsqueda queda documentada como pendiente de consulta interactiva o solicitud al organismo: [aviso del ICAA](https://icaa.gov.ar/disponible-acceso-directo-a-datos-de-estaciones-hidro-meteorologicas-en-tiempo-real/), [instructivo del mapa](https://icaa.gov.ar/instructivo-acceso-estacion-icaa/), [registro de la estación de Capital](https://icaa.gov.ar/registro-de-datos-meteorologicos/).
-
-Por ahora estos documentos se registran como fuentes y pistas de acceso, no como una serie descargada y procesada dentro de este repositorio.
+Estos documentos se registran como referencias y pistas de acceso, no como una serie local descargada y procesada en este repositorio.

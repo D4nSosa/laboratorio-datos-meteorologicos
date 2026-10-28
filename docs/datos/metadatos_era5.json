@@ -1,0 +1,14 @@
+{
+  "fuente": "Open-Meteo Historical Weather API",
+  "dataset": "ERA5",
+  "api_url": "https://archive-api.open-meteo.com/v1/archive",
+  "fecha_consulta_utc": "2026-10-28T19:56:18.273953+00:00",
+  "coordenadas_solicitadas": {"latitud": -28.05, "longitud": -56.02},
+  "coordenadas_celda_devuelta": {"latitud": -28.0, "longitud": -56.0, "elevacion_m": 133.0},
+  "periodo": {"inicio": "1991-01-01", "fin": "2025-12-31"},
+  "variable": "precipitation_sum",
+  "unidad": "mm",
+  "cantidad_dias": 12784,
+  "licencia_fuente": "CC BY 4.0 (ver documentacion de Open-Meteo)",
+  "advertencia": "ERA5 es reanalisis: combina observaciones y modelos. No equivale a una medicion de pluviometro de Gobernador Virasoro."
+}
