@@ -1,0 +1,9 @@
+{
+  "periodo": "1991-2025",
+  "cantidad_anios": 35,
+  "media_anual_mm": 1786.94,
+  "mediana_anual_mm": 1783.5,
+  "minimo": {"anio": 2020, "precipitacion_anual_mm": 1126.8},
+  "maximo": {"anio": 2002, "precipitacion_anual_mm": 2588.7},
+  "nota": "Estadisticas de reanalisis ERA5, no de una estacion pluviometrica."
+}
