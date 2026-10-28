@@ -47,7 +47,7 @@ Este resultado sirve como contexto regional y como una primera comprobación de 
 
 ## Reproducción
 
-El cálculo utilizado para estos resultados se documenta en `scripts/analizar_santo_tome.py`. El archivo fuente original debe descargarse por separado; no se redistribuye aquí como si fuera propio. El script valida cobertura mensual y excluye los años incompletos del cálculo anual.
+El cálculo utilizado para estos resultados se documenta en `scripts/analizar_santo_tome.py`. Si no existe una copia local, el script descarga `rainfall.json` desde el repositorio fuente y conserva una copia en `datos/fuente/`; no redistribuye la base como si fuera propia. El script excluye los años incompletos del cálculo anual. Los resultados de esta página se calcularon directamente a partir de la fuente consultada el 28 de octubre de 2026; la reproducción automatizada queda pendiente de ejecución en un entorno limpio.
 
 ## Fuentes históricas locales identificadas para la siguiente fase
 
@@ -57,6 +57,6 @@ Se encontró un antecedente de la Universidad Nacional del Nordeste que indica q
 
 Este antecedente es importante porque confirma que existen referencias históricas observadas para la localidad, pero la figura histórica no equivale a disponer de la serie diaria o mensual original. Antes de comparar cuantitativamente hay que localizar la planilla primaria, confirmar qué años cubre realmente y revisar si cambió la estación o el método.
 
-El ICAA informó el 27 de octubre de 2026 que habilitó acceso directo a estaciones hidrometeorológicas de Corrientes, con datos de lluvia, temperatura, humedad, presión y viento. El mapa integra varias redes, pero aún falta comprobar qué estación cercana a Virasoro está disponible, qué período histórico ofrece y si se puede descargar una serie validada: [aviso del ICAA](https://icaa.gov.ar/disponible-acceso-directo-a-datos-de-estaciones-hidro-meteorologicas-en-tiempo-real/).
+El ICAA informó el 27 de octubre de 2026 que habilitó acceso directo a estaciones hidrometeorológicas de Corrientes, con datos de lluvia, temperatura, humedad, presión y viento. El instructivo indica que el mapa interactivo permite consultar registros históricos, pero requiere JavaScript. La página estática no permite verificar una estación en Virasoro; el registro histórico de ICAA accesible como texto corresponde a Corrientes Capital, no a la localidad. Por eso la búsqueda queda documentada como pendiente de consulta interactiva o solicitud al organismo: [aviso del ICAA](https://icaa.gov.ar/disponible-acceso-directo-a-datos-de-estaciones-hidro-meteorologicas-en-tiempo-real/), [instructivo del mapa](https://icaa.gov.ar/instructivo-acceso-estacion-icaa/), [registro de la estación de Capital](https://icaa.gov.ar/registro-de-datos-meteorologicos/).
 
 Por ahora estos documentos se registran como fuentes y pistas de acceso, no como una serie descargada y procesada dentro de este repositorio.
