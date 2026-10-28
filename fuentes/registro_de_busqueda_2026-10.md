@@ -66,3 +66,20 @@ El README del proyecto fuente identifica al Departamento de Economía Agraria y 
 La base contiene 34 filas para Santo Tomé entre 1993 y 2026. Se excluyeron 1999 (10 meses con valor) y 2026 (enero a mayo) de los totales anuales comparables. Quedaron 32 años completos. Las cifras derivadas y los gráficos se encuentran en `investigaciones/01-precipitacion-virasoro/resultados_santo_tome.md`.
 
 Esta serie representa el departamento, no una estación meteorológica puntual en Gobernador Virasoro. La atribución institucional procede de la documentación del repositorio fuente; antes de publicar conclusiones locales, se debe buscar el registro primario que respalde las cifras reportadas por prensa.
+
+
+## 6. Antecedentes locales de Virasoro y acceso provincial a estaciones
+
+**Universidad Nacional del Nordeste — tesis sobre fenología de yerba mate en Virasoro**
+
+https://repositorio.unne.edu.ar/bitstream/handle/123456789/47752/RIUNNE_FCA_TM_Batalla_AG.pdf?isAllowed=y&sequence=1
+
+La tesis de Andrés Gustavo Batalla (2019) indica que la estación meteorológica del Instituto Agrotécnico Víctor Navajas Centeno (IAVNC) registró precipitación y temperatura media mensual histórica para el período 1950–2000 (figura 3). También describe condiciones climáticas locales y cita registros de temperatura de 1993–2003. En los resultados menciona datos de precipitación de la estación ACPA, ubicada en el Instituto Agrotécnico, para agosto de 2015 a julio de 2018. Es una referencia académica para localizar la serie original; la figura publicada no sustituye los datos mensuales o diarios de origen.
+
+**Instituto Correntino del Agua y del Ambiente (ICAA) — acceso a estaciones**
+
+https://icaa.gov.ar/disponible-acceso-directo-a-datos-de-estaciones-hidro-meteorologicas-en-tiempo-real/
+
+Aviso fechado el 27 de octubre de 2026. Informa acceso directo a datos en tiempo real de estaciones de varias redes en Corrientes. Próximo paso: revisar el mapa y comprobar estación, ubicación, variables, período de historia descargable y estado de validación antes de incorporarla al análisis.
+
+**Criterio:** hasta confirmar estación, cobertura y datos primarios, no presentar estos antecedentes como si ya se hubiera obtenido una serie completa de Virasoro.
