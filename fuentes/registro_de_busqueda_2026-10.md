@@ -50,3 +50,19 @@ Las notas atribuyen cifras a fuentes provinciales. Hasta encontrar y comprobar e
 ## Criterios de inclusión de fuentes
 
 Para cada dataset registrar: organismo responsable, enlace, variable, unidad, cobertura geográfica, período, resolución temporal/espacial, fecha de consulta, licencia, metodología y faltantes conocidos. Si alguno de estos datos no se puede confirmar, indicarlo explícitamente y no presentar el dataset como una medición observada local.
+
+
+## 5. Base mensual del Departamento de Economía Agraria
+
+**Registro y Seguimiento de Precipitaciones — Ministerio de Producción de Corrientes**
+
+- Tablero: https://deaeconomiactes.github.io/Precipitaciones-Lluvias/
+- Repositorio: https://github.com/deaeconomiactes/Precipitaciones-Lluvias
+- Archivo consultado: https://github.com/deaeconomiactes/Precipitaciones-Lluvias/blob/main/data/rainfall.json
+- Fecha de consulta: 28 de octubre de 2026.
+
+El README del proyecto fuente identifica al Departamento de Economía Agraria y explica que `data/rainfall.json` contiene la base mensual histórica por año y departamento. También advierte que el tablero combina registros mensuales con acumulados derivados de datos diarios cuando falta una carga mensual específica. Para evitar mezclar métodos, este análisis tomó directamente los 12 valores mensuales de cada registro de Santo Tomé y recalculó el total anual a partir de esos valores. No usó acumulados diarios mensualizados ni datos de otros departamentos.
+
+La base contiene 34 filas para Santo Tomé entre 1993 y 2026. Se excluyeron 1999 (10 meses con valor) y 2026 (enero a mayo) de los totales anuales comparables. Quedaron 32 años completos. Las cifras derivadas y los gráficos se encuentran en `investigaciones/01-precipitacion-virasoro/resultados_santo_tome.md`.
+
+Esta serie representa el departamento, no una estación meteorológica puntual en Gobernador Virasoro. La atribución institucional procede de la documentación del repositorio fuente; antes de publicar conclusiones locales, se debe buscar el registro primario que respalde las cifras reportadas por prensa.
