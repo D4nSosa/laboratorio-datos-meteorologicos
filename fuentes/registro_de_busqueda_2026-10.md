@@ -83,3 +83,19 @@ https://icaa.gov.ar/disponible-acceso-directo-a-datos-de-estaciones-hidro-meteor
 Aviso fechado el 27 de octubre de 2026. Informa acceso directo a datos en tiempo real de estaciones de varias redes en Corrientes. Próximo paso: revisar el mapa y comprobar estación, ubicación, variables, período de historia descargable y estado de validación antes de incorporarla al análisis.
 
 **Criterio:** hasta confirmar estación, cobertura y datos primarios, no presentar estos antecedentes como si ya se hubiera obtenido una serie completa de Virasoro.
+
+## 7. Otra referencia académica con valores locales de 2019–2022
+
+**UNNE — trabajo final de graduación sobre una estrategia de manejo en yerba mate en Virasoro**
+
+https://repositorio.unne.edu.ar/bitstream/handle/123456789/56560/RIUNNE_FCA_FG_Decoppet_MF.pdf?isAllowed=y&sequence=1
+
+El trabajo presenta un climograma para el establecimiento Granja Santa Marta, en Gobernador Virasoro, con precipitaciones anuales de 1.718 mm (2019), 1.498 mm (2020), 1.557 mm (2021) y 1.761 mm (2022). El texto indica que la precipitación se tomó de registros in situ del establecimiento, mientras que la temperatura procede de la Red de Centrales de la Bolsa de Cereales. Por lo tanto, son datos locales de un establecimiento y no deben etiquetarse como una serie oficial de la estación urbana ni combinarse automáticamente con el departamento de Santo Tomé o ERA5. El documento es una fuente secundaria que reproduce los valores; el siguiente paso sería solicitar o localizar las planillas originales y confirmar acumulación, días faltantes y criterios de cada campaña.
+
+**Referencia climatológica histórica tabulada para Gobernador Virasoro**
+
+https://repositorio.unne.edu.ar/xmlui/bitstream/handle/123456789/56284/RIUNNE_FHUM_AR_Bruniard-Alberto-Falcon.pdf?isAllowed=y&sequence=1
+
+El documento contiene una tabla de precipitación para la estación “Gobernador Virasoro”: media mensual y anual de 1.419 mm, además de valores máximos y mínimos. En el fragmento consultado no queda suficientemente establecido el período exacto que sustenta la tabla ni la continuidad de la estación. Se registra como referencia climatológica por verificar, no como base apta para calcular tendencias hasta confirmar período, procedencia y definición de máximos/mínimos.
+
+**Lectura conjunta:** ahora hay al menos tres pistas documentales distintas para Virasoro —una figura histórica 1950–2000 citada en una tesis, registros locales de establecimiento para 2019–2022 y cifras difundidas por prensa para 2023–2025—, pero todavía no forman una única serie homogénea. No se deben concatenar ni calcular tendencias mezclándolas sin validar estación, ubicación, período y método.
