@@ -29,6 +29,16 @@ Promedios mensuales del reanálisis (mm): enero 158,28; febrero 143,28; marzo 13
 
 Los valores anuales y mensuales se guardan en `datos/virasoro_era5/`; los metadatos incluyen coordenadas solicitadas y devueltas, período, variable y fecha de consulta. Los gráficos se generan en PNG y SVG. El resultado de ERA5 no se usa para corregir ni reemplazar los registros locales.
 
+Archivos incorporados al repositorio:
+- [Totales anuales ERA5 (CSV)](../../datos/virasoro_era5/precipitacion_anual.csv)
+- [Climatología mensual ERA5 (CSV)](../../datos/virasoro_era5/climatologia_mensual.csv)
+- [Resumen estadístico (JSON)](../../datos/virasoro_era5/resumen_estadistico.json)
+- [Metadatos de la consulta (JSON)](../../datos/virasoro_era5/metadatos.json)
+- [Gráfico de precipitación anual (SVG)](graficos/precipitacion_anual_era5.svg)
+- [Gráfico de climatología mensual (SVG)](graficos/climatologia_mensual_era5.svg)
+
+La serie diaria completa y los totales mensuales se generan en cada ejecución automatizada y quedan en el artefacto de validación de GitHub Actions; el repositorio conserva los agregados principales para facilitar la revisión sin incorporar el CSV diario de mayor tamaño.
+
 ## 2. Registros y referencias publicados para Virasoro
 
 Las fuentes encontradas no componen una serie continua homogénea; describen estaciones, períodos y métodos diferentes.
