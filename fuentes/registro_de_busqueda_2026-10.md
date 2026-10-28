@@ -123,3 +123,26 @@ El instructivo explica que el mapa interactivo permite consultar datos en tiempo
 ## 10. Pendientes de validación técnica
 
 Los scripts de ERA5 y Santo Tomé están versionados, pero la presencia del código en GitHub no prueba que hayan sido ejecutados correctamente en un entorno limpio. Antes de cerrar la investigación, se deben ejecutar con dependencias instaladas, guardar la respuesta real de la API y metadatos, verificar los gráficos, y comparar solamente períodos y estaciones identificables. Si el entorno disponible no permite ejecutar una descarga, dejarlo explícito en el informe en lugar de declarar la ejecución como validada.
+
+## 11. Evidencia adicional de la red ACPA y datos de 2018
+
+**Instalación de estaciones meteorológicas completas en Virasoro (2013)**
+
+- El Litoral, 16/12/2013: https://www.ellitoral.com.ar/corrientes/2013-12-16-15-21-0-amplian-la-red-de-estaciones-meteorologicas-en-puntos-estrategicos
+- El Litoral, 18/12/2013: https://www.ellitoral.com.ar/corrientes/2013-12-18-11-19-0-amplian-la-red-de-estaciones-meteorologicas
+
+Las notas informan que, en diciembre de 2013, la red del Ministerio de Producción, ACPA y la Bolsa de Cereales instaló estaciones meteorológicas completas, incluida una en Virasoro. Se describen sensores de precipitación, temperatura, humedad, presión, radiación y viento. Esto ayuda a identificar la red y el organismo con el que buscar datos primarios, pero las notas no proporcionan la serie histórica.
+
+**Trabajo final de la UNNE con registros de una estación cercana a los lotes en Virasoro**
+
+https://repositorio.unne.edu.ar/bitstream/handle/123456789/58481/RIUNNE_FCA_FG_Venhaus_Held_S.pdf?sequence=1
+
+El documento presenta valores de precipitación de junio a diciembre de 2018 y señala que se obtuvieron de la estación meteorológica más cercana a los lotes, situada en Virasoro. Los valores publicados son: junio 98,8 mm; julio 45,4 mm; agosto 88,6 mm; septiembre 53,6 mm; octubre 151,0 mm; noviembre 315,4 mm; diciembre 201,4 mm. Suman 954,2 mm para esos siete meses, según la suma de los valores publicados. **No es un total anual** y no debe extrapolarse a enero–mayo ni concatenarse con otras fuentes sin identificar estación, fecha de corte y continuidad. La misma obra presenta una tabla de “interpolación de datos históricos” para los departamentos de Virasoro e Ituzaingó; esa tabla debe tratarse como una serie derivada, no como observaciones puntuales.
+
+**Referencia secundaria de normales 1992–1999**
+
+https://mexpedia.org/index.php/Gobernador_Virasoro
+
+La página reproduce una tabla de parámetros climáticos de Gobernador Virasoro y atribuye la precipitación al Instituto Agrotécnico Víctor Navajas Centeno, promedio 1992–1999, con total anual de 1.907,7 mm. Es una referencia secundaria: antes de usarla como normal histórica, debe verificarse la tabla original, su período y la metodología. No equivale a la media anual de 1.419 mm de la tabla del Atlas de la UNNE, cuyo período aún no se ha confirmado; no deben promediarse ambas cifras.
+
+**Conclusión documental:** hay evidencia pública de varias redes y estaciones instaladas en Virasoro, además de registros locales parciales publicados en trabajos académicos. El obstáculo principal ya no es la ausencia total de antecedentes, sino la falta de acceso comprobado a las planillas primarias y a los metadatos que permitan ensamblar una serie continua homogénea.
