@@ -66,11 +66,15 @@ def main() -> int:
     annual = (daily.groupby("anio", as_index=False)
               ["precipitacion_mm"].sum()
               .rename(columns={"precipitacion_mm": "precipitacion_anual_mm"}))
+    # Guardar cifras con dos decimales para evitar residuos de punto flotante.
+    monthly["precipitacion_mm"] = monthly["precipitacion_mm"].round(2)
+    annual["precipitacion_anual_mm"] = annual["precipitacion_anual_mm"].round(2)
     monthly_climatology = (monthly.groupby("mes", as_index=False)
                            ["precipitacion_mm"].mean()
                            .rename(columns={
                                "precipitacion_mm": "media_mensual_mm"
                            }))
+    monthly_climatology["media_mensual_mm"] = monthly_climatology["media_mensual_mm"].round(2)
 
     OUT.mkdir(parents=True, exist_ok=True)
     daily.to_csv(OUT / "precipitacion_diaria.csv", index=False, date_format="%Y-%m-%d")
