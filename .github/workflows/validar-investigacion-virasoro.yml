@@ -4,9 +4,16 @@ on:
   workflow_dispatch:
   push:
     paths:
+      - "README.md"
+      - "LICENSE"
+      - ".gitignore"
       - "investigaciones/01-precipitacion-virasoro/**"
       - "fuentes/**"
+      - "datos/santo_tome_totales_anuales.csv"
+      - "datos/santo_tome_promedios_mensuales.csv"
+      - "datos/santo_tome_mayo_por_anio.csv"
       - "requirements.txt"
+      - "tests/**"
       - ".github/workflows/validar-investigacion-virasoro.yml"
 
 permissions:
@@ -19,28 +26,24 @@ jobs:
     steps:
       - name: Descargar repositorio
         uses: actions/checkout@v4
-
       - name: Preparar Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
           cache: pip
           cache-dependency-path: requirements.txt
-
-      - name: Instalar dependencias
-        run: python -m pip install --upgrade pip && pip install -r requirements.txt
-
+      - name: Instalar dependencias fijadas
+        run: python -m pip install --upgrade pip && python -m pip install -r requirements.txt
       - name: Comprobar sintaxis
-        run: python -m compileall -q investigaciones/01-precipitacion-virasoro/scripts
-
+        run: python -m compileall -q investigaciones/01-precipitacion-virasoro/scripts tests
+      - name: Pruebas unitarias de validación
+        run: python -m unittest discover -s tests -v
       - name: Reproducir análisis departamental
         run: python investigaciones/01-precipitacion-virasoro/scripts/analizar_santo_tome.py
-
-      - name: Descargar y procesar ERA5
+      - name: Validar y procesar ERA5
         run: |
           python investigaciones/01-precipitacion-virasoro/scripts/descargar_era5.py
           python investigaciones/01-precipitacion-virasoro/scripts/analizar_era5.py
-
       - name: Publicar artefactos de validación
         uses: actions/upload-artifact@v4
         with:
