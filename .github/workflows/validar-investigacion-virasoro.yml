@@ -1,0 +1,55 @@
+name: Validar investigación de precipitaciones
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "investigaciones/01-precipitacion-virasoro/**"
+      - "fuentes/**"
+      - "requirements.txt"
+      - ".github/workflows/validar-investigacion-virasoro.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  reproducibilidad:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Instalar dependencias
+        run: python -m pip install --upgrade pip && pip install -r requirements.txt
+
+      - name: Comprobar sintaxis
+        run: python -m compileall -q investigaciones/01-precipitacion-virasoro/scripts
+
+      - name: Reproducir análisis departamental
+        run: python investigaciones/01-precipitacion-virasoro/scripts/analizar_santo_tome.py
+
+      - name: Descargar y procesar ERA5
+        run: |
+          python investigaciones/01-precipitacion-virasoro/scripts/descargar_era5.py
+          python investigaciones/01-precipitacion-virasoro/scripts/analizar_era5.py
+
+      - name: Publicar artefactos de validación
+        uses: actions/upload-artifact@v4
+        with:
+          name: resultados-validacion-virasoro
+          path: |
+            datos/santo_tome_totales_anuales.csv
+            datos/santo_tome_promedios_mensuales.csv
+            datos/santo_tome_mayo_por_anio.csv
+            datos/virasoro_era5/
+            investigaciones/01-precipitacion-virasoro/graficos/precipitacion_anual_era5.png
+            investigaciones/01-precipitacion-virasoro/graficos/climatologia_mensual_era5.png
+          if-no-files-found: error
