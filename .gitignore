@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+
+# Entornos y archivos locales
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Descargas y resultados reproducibles generados localmente
+# Se versionan únicamente los agregados seleccionados y documentados.
+datos/fuente/rainfall.json
+datos/virasoro_era5/precipitacion_diaria.csv
+datos/virasoro_era5/precipitacion_mensual.csv
