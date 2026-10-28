@@ -30,6 +30,8 @@ El código y el análisis pueden desarrollarse con apoyo de herramientas de soft
 
 ## Estado del proyecto
 
+La primera etapa ya tiene un análisis descriptivo inicial de la base pública de precipitaciones del departamento de Santo Tomé, con 32 años completos entre 1993 y 2025. Está documentado como contexto regional, no como una serie puntual de Gobernador Virasoro. Los resultados y sus límites están en [Resultados preliminares — Santo Tomé](investigaciones/01-precipitacion-virasoro/resultados_santo_tome.md). La investigación local de Virasoro sigue abierta hasta verificar registros de estación y contrastar fuentes.
+
 El laboratorio está en etapa de investigación. Los resultados y documentos públicos se incorporarán de manera gradual, una vez revisados. Mientras una investigación no esté terminada, sus preguntas y tareas pendientes no deben leerse como conclusiones.
 
 ## Autoría
