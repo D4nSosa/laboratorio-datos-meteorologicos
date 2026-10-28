@@ -48,3 +48,15 @@ Este resultado sirve como contexto regional y como una primera comprobación de 
 ## Reproducción
 
 El cálculo utilizado para estos resultados se documenta en `scripts/analizar_santo_tome.py`. El archivo fuente original debe descargarse por separado; no se redistribuye aquí como si fuera propio. El script valida cobertura mensual y excluye los años incompletos del cálculo anual.
+
+## Fuentes históricas locales identificadas para la siguiente fase
+
+Se encontró un antecedente de la Universidad Nacional del Nordeste que indica que la estación meteorológica del Instituto Agrotécnico Víctor Navajas Centeno (IAVNC), en Gobernador Virasoro, cuenta con una figura de precipitación y temperatura media mensual histórica para 1950–2000. El documento también menciona observaciones meteorológicas locales de 1993–2003 y, en otra sección, registros de precipitación de 2015–2018 de la estación ACPA ubicada en el Instituto Agrotécnico.
+
+- Batalla, Andrés Gustavo (2019), tesis de Maestría en Producción Vegetal, UNNE: [PDF en el repositorio institucional](https://repositorio.unne.edu.ar/bitstream/handle/123456789/47752/RIUNNE_FCA_TM_Batalla_AG.pdf?isAllowed=y&sequence=1). Ver capítulo II, sección del clima local y figura 3 (págs. impresas 15–17), y resultados de precipitación 2015–2018 (págs. impresas 33–35).
+
+Este antecedente es importante porque confirma que existen referencias históricas observadas para la localidad, pero la figura histórica no equivale a disponer de la serie diaria o mensual original. Antes de comparar cuantitativamente hay que localizar la planilla primaria, confirmar qué años cubre realmente y revisar si cambió la estación o el método.
+
+El ICAA informó el 27 de octubre de 2026 que habilitó acceso directo a estaciones hidrometeorológicas de Corrientes, con datos de lluvia, temperatura, humedad, presión y viento. El mapa integra varias redes, pero aún falta comprobar qué estación cercana a Virasoro está disponible, qué período histórico ofrece y si se puede descargar una serie validada: [aviso del ICAA](https://icaa.gov.ar/disponible-acceso-directo-a-datos-de-estaciones-hidro-meteorologicas-en-tiempo-real/).
+
+Por ahora estos documentos se registran como fuentes y pistas de acceso, no como una serie descargada y procesada dentro de este repositorio.
