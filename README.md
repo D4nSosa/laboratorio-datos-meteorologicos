@@ -39,7 +39,3 @@ Se usa Python 3.12 y las dependencias declaradas en `requirements.txt` están fi
 Proyecto personal de **DAN SOSA**, desde Gobernador Virasoro, Corrientes, Argentina.
 
 Sitio personal: https://dansosa.vercel.app
-
-## Interfaz web
-
-La interfaz estática está preparada en `docs/index.html`, con gráficos SVG, CSV y metadatos. Para publicarla, el repositorio debe tener habilitado GitHub Pages: en **Settings → Pages → Build and deployment**, seleccionar **Deploy from a branch**, rama `main` y carpeta `/docs`, y guardar. La publicación puede ser pública incluso si el repositorio sigue siendo privado, según el plan de GitHub; verificar la visibilidad del contenido antes de habilitarla. El archivo `.nojekyll` está incluido y el workflow `Validar interfaz estática` comprueba enlaces y datasets.
