@@ -1,31 +1,51 @@
 #!/usr/bin/env python3
 """Reproduce estadísticas del archivo rainfall.json para Santo Tome.
 
-Descarga manualmente el archivo desde:
-https://raw.githubusercontent.com/deaeconomiactes/Precipitaciones-Lluvias/main/data/rainfall.json
-y guárdalo como datos/fuente/rainfall.json. El script no completa meses faltantes.
+Descarga la fuente pública si no existe una copia local. El script no completa meses faltantes.
 """
 import json
 from pathlib import Path
 import csv
 import statistics
+import requests
 
 ROOT = Path(__file__).resolve().parents[3]
 SOURCE = ROOT / "datos" / "fuente" / "rainfall.json"
 OUT = ROOT / "datos"
+SOURCE_URL = "https://raw.githubusercontent.com/deaeconomiactes/Precipitaciones-Lluvias/main/data/rainfall.json"
 MONTHS = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
           "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
 
 
 def main():
     if not SOURCE.exists():
-        raise SystemExit(
-            f"No se encontró {SOURCE}. Descargá rainfall.json desde el repositorio "
-            "fuente y guardalo en esa ruta."
-        )
-    rows = json.loads(SOURCE.read_text(encoding="utf-8-sig"))
+        SOURCE.parent.mkdir(parents=True, exist_ok=True)
+        try:
+            response = requests.get(SOURCE_URL, timeout=45)
+            response.raise_for_status()
+            # Validar JSON antes de guardar para no conservar respuestas HTML/error.
+            rows = response.json()
+            if not isinstance(rows, list):
+                raise ValueError("La fuente no devolvió una lista JSON.")
+            SOURCE.write_text(
+                json.dumps(rows, ensure_ascii=False),
+                encoding="utf-8",
+            )
+            print(f"Fuente descargada y guardada en: {SOURCE}")
+        except (requests.RequestException, ValueError) as exc:
+            raise SystemExit(
+                f"No se pudo descargar/validar la fuente ({SOURCE_URL}): {exc}"
+            ) from exc
+    else:
+        rows = json.loads(SOURCE.read_text(encoding="utf-8-sig"))
     santo_tome = sorted(
-        [r for r in rows if "".join(r["department"].lower().split()) == "santotome"],
+        [
+            r for r in rows
+            if isinstance(r, dict)
+            and isinstance(r.get("department"), str)
+            and "".join(r["department"].lower().split()) == "santotome"
+            and isinstance(r.get("year"), int)
+        ],
         key=lambda r: r["year"],
     )
     complete = [
