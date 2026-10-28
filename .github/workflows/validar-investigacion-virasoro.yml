@@ -52,4 +52,6 @@ jobs:
             datos/virasoro_era5/
             investigaciones/01-precipitacion-virasoro/graficos/precipitacion_anual_era5.png
             investigaciones/01-precipitacion-virasoro/graficos/climatologia_mensual_era5.png
+            investigaciones/01-precipitacion-virasoro/graficos/precipitacion_anual_era5.svg
+            investigaciones/01-precipitacion-virasoro/graficos/climatologia_mensual_era5.svg
           if-no-files-found: error
