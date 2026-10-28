@@ -1,0 +1,54 @@
+name: Validar interfaz estática
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "docs/**"
+      - ".github/workflows/validar-sitio-estatico.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Validar HTML, gráficos y datasets
+        run: |
+          python - <<'PY'
+          import csv, json
+          from html.parser import HTMLParser
+          from pathlib import Path
+          root = Path("docs")
+          html_path = root / "index.html"
+          html = html_path.read_text(encoding="utf-8")
+          class Checker(HTMLParser):
+              def __init__(self):
+                  super().__init__(); self.refs=[]; self.lang=False
+              def handle_starttag(self, tag, attrs):
+                  attrs=dict(attrs)
+                  if tag == "html" and attrs.get("lang") == "es": self.lang=True
+                  for key in ("href", "src"):
+                      val=attrs.get(key, "")
+                      if val and not val.startswith(("http://", "https://", "#", "mailto:")):
+                          self.refs.append(val)
+          parser=Checker(); parser.feed(html); parser.close()
+          assert parser.lang, "Falta lang=es"
+          for ref in parser.refs:
+              target=(root / ref.split("#",1)[0]).resolve()
+              assert target.is_relative_to(root.resolve()), f"Ruta fuera de docs: {ref}"
+              assert target.exists(), f"Enlace local roto: {ref}"
+          with (root / "datos/precipitacion_anual_era5.csv").open(encoding="utf-8", newline="") as f:
+              annual=list(csv.DictReader(f))
+          assert len(annual)==35 and [int(r["anio"]) for r in annual]==list(range(1991,2026))
+          with (root / "datos/climatologia_mensual_era5.csv").open(encoding="utf-8", newline="") as f:
+              monthly=list(csv.DictReader(f))
+          assert len(monthly)==12 and [int(r["mes"]) for r in monthly]==list(range(1,13))
+          metadata=json.loads((root / "datos/metadatos_era5.json").read_text(encoding="utf-8"))
+          assert metadata["dataset"]=="ERA5" and metadata["periodo"]=={"inicio":"1991-01-01","fin":"2025-12-31"}
+          print(f"Sitio validado: {len(parser.refs)} referencias locales, 35 años, 12 meses, metadatos y gráficos.")
+          PY
