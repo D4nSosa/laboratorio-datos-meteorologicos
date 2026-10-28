@@ -32,6 +32,7 @@ def main() -> None:
     ax.grid(True, alpha=0.25)
     fig.tight_layout()
     fig.savefig(FIGURES / "precipitacion_anual_era5.png", dpi=180)
+    fig.savefig(FIGURES / "precipitacion_anual_era5.svg")
     plt.close(fig)
 
     climate = monthly.groupby("mes")["precipitacion_mm"].mean().reindex(range(1, 13))
@@ -45,6 +46,7 @@ def main() -> None:
     ax.grid(axis="y", alpha=0.25)
     fig.tight_layout()
     fig.savefig(FIGURES / "climatologia_mensual_era5.png", dpi=180)
+    fig.savefig(FIGURES / "climatologia_mensual_era5.svg")
     plt.close(fig)
 
     summary = {
