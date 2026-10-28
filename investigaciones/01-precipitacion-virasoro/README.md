@@ -2,7 +2,7 @@
 
 ## Estado
 
-Investigación en curso. Este directorio contiene un procedimiento reproducible para consultar una serie de reanálisis y analizarla. No es un informe final ni sustituye los registros de una estación meteorológica.
+La primera fase exploratoria y documental está integrada en [Informe documental de Virasoro](informe_documental_virasoro.md). La serie ERA5 de 1991–2025 ya se descargó y procesó correctamente en GitHub Actions. El informe no afirma una tendencia climática: para cerrar una conclusión local todavía hace falta obtener y validar las planillas primarias de una estación observada.
 
 ## Pregunta inicial
 
