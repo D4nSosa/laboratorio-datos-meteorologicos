@@ -7,6 +7,9 @@ on:
     paths:
       - "docs/**"
       - ".github/workflows/validar-sitio-estatico.yml"
+      - "datos/fuentes-externas/inta-siga/analisis-cobertura.json"
+      - "datos/fuentes-externas/inta-siga/estaciones-cobertura.csv"
+      - "datos/fuentes-externas/inta-siga/precipitacion-anual-estaciones.csv"
 
 permissions:
   contents: read
@@ -17,6 +20,12 @@ jobs:
     steps:
       - name: Descargar repositorio
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Preparar datos dinámicos de la interfaz
+        run: |
+          mkdir -p docs/datos/inta-siga
+          cp datos/fuentes-externas/inta-siga/analisis-cobertura.json docs/datos/inta-siga/
+          cp datos/fuentes-externas/inta-siga/estaciones-cobertura.csv docs/datos/inta-siga/
+          cp datos/fuentes-externas/inta-siga/precipitacion-anual-estaciones.csv docs/datos/inta-siga/
       - name: Validar HTML, gráficos y datasets
         run: |
           python - <<'PY'
