@@ -214,7 +214,7 @@ A872817,Bordenave - EEA Bordenave,Bordenave,Buenos Aires,2022,365,365,0,359.25,8
 A872817,Bordenave - EEA Bordenave,Bordenave,Buenos Aires,2023,365,362,3,0.0,0.0
 A872817,Bordenave - EEA Bordenave,Bordenave,Buenos Aires,2024,366,366,0,175.5,26.25
 A872817,Bordenave - EEA Bordenave,Bordenave,Buenos Aires,2025,365,364,1,596.75,47.25
-A872817,Bordenave - EEA Bordenave,Bordenave,Buenos Aires,2026,229,222,7,317.5,37.25
+A872817,Bordenave - EEA Bordenave,Bordenave,Buenos Aires,2026,227,221,6,315.0,37.25
 A872819,Miramar - EEA Balcarce,Miramar,Buenos Aires,2010,51,50,1,58.6,19.89999
 A872819,Miramar - EEA Balcarce,Miramar,Buenos Aires,2011,365,364,1,612.6,49.49998
 A872819,Miramar - EEA Balcarce,Miramar,Buenos Aires,2012,366,365,1,707.8,65.69997
@@ -369,7 +369,7 @@ A872830,Concepción - EEA Conc. Uruguay,Concepción del Uruguay,Entre Rios,2022,
 A872830,Concepción - EEA Conc. Uruguay,Concepción del Uruguay,Entre Rios,2023,365,363,2,1152.0,77.75
 A872830,Concepción - EEA Conc. Uruguay,Concepción del Uruguay,Entre Rios,2024,366,362,4,1481.75,165.0
 A872830,Concepción - EEA Conc. Uruguay,Concepción del Uruguay,Entre Rios,2025,334,323,11,1142.25,96.5
-A872830,Concepción - EEA Conc. Uruguay,Concepción del Uruguay,Entre Rios,2026,230,230,0,771.75,111.25
+A872830,Concepción - EEA Conc. Uruguay,Concepción del Uruguay,Entre Rios,2026,228,228,0,771.75,111.25
 A872831,San Salvador - EEA Concordia,San Salvador,Entre Rios,2006,2,0,2,0.0,
 A872831,San Salvador - EEA Concordia,San Salvador,Entre Rios,2020,108,107,1,309.0,64.0
 A872831,San Salvador - EEA Concordia,San Salvador,Entre Rios,2021,365,364,1,993.0,98.25
@@ -505,7 +505,7 @@ A872842,Stroeder -EEA Hilario Ascasubi,Stroeder,Buenos Aires,2006,1,0,1,0.0,
 A872842,Stroeder -EEA Hilario Ascasubi,Stroeder,Buenos Aires,2015,32,29,3,0.0,0.0
 A872842,Stroeder -EEA Hilario Ascasubi,Stroeder,Buenos Aires,2016,366,364,2,125.75,29.75
 A872842,Stroeder -EEA Hilario Ascasubi,Stroeder,Buenos Aires,2017,365,331,34,239.75,43.0
-A872842,Stroeder -EEA Hilario Ascasubi,Stroeder,Buenos Aires,2018,373,347,26,159.5,27.5
+A872842,Stroeder -EEA Hilario Ascasubi,Stroeder,Buenos Aires,2018,357,331,26,156.5,27.5
 A872842,Stroeder -EEA Hilario Ascasubi,Stroeder,Buenos Aires,2019,365,330,35,73.25,16.5
 A872842,Stroeder -EEA Hilario Ascasubi,Stroeder,Buenos Aires,2020,366,329,37,57.75,9.25
 A872842,Stroeder -EEA Hilario Ascasubi,Stroeder,Buenos Aires,2021,365,89,276,34.25,6.5
@@ -611,7 +611,7 @@ A872854,Colan Conhué - EEA Esquel,Colan Conhué,Chubut,2022,364,355,9,273.5,18.
 A872854,Colan Conhué - EEA Esquel,Colan Conhué,Chubut,2023,202,197,5,101.0,18.25
 A872854,Colan Conhué - EEA Esquel,Colan Conhué,Chubut,2024,328,287,41,44.5,6.5
 A872854,Colan Conhué - EEA Esquel,Colan Conhué,Chubut,2025,359,305,54,4.5,1.25
-A872854,Colan Conhué - EEA Esquel,Colan Conhué,Chubut,2026,230,228,2,115.25,11.25
+A872854,Colan Conhué - EEA Esquel,Colan Conhué,Chubut,2026,228,226,2,115.25,11.25
 A872855,Puerto Piramides - EEA Chubut,Puerto Pirámides,Chubut,2012,229,228,1,51.5,11.2
 A872855,Puerto Piramides - EEA Chubut,Puerto Pirámides,Chubut,2013,362,356,6,229.9,15.3
 A872855,Puerto Piramides - EEA Chubut,Puerto Pirámides,Chubut,2014,359,318,41,176.6,24.4
@@ -673,14 +673,14 @@ A872860,Esperanza - EEA Santa Cruz,Esperanza,Santa Cruz,2022,236,116,120,73.1,11
 A872860,Esperanza - EEA Santa Cruz,Esperanza,Santa Cruz,2023,365,304,61,112.3,7.0
 A872860,Esperanza - EEA Santa Cruz,Esperanza,Santa Cruz,2024,366,349,17,232.7,44.99999
 A872860,Esperanza - EEA Santa Cruz,Esperanza,Santa Cruz,2025,365,363,2,116.8,14.60001
-A872860,Esperanza - EEA Santa Cruz,Esperanza,Santa Cruz,2026,230,230,0,175.0,19.3
+A872860,Esperanza - EEA Santa Cruz,Esperanza,Santa Cruz,2026,228,228,0,175.0,19.3
 A872861,Viamonte - ICyA CIRN,Viamonte,Córdoba,2012,223,218,5,1.0,1.0
 A872861,Viamonte - ICyA CIRN,Viamonte,Córdoba,2013,365,349,16,289.75,32.5
 A872861,Viamonte - ICyA CIRN,Viamonte,Córdoba,2014,320,31,289,24.25,8.0
 A872861,Viamonte - ICyA CIRN,Viamonte,Córdoba,2015,365,0,365,0.0,
 A872861,Viamonte - ICyA CIRN,Viamonte,Córdoba,2016,366,0,366,0.0,
 A872861,Viamonte - ICyA CIRN,Viamonte,Córdoba,2017,343,0,343,0.0,
-A872861,Viamonte - ICyA CIRN,Viamonte,Córdoba,2018,382,0,382,0.0,
+A872861,Viamonte - ICyA CIRN,Viamonte,Córdoba,2018,348,0,348,0.0,
 A872861,Viamonte - ICyA CIRN,Viamonte,Córdoba,2019,363,0,363,0.0,
 A872861,Viamonte - ICyA CIRN,Viamonte,Córdoba,2020,341,164,177,263.0,86.0
 A872861,Viamonte - ICyA CIRN,Viamonte,Córdoba,2021,365,361,4,945.25,90.5
@@ -865,7 +865,7 @@ A872884,Sumalao - EEA Catamarca,Sumalao,Catamarca,2014,365,363,2,473.5,30.25
 A872884,Sumalao - EEA Catamarca,Sumalao,Catamarca,2015,365,365,0,466.25,60.5
 A872884,Sumalao - EEA Catamarca,Sumalao,Catamarca,2016,366,366,0,420.25,35.5
 A872884,Sumalao - EEA Catamarca,Sumalao,Catamarca,2017,365,363,2,416.75,48.25
-A872884,Sumalao - EEA Catamarca,Sumalao,Catamarca,2018,366,361,5,169.0,45.5
+A872884,Sumalao - EEA Catamarca,Sumalao,Catamarca,2018,364,359,5,169.0,45.5
 A872884,Sumalao - EEA Catamarca,Sumalao,Catamarca,2019,114,101,13,6.5,3.5
 A872884,Sumalao - EEA Catamarca,Sumalao,Catamarca,2021,2,0,2,0.0,
 A872884,Sumalao - EEA Catamarca,Sumalao,Catamarca,2022,267,252,15,95.0,32.0
@@ -985,7 +985,7 @@ A872900,Santa Sylvina - EEA Sáenz Peña,Santa Sylvina,Chaco,2014,153,0,153,0.0,
 A872900,Santa Sylvina - EEA Sáenz Peña,Santa Sylvina,Chaco,2015,9,6,3,0.0,0.0
 A872900,Santa Sylvina - EEA Sáenz Peña,Santa Sylvina,Chaco,2016,256,243,13,204.5,30.5
 A872900,Santa Sylvina - EEA Sáenz Peña,Santa Sylvina,Chaco,2017,41,38,3,43.5,12.75
-A872900,Santa Sylvina - EEA Sáenz Peña,Santa Sylvina,Chaco,2018,373,368,5,751.25,68.25
+A872900,Santa Sylvina - EEA Sáenz Peña,Santa Sylvina,Chaco,2018,343,338,5,744.75,68.25
 A872900,Santa Sylvina - EEA Sáenz Peña,Santa Sylvina,Chaco,2019,11,10,1,99.5,31.75
 A872900,Santa Sylvina - EEA Sáenz Peña,Santa Sylvina,Chaco,2023,16,13,3,0.0,0.0
 A872900,Santa Sylvina - EEA Sáenz Peña,Santa Sylvina,Chaco,2024,20,18,2,2.25,1.75
@@ -1022,7 +1022,7 @@ A872906,Trenque Lauquen - EEA Villegas,Trenque Lauquen,Buenos Aires,2014,327,325
 A872906,Trenque Lauquen - EEA Villegas,Trenque Lauquen,Buenos Aires,2015,359,357,2,582.5,53.75
 A872906,Trenque Lauquen - EEA Villegas,Trenque Lauquen,Buenos Aires,2016,366,366,0,726.75,54.5
 A872906,Trenque Lauquen - EEA Villegas,Trenque Lauquen,Buenos Aires,2017,357,353,4,782.0,55.75
-A872906,Trenque Lauquen - EEA Villegas,Trenque Lauquen,Buenos Aires,2018,344,321,23,605.5,48.25
+A872906,Trenque Lauquen - EEA Villegas,Trenque Lauquen,Buenos Aires,2018,326,303,23,604.0,48.25
 A872906,Trenque Lauquen - EEA Villegas,Trenque Lauquen,Buenos Aires,2019,365,365,0,650.75,131.5
 A872906,Trenque Lauquen - EEA Villegas,Trenque Lauquen,Buenos Aires,2020,365,363,2,631.25,107.75
 A872906,Trenque Lauquen - EEA Villegas,Trenque Lauquen,Buenos Aires,2021,365,365,0,650.0,56.25
@@ -1060,13 +1060,13 @@ A872908,Cerro Azul - EEA Cerro Azul,Cerro Azul,Misiones,2022,363,355,8,1806.0,16
 A872908,Cerro Azul - EEA Cerro Azul,Cerro Azul,Misiones,2023,365,363,2,2790.75,126.5
 A872908,Cerro Azul - EEA Cerro Azul,Cerro Azul,Misiones,2024,263,258,5,1757.25,191.0
 A872908,Cerro Azul - EEA Cerro Azul,Cerro Azul,Misiones,2025,365,354,11,2438.5,113.75
-A872908,Cerro Azul - EEA Cerro Azul,Cerro Azul,Misiones,2026,230,230,0,1077.5,77.25
+A872908,Cerro Azul - EEA Cerro Azul,Cerro Azul,Misiones,2026,228,228,0,1073.5,77.25
 A872909,V Miguel Lanus -EEA Cerro Azul,Villa Miguel Lanus,Misiones,2013,293,289,4,1545.5,106.0
 A872909,V Miguel Lanus -EEA Cerro Azul,Villa Miguel Lanus,Misiones,2014,352,348,4,2484.5,135.25
 A872909,V Miguel Lanus -EEA Cerro Azul,Villa Miguel Lanus,Misiones,2015,364,354,10,1872.5,127.5
 A872909,V Miguel Lanus -EEA Cerro Azul,Villa Miguel Lanus,Misiones,2016,338,336,2,729.0,89.5
 A872909,V Miguel Lanus -EEA Cerro Azul,Villa Miguel Lanus,Misiones,2017,349,345,4,2544.5,190.0
-A872909,V Miguel Lanus -EEA Cerro Azul,Villa Miguel Lanus,Misiones,2018,382,382,0,1713.0,132.0
+A872909,V Miguel Lanus -EEA Cerro Azul,Villa Miguel Lanus,Misiones,2018,348,348,0,1526.5,132.0
 A872909,V Miguel Lanus -EEA Cerro Azul,Villa Miguel Lanus,Misiones,2019,361,359,2,1607.75,128.0
 A872909,V Miguel Lanus -EEA Cerro Azul,Villa Miguel Lanus,Misiones,2020,362,335,27,1049.5,93.0
 A872909,V Miguel Lanus -EEA Cerro Azul,Villa Miguel Lanus,Misiones,2021,359,276,83,886.75,75.5
@@ -1162,7 +1162,7 @@ A872916,Sombrerito - EEA Corrientes,El Sombrerito,Corrientes,2014,163,162,1,0.0,
 A872916,Sombrerito - EEA Corrientes,El Sombrerito,Corrientes,2015,197,195,2,429.0,110.0
 A872916,Sombrerito - EEA Corrientes,El Sombrerito,Corrientes,2016,366,366,0,1679.5,135.25
 A872916,Sombrerito - EEA Corrientes,El Sombrerito,Corrientes,2017,361,349,12,1593.75,150.0
-A872916,Sombrerito - EEA Corrientes,El Sombrerito,Corrientes,2018,321,305,16,1567.3,104.75
+A872916,Sombrerito - EEA Corrientes,El Sombrerito,Corrientes,2018,315,299,16,1535.7,104.75
 A872916,Sombrerito - EEA Corrientes,El Sombrerito,Corrientes,2019,365,363,2,1822.2,245.4
 A872916,Sombrerito - EEA Corrientes,El Sombrerito,Corrientes,2020,356,349,7,906.0,80.99999
 A872916,Sombrerito - EEA Corrientes,El Sombrerito,Corrientes,2021,365,365,0,1073.2,93.99998
@@ -1197,7 +1197,7 @@ A872921,Caa Cati - EEA Corrientes,Caá Catí,Corrientes,2022,365,219,146,733.2,1
 A872921,Caa Cati - EEA Corrientes,Caá Catí,Corrientes,2023,191,164,27,523.6,63.40001
 A872921,Caa Cati - EEA Corrientes,Caá Catí,Corrientes,2024,99,90,9,388.2,50.4
 A872921,Caa Cati - EEA Corrientes,Caá Catí,Corrientes,2025,359,163,196,602.0,94.39999
-A872921,Caa Cati - EEA Corrientes,Caá Catí,Corrientes,2026,230,0,230,0.0,
+A872921,Caa Cati - EEA Corrientes,Caá Catí,Corrientes,2026,228,0,228,0.0,
 A872923,Abra Pampa - EEA Abra Pampa,Abra Pampa,Jujuy,2006,3,0,3,0.0,
 A872923,Abra Pampa - EEA Abra Pampa,Abra Pampa,Jujuy,2013,126,125,1,143.25,27.5
 A872923,Abra Pampa - EEA Abra Pampa,Abra Pampa,Jujuy,2014,365,361,4,253.75,60.75
@@ -1300,7 +1300,7 @@ A872931,Tilisarao - EEA San Luis,Tilisarao,San Luis,2014,122,121,1,370.5,66.5
 A872931,Tilisarao - EEA San Luis,Tilisarao,San Luis,2015,365,335,30,726.0,75.5
 A872931,Tilisarao - EEA San Luis,Tilisarao,San Luis,2016,330,327,3,398.0,71.0
 A872931,Tilisarao - EEA San Luis,Tilisarao,San Luis,2017,324,319,5,416.75,71.75
-A872931,Tilisarao - EEA San Luis,Tilisarao,San Luis,2018,366,365,1,684.5,71.75
+A872931,Tilisarao - EEA San Luis,Tilisarao,San Luis,2018,364,363,1,684.5,71.75
 A872931,Tilisarao - EEA San Luis,Tilisarao,San Luis,2019,363,361,2,629.0,45.75
 A872931,Tilisarao - EEA San Luis,Tilisarao,San Luis,2020,334,309,25,366.0,74.0
 A872931,Tilisarao - EEA San Luis,Tilisarao,San Luis,2022,270,217,53,35.75,5.5
@@ -1536,7 +1536,7 @@ A872962,La Cigüeña - EEA Reconquista,Fortin Olmos,Santa Fe,2023,361,337,24,732
 A872962,La Cigüeña - EEA Reconquista,Fortin Olmos,Santa Fe,2024,263,209,54,517.75,79.75
 A872963,Villa Ana - EEA Reconquista,Villa Ana,Santa Fe,2016,215,177,38,498.5,76.75
 A872963,Villa Ana - EEA Reconquista,Villa Ana,Santa Fe,2017,365,365,0,1017.0,61.25
-A872963,Villa Ana - EEA Reconquista,Villa Ana,Santa Fe,2018,383,382,1,1136.5,119.5
+A872963,Villa Ana - EEA Reconquista,Villa Ana,Santa Fe,2018,347,346,1,1133.5,119.5
 A872963,Villa Ana - EEA Reconquista,Villa Ana,Santa Fe,2019,365,365,0,1105.25,82.5
 A872963,Villa Ana - EEA Reconquista,Villa Ana,Santa Fe,2020,366,366,0,546.0,47.5
 A872963,Villa Ana - EEA Reconquista,Villa Ana,Santa Fe,2021,365,354,11,891.5,80.0
@@ -1556,7 +1556,7 @@ A872967,El Calafate - EEA Rio Gallegos,El Calafate,Santa Cruz,2022,322,320,2,0.2
 A872967,El Calafate - EEA Rio Gallegos,El Calafate,Santa Cruz,2023,364,360,4,149.5,13.75
 A872967,El Calafate - EEA Rio Gallegos,El Calafate,Santa Cruz,2024,365,357,8,142.25,8.75
 A872967,El Calafate - EEA Rio Gallegos,El Calafate,Santa Cruz,2025,365,361,4,167.0,21.0
-A872967,El Calafate - EEA Rio Gallegos,El Calafate,Santa Cruz,2026,230,229,1,110.25,18.25
+A872967,El Calafate - EEA Rio Gallegos,El Calafate,Santa Cruz,2026,228,227,1,108.75,18.25
 A872968,Güer Aike - EEA Santa Cruz,Güer Aike,Santa Cruz,2006,28,27,1,39.0,7.75
 A872968,Güer Aike - EEA Santa Cruz,Güer Aike,Santa Cruz,2025,233,232,1,70.75,8.75
 A872968,Güer Aike - EEA Santa Cruz,Güer Aike,Santa Cruz,2026,203,199,4,119.25,17.75
@@ -1836,7 +1836,7 @@ NH0067,INTA - Bella Vista (EMC),Bella Vista,Corrientes,2012,366,366,0,1330.5,160
 NH0067,INTA - Bella Vista (EMC),Bella Vista,Corrientes,2013,365,365,0,1472.4,184.0
 NH0067,INTA - Bella Vista (EMC),Bella Vista,Corrientes,2014,365,364,1,1705.5,84.5
 NH0067,INTA - Bella Vista (EMC),Bella Vista,Corrientes,2015,365,361,4,1766.4,170.0
-NH0067,INTA - Bella Vista (EMC),Bella Vista,Corrientes,2016,367,366,1,1929.0,140.2
+NH0067,INTA - Bella Vista (EMC),Bella Vista,Corrientes,2016,365,364,1,1929.0,140.2
 NH0067,INTA - Bella Vista (EMC),Bella Vista,Corrientes,2017,365,365,0,1334.3,96.0
 NH0067,INTA - Bella Vista (EMC),Bella Vista,Corrientes,2018,365,365,0,1583.3,113.0
 NH0067,INTA - Bella Vista (EMC),Bella Vista,Corrientes,2019,365,365,0,1451.7,109.0
@@ -2267,7 +2267,7 @@ NH0358,INTA - Castelar (EMC),Hurlingham,Buenos Aires,2013,365,365,0,917.5,88.0
 NH0358,INTA - Castelar (EMC),Hurlingham,Buenos Aires,2014,365,365,0,1874.21,115.0
 NH0358,INTA - Castelar (EMC),Hurlingham,Buenos Aires,2015,365,365,0,995.8,92.0
 NH0358,INTA - Castelar (EMC),Hurlingham,Buenos Aires,2016,366,365,1,969.1,44.0
-NH0358,INTA - Castelar (EMC),Hurlingham,Buenos Aires,2017,366,366,0,1034.8,57.0
+NH0358,INTA - Castelar (EMC),Hurlingham,Buenos Aires,2017,364,364,0,1034.8,57.0
 NH0358,INTA - Castelar (EMC),Hurlingham,Buenos Aires,2018,365,364,1,1223.6,81.0
 NH0358,INTA - Castelar (EMC),Hurlingham,Buenos Aires,2019,365,365,0,977.2,63.0
 NH0358,INTA - Castelar (EMC),Hurlingham,Buenos Aires,2020,366,360,6,893.2,162.0
@@ -3571,7 +3571,7 @@ NH0550,INTA - La Maria S.Estero (EMC),Silipica,Santiago del Estero,2012,366,366,
 NH0550,INTA - La Maria S.Estero (EMC),Silipica,Santiago del Estero,2013,365,365,0,383.6,64.0
 NH0550,INTA - La Maria S.Estero (EMC),Silipica,Santiago del Estero,2014,365,365,0,705.1,70.0
 NH0550,INTA - La Maria S.Estero (EMC),Silipica,Santiago del Estero,2015,364,363,1,587.9,109.5
-NH0550,INTA - La Maria S.Estero (EMC),Silipica,Santiago del Estero,2016,367,367,0,565.9,60.0
+NH0550,INTA - La Maria S.Estero (EMC),Silipica,Santiago del Estero,2016,365,365,0,565.9,60.0
 NH0550,INTA - La Maria S.Estero (EMC),Silipica,Santiago del Estero,2017,365,365,0,535.0,95.0
 NH0550,INTA - La Maria S.Estero (EMC),Silipica,Santiago del Estero,2018,364,363,1,447.9,45.0
 NH0550,INTA - La Maria S.Estero (EMC),Silipica,Santiago del Estero,2019,364,363,1,636.6,68.0
