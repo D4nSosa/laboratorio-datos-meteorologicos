@@ -105,17 +105,16 @@ with gzip.open(SOURCE, "rt", encoding="utf-8-sig", newline="") as src, \
         if p is not None:
             s["precip_pluviometrica_min"] = p if s["precip_pluviometrica_min"] is None else min(s["precip_pluviometrica_min"], p)
             s["precip_pluviometrica_max"] = p if s["precip_pluviometrica_max"] is None else max(s["precip_pluviometrica_max"], p)
-        if dt and p is not None:
+        if dt:
             ykey = (sid, dt.year)
             y = yearly.setdefault(ykey, {"id_estacion": sid, "anio": dt.year, "registros_fecha": 0, "precip_pluviometrica_validos": 0, "precip_pluviometrica_faltantes": 0, "suma_valores_precip_pluviometrica": 0.0, "max_valor_registro": None})
             y["registros_fecha"] += 1
-            y["precip_pluviometrica_validos"] += 1
-            y["suma_valores_precip_pluviometrica"] += p
-            y["max_valor_registro"] = p if y["max_valor_registro"] is None else max(y["max_valor_registro"], p)
-        elif dt:
-            ykey = (sid, dt.year)
-            y = yearly.setdefault(ykey, {"id_estacion": sid, "anio": dt.year, "registros_fecha": 0, "precip_pluviometrica_validos": 0, "precip_pluviometrica_faltantes": 0, "suma_valores_precip_pluviometrica": 0.0, "max_valor_registro": None})
-            y["precip_pluviometrica_faltantes"] += 1
+            if p is not None:
+                y["precip_pluviometrica_validos"] += 1
+                y["suma_valores_precip_pluviometrica"] += p
+                y["max_valor_registro"] = p if y["max_valor_registro"] is None else max(y["max_valor_registro"], p)
+            else:
+                y["precip_pluviometrica_faltantes"] += 1
         if sid in TARGET_IDS:
             writer_near.writerow(row)
             near_rows += 1
