@@ -8,9 +8,9 @@ Responsable: DAN SOSA
 Se descargaron mediante acceso a archivos públicos de GitHub y se copiaron al repositorio dos grupos de materiales:
 
 1. **Corrientes:** snapshot de los archivos mensuales, diarios, catálogo de fuentes, metadatos y tabla de estaciones del portal del Departamento de Economía Agraria del Ministerio de Producción de Corrientes. Se generaron además CSV normalizados para facilitar búsquedas y análisis.
-2. **INTA-SIGA, cobertura nacional:** catálogo de 182 estaciones y manifiesto de un consolidado de observaciones que un proyecto externo declara contener 1.177.258 registros. Se archivaron el catálogo JSON, una versión CSV para filtrar estaciones, el manifiesto y un análisis de cobertura. El archivo de observaciones de 151 MB no se pudo recuperar: el repositorio original lo guarda en Git LFS y el conector de GitHub disponible devolvió solo el puntero de Git LFS.
+2. **INTA-SIGA, cobertura nacional:** se descargó el CSV real de observaciones desde Git LFS mediante un flujo de GitHub Actions, se validó y se archivó comprimido. El original de 151.209.900 bytes quedó como `estaciones-observaciones.csv.gz` de 35.814.553 bytes. La ejecución verificó el SHA-256 publicado por la fuente, 1.177.258 filas de datos y 38 columnas, además de consistencia estructural del CSV. Los resultados están en `datos/fuentes-externas/inta-siga/observaciones-metadata.json`.
 
-**No se afirma que ya tengamos un dataset nacional de observaciones descargado.** Tenemos un catálogo nacional de estaciones y metadatos que identifican un consolidado nacional existente, pero sus observaciones siguen pendientes de obtener.
+**Alcance:** es un consolidado nacional de 182 estaciones, no una cobertura exhaustiva de todas las estaciones o todos los años de Argentina. La validación realizada es de integridad y estructura; la calidad instrumental, continuidad, vacíos y unidades deben auditarse antes de análisis científicos.
 
 ## Archivos guardados en este repositorio
 
@@ -37,8 +37,11 @@ Directorio: `datos/fuentes-externas/inta-siga/`
 - `estaciones.json`: catálogo original de 182 estaciones.
 - `estaciones.csv`: tabla derivada filtrable con identificador, nombre, provincia, localidad, coordenadas, tipo y fechas reportadas.
 - `manifest.json`: manifiesto original del consolidado de observaciones.
-- `catalog-analysis.json`: análisis por provincia, estaciones correntinas y estado de recuperación.
-- `README.md`: procedencia, advertencias y explicación de por qué falta el CSV de observaciones.
+- `catalog-analysis.json`: análisis por provincia y estaciones correntinas.
+- `estaciones-observaciones.csv.gz`: consolidado nacional de observaciones comprimido (35.814.553 bytes).
+- `observaciones-metadata.json`: verificación de hash, filas, columnas y estructura.
+- `OBSERVACIONES.md`: documentación del archivo de observaciones.
+- `README.md`: procedencia y advertencias.
 
 Proyecto fuente: https://github.com/marianof2000/precipitaciones-argentina-inta  
 Paquete original de INTA-SIGA: https://github.com/AgRoMeteorologiaINTA/siga
@@ -72,7 +75,7 @@ El catálogo externo declara 182 estaciones en 24 valores de provincia/etiqueta,
 - SHA-256 declarado: `b55fa017707eab7552c220b92185387d52dfd598f26f23a3be1aa59f0c0323dc`.
 - Generación del manifiesto: 2026-08-20.
 
-Esas cifras son **declaraciones del manifiesto del proyecto fuente**, no una auditoría independiente de los registros: no fue posible obtener el objeto CSV para verificar hash, número de filas o calidad.
+Se descargó el objeto CSV real y se verificó el SHA-256 contra el manifiesto. El archivo contiene 1.177.258 filas de datos y 38 columnas; el CSV original pesa 151.209.900 bytes y su versión gzip archivada pesa 35.814.553 bytes. Esta comprobación valida integridad y estructura, no la calidad meteorológica de cada observación.
 
 El catálogo incluye 13 estaciones con provincia Corrientes y siete con provincia Misiones. Entre las estaciones del catálogo más cercanas a Gobernador Virasoro aparecen Villa Miguel Lanús/Cerro Azul, Misiones (aproximadamente 70–73 km según coordenadas publicadas), e Ituzaingó, Corrientes (aproximadamente 79 km). Son referencias para investigar, no sustitutos de una estación local.
 
@@ -103,7 +106,7 @@ El portal informa que ofrece datos históricos consolidados y registros en tiemp
 
 ### INTA-SIGA
 
-El paquete abierto permite listar estaciones y descargar sus observaciones con funciones como `siga_estaciones()` y `siga_descargar()`. El catálogo nacional se archivó desde un proyecto externo que declara usar SIGA, pero no pudimos recuperar su archivo CSV de 151 MB. Queda pendiente descargar directamente desde SIGA o desde el objeto Git LFS original.
+El paquete abierto permite listar estaciones y descargar sus observaciones con funciones como `siga_estaciones()` y `siga_descargar()`. Se recuperó el consolidado comunitario nacional de 151 MB desde Git LFS y se verificó su hash y estructura. Como siguiente etapa queda auditar cobertura temporal, faltantes, unidades y calidad por estación; no se presume que las 182 estaciones constituyan cobertura nacional exhaustiva.
 
 ### ICAA
 
@@ -114,12 +117,13 @@ El ICAA informó que la consulta enviada fue derivada al área técnica. El inve
 
 ## Próximos pasos prioritarios
 
-1. Obtener de forma directa el CSV consolidado de SIGA-INTA (151 MB) y verificar su SHA-256, número de filas, columnas y cobertura.
-2. Descargar el catálogo de estaciones y las series con variable precipitación de INA/DSIyAH, filtrando por unidad, frecuencia y estación.
-3. Obtener del SMN el producto que efectivamente incluya precipitación histórica por estación, no solo el dataset horario de temperatura/presión/viento/humedad.
-4. Consultar el SNIH por series pluviométricas y metadatos, distinguiendo registros históricos validados de telemetría cruda.
-5. Auditar los datos diarios provinciales por localidad y fecha, y determinar si hay una serie útil para Virasoro.
-6. Crear un catálogo maestro sin mezclar observaciones, agregaciones departamentales y reanálisis.
+1. Auditar el consolidado nacional INTA-SIGA por estación: primera/última fecha real, cantidad de registros, faltantes, duplicados y disponibilidad de las variables de precipitación.
+2. Extraer una tabla derivada de precipitación por estación/año y un recorte de las estaciones más cercanas a Virasoro, sin confundirlas con una estación local.
+3. Descargar el catálogo de estaciones y las series con variable precipitación de INA/DSIyAH, filtrando por unidad, frecuencia y estación.
+4. Obtener del SMN el producto que efectivamente incluya precipitación histórica por estación, no solo el dataset horario de temperatura/presión/viento/humedad.
+5. Consultar el SNIH por series pluviométricas y metadatos, distinguiendo registros históricos validados de telemetría cruda.
+6. Auditar los datos diarios provinciales por localidad y fecha, y determinar si hay una serie útil para Virasoro.
+7. Crear un catálogo maestro sin mezclar observaciones, agregaciones departamentales y reanálisis.
 
 ## Reglas para no contaminar el dataset
 
