@@ -1,0 +1,243 @@
+{
+  "source": "INTA-SIGA, mediante el proyecto público precipitaciones-argentina-inta",
+  "source_project": "https://github.com/marianof2000/precipitaciones-argentina-inta",
+  "source_data_catalog": "https://github.com/marianof2000/precipitaciones-argentina-inta/blob/main/datos/estaciones.json",
+  "source_manifest": "https://github.com/marianof2000/precipitaciones-argentina-inta/blob/main/datos/estaciones_csv.json",
+  "retrieved_date": "2026-10-29",
+  "catalog_generated_at": "2026-08-20T19:06:02+00:00",
+  "station_count": 182,
+  "station_count_by_province": {
+    "Córdoba": 10,
+    "Chubut": 8,
+    "Santa Fe": 15,
+    "Chaco": 10,
+    "La Rioja": 3,
+    "Corrientes": 13,
+    "Misiones": 7,
+    "San Luis": 3,
+    "Formosa": 3,
+    "San Juan": 4,
+    "Mendoza": 11,
+    "Buenos Aires": 39,
+    "Río Negro": 8,
+    "Entre Rios": 10,
+    "Sin asignar": 7,
+    "Catamarca": 3,
+    "La Pampa": 3,
+    "Salta": 2,
+    "Jujuy": 3,
+    "Santiago del Estero": 8,
+    "Tucuman": 3,
+    "Santa Cruz": 7,
+    "Neuquen": 1,
+    "Tierra del Fuego": 1
+  },
+  "precipitation_observations_manifest": {
+    "archivo": "datos/estaciones.csv",
+    "generado_en": "2026-08-20T18:59:58+00:00",
+    "fuente": "SIGA INTA",
+    "cantidad_estaciones_catalogo": 182,
+    "cantidad_registros": 1177258,
+    "cantidad_columnas": 38,
+    "columnas": [
+      "id_estacion",
+      "fecha",
+      "temperatura_abrigo_150cm",
+      "temperatura_abrigo_150cm_maxima",
+      "temperatura_abrigo_150cm_minima",
+      "temperatura_intemperie_5cm_minima",
+      "temperatura_intemperie_50cm_minima",
+      "temperatura_suelo_5cm_media",
+      "temperatura_suelo_10cm_media",
+      "temperatura_inte_5cm",
+      "temperatura_intemperie_150cm_minima",
+      "humedad_suelo",
+      "precipitacion_pluviometrica",
+      "precipitacion_cronologica",
+      "precipitacion_maxima_30minutos",
+      "heliofania_efectiva",
+      "heliofania_relativa",
+      "tesion_vapor_media",
+      "humedad_media",
+      "humedad_media_8_14_20",
+      "rocio_medio",
+      "duracion_follaje_mojado",
+      "velocidad_viento_200cm_media",
+      "direccion_viento_200cm",
+      "velocidad_viento_1000cm_media",
+      "direccion_viento_1000cm",
+      "velocidad_viento_maxima",
+      "presion_media",
+      "radiacion_global",
+      "horas_frio",
+      "unidades_frio",
+      "granizo",
+      "nieve",
+      "radiacion_neta",
+      "evaporacion_tanque",
+      "evapotranspiracion_potencial",
+      "profundidad_napa",
+      "unidad_frio"
+    ],
+    "tamano_bytes": 151209900,
+    "sha256": "b55fa017707eab7552c220b92185387d52dfd598f26f23a3be1aa59f0c0323dc"
+  },
+  "csv_download_status": "No se copió el archivo de observaciones. En el repositorio fuente, datos/estaciones.csv es un puntero Git LFS, no los 151,209,900 bytes reales. El conector GitHub usado en esta sesión devuelve el puntero y no descarga el objeto LFS binario.",
+  "stations_in_corrientes": [
+    {
+      "id": "A872950",
+      "nombre": "Goya - EEA Bella Vista",
+      "localidad": "Goya",
+      "lat": -29.18,
+      "lon": -59.09,
+      "desde": "2013-09-03T00:00:00Z[UTC]",
+      "hasta": "2025-04-24T00:00:00Z[UTC]"
+    },
+    {
+      "id": "A872914",
+      "nombre": "Esquina - EEA Bella Vista",
+      "localidad": "Esquina",
+      "lat": -30.04,
+      "lon": -59.53,
+      "desde": "2013-11-06T00:00:00Z[UTC]",
+      "hasta": "2025-10-23T00:00:00Z[UTC]"
+    },
+    {
+      "id": "NH0498",
+      "nombre": "INTA - Mercedes Ctes (EMC)",
+      "localidad": "Mercedes",
+      "lat": -29.17,
+      "lon": -58.02,
+      "desde": "1968-01-01T00:00:00Z[UTC]",
+      "hasta": "2022-08-31T00:00:00Z[UTC]"
+    },
+    {
+      "id": "A872918",
+      "nombre": "Pje. Desmochado - EEA B Vista",
+      "localidad": "Bella Vista",
+      "lat": -28.8,
+      "lon": -59,
+      "desde": "2021-06-09T00:00:00Z[UTC]",
+      "hasta": "2026-05-21T00:00:00Z[UTC]"
+    },
+    {
+      "id": "NH0067",
+      "nombre": "INTA - Bella Vista (EMC)",
+      "localidad": "Bella Vista",
+      "lat": -28.43,
+      "lon": -58.92,
+      "desde": "1959-01-01T00:00:00Z[UTC]",
+      "hasta": "2026-07-10T00:00:00Z[UTC]"
+    },
+    {
+      "id": "NH0460",
+      "nombre": "INTA - Corrientes (EMC)",
+      "localidad": "Empedrado",
+      "lat": -27.65,
+      "lon": -58.77,
+      "desde": "1968-01-01T00:00:00Z[UTC]",
+      "hasta": "2026-07-31T00:00:00Z[UTC]"
+    },
+    {
+      "id": "A872951",
+      "nombre": "Bella Vista - EEA Bella Vista",
+      "localidad": "Bella Vista",
+      "lat": -28.45,
+      "lon": -58.99,
+      "desde": "2006-11-03T00:00:00Z[UTC]",
+      "hasta": "2026-08-15T00:00:00Z[UTC]"
+    },
+    {
+      "id": "A872952",
+      "nombre": "San Luis del Palmar-Corrientes",
+      "localidad": "San Luis Del Palmar",
+      "lat": -27.5,
+      "lon": -58.52
+    },
+    {
+      "id": "A872921",
+      "nombre": "Caa Cati - EEA Corrientes",
+      "localidad": "Caá Catí",
+      "lat": -27.75,
+      "lon": -57.62,
+      "desde": "2013-12-17T00:00:00Z[UTC]",
+      "hasta": "2026-08-17T00:00:00Z[UTC]"
+    },
+    {
+      "id": "A872971",
+      "nombre": "Ituzaingo - EEA Corrientes",
+      "localidad": "Ituzaingo",
+      "lat": -27.54,
+      "lon": -56.58,
+      "desde": "2019-09-26T00:00:00Z[UTC]",
+      "hasta": "2026-08-17T00:00:00Z[UTC]"
+    },
+    {
+      "id": "A872916",
+      "nombre": "Sombrerito - EEA Corrientes",
+      "localidad": "El Sombrerito",
+      "lat": -27.65,
+      "lon": -58.77,
+      "desde": "2006-11-03T00:00:00Z[UTC]",
+      "hasta": "2026-08-17T00:00:00Z[UTC]"
+    },
+    {
+      "id": "A872915",
+      "nombre": "Mercedes - EEA Mercedes",
+      "localidad": "Mercedes",
+      "lat": -29.2,
+      "lon": -58.04,
+      "desde": "2006-11-03T00:00:00Z[UTC]",
+      "hasta": "2026-08-17T00:00:00Z[UTC]"
+    },
+    {
+      "id": "A872917",
+      "nombre": "Col. Tabay - EEA Bella Vista",
+      "localidad": "Colonia Tabay",
+      "lat": -28.18,
+      "lon": -58.16,
+      "desde": "2006-10-29T00:00:00Z[UTC]",
+      "hasta": "2026-08-17T00:00:00Z[UTC]"
+    }
+  ],
+  "nearest_stations_to_viraSoro_approx": [
+    {
+      "id": "A872909",
+      "name": "V Miguel Lanus -EEA Cerro Azul",
+      "province": "Misiones",
+      "lat": -27.43,
+      "lon": -55.89,
+      "approx_distance_km": 70
+    },
+    {
+      "id": "A872908",
+      "name": "Cerro Azul - EEA Cerro Azul",
+      "province": "Misiones",
+      "lat": -27.66,
+      "lon": -55.44,
+      "approx_distance_km": 71
+    },
+    {
+      "id": "NH0423",
+      "name": "INTA - Cerro Azul (EMC)",
+      "province": "Misiones",
+      "lat": -27.65,
+      "lon": -55.43,
+      "approx_distance_km": 73
+    },
+    {
+      "id": "A872971",
+      "name": "Ituzaingo - EEA Corrientes",
+      "province": "Corrientes",
+      "lat": -27.54,
+      "lon": -56.58,
+      "approx_distance_km": 79
+    }
+  ],
+  "cautions": [
+    "El catálogo describe 182 estaciones y un manifiesto de 1,177,258 registros, pero los registros no fueron descargados ni revalidados en este trabajo.",
+    "El CSV tiene un SHA-256 declarado por el repositorio fuente; no se verificó porque el archivo real de 151 MB no estuvo disponible en el conector.",
+    "La cercanía geográfica no garantiza comparabilidad de mediciones ni continuidad.",
+    "Los periodos mínimo/máximo del catálogo son metadatos reportados por la fuente; no equivalen a cobertura completa sin faltantes."
+  ]
+}
