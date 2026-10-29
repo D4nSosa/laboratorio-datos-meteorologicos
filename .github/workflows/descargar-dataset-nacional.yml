@@ -81,7 +81,7 @@ jobs:
           if "precipitacion_pluviometrica" not in header and "precipitacion_cronologica" not in header:
               raise SystemExit("No se encontraron columnas de precipitación")
           gz=Path(str(p)+".gz")
-          with p.open("rb") as src, gzip.open(gz,"wb",compresslevel=9,mtime=0) as dst:
+          with p.open("rb") as src, gz.open("wb") as raw, gzip.GzipFile(fileobj=raw, mode="wb", compresslevel=9, mtime=0) as dst:
               while True:
                   b=src.read(1024*1024)
                   if not b: break
