@@ -119,11 +119,16 @@ jobs:
           El archivo se conserva comprimido para evitar el límite de tamaño por archivo de GitHub. Descomprimir con `gzip -dk estaciones-observaciones.csv.gz`.
           EOF
 
+      - name: Analizar cobertura y extraer estaciones cercanas a Virasoro
+        run: |
+          set -euo pipefail
+          python scripts/analizar_inta_siga.py
+
       - name: Commit y push de los datos validados
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add datos/fuentes-externas/inta-siga/estaciones-observaciones.csv.gz datos/fuentes-externas/inta-siga/observaciones-metadata.json datos/fuentes-externas/inta-siga/OBSERVACIONES.md
-          git commit -m "data: incorporar observaciones meteorológicas nacionales INTA-SIGA" || echo "Sin cambios para confirmar"
+          git add datos/fuentes-externas/inta-siga/estaciones-observaciones.csv.gz datos/fuentes-externas/inta-siga/observaciones-metadata.json datos/fuentes-externas/inta-siga/OBSERVACIONES.md scripts/analizar_inta_siga.py datos/fuentes-externas/inta-siga/estaciones-cobertura.csv datos/fuentes-externas/inta-siga/precipitacion-anual-estaciones.csv datos/fuentes-externas/inta-siga/estaciones-cercanas-virasoro.csv.gz datos/fuentes-externas/inta-siga/analisis-cobertura.json
+          git commit -m "data: archivar observaciones y análisis nacional INTA-SIGA" || echo "Sin cambios para confirmar"
           git push
