@@ -1,0 +1,181 @@
+id_estacion,nombre,localidad,provincia,latitud,longitud,tipo,registros,fecha_inicial,fecha_final,fechas_invalidas,precip_pluviometrica_validos,precip_pluviometrica_faltantes,precip_cronologica_validos,precip_cronologica_faltantes,precip_max30_validos,precip_pluviometrica_min,precip_pluviometrica_max
+A872801,Castelar - ICyA CIRN,Hurlingham,Buenos Aires,-34.61,-58.67,Nimbus THP,5768,2009-08-06,2026-08-17,0,5572,196,5570,198,5632,0.0,111.6
+A872802,San Fernando - EEA Delta,Tigre,Buenos Aires,-34.25,-58.61,Nimbus THP,3068,2006-10-29,2026-08-17,0,2910,158,2908,160,2945,0.0,204.5
+A872803,S.J. Frontera - EEA Concordia,San Jaime de la Frontera,Entre Rios,-30.36,-58.32,Nimbus THP,5032,2006-11-04,2026-08-16,0,4404,628,4398,634,4584,0.0,223.75
+A872804,Villa Paranacito-EEA C. del Ur,Villa Paranacito,Entre Rios,-33.71,-58.65,Nimbus THP,1461,2006-04-22,2026-08-17,0,1307,154,1310,151,1310,0.0,94.5
+A872805,Federal - EEA Concordia,Federal,Entre Rios,-30.93,-58.77,Nimbus THP,4748,2010-12-14,2026-08-17,0,4274,474,4276,472,4451,0.0,422.5
+A872806,Chascomus - EEA Cuenca Salado,Chascomus,Buenos Aires,-35.74,-58.05,Nimbus THP,3985,2014-11-21,2026-06-10,0,3499,486,3493,492,3481,0.0,102.75
+A872808,La Dulce - EEA Balcarce,Necochea,Buenos Aires,-38.34,-59.01,Nimbus THP,5258,2010-11-12,2026-08-17,0,4956,302,4946,312,5088,0.0,214.5
+A872810,Llavallol - ICyA CIRN,Llavallol,Buenos Aires,-34.79,-58.45,Nimbus THP,4921,2006-12-04,2026-08-05,0,4371,550,4374,547,4445,0.0,129.0
+A872811,Bandera - EEA  EEA Quimilí,Belgrano,Santiago del Estero,-28.89,-62.27,Nimbus THP,5050,2010-12-14,2026-08-17,0,4882,168,4878,172,4941,0.0,140.25
+A872812,Sachayoj - EEA Quimilí,Sachayoj,Santiago del Estero,-26.46,-61.81,Nimbus THP,4776,2010-12-27,2026-08-17,0,4363,413,4350,426,4250,0.0,121.25
+A872813,Vaca Huañuna - EEA Santiago,Vaca Huañuna,Santiago del Estero,-27.47,-63.47,Nimbus THP,472,2025-01-07,2026-08-17,0,405,67,399,73,386,0.0,69.0
+A872814,Alfonso - EEA Pergamino,Mariano Alfonso,Buenos Aires,-33.91,-60.84,Nimbus THP,5414,1999-12-31,2026-08-17,0,4880,534,4882,532,5288,0.0,201.5
+A872815,Ferre - EEA Pergamino,Ferré,Buenos Aires,-34.1,-61.14,Nimbus THP,4522,2011-11-22,2026-08-17,0,4398,124,4399,123,4494,0.0,93.25
+A872816,Coronel Suarez - EEA C. Naredo,Coronel Suarez,Buenos Aires,-37.29,-62.04,Nimbus THP,4753,2010-11-25,2026-08-17,0,3784,969,3781,972,4023,0.0,192.75
+A872817,Bordenave - EEA Bordenave,Bordenave,Buenos Aires,-37.75,-63.08,Nimbus THP,3576,2016-11-02,2026-08-17,0,3562,14,3564,12,3564,0.0,90.0
+A872819,Miramar - EEA Balcarce,Miramar,Buenos Aires,-38.15,-57.99,Nimbus THP,5674,2010-11-11,2026-08-17,0,5371,303,5354,320,5180,0.0,107.25
+A872820,Arrecifes - EEA Pergamino,Arrecifes,Buenos Aires,-34.05,-60.14,Nimbus THP,5665,2006-06-07,2026-08-17,0,5032,633,5028,637,5337,0.0,420.5
+A872822,Huinca Renanco - EEA Anguil,Huinca Renanco,Córdoba,-34.77,-64.37,Nimbus THP,2254,2010-09-06,2022-11-02,0,2028,226,2024,230,2041,0.0,82.80004
+A872823,Anguil -EEA Anguil,Anguil,La Pampa,-36.54,-63.99,Nimbus THP,4743,2006-11-08,2026-08-17,0,4294,449,4292,451,4316,0.0,106.75
+A872824,Balcarce - EEA Balcarce,Balcarce,Buenos Aires,-37.76,-58.3,Nimbus THP,5325,2006-11-07,2026-08-17,0,5083,242,5080,245,4316,0.0,95.0
+A872825,Tornquist - EEA Bordenave,Tornquist,Buenos Aires,-38.12,-62.24,Nimbus THP,3414,2006-11-03,2026-08-17,0,1802,1612,1779,1635,2871,0.0,82.5
+A872826,Villa Dolores - EEA Manfredi,Manfredi,Córdoba,-31.94,-65.22,Nimbus THP,3034,2015-08-21,2026-08-17,0,2955,79,2959,75,2609,0.0,72.0
+A872827,M Juarez - EEA Marcos Juarez,Marcos Juarez,Córdoba,-32.72,-62.11,Nimbus THP,4997,2006-11-07,2026-08-17,0,4308,689,4310,687,4357,0.0,203.75
+A872829,Dean Funes - EEA Manfredi,Dean Funes,Córdoba,-30.34,-64.32,Nimbus THP,3566,2006-06-02,2026-02-20,0,3062,504,3061,505,3108,0.0,88.75
+A872830,Concepción - EEA Conc. Uruguay,Concepción del Uruguay,Entre Rios,-32.49,-58.35,Nimbus THP,4990,2012-10-29,2026-08-17,0,4877,113,4873,117,4727,0.0,199.25
+A872831,San Salvador - EEA Concordia,San Salvador,Entre Rios,-31.65,-58.5,Nimbus THP,1368,2006-11-03,2026-07-19,0,1137,231,1130,238,918,0.0,101.0
+A872832,Maciá - EEA Conc. del Uruguay,Maciá,Entre Rios,-32.06,-59.6,Nimbus THP,1513,2021-10-30,2025-12-25,0,1416,97,1413,100,1413,0.0,54.25
+A872833,Las Armas - EEA Cuenca Salado,Las Armas,Buenos Aires,-37.09,-57.87,Nimbus THP,4520,2006-12-10,2026-08-17,0,3435,1085,3431,1089,4324,0.0,140.25
+A872834,Lima - EEA San Pedro,Lima,Buenos Aires,-33.97,-59.31,Nimbus THP,4894,2006-06-07,2026-08-17,0,4406,488,4409,485,4329,0.0,224.25
+A872835,Rio Tala - EEA San Pedro,Rio Tala,Buenos Aires,-33.77,-59.63,Nimbus THP,5705,2010-08-31,2026-08-17,0,4894,811,4877,828,5037,0.0,127.75
+A872837,Rauch - EEA Cuenca Salado,Rauch,Buenos Aires,-36.8,-59.11,Nimbus THP,4156,2014-11-20,2026-08-07,0,3747,409,3745,411,3841,0.0,110.75
+A872838,Aparicio - EEA Barrow,Coronel Dorrego,Buenos Aires,-38.67,-60.93,Nimbus THP,1995,2006-11-03,2026-08-17,0,1539,456,1534,461,1566,0.0,53.0
+A872839,Loma Chata - EEA Barrow,Coronel Dorrego,Buenos Aires,-38.65,-61.45,Nimbus THP,2703,2006-05-07,2026-08-17,0,1274,1429,1276,1427,1440,0.0,54.5
+A872840,Medanos - EEA Hilario Ascasubi,Medanos,Buenos Aires,-38.87,-62.66,Nimbus THP,4224,2014-11-12,2026-08-17,0,3924,300,3919,305,3954,0.0,59.0
+A872841,Villalonga - EEA H Ascasubi,Villalonga,Buenos Aires,-39.92,-62.62,Nimbus THP,4361,2006-10-29,2026-07-10,0,4189,172,4189,172,4226,0.0,114.5
+A872842,Stroeder -EEA Hilario Ascasubi,Stroeder,Buenos Aires,-40.18,-62.61,Nimbus THP,3822,2006-11-07,2026-08-17,0,3310,512,3310,512,3667,0.0,60.75
+A872846,Gral. Roca - EEA Alto Valle,General Roca,Río Negro,-39.03,-67.74,Nimbus THP,4392,2011-05-27,2026-06-02,0,3688,704,3685,707,4219,0.0,55.59997
+A872847,Rio Colorado - EEA Alto Valle,Río Colorado,Río Negro,-39.02,-64.08,Nimbus THP,4952,2012-06-05,2026-08-17,0,4423,529,4423,529,4428,0.0,75.60001
+A872849,Bariloche - EEA Bariloche,Bariloche,Río Negro,-41.12,-71.25,Nimbus THP,5176,2006-11-10,2026-08-17,0,2960,2216,2967,2209,3671,0.0,110.9
+A872850,P Golondrinas - EEA Bariloche,Lago Puelo,Chubut,-42.0,-71.52,Nimbus THP,3611,2011-10-18,2026-05-06,0,3259,352,3273,338,2409,0.0,53.0
+A872852,Trevelin - EEA Esquel,Trevelin,Chubut,-43.12,-71.55,Nimbus THP,1825,2021-05-07,2026-08-03,0,1482,343,1495,330,729,0.0,71.5
+A872853,Gualjaina - EEA Esquel,Gualjaina,Chubut,-42.73,-70.5,Nimbus THP,4135,2006-11-05,2026-07-08,0,3749,386,3745,390,2393,0.0,29.75
+A872854,Colan Conhué - EEA Esquel,Colan Conhué,Chubut,-43.23,-69.92,Nimbus THP,3852,2004-05-08,2026-08-17,0,3596,256,3596,256,3574,0.0,37.5
+A872855,Puerto Piramides - EEA Chubut,Puerto Pirámides,Chubut,-42.54,-64.29,Nimbus THP,3357,2012-05-17,2026-01-09,0,2942,415,2925,432,1898,0.0,51.99997
+A872856,Paso de Indios - EEA Chubut,Paso de Indios,Chubut,-43.86,-69.05,Nimbus THP,2331,2019-09-27,2026-08-17,0,1827,504,1808,523,510,0.0,39.89998
+A872857,Sarmiento - EEA Chubut,Sarmiento,Chubut,-45.6,-69.03,Nimbus THP,3157,2011-09-16,2026-08-17,0,2785,372,2782,375,1995,0.0,134.5001
+A872859,San Sebastian - EEA Santa Cruz,San Sebastian,Tierra del Fuego,-52.89,-68.45,Nimbus THP,3691,2012-03-28,2026-08-17,0,3593,98,3594,97,2483,0.0,42.89999
+A872860,Esperanza - EEA Santa Cruz,Esperanza,Santa Cruz,-51.1,-70.5,Nimbus THP,4135,2011-11-17,2026-08-17,0,3814,321,3812,323,2368,0.0,44.99999
+A872861,Viamonte - ICyA CIRN,Viamonte,Córdoba,-33.83,-63.02,Nimbus THP,4602,2012-05-23,2026-04-09,0,2100,2502,2105,2497,4479,0.0,145.5
+A872862,Rafaela - EEA Rafaela,Rafaela,Santa Fe,-31.2,-61.5,Nimbus THP,5186,2006-11-03,2026-08-17,0,4978,208,4959,227,4927,0.0,163.5
+A872863,San Jorge - EEA Rafaela,San Jorge,Santa Fe,-31.95,-61.83,Nimbus THP,4039,2013-07-22,2026-08-17,0,2903,1136,2914,1125,3132,0.0,169.9
+A872864,Ceres - EEA Rafaela,Ceres,Santa Fe,-29.87,-61.96,Nimbus THP,2802,2013-06-06,2025-06-20,0,1968,834,1964,838,2125,0.0,98.0
+A872865,Reconquista - EEA Reconquista,Reconquista,Santa Fe,-29.26,-59.71,Nimbus THP,2936,2006-12-19,2026-08-17,0,2622,314,2623,313,2684,0.0,124.7
+A872867,Calchaqui - EEA Reconquista,Calchaqui,Santa Fe,-29.88,-60.24,Nimbus THP,3189,2011-11-16,2024-08-28,0,2333,856,2337,852,2825,0.0,148.5
+A872868,Las Rosas - EEA Oliveros,Las Rosas,Santa Fe,-32.49,-61.57,Nimbus THP,4643,2006-11-09,2026-08-17,0,4297,346,4294,349,4296,0.0,202.0
+A872870,Hughes - EEA Oliveros,Hughes,Santa Fe,-33.85,-61.33,Nimbus THP,938,2006-11-07,2026-08-17,0,658,280,654,284,665,0.0,112.75
+A872871,Famailla - EEA Famailla,Famaillá,Tucuman,-27.02,-65.38,Nimbus THP,4094,2011-12-13,2026-08-17,0,3136,958,3130,964,3127,0.0,113.25
+A872872,25 de Mayo - EEA Pergamino,25 de Mayo,Buenos Aires,-35.48,-60.13,Nimbus THP,5065,2006-11-05,2026-08-17,0,4505,560,4494,571,4843,0.0,164.5
+A872874,La Colmena - EEA Paraná,La Colmena,Entre Rios,-31.55,-59.72,Nimbus THP,3994,2011-10-13,2026-08-17,0,3764,230,3751,243,3780,0.0,147.25
+A872877,Trancas - EEA Famaillá,Famaillá,Tucuman,-26.28,-65.27,Nimbus THP,3050,2006-10-30,2026-08-06,0,2227,823,2224,826,1104,0.0,332.25
+A872882,Palma Sola - EEA Yuto,Palma Sola,Jujuy,-23.98,-64.3,Nimbus THP,3719,2006-10-29,2026-08-07,0,2834,885,2849,870,2683,0.0,123.25
+A872884,Sumalao - EEA Catamarca,Sumalao,Catamarca,-28.47,-65.73,Nimbus THP,3949,2012-11-09,2026-08-17,0,3906,43,3906,43,3912,0.0,60.5
+A872885,Andalgala - EEA Catamarca,Andalgala,Catamarca,-27.61,-66.33,Nimbus THP,4586,2012-12-12,2026-08-17,0,4084,502,4084,502,4095,0.0,62.75
+A872887,El Portezuelo - EEA La Rioja,El Portezuelo,La Rioja,-30.84,-66.7,Nimbus THP,3389,2012-10-11,2024-04-11,0,3344,45,3345,44,3345,0.0,86.75
+A872888,P de Los Llanos - EEA La Rioja,Punta de Los Llanos,La Rioja,-30.15,-66.55,Nimbus THP,3580,2012-06-04,2024-06-18,0,3372,208,3373,207,3550,0.0,121.0
+A872889,Catuna - EEA La Rioja,Villa Santa Rita de Catuna,La Rioja,-30.96,-66.17,Nimbus THP,2492,2012-06-04,2022-12-07,0,2225,267,2224,268,2231,0.0,89.25
+A872890,San Pedro - EEA San Pedro,San Pedro,Buenos Aires,-33.74,-59.8,Nimbus THP,5038,2012-07-12,2026-08-17,0,4972,66,4973,65,4981,0.0,152.75
+A872891,Col Popular - EEA Col Benitez,Colonia Popular,Chaco,-27.27,-59.14,Nimbus THP,4852,2012-12-11,2026-08-17,0,4724,128,4720,132,4722,0.0,142.5
+A872893,Basail - EEA Col Benitez,San Fernando,Chaco,-27.9,-59.3,Nimbus THP,2529,2006-05-07,2026-08-17,0,2323,206,2323,206,2309,0.0,191.5
+A872896,Las Breñas - EEA Las Breñas,Las Breñas,Chaco,-27.07,-61.06,Nimbus THP,417,2006-11-03,2026-08-16,0,257,160,258,159,258,0.0,84.25
+A872898,Ing. Jacobacci - EEA Bariloche,Ingeniero Jacobacci,Río Negro,-41.33,-69.55,Nimbus THP,2560,2019-03-12,2026-08-17,0,2512,48,2509,51,2064,0.0,143.75
+A872899,J J Castelli - EEA Sáenz Peña,Castelli,Chaco,-25.96,-60.56,Nimbus THP,1077,2023-09-06,2026-08-17,0,1075,2,1074,3,1074,0.0,189.25
+A872900,Santa Sylvina - EEA Sáenz Peña,Santa Sylvina,Chaco,-27.85,-61.13,Nimbus THP,1269,2012-12-07,2024-06-18,0,778,491,775,494,922,0.0,68.25
+A872901,P. de la Plaza -EEA Sáenz Peña,Presidencia de La Plaza,Chaco,-26.93,-59.8,Nimbus THP,1300,2012-12-18,2023-08-30,0,1291,9,1292,8,785,0.0,124.5
+A872904,Bme de las Casas -EEA Colorado,Bartolomé de las Casas,Formosa,-25.45,-59.5,Nimbus THP,1766,2013-12-12,2023-03-24,0,1694,72,1693,73,1681,0.0,153.5
+A872905,El Colorado - EEA El Colorado,Pirane,Formosa,-26.33,-59.35,Nimbus THP,2955,2013-10-07,2022-12-07,0,2693,262,2692,263,2733,0.0,138.0
+A872906,Trenque Lauquen - EEA Villegas,Trenque Lauquen,Buenos Aires,-35.97,-62.77,Nimbus THP,4223,2012-09-27,2026-08-17,0,3964,259,3961,262,4009,0.0,131.5
+A872907,Manfredi - EEA Manfredi,Manfredi,Córdoba,-31.86,-63.75,Nimbus THP,5015,2006-07-09,2026-08-17,0,4927,88,4928,87,4904,0.0,120.25
+A872908,Cerro Azul - EEA Cerro Azul,Cerro Azul,Misiones,-27.66,-55.44,Nimbus THP,4777,2012-12-28,2026-08-17,0,4694,83,4688,89,4676,0.0,191.0
+A872909,V Miguel Lanus -EEA Cerro Azul,Villa Miguel Lanus,Misiones,-27.43,-55.89,Nimbus THP,3912,2013-02-27,2026-08-17,0,3757,155,3747,165,3741,0.0,190.0
+A872910,San Vicente - EEA Cerro Azul,San Vicente,Misiones,-26.92,-54.42,Nimbus THP,2670,2013-08-24,2025-10-23,0,1785,885,1786,884,1850,0.0,194.0
+A872911,Montecarlo - EEA Montecarlo,Montecarlo,Misiones,-26.57,-54.73,Nimbus THP,4176,2006-11-08,2026-08-17,0,3525,651,3514,662,3122,0.0,170.25
+A872912,Andresito - EEA Montecarlo,Andresito,Misiones,-25.62,-54.07,Nimbus THP,3883,2013-06-11,2026-08-17,0,3149,734,3142,741,3377,0.0,213.0
+A872913,B de Irigoyen - EEA Montecarlo,Bernardo de Irigoyen,Misiones,-26.28,-53.67,Nimbus THP,4324,2006-11-04,2026-07-21,0,4125,199,4103,221,4115,0.0,168.5
+A872914,Esquina - EEA Bella Vista,Esquina,Corrientes,-30.04,-59.53,Nimbus THP,4005,2013-11-06,2025-10-23,0,3943,62,3941,64,3668,0.0,179.2
+A872915,Mercedes - EEA Mercedes,Mercedes,Corrientes,-29.2,-58.04,Nimbus THP,4320,2006-11-03,2026-08-17,0,4237,83,4224,96,4203,0.0,203.4
+A872916,Sombrerito - EEA Corrientes,El Sombrerito,Corrientes,-27.65,-58.77,Nimbus THP,4062,2006-11-03,2026-08-17,0,3986,76,3989,73,3991,0.0,245.4
+A872917,Col. Tabay - EEA Bella Vista,Colonia Tabay,Corrientes,-28.18,-58.16,Nimbus THP,1745,2006-10-29,2026-08-17,0,1637,108,1629,116,1656,0.0,104.75
+A872918,Pje. Desmochado - EEA B Vista,Bella Vista,Corrientes,-28.8,-59.0,Nimbus THP,1797,2021-06-09,2026-05-21,0,1776,21,1777,20,1777,0.0,142.75
+A872921,Caa Cati - EEA Corrientes,Caá Catí,Corrientes,-27.75,-57.62,Nimbus THP,3793,2013-12-17,2026-08-17,0,2695,1098,2688,1105,2255,0.0,164.5
+A872923,Abra Pampa - EEA Abra Pampa,Abra Pampa,Jujuy,-22.8,-65.83,Nimbus THP,4688,2006-11-07,2026-08-17,0,4655,33,4656,32,4599,0.0,60.75
+A872924,Sta Victoria O -EEA Abra Pampa,Santa Victoria Oeste,Salta,-22.25,-64.96,Nimbus THP,2891,2015-07-01,2026-08-17,0,2694,197,2696,195,1870,0.0,38.25
+A872925,Hornillos - IPAF NOA,Hornillos,Jujuy,-23.66,-65.43,Nimbus THP,3761,2006-11-09,2026-08-17,0,3480,281,3504,257,3504,0.0,20.0
+A872926,Casbas - EEA C. Naredo,A definir,Sin asignar,-36.86,-62.45,Nimbus THP,2403,2006-11-20,2026-08-06,0,2343,60,2343,60,2363,0.0,150.75
+A872927,Barreal - EEA San Juan,Barreal,San Juan,-31.62,-69.47,Nimbus THP,3651,2006-08-22,2026-08-17,0,3414,237,3414,237,3419,0.0,42.0
+A872928,Caucete - EEA San Juan,Caucete,San Juan,-31.7,-68.29,Nimbus THP,3047,2006-04-18,2025-08-31,0,2233,814,2235,812,2617,0.0,11.25
+A872929,Pocito - EEA San juan,Pocito,San Juan,-31.66,-68.59,Nimbus THP,3307,2014-03-28,2026-08-17,0,2667,640,2666,641,2693,0.0,178.0
+A872930,Villa Mercedes - EEA San Luis,Villa Mercedes,San Luis,-33.66,-65.41,Nimbus THP,2973,2014-08-19,2024-04-25,0,2309,664,2308,665,2380,0.0,81.25
+A872931,Tilisarao - EEA San Luis,Tilisarao,San Luis,-32.67,-65.23,Nimbus THP,3785,2014-09-01,2026-08-17,0,3602,183,3610,175,3371,0.0,78.5
+A872933,Rama Caida - EEA Rama Caida,Rama Caída,Mendoza,-34.67,-68.39,Nimbus THP,3817,2006-11-07,2026-08-17,0,2700,1117,2702,1115,2918,0.0,89.0
+A872934,La Guevarina - EEA Rama Caida,La Guevarina,Mendoza,-34.79,-68.02,Nimbus THP,3655,2014-09-03,2025-10-15,0,2889,766,2890,765,3080,0.0,75.5
+A872935,Malargüe - EEA Rama Caida,Malargüe,Mendoza,-35.38,-69.57,Nimbus THP,2299,2015-11-11,2026-08-17,0,2141,158,2141,158,2047,0.0,42.25
+A872937,Santa Rosa - EEA Junin Mendoza,Santa Rosa,Mendoza,-33.18,-67.87,Nimbus THP,1119,2017-08-17,2025-03-11,0,721,398,725,394,520,0.0,38.75
+A872938,Junín - EEA Junin Mendoza,Junin,Mendoza,-33.12,-68.48,Nimbus THP,2501,2016-12-12,2026-08-17,0,1737,764,1727,774,1947,0.0,43.0
+A872939,La Consulta - EEA Consulta,San Carlos,Mendoza,-33.77,-69.15,Nimbus THP,3842,2015-07-22,2026-08-17,0,3833,9,3834,8,3834,0.0,77.0
+A872940,Pareditas - EEA Consulta,San Carlos,Mendoza,-33.95,-69.08,Nimbus THP,3932,2015-07-22,2026-08-17,0,2652,1280,2654,1278,2674,0.0,62.0
+A872941,Tupungato - EEA La Consulta,Tupungato,Mendoza,-33.15,-69.29,Nimbus THP,1650,2019-11-27,2026-05-08,0,1389,261,1386,264,1306,0.0,16.25
+A872942,Lincoln - EEA Villegas,General Lincoln,Buenos Aires,-34.84,-61.6,Nimbus THP,4364,2006-05-07,2026-08-17,0,4281,83,4282,82,4282,0.0,128.25
+A872945,Capilla de Siton - ICyA CIRN,Capilla de Sitón,Córdoba,-30.57,-63.65,Nimbus THP,2104,2015-04-14,2023-04-28,0,1513,591,1513,591,2094,0.0,72.5
+A872946,Cañada Ombu - EEA Reconquista,Cañada Ombu,Santa Fe,-28.36,-60.15,Nimbus THP,1703,2016-11-21,2022-12-14,0,1444,259,1448,255,1406,0.0,122.5
+A872947,Plottier - IPAF Patagonia,Plottier,Neuquen,-38.95,-68.33,Nimbus THP,2227,2006-11-02,2026-08-17,0,1626,601,1623,604,1400,0.0,60.25
+A872948,Villa Ramallo - EEA San Pedro,Villa Ramallo,Buenos Aires,-33.52,-60.11,Nimbus THP,1480,2021-05-20,2026-08-17,0,1388,92,1387,93,1434,0.0,102.25
+A872949,Guardia Mitre - EEA V Inferior,Guardia Mitre,Río Negro,-40.43,-63.68,Nimbus THP,322,2022-10-28,2026-06-02,0,307,15,307,15,0,0.0,16.75
+A872950,Goya - EEA Bella Vista,Goya,Corrientes,-29.18,-59.09,Nimbus THP,3939,2013-09-03,2025-04-24,0,3687,252,3683,256,3496,0.0,119.8
+A872951,Bella Vista - EEA Bella Vista,Bella Vista,Corrientes,-28.45,-58.99,Nimbus THP,3953,2006-11-03,2026-08-15,0,3800,153,3789,164,3517,0.0,145.25
+A872954,Monte Quemado -  EEA Quimilí,Monte Quemado,Santiago del Estero,-25.86,-62.71,Nimbus THP,3562,2015-09-10,2026-08-07,0,3144,418,3117,445,2637,0.0,133.5
+A872955,Quimilí - EEA Quimilí,Quimilí,Santiago del Estero,-27.54,-62.35,Nimbus THP,3984,2006-07-09,2026-08-17,0,3827,157,3827,157,2529,0.0,441.25
+A872956,Los Juríes -  EEA Quimilí,Los Juríes,Santiago del Estero,-28.52,-62.16,Nimbus THP,3828,2015-09-08,2026-08-17,0,3593,235,3590,238,3685,0.0,172.0
+A872958,Du Graty - EEA Sáenz Peña,Coronel Du Graty,Chaco,-27.7,-60.91,Nimbus THP,2725,2015-12-02,2024-06-18,0,2711,14,2710,15,2710,0.0,107.0
+A872961,Malbran -  EEA Quimilí,Malbrán,Santiago del Estero,-29.32,-62.46,Nimbus THP,3716,2016-06-02,2026-08-15,0,3627,89,3625,91,3649,0.0,136.6
+A872962,La Cigüeña - EEA Reconquista,Fortin Olmos,Santa Fe,-29.25,-61.02,Nimbus THP,2727,2016-06-07,2024-12-30,0,2586,141,2583,144,2548,0.0,134.0
+A872963,Villa Ana - EEA Reconquista,Villa Ana,Santa Fe,-28.44,-59.8,Nimbus THP,3041,2016-05-31,2024-09-12,0,2937,104,2935,106,2522,0.0,177.75
+A872964,Gob. Gregores - EEA Santa Cruz,Gobernador Gregores,Santa Cruz,-48.81,-70.14,Nimbus THP,428,2006-11-07,2026-08-17,0,422,6,421,7,423,0.0,17.5
+A872965,Jaramillo - EEA Santa Cruz,Jaramillo,Santa Cruz,-47.2,-66.93,Nimbus THP,529,2025-03-07,2026-08-17,0,522,7,521,8,521,0.0,34.5
+A872966,Los Antiguos - EEA Santa Cruz,Los Antiguos,Santa Cruz,-46.55,-71.64,Nimbus THP,642,2024-11-14,2026-08-17,0,639,3,637,5,540,0.0,25.5
+A872967,El Calafate - EEA Rio Gallegos,El Calafate,Santa Cruz,-50.31,-72.32,Nimbus THP,1661,2021-12-17,2026-08-17,0,1641,20,1641,20,1298,0.0,21.0
+A872968,Güer Aike - EEA Santa Cruz,Güer Aike,Santa Cruz,-51.61,-69.66,Nimbus THP,464,2006-11-23,2026-08-17,0,458,6,456,8,456,0.0,17.75
+A872969,Perito Moreno - EEA Santa Cruz,Perito Moreno,Santa Cruz,-46.6,-70.92,Nimbus THP,643,2024-11-13,2026-08-17,0,641,2,640,3,586,0.0,16.25
+A872970,Valle Inferior-EEA Valle Inf.,Viedma,Río Negro,-40.8,-63.06,Nimbus THP,408,2006-10-29,2026-08-17,0,337,71,338,70,178,0.0,47.5
+A872971,Ituzaingo - EEA Corrientes,Ituzaingo,Corrientes,-27.54,-56.58,Nimbus THP,2387,2019-09-26,2026-08-17,0,1994,393,1993,394,2025,0.0,184.0
+A872972,Gral. Conesa - EEA Valle Inf.,General Conesa,Río Negro,-40.21,-64.19,Nimbus THP,1444,2019-01-08,2024-04-28,0,1249,195,1248,196,198,0.0,183.25
+A872993,993 - LAB,loc_prueba,Sin asignar,-84.0,-70.0,Nimbus THP,801,2013-04-24,2015-07-03,0,545,256,545,256,0,0.0,19.49999
+A872994,994 - LAB,loc_prueba,Sin asignar,-84.0,-65.0,Nimbus THP,189,2006-11-02,2026-07-01,0,54,135,54,135,51,0.0,3.25
+A872995,A872995-CITEDEF-INTA,Villa Martelli,Buenos Aires,-34.55,-58.51,Nimbus THP,588,2012-01-01,2026-01-30,0,391,197,388,200,396,0.0,22.75
+A872996,996 - ENSAYO-CITEDEF-INTA,loc_prueba,Sin asignar,-34.6,-58.67,Nimbus THP,531,2006-11-03,2026-08-17,0,59,472,58,473,96,0.0,6.25
+A872997,997 - LAB,loc_prueba,Sin asignar,-84.0,-50.0,Nimbus THP,173,2012-01-01,2026-05-08,0,70,103,72,101,40,0.0,0.0
+A872998,998 - LAB,loc_prueba,Sin asignar,-84.0,-45.0,Nimbus THP,355,2012-01-01,2026-08-17,0,152,203,149,206,95,0.0,9.6
+A872999,999 - LAB,loc_prueba,Sin asignar,-84.0,-40.0,Nimbus THP,898,2000-01-04,2026-07-01,0,453,445,449,449,460,0.0,310.0
+A875000,5000,Hurlingham,Buenos Aires,-85.0,-55.0,Nimbus THP,2119,2006-12-05,2026-08-04,0,0,2119,0,2119,1522,,
+A875001,5001,Hurlingham,Buenos Aires,-85.0,-60.0,Nimbus THP,2087,2006-11-03,2026-08-05,0,0,2087,0,2087,1742,,
+NH0037,INTA - Gral Pico (EMC),General Pico,La Pampa,-35.67,-63.75,Convencional Instr. Completo,11326,1973-01-01,2009-12-03,0,10620,706,0,11326,0,0.0,198.0
+NH0038,INTA - Gral Villegas (EMC),General Villegas,Buenos Aires,-34.92,-62.73,Convencional Instr. Completo,16097,1973-04-01,2020-03-16,0,16048,49,0,16097,0,0.0,262.0
+NH0046,UNR - Zavalla (EMC),Puan,Santa Fe,-33.02,-60.88,Convencional Instr. Completo,17041,1973-01-01,2023-03-31,0,17029,12,0,17041,0,0.0,180.3
+NH0067,INTA - Bella Vista (EMC),Bella Vista,Corrientes,-28.43,-58.92,Convencional Instr. Completo,24664,1959-01-01,2026-07-10,0,23208,1456,0,24664,0,0.0,230.0
+NH0070,INTA - Catamarca Sumalao (EMC),Valle Viejo,Catamarca,-28.48,-65.73,Convencional Instr. Completo,18203,1958-01-01,2007-12-31,0,16047,2156,0,18203,0,0.0,139.5
+NH0098,INTA - Rafaela (EMC),Vera,Santa Fe,-31.18,-61.55,Convencional Instr. Completo,23733,1956-04-01,2023-04-27,0,23660,73,0,23733,0,0.0,194.7
+NH0114,INTA - Parana (EMC),Paraná,Entre Rios,-31.85,-60.54,Convencional Instr. Completo,24592,1956-04-01,2025-07-06,0,24579,13,0,24592,0,0.0,241.0
+NH0216,INTA - Barrow (EMC),Tres Arroyos,Buenos Aires,-38.32,-60.25,Convencional Instr. Completo,24330,1960-01-01,2026-08-17,0,24320,10,0,24330,0,0.0,214.9
+NH0230,INTA - Alto Valle (EMC),General Roca,Río Negro,-39.01,-67.4,Convencional Instr. Completo,16035,1970-01-01,2013-12-31,0,14589,1446,0,16035,0,0.0,94.1
+NH0343,INTA - Bordenave (EMC),Puan,Buenos Aires,-37.85,-63.02,Convencional Instr. Completo,20454,1960-01-01,2015-12-31,0,20414,40,0,20454,0,0.0,202.5
+NH0358,INTA - Castelar (EMC),Hurlingham,Buenos Aires,-34.61,-58.67,Convencional Instr. Completo,27620,1951-01-01,2026-08-13,0,27607,13,0,27620,0,0.0,189.0
+NH0400,INTA - Balcarce (EMC),Balcarce,Buenos Aires,-37.75,-58.3,Convencional Instr. Completo,23938,1961-02-01,2026-08-16,0,21350,2588,0,23938,0,0.0,154.0
+NH0415,INTA - Roque Saenz Peña (EMC),Comandante Fernandez,Chaco,-26.87,-60.45,Convencional Instr. Completo,24607,1959-01-01,2026-08-02,0,24596,11,0,24607,0,0.0,199.5
+NH0416,INTA - Las Breñas (EMC),9 de Julio,Chaco,-27.1,-61.1,Convencional Instr. Completo,21224,1967-01-01,2026-08-17,0,21157,67,0,21224,0,0.0,186.0
+NH0421,INTA - Hilario Ascasubi (EMC),Villarino,Buenos Aires,-39.38,-62.62,Convencional Instr. Completo,23077,1961-06-01,2026-07-07,0,21150,1927,0,23077,0,0.0,139.0
+NH0423,INTA - Cerro Azul (EMC),Leandro N Alem,Misiones,-27.65,-55.43,Convencional Instr. Completo,21031,1968-01-01,2025-07-31,0,21018,13,0,21031,0,0.0,194.9
+NH0437,INTA - Reconquista (EMC),Reconquista,Santa Fe,-29.18,-59.7,Convencional Instr. Completo,20103,1970-08-01,2026-07-15,0,20067,36,0,20103,0,0.0,198.0
+NH0438,INTA - Manfredi (EMC),Río Segundo,Córdoba,-31.82,-63.77,Convencional Instr. Completo,16230,1969-09-01,2014-05-08,0,16210,20,0,16230,0,0.0,240.0
+NH0439,INTA - Villa Mercedes (EMC),General Pedernera,San Luis,-33.72,-65.48,Convencional Instr. Completo,16679,1968-03-01,2013-10-31,0,16568,111,0,16679,0,0.0,122.7
+NH0442,INTA - La Consulta (EMC),Puan,Mendoza,-33.73,-69.12,Convencional Instr. Completo,19207,1970-01-01,2026-08-11,0,19170,37,0,19207,0,0.0,90.0
+NH0444,INTA - Famailla (EMC),Famaillá,Tucuman,-27.05,-65.42,Convencional Instr. Completo,20317,1968-09-01,2026-07-31,0,20305,12,0,20317,0,0.0,261.0
+NH0445,INTA - San Juan (EMC),Angaco,San Juan,-31.37,-68.32,Convencional Instr. Completo,16496,1968-09-01,2013-10-31,0,16491,5,0,16496,0,0.0,55.0
+NH0446,INTA - Anguil (EMC),Capital,La Pampa,-36.5,-63.98,Convencional Instr. Completo,23382,1961-01-01,2026-08-11,0,23359,23,0,23382,0,0.0,355.0
+NH0448,INTA - Rama Caída (EMC),San Rafael,Mendoza,-34.67,-68.38,Convencional Instr. Completo,14548,1968-09-01,2008-06-30,0,10844,3704,0,14548,0,0.0,102.0
+NH0460,INTA - Corrientes (EMC),Empedrado,Corrientes,-27.65,-58.77,Convencional Instr. Completo,12980,1968-01-01,2026-07-20,0,11040,1940,0,12980,0,0.0,204.0
+NH0464,INTA - El Colorado (EMC),Pirane,Formosa,-26.3,-59.38,Convencional Instr. Completo,20268,1960-01-01,2015-06-28,0,19894,374,0,20268,0,0.0,338.0
+NH0472,INTA - Oliveros (EMC),Iriondo,Santa Fe,-32.55,-60.85,Convencional Instr. Completo,20425,1961-07-01,2017-06-01,0,20416,9,0,20425,0,0.0,153.0
+NH0475,INTA - Salta (EMC),Cerrillos,Salta,-24.9,-65.5,Convencional Instr. Completo,14852,1971-01-01,2011-08-31,0,10302,4550,0,14852,0,0.0,153.5
+NH0485,INTA - Mendoza (EMC),Junin,Mendoza,-33.15,-68.47,Convencional Instr. Completo,4870,1968-09-01,1981-12-31,0,4043,827,0,4870,0,0.0,56.8
+NH0487,INTA - Colonia Benitez (EMC),Colonia Benítez,Chaco,-27.42,-58.93,Convencional Instr. Completo,20581,1968-01-01,2025-04-24,0,20572,9,0,20581,0,0.0,221.5
+NH0492,INTA - San Pedro (EMC),San Pedro,Buenos Aires,-33.74,-59.8,Convencional Instr. Completo,20345,1967-01-01,2026-08-17,0,20331,14,0,20345,0,0.0,187.9
+NH0496,INTA - Concordia (EMC),Concordia,Entre Rios,-31.38,-58.03,Convencional Instr. Completo,16468,1969-01-01,2014-02-02,0,15636,832,0,16468,0,0.0,194.0
+NH0497,INTA - Conc. del Uruguay (EMC),Uruguay,Entre Rios,-32.49,-58.35,Convencional Instr. Completo,17318,1968-01-01,2015-05-31,0,17086,232,0,17318,0,0.0,175.5
+NH0498,INTA - Mercedes Ctes (EMC),Mercedes,Corrientes,-29.17,-58.02,Convencional Instr. Completo,19965,1968-01-01,2022-08-31,0,19775,190,0,19965,0,0.0,290.0
+NH0502,INTA - Marcos Juarez (EMC),Marcos Juarez,Córdoba,-32.68,-62.12,Convencional Instr. Completo,19782,1967-10-01,2026-08-11,0,19757,25,0,19782,0,0.0,174.0
+NH0550,INTA - La Maria S.Estero (EMC),Silipica,Santiago del Estero,-28.02,-64.23,Convencional Instr. Completo,14008,1988-04-01,2026-08-11,0,13986,22,0,14008,0,0.0,134.0
+NH0557,INTA - Trelew (EMC),Rawson,Chubut,-43.23,-65.3,Convencional Instr. Completo,15610,1971-04-01,2014-01-31,0,14616,994,0,15610,0,0.0,219.0
+NH0910,Las Rosas (EMC) - NO ACTIVA,Las Rosas,Santa Fe,-32.48,-61.57,Convencional Instr. Completo,15553,1975-01-01,2017-07-31,0,15553,0,0,15553,0,0.0,245.0
+NH0989,Capilla del Monte (EMC),Capilla del Monte,Córdoba,-30.87,-64.55,Convencional Instr. Completo,4131,2012-01-02,2023-04-24,0,4129,2,0,4131,0,0.0,125.0
+NH0990,INTA DELTA del Parana (EMC),Campana,Buenos Aires,-34.18,-58.86,Convencional Instr. Completo,8766,1967-01-01,1990-12-31,0,7110,1656,0,8766,0,0.0,196.0
