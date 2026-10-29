@@ -1,0 +1,283 @@
+{
+  "source": "Departamento de Economía Agraria, Ministerio de Producción de Corrientes; original repository deaeconomiactes/Precipitaciones-Lluvias",
+  "source_repository": "https://github.com/deaeconomiactes/Precipitaciones-Lluvias",
+  "retrieved_utc_date": "2026-10-29",
+  "raw_files": {
+    "rainfall-daily.json": {
+      "bytes": 682848,
+      "records": 5186,
+      "sha": "8eac9100b21902f516403b67908416432f407834"
+    },
+    "rainfall.json": {
+      "bytes": 108615,
+      "records": 817,
+      "sha": "5817ec19947897651d46d03041fe108ebdd2e89a"
+    },
+    "stations.json": {
+      "bytes": 254276,
+      "station_rows": 8,
+      "sha": ""
+    },
+    "source-catalog.json": {
+      "bytes": 10503,
+      "source_rows": 12
+    },
+    "metadata.json": {
+      "bytes": 684,
+      "generatedAt": "2026-07-01T09:10:41"
+    }
+  },
+  "daily_dataset": {
+    "records": 5186,
+    "departments": 25,
+    "date_start": "2023-01-01",
+    "date_end": "2026-10-25",
+    "records_by_year": [
+      {
+        "year": "2023",
+        "records": 1654,
+        "mean_mm": 20.424,
+        "minimum_mm": 0.1,
+        "maximum_mm": 300
+      },
+      {
+        "year": "2024",
+        "records": 1505,
+        "mean_mm": 23.595,
+        "minimum_mm": 0.8,
+        "maximum_mm": 202
+      },
+      {
+        "year": "2025",
+        "records": 1471,
+        "mean_mm": 24.817,
+        "minimum_mm": 0.5,
+        "maximum_mm": 243
+      },
+      {
+        "year": "2026",
+        "records": 556,
+        "mean_mm": 19.442,
+        "minimum_mm": 1,
+        "maximum_mm": 152.5
+      }
+    ],
+    "invalid_rows": 0,
+    "missing_coordinates": 0,
+    "records_for_department_named_Virasoro": 0
+  },
+  "monthly_dataset": {
+    "records": 817,
+    "departments": 25,
+    "year_min": 1993,
+    "year_max": 2026,
+    "expanded_monthly_rows": 9804
+  },
+  "station_dataset": {
+    "stations": [
+      {
+        "station": "Bella Vista",
+        "invalidDates": 64,
+        "monthly_rows": 326
+      },
+      {
+        "station": "Esquina",
+        "invalidDates": 5,
+        "monthly_rows": 230
+      },
+      {
+        "station": "Ituzaingo",
+        "invalidDates": 0,
+        "monthly_rows": 387
+      },
+      {
+        "station": "La Cruz",
+        "invalidDates": 2,
+        "monthly_rows": 386
+      },
+      {
+        "station": "Mercedes",
+        "invalidDates": 0,
+        "monthly_rows": 147
+      },
+      {
+        "station": "Monte Caseros",
+        "invalidDates": 0,
+        "monthly_rows": 387
+      },
+      {
+        "station": "Paso de los Libres",
+        "invalidDates": 0,
+        "monthly_rows": 387
+      },
+      {
+        "station": "Virasoro",
+        "invalidDates": 0,
+        "monthly_rows": 231
+      }
+    ],
+    "important_caveat": "El nombre de estación y los registros mensuales no garantizan homogeneidad ni continuidad. Verificar fechas inválidas, faltantes y unidades antes de usar en conclusiones."
+  },
+  "source_catalog": [
+    {
+      "id": "rain",
+      "name": "Registros propios de lluvia",
+      "provider": "Departamento de Economía Agraria",
+      "nature": "Observado propio",
+      "status": "Producción",
+      "sourceUrl": "https://script.google.com/",
+      "coverage": "Provincia de Corrientes según relevamiento",
+      "limitations": [
+        "Cobertura dependiente del relevamiento",
+        "Las fechas pueden diferir entre localidades"
+      ]
+    },
+    {
+      "id": "ina",
+      "name": "INA SIyAH",
+      "provider": "Instituto Nacional del Agua",
+      "nature": "Observado externo",
+      "status": "Validada",
+      "sourceUrl": "https://alerta.ina.gob.ar/",
+      "coverage": "Corrientes y ríos limítrofes",
+      "limitations": [
+        "Ceros hidrométricos no comparables entre estaciones",
+        "Lecturas antiguas pueden persistir"
+      ]
+    },
+    {
+      "id": "snih",
+      "name": "Sistema Nacional de Información Hídrica",
+      "provider": "Secretaría de Obras Públicas",
+      "nature": "Preliminar externo",
+      "status": "En validación",
+      "sourceUrl": "https://snih.hidricosargentina.gob.ar/",
+      "coverage": "Estaciones habilitadas de Corrientes",
+      "limitations": [
+        "Datos preliminares",
+        "Actualización en vivo requiere adaptador"
+      ]
+    },
+    {
+      "id": "salto",
+      "name": "Red telemétrica de Salto Grande",
+      "provider": "Comisión Técnica Mixta de Salto Grande",
+      "nature": "Observado externo",
+      "status": "En validación",
+      "sourceUrl": "https://www.saltogrande.org/servicios.php",
+      "coverage": "Cuenca del río Uruguay pertinente a Corrientes",
+      "limitations": [
+        "Actualización en vivo requiere SOAP desde backend"
+      ]
+    },
+    {
+      "id": "nasa",
+      "name": "NASA POWER PRECTOTCORR",
+      "provider": "NASA POWER",
+      "nature": "Modelado",
+      "status": "En validación",
+      "sourceUrl": "https://power.larc.nasa.gov/",
+      "coverage": "Global; recorte Corrientes",
+      "limitations": [
+        "No representa un pluviómetro",
+        "Centro de celda, no punto observado"
+      ]
+    },
+    {
+      "id": "geoglows",
+      "name": "GEOGLOWS–ECMWF",
+      "provider": "GEOGLOWS / ECMWF",
+      "nature": "Modelado",
+      "status": "Experimental",
+      "sourceUrl": "https://geoglows.ecmwf.int/",
+      "coverage": "Red fluvial global",
+      "limitations": [
+        "Caudal modelado, no altura observada",
+        "River ID es el tramo más cercano"
+      ]
+    },
+    {
+      "id": "viirs",
+      "name": "NASA LANCE VIIRS Flood Extent",
+      "provider": "NASA",
+      "nature": "Satelital",
+      "status": "Experimental",
+      "sourceUrl": "https://gibs.earthdata.nasa.gov/",
+      "coverage": "Global",
+      "limitations": [
+        "No estima hectáreas afectadas",
+        "Intersección no garantiza cobertura completa"
+      ]
+    },
+    {
+      "id": "opera",
+      "name": "NASA OPERA DSWx-S1",
+      "provider": "NASA",
+      "nature": "Satelital",
+      "status": "Experimental",
+      "sourceUrl": "https://gibs.earthdata.nasa.gov/",
+      "coverage": "Escenas disponibles",
+      "limitations": [
+        "Agua superficial no equivale siempre a inundación nueva",
+        "Cobertura condicionada por escena"
+      ]
+    },
+    {
+      "id": "gfm",
+      "name": "Copernicus Global Flood Monitoring",
+      "provider": "Copernicus Emergency Management Service",
+      "nature": "Satelital",
+      "status": "En validación",
+      "sourceUrl": "https://global-flood.emergency.copernicus.eu/",
+      "coverage": "Global entre latitudes operativas del producto",
+      "limitations": [
+        "No estima daño productivo",
+        "Intersección no garantiza cobertura provincial completa"
+      ]
+    },
+    {
+      "id": "floodhub",
+      "name": "Google Flood Hub",
+      "provider": "Google",
+      "nature": "Modelado",
+      "status": "Pendiente",
+      "sourceUrl": null,
+      "coverage": "Por definir",
+      "limitations": [
+        "Sin integración ni validación local"
+      ]
+    },
+    {
+      "id": "magyp",
+      "name": "MAGyP",
+      "provider": "Secretaría de Agricultura, Ganadería y Pesca",
+      "nature": "Administrativo",
+      "status": "Pendiente",
+      "sourceUrl": null,
+      "coverage": "Por definir",
+      "limitations": [
+        "Fuente y contrato aún no definidos"
+      ]
+    },
+    {
+      "id": "smn",
+      "name": "Servicio Meteorológico Nacional",
+      "provider": "SMN",
+      "nature": "Observado externo",
+      "status": "Pendiente",
+      "sourceUrl": null,
+      "coverage": "Por definir",
+      "limitations": [
+        "Producto y contrato aún no definidos"
+      ]
+    }
+  ],
+  "interpretation_warnings": [
+    "La base diaria descargada es provincial, no nacional.",
+    "La base diaria contiene registros de 2023-01-01 a 2026-10-25, pero no tiene filas cuyo campo department sea Virasoro.",
+    "Los puntos diarios tienen coordenadas y departamento; no deben tratarse automáticamente como una serie de estación continua.",
+    "La base mensual es agregación departamental y no debe mezclarse con datos puntuales de estaciones o ERA5.",
+    "El catálogo de fuentes describe integraciones y proveedores del portal; no significa que cada fuente haya sido descargada ni auditada de forma independiente.",
+    "La fuente no declara una licencia explícita para todos los datos; se conserva atribución y enlace original y se evita aplicar la licencia MIT del repositorio destino a datos de terceros."
+  ]
+}
