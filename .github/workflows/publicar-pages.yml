@@ -28,10 +28,8 @@ jobs:
           test -s docs/index.html
           test -s docs/datos/precipitacion_anual_era5.csv
           test -s docs/graficos/precipitacion_anual_era5.svg
-      - name: Preparar Pages
-        uses: actions/configure-pages@v5
-        with:
-          enablement: true
+          test -s docs/datos/fuentes-externas/inta-siga/analisis-cobertura.json
+          test -s docs/datos/fuentes-externas/inta-siga/estaciones-cobertura.csv
       - name: Empaquetar sitio
         uses: actions/upload-pages-artifact@v3
         with:
