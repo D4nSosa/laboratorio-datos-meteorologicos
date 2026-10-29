@@ -7,7 +7,10 @@ Recuperado el 2026-10-29 desde el proyecto público [Precipitaciones Argentina](
 - `estaciones.json`: catálogo original de 182 estaciones y metadatos.
 - `estaciones.csv`: versión tabular derivada del catálogo para filtrar y buscar estaciones.
 - `manifest.json`: manifiesto original de los datos de observaciones, copiado del repositorio fuente.
-- `catalog-analysis.json`: resumen de cobertura provincial, estaciones de Corrientes y limitaciones de la recuperación.
+- `catalog-analysis.json`: resumen de cobertura provincial y estaciones de Corrientes.
+- `estaciones-observaciones.csv.gz`: consolidado nacional real de observaciones, descargado y comprimido desde Git LFS (35.814.553 bytes).
+- `observaciones-metadata.json`: resultado de validación de hash, filas, columnas y estructura.
+- `OBSERVACIONES.md`: descripción del archivo de observaciones y advertencias de uso.
 
 ## Lo que declara el manifiesto de la fuente
 
@@ -18,11 +21,13 @@ Recuperado el 2026-10-29 desde el proyecto público [Precipitaciones Argentina](
 - SHA-256 declarado por la fuente: `b55fa017707eab7552c220b92185387d52dfd598f26f23a3be1aa59f0c0323dc`.
 - Manifiesto generado: 2026-08-20.
 
-## Importante: no se archivó el CSV de observaciones
+## Descarga y validación del consolidado
 
-En el repositorio original, `datos/estaciones.csv` es un puntero Git LFS de 134 bytes; el contenido real es un objeto LFS de aproximadamente 151 MB. La herramienta de acceso disponible en esta sesión solo devolvió el puntero, no el objeto binario. Por lo tanto, el manifiesto y catálogo fueron recuperados, pero **las 1.177.258 observaciones no se han descargado ni validado localmente ni se han copiado a este repositorio**.
+El archivo real se descargó mediante GitHub Actions desde el repositorio de origen, se verificó y se incorporó a este repositorio como `estaciones-observaciones.csv.gz`. El CSV original pesa 151.209.900 bytes; comprimido pesa 35.814.553 bytes.
 
-El catálogo sí sirve para buscar estaciones por provincia y proximidad, pero no para analizar precipitaciones. El manifiesto y el resumen se conservan como metadatos de terceros, con enlaces al origen; no se les aplica la licencia MIT del repositorio de investigación.
+La ejecución verificó el SHA-256 del CSV original contra el manifiesto de origen (`b55fa017707eab7552c220b92185387d52dfd598f26f23a3be1aa59f0c0323dc`), contó 1.177.258 filas de datos y 38 columnas, y revisó que cada fila mantuviera el número correcto de campos. El resultado de esa validación está en `observaciones-metadata.json`.
+
+La validación confirma integridad y estructura, no calidad instrumental ni continuidad temporal de cada estación. El archivo procede de un consolidado comunitario que declara usar datos SIGA-INTA; se mantiene la referencia al proyecto original y no se le aplica automáticamente la licencia MIT de este laboratorio.
 
 ## Hallazgo para la investigación de Virasoro
 
