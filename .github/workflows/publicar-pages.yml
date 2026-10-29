@@ -1,0 +1,46 @@
+name: Publicar laboratorio en GitHub Pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "docs/**"
+      - ".github/workflows/publicar-pages.yml"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+      - name: Validar estructura pública
+        run: |
+          test -s docs/index.html
+          test -s docs/datos/precipitacion_anual_era5.csv
+          test -s docs/graficos/precipitacion_anual_era5.svg
+      - name: Preparar Pages
+        uses: actions/configure-pages@v5
+      - name: Empaquetar sitio
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Desplegar sitio
+        id: deployment
+        uses: actions/deploy-pages@v4
