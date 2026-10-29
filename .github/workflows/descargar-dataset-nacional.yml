@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/descargar-dataset-nacional.yml'
+      - 'scripts/analizar_inta_siga.py'
   workflow_dispatch:
 
 permissions:
