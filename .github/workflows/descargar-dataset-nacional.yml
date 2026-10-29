@@ -1,0 +1,129 @@
+name: Descargar y validar dataset nacional INTA-SIGA
+
+on:
+  push:
+    paths:
+      - '.github/workflows/descargar-dataset-nacional.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: dataset-nacional-inta-siga
+  cancel-in-progress: false
+
+jobs:
+  descargar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout del laboratorio
+        uses: actions/checkout@v4
+        with:
+          lfs: false
+
+      - name: Instalar Git LFS
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y git-lfs
+          git lfs install
+
+      - name: Descargar el CSV real desde el repositorio fuente
+        env:
+          GIT_LFS_SKIP_SMUDGE: "1"
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/inta-source datos/fuentes-externas/inta-siga
+          git clone --depth 1 https://github.com/marianof2000/precipitaciones-argentina-inta.git /tmp/inta-source
+          cd /tmp/inta-source
+          git lfs pull --include="datos/estaciones.csv" --exclude=""
+          test -s datos/estaciones.csv
+          if head -c 100 datos/estaciones.csv | grep -q 'git-lfs.github.com/spec'; then
+            echo "ERROR: se obtuvo el puntero LFS, no el CSV real" >&2
+            exit 2
+          fi
+          EXPECTED="b55fa017707eab7552c220b92185387d52dfd598f26f23a3be1aa59f0c0323dc"
+          ACTUAL="$(sha256sum datos/estaciones.csv | cut -d' ' -f1)"
+          echo "SHA256 fuente: $ACTUAL"
+          if [ "$ACTUAL" != "$EXPECTED" ]; then
+            echo "ERROR: el SHA-256 no coincide con el manifiesto publicado" >&2
+            exit 3
+          fi
+          cp datos/estaciones.csv "$GITHUB_WORKSPACE/datos/fuentes-externas/inta-siga/estaciones-observaciones.csv"
+          cd "$GITHUB_WORKSPACE"
+
+      - name: Validar y comprimir el dataset nacional
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import csv, gzip, hashlib, json, os
+          from pathlib import Path
+          p=Path("datos/fuentes-externas/inta-siga/estaciones-observaciones.csv")
+          expected=1_177_258
+          cols_expected=38
+          digest=hashlib.sha256()
+          with p.open("rb") as f:
+              for block in iter(lambda:f.read(1024*1024), b""):
+                  digest.update(block)
+          with p.open("r", encoding="utf-8-sig", newline="") as f:
+              reader=csv.reader(f)
+              header=next(reader)
+              rows=0
+              for row in reader:
+                  rows += 1
+                  if len(row) != len(header):
+                      raise SystemExit(f"Fila {rows+1}: {len(row)} columnas, esperadas {len(header)}")
+          if len(header) != cols_expected:
+              raise SystemExit(f"Columnas: {len(header)}; manifiesto declara {cols_expected}")
+          if rows != expected:
+              raise SystemExit(f"Filas: {rows}; manifiesto declara {expected}")
+          if "precipitacion_pluviometrica" not in header and "precipitacion_cronologica" not in header:
+              raise SystemExit("No se encontraron columnas de precipitación")
+          gz=Path(str(p)+".gz")
+          with p.open("rb") as src, gzip.open(gz,"wb",compresslevel=9,mtime=0) as dst:
+              while True:
+                  b=src.read(1024*1024)
+                  if not b: break
+                  dst.write(b)
+          meta={
+            "fuente":"https://github.com/marianof2000/precipitaciones-argentina-inta",
+            "origen":"SIGA INTA; archivo consolidado público de terceros",
+            "archivo_original":"datos/estaciones.csv",
+            "archivo_archivado":str(gz),
+            "filas_datos":rows,
+            "columnas":len(header),
+            "nombres_columnas":header,
+            "bytes_original":p.stat().st_size,
+            "bytes_gzip":gz.stat().st_size,
+            "sha256_original":digest.hexdigest(),
+            "validacion":"OK: SHA-256 cotejado con manifiesto, número de filas/columnas cotejado y estructura CSV validada",
+            "nota":"El control estructural no sustituye auditoría de calidad meteorológica, unidades, vacíos ni continuidad por estación."
+          }
+          Path("datos/fuentes-externas/inta-siga/observaciones-metadata.json").write_text(json.dumps(meta,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          p.unlink()
+          print(json.dumps(meta,ensure_ascii=False,indent=2))
+          PY
+
+      - name: Actualizar documentación del dataset
+        run: |
+          cat > datos/fuentes-externas/inta-siga/OBSERVACIONES.md <<'EOF'
+          # Observaciones meteorológicas nacionales INTA-SIGA
+
+          El archivo `estaciones-observaciones.csv.gz` es el consolidado de observaciones publicado por el proyecto comunitario [precipitaciones-argentina-inta](https://github.com/marianof2000/precipitaciones-argentina-inta), que indica como fuente SIGA INTA.
+
+          Antes de archivar el consolidado se verifica el SHA-256 declarado por el manifiesto de origen, se comprueban las 38 columnas y 1.177.258 filas declaradas, y se valida que el CSV mantenga un número constante de columnas. Ver `observaciones-metadata.json` para las cifras verificadas.
+
+          Este control verifica integridad y estructura, no garantiza que cada observación esté completa o validada instrumentalmente. Mantener identificador de estación, fecha y variables originales; no imputar valores faltantes como cero. Consultar `estaciones.json` para la ficha geográfica de las estaciones.
+
+          El archivo se conserva comprimido para evitar el límite de tamaño por archivo de GitHub. Descomprimir con `gzip -dk estaciones-observaciones.csv.gz`.
+          EOF
+
+      - name: Commit y push de los datos validados
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add datos/fuentes-externas/inta-siga/estaciones-observaciones.csv.gz datos/fuentes-externas/inta-siga/observaciones-metadata.json datos/fuentes-externas/inta-siga/OBSERVACIONES.md
+          git commit -m "data: incorporar observaciones meteorológicas nacionales INTA-SIGA" || echo "Sin cambios para confirmar"
+          git push
