@@ -1,0 +1,23 @@
+{
+  "fuente": "estaciones-observaciones.csv.gz / consolidado comunitario basado en SIGA-INTA",
+  "catalogo_estaciones": 182,
+  "estaciones_con_registros": 180,
+  "filas_con_fecha_invalida": 0,
+  "repeticiones_de_id_estacion_fecha_detectadas": 99,
+  "filas_extraidas_estaciones_cercanas_a_virasoro": 51819,
+  "ids_estaciones_extraidas": [
+    "A872908",
+    "A872909",
+    "A872910",
+    "A872916",
+    "A872971",
+    "NH0423",
+    "NH0460"
+  ],
+  "archivos_generados": [
+    "estaciones-cobertura.csv",
+    "precipitacion-anual-estaciones.csv",
+    "estaciones-cercanas-virasoro.csv.gz"
+  ],
+  "advertencia": "Las sumas anuales son exploratorias: confirmar frecuencia y unidad de la variable antes de interpretarlas como milímetros acumulados. Los duplicados de estación-fecha se reportan para auditoría, no se eliminan."
+}
