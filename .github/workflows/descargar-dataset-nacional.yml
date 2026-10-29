@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: dataset-nacional-inta-siga
@@ -134,3 +135,8 @@ jobs:
           git commit -m "data: archivar observaciones y análisis nacional INTA-SIGA" || echo "Sin cambios para confirmar"
           git pull --rebase origin main
           git push
+
+      - name: Publicar los datos actualizados en GitHub Pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run publicar-pages.yml --ref main
