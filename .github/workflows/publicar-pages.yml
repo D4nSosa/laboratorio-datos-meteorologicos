@@ -26,6 +26,10 @@ jobs:
     steps:
       - name: Descargar repositorio
         uses: actions/checkout@v4
+      - name: Configurar GitHub Pages para despliegue con Actions
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - name: Publicar resultados del análisis INTA-SIGA
         run: |
           mkdir -p docs/datos/inta-siga
