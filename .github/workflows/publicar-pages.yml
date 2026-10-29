@@ -30,6 +30,8 @@ jobs:
           test -s docs/graficos/precipitacion_anual_era5.svg
       - name: Preparar Pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - name: Empaquetar sitio
         uses: actions/upload-pages-artifact@v3
         with:
