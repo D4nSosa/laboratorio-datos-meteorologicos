@@ -35,13 +35,15 @@
         <label for="station-search">Buscar estación, localidad o provincia</label>
         <input id="station-search" type="search" placeholder="Ej.: Virasoro, Corrientes…" autocomplete="off">
         <label class="map-toggle"><input id="toggle-stations" type="checkbox" checked> Red de estaciones</label>
+        <label class="map-toggle"><input id="toggle-rainfall" type="checkbox"> Registros anuales de lluvia</label>
+        <label class="map-toggle" for="rainfall-year">Año <select id="rainfall-year" style="background:#102a2d;border:1px solid #315357;border-radius:8px;padding:7px;color:var(--text)"><option value="">Cargando…</option></select></label>
         <label class="map-toggle"><input id="toggle-virasoro" type="checkbox" checked> Referencia ERA5</label>
       </div>
       <div id="national-map" class="map-canvas" role="application" aria-label="Mapa interactivo de Argentina con estaciones meteorológicas del catálogo INTA-SIGA y referencia de reanálisis ERA5"></div>
       <p class="map-note">Base cartográfica: OpenStreetMap. La ubicación de una estación no garantiza una serie completa ni validada. Los marcadores muestran cobertura del catálogo, no intensidad de lluvia.</p>
     </div>
     <aside class="map-sidebar">
-      <article class="card"><span class="kicker">Cobertura en el mapa</span><div class="map-stat" id="map-station-count">Cargando…</div><p class="sub">Estaciones con coordenadas válidas en el catálogo de cobertura.</p><div class="map-legend"><span class="map-dot sparse"></span> Menos registros disponibles</div><div class="map-legend"><span class="map-dot"></span> Cobertura intermedia</div><div class="map-legend"><span class="map-dot dense"></span> Más registros disponibles</div></article>
+      <article class="card"><span class="kicker">Cobertura en el mapa</span><div class="map-stat" id="map-station-count">Cargando…</div><p class="sub">Estaciones con coordenadas válidas en el catálogo de cobertura.</p><div class="map-legend"><span class="map-dot sparse"></span> Menos registros disponibles</div><div class="map-legend"><span class="map-dot"></span> Cobertura intermedia</div><div class="map-legend"><span class="map-dot dense"></span> Más registros disponibles</div><p class="sub" id="rainfall-status" style="margin-top:12px">La capa anual está desactivada.</p></article>
       <article class="card"><span class="tag neutral">Punto de partida</span><h3>Gobernador Virasoro</h3><p class="sub">La referencia ERA5 corresponde a una celda de reanálisis próxima a la ciudad; no equivale a una estación meteorológica.</p><div class="map-stat">1991–2025</div><p class="sub">Serie anual disponible para análisis exploratorio local.</p><button id="focus-virasoro" type="button" style="margin-top:12px;background:#102a2d;border:1px solid #315357;border-radius:8px;padding:9px 12px;color:var(--text);cursor:pointer">Ir a Virasoro ↗</button></article>
       <article class="card"><span class="tag">Estación seleccionada</span><div id="station-detail" class="station-detail">Seleccioná un marcador del mapa para consultar su ubicación, período y cantidad de registros.</div></article>
     </aside>
@@ -138,6 +140,7 @@
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
     const stationLayer=L.layerGroup().addTo(map);
     const localLayer=L.layerGroup().addTo(map);
+    const rainfallLayer=L.layerGroup();
     const local=L.circleMarker([-28.05,-56.02],{radius:9,color:'#071416',weight:2,fillColor:'#7af0ce',fillOpacity:1});
     local.bindPopup('<strong>Referencia ERA5 · Gobernador Virasoro</strong><br>Celda de reanálisis próxima a la ciudad.<br><em>No es una estación ni una medición puntual.</em>');
     local.addTo(localLayer);
@@ -145,6 +148,32 @@
     document.getElementById('focus-virasoro').addEventListener('click',showLocal);
     document.getElementById('toggle-virasoro').addEventListener('change',e=>e.target.checked?map.addLayer(localLayer):map.removeLayer(localLayer));
     document.getElementById('toggle-stations').addEventListener('change',e=>e.target.checked?map.addLayer(stationLayer):map.removeLayer(stationLayer));
+    const rainfallToggle=document.getElementById('toggle-rainfall'), yearSelect=document.getElementById('rainfall-year'), rainfallStatus=document.getElementById('rainfall-status');
+    const [coverageRows,annualRows]=await Promise.all([get('datos/inta-siga/estaciones-cobertura.csv'),get('datos/inta-siga/precipitacion-anual-estaciones.csv')]);
+    const coverage=csv(coverageRows), annual=csv(annualRows);
+    const coords=new Map(coverage.filter(s=>s.latitud!==''&&s.longitud!=='').map(s=>[s.id_estacion,s]));
+    const annualYears=[...new Set(annual.map(r=>Number(r.anio)).filter(Number.isFinite))].sort((a,b)=>b-a);
+    yearSelect.innerHTML=annualYears.map(y=>'<option value="'+y+'">'+y+'</option>').join('');
+    function renderRainfall(){
+      rainfallLayer.clearLayers();
+      const year=Number(yearSelect.value);
+      const points=annual.filter(r=>Number(r.anio)===year&&Number(r.precip_pluviometrica_validos)>=300&&coords.has(r.id_estacion));
+      const values=points.map(r=>Number(r.suma_valores_precip_pluviometrica)).filter(Number.isFinite);
+      const max=Math.max(1,...values);
+      points.forEach(r=>{
+        const s=coords.get(r.id_estacion),mm=Number(r.suma_valores_precip_pluviometrica),validDays=Number(r.precip_pluviometrica_validos)||0,missing=Number(r.precip_pluviometrica_faltantes)||0;
+        if(!Number.isFinite(mm))return;
+        const ratio=mm/max,color=ratio>.66?'#f3c978':ratio>.33?'#7af0ce':'#6dd9ef';
+        const marker=L.circleMarker([Number(s.latitud),Number(s.longitud)],{radius:5+ratio*9,color:'#071416',weight:1,fillColor:color,fillOpacity:.82});
+        marker.bindPopup('<strong>'+esc(s.nombre||r.nombre||r.id_estacion)+'</strong><br>'+esc(s.localidad||r.localidad||'')+', '+esc(s.provincia||r.provincia||'')+'<br><strong>Año '+year+'</strong><br>Suma de registros disponibles: '+fmt(mm,1)+' mm<br>Registros válidos: '+fmt(validDays)+' · faltantes registrados: '+fmt(missing)+'<br><small>No es un total anual normalizado. La cobertura puede ser parcial; no se interpolan valores entre estaciones.</small>');
+        marker.addTo(rainfallLayer);
+      });
+      rainfallStatus.textContent=fmt(points.length)+' estaciones con ≥300 registros válidos en '+year+'. Sumas observadas; no normalizadas ni interpoladas.';
+      if(rainfallToggle.checked)map.addLayer(rainfallLayer);
+    }
+    rainfallToggle.addEventListener('change',()=>rainfallToggle.checked?map.addLayer(rainfallLayer):map.removeLayer(rainfallLayer));
+    yearSelect.addEventListener('change',renderRainfall);
+    if(annualYears.length)renderRainfall();
     const rows=csv(await get('datos/inta-siga/estaciones-cobertura.csv'));
     const valid=rows.filter(s=>Number.isFinite(Number(s.latitud))&&Number.isFinite(Number(s.longitud))&&Math.abs(Number(s.latitud))<=90&&Math.abs(Number(s.longitud))<=180&&s.latitud!==''&&s.longitud!=='');
     const maxRecords=Math.max(1,...valid.map(s=>Number(s.registros)||0));
