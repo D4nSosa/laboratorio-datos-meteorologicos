@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 </head>
 <body>
-<div class="topbar"><div class="shell"><div class="brand">DAN SOSA <span>/ LABORATORIO</span></div><nav aria-label="Navegación principal"><a href="#mapa">Mapa nacional</a><a href="#estado">Estado</a><a href="#explorar">Análisis</a><a href="#fuentes">Fuentes</a></nav></div></div>
+<div class="topbar"><div class="shell"><div class="brand">DAN SOSA <span>/ LABORATORIO</span></div><nav aria-label="Navegación principal"><a href="#mapa">Mapa nacional</a><a href="#estado">Estado</a><a href="#explorar">Análisis</a><a href="#fuentes">Fuentes</a><a href="#documentacion">Documentación</a></nav></div></div>
 <header class="shell hero">
 <div><div class="eyebrow">Observación · territorio · evidencia</div><h1>Leer el territorio.<br><em>Encontrar patrones.</em></h1><p>Un entorno de investigación meteorológica de Argentina. Explorá la red de estaciones, compará períodos y conectá observaciones con contexto territorial, empezando por Gobernador Virasoro y ampliando el análisis solo cuando los datos lo permitan.</p><div class="status"><span class="dot"></span> Ojo meteorológico · investigación basada en evidencia</div></div>
 <div class="eye-wrap" aria-label="Gráfico conceptual de un ojo de observación de datos"><div class="eye"><div class="cross h"></div><div class="cross v"></div><div class="ring"></div><div class="ring r2"></div><div class="ring r3"></div><div class="ring r4"></div><div class="iris"></div><span class="coord c1">28°03'S / 56°02'W</span><span class="coord c2">TERRITORIO // 01</span><span class="coord c3">OBSERVE · COMPARE · VERIFY</span></div></div>
@@ -82,7 +82,50 @@
 </div>
 <div class="callout" style="margin-top:16px"><strong>Importante:</strong> un flujo automatizado exitoso confirma que el proceso se ejecutó, no que la fuente esté libre de errores. ERA5, los agregados departamentales y las observaciones de estación son productos distintos y no deben mezclarse sin metodología explícita.</div>
 </section>
-<footer class="footer"><div>Investigación independiente de <strong>DAN SOSA</strong> · Gobernador Virasoro, Corrientes, Argentina</div><div><a href="https://dansosa.vercel.app">dansosa.vercel.app</a> · <a href="https://github.com/D4nSosa/laboratorio-datos-meteorologicos">Código y datos</a></div></footer>
+
+<section id="documentacion">
+<div class="section-head"><h2>Centro de documentación</h2><p>Informes completos, datos originales, metodología y auditorías</p></div>
+<div class="grid">
+<article class="card span6">
+<span class="tag neutral">Investigación 01 · Virasoro</span>
+<h3>Precipitaciones en Gobernador Virasoro</h3>
+<p class="sub">Informe documental con referencias históricas, línea de base ERA5 1991–2025, comparación de fuentes, cifras publicadas, límites y preguntas todavía abiertas. Distingue el reanálisis de las mediciones locales.</p>
+<div class="links"><a href="https://github.com/D4nSosa/laboratorio-datos-meteorologicos/blob/main/investigaciones/01-precipitacion-virasoro/informe_documental_virasoro.md">Leer informe completo ↗</a><a href="https://github.com/D4nSosa/laboratorio-datos-meteorologicos/blob/main/investigaciones/01-precipitacion-virasoro/README.md">Ficha de investigación ↗</a></div>
+</article>
+<article class="card span6">
+<span class="tag neutral">Investigación 02 · Corrientes</span>
+<h3>Santo Tomé y contexto provincial</h3>
+<p class="sub">Resultados descriptivos de 32 años completos (1993–2025, con exclusiones documentadas), distribución mensual y anual. Es una serie departamental y no representa automáticamente a Virasoro.</p>
+<div class="links"><a href="https://github.com/D4nSosa/laboratorio-datos-meteorologicos/blob/main/investigaciones/01-precipitacion-virasoro/resultados_santo_tome.md">Leer resultados ↗</a><a href="https://github.com/D4nSosa/laboratorio-datos-meteorologicos/tree/main/investigaciones/02-corrientes-nea">Etapa Corrientes–NEA ↗</a></div>
+</article>
+<article class="card span6">
+<span class="tag warn">Auditoría técnica · 29/10/2026</span>
+<h3>Qué está comprobado y qué no</h3>
+<p class="sub">Auditoría del consolidado INTA-SIGA: 1.177.258 filas, 38 columnas, 182 estaciones declaradas, 99 claves estación-fecha repetidas y límites de unidad, frecuencia, cobertura y selección geográfica.</p>
+<div class="links"><a href="https://github.com/D4nSosa/laboratorio-datos-meteorologicos/blob/main/investigaciones/auditoria-tecnica-datos-2026-10-29.md">Leer auditoría completa ↗</a><a href="https://github.com/D4nSosa/laboratorio-datos-meteorologicos/blob/main/datos/fuentes-externas/inta-siga/OBSERVACIONES.md">Ficha del consolidado ↗</a></div>
+</article>
+<article class="card span6">
+<span class="tag neutral">Fuentes y metodología</span>
+<h3>Procedencia, criterios y registro de búsqueda</h3>
+<p class="sub">Documentación sobre qué fuentes se consultaron, cuáles se descargaron, qué períodos y variables cubren, cómo se procesan y qué condiciones deben cumplirse antes de comparar series.</p>
+<div class="links"><a href="https://github.com/D4nSosa/laboratorio-datos-meteorologicos/blob/main/fuentes/fuentes_y_metodologia.md">Metodología ↗</a><a href="https://github.com/D4nSosa/laboratorio-datos-meteorologicos/blob/main/fuentes/inventario_fuentes_precipitacion_argentina_2026-10.md">Inventario nacional de fuentes ↗</a><a href="https://github.com/D4nSosa/laboratorio-datos-meteorologicos/blob/main/fuentes/registro_de_busqueda_2026-10.md">Registro de búsqueda ↗</a></div>
+</article>
+<article class="card span6">
+<span class="tag">Dataset nacional</span>
+<h3>INTA-SIGA · datos archivados y derivados</h3>
+<p class="sub">Consolidado comunitario que declara basarse en SIGA-INTA. Se comprobó hash e integridad estructural; eso no certifica calidad instrumental ni homogeneidad de las series.</p>
+<div class="links"><a href="https://github.com/D4nSosa/laboratorio-datos-meteorologicos/blob/main/fuentes/estado_descargas_dataset_2026-10-29.md">Estado de descargas ↗</a><a href="https://github.com/D4nSosa/laboratorio-datos-meteorologicos/blob/main/datos/fuentes-externas/inta-siga/README.md">Catálogo y procedencia ↗</a><a href="../datos/fuentes-externas/inta-siga/estaciones-observaciones.csv.gz">Descargar observaciones CSV.gz ↗</a></div>
+</article>
+<article class="card span6">
+<span class="tag neutral">Reproducibilidad</span>
+<h3>Código, scripts y ejecuciones</h3>
+<p class="sub">Los cálculos deben poder reconstruirse desde los archivos y scripts, con dependencias declaradas, validaciones automatizadas y registro de cambios.</p>
+<div class="links"><a href="https://github.com/D4nSosa/laboratorio-datos-meteorologicos/tree/main/investigaciones">Explorar investigaciones y scripts ↗</a><a href="https://github.com/D4nSosa/laboratorio-datos-meteorologicos/actions">Historial de automatizaciones ↗</a><a href="https://github.com/D4nSosa/laboratorio-datos-meteorologicos">Repositorio completo ↗</a></div>
+</article>
+</div>
+<div class="callout" style="margin-top:16px"><strong>Lectura responsable:</strong> los informes presentan resultados y también sus límites. Los valores ERA5, los agregados departamentales y las observaciones de estación son fuentes diferentes. Ninguna cifra debe interpretarse como medición local validada si la documentación no lo demuestra.</div>
+</section>
+\n<footer class="footer"><div>Investigación independiente de <strong>DAN SOSA</strong> · Gobernador Virasoro, Corrientes, Argentina</div><div><a href="https://dansosa.vercel.app">dansosa.vercel.app</a> · <a href="https://github.com/D4nSosa/laboratorio-datos-meteorologicos">Código y datos</a></div></footer>
 </main>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
