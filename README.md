@@ -28,6 +28,12 @@ El código y el análisis pueden desarrollarse con apoyo de herramientas de soft
 
 La primera etapa incluye el análisis descriptivo de la base pública del departamento de Santo Tomé y una línea base ERA5 para el entorno de Gobernador Virasoro (1991–2025). El [informe documental de Virasoro](investigaciones/01-precipitacion-virasoro/informe_documental_virasoro.md) reúne la evidencia publicada y sus límites. ERA5 no equivale a mediciones de estación: para concluir sobre tendencias locales todavía se necesita conseguir y validar registros primarios continuos. Los [resultados preliminares de Santo Tomé](investigaciones/01-precipitacion-virasoro/resultados_santo_tome.md) se mantienen separados como contexto regional.
 
+### Dataset nacional descargado
+
+Se incorporó el consolidado público de observaciones SIGA-INTA para 182 estaciones, con 1.177.258 filas y 38 columnas. El archivo original de 151 MB fue verificado mediante SHA-256 y archivado comprimido en [estaciones-observaciones.csv.gz](datos/fuentes-externas/inta-siga/estaciones-observaciones.csv.gz). La [metadata de validación](datos/fuentes-externas/inta-siga/observaciones-metadata.json) documenta integridad y estructura; no implica que cada observación esté validada instrumentalmente ni que exista cobertura exhaustiva nacional.
+
+El catálogo y la procedencia están en [INTA-SIGA](datos/fuentes-externas/inta-siga/README.md). El [informe de descargas](fuentes/estado_descargas_dataset_2026-10-29.md) separa lo ya archivado de las fuentes pendientes. Se está automatizando un resumen de cobertura por estación/año y un recorte de estaciones cercanas a Virasoro; sus totales son exploratorios hasta confirmar unidades y frecuencia.
+
 El flujo automatizado valida la estructura de datos, ejecuta los scripts y conserva artefactos de cada ejecución. Una ejecución exitosa acredita reproducibilidad computacional del flujo, no validación científica independiente.
 
 ## Reproducibilidad y licencia
