@@ -3,8 +3,13 @@ name: Publicar laboratorio en GitHub Pages
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
+    branches: [main]
+    paths:
+      - "docs/**"
+      - ".github/workflows/publicar-pages.yml"
+      - "datos/fuentes-externas/inta-siga/analisis-cobertura.json"
+      - "datos/fuentes-externas/inta-siga/estaciones-cobertura.csv"
+      - "datos/fuentes-externas/inta-siga/precipitacion-anual-estaciones.csv"
 
 permissions:
   contents: read
@@ -13,7 +18,7 @@ permissions:
 
 concurrency:
   group: github-pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -21,18 +26,17 @@ jobs:
     steps:
       - name: Descargar repositorio
         uses: actions/checkout@v4
-
-      - name: Configurar GitHub Pages
+      - name: Configurar GitHub Pages para despliegue con Actions
         uses: actions/configure-pages@v5
-
-      - name: Preparar datos públicos de INTA-SIGA
+        with:
+          enablement: true
+      - name: Publicar resultados del análisis INTA-SIGA
         run: |
           mkdir -p docs/datos/inta-siga
           cp datos/fuentes-externas/inta-siga/analisis-cobertura.json docs/datos/inta-siga/
           cp datos/fuentes-externas/inta-siga/estaciones-cobertura.csv docs/datos/inta-siga/
           cp datos/fuentes-externas/inta-siga/precipitacion-anual-estaciones.csv docs/datos/inta-siga/
-
-      - name: Validar contenido del sitio
+      - name: Validar estructura pública
         run: |
           test -s docs/index.html
           test -s docs/datos/precipitacion_anual_era5.csv
@@ -40,12 +44,10 @@ jobs:
           test -s docs/datos/inta-siga/analisis-cobertura.json
           test -s docs/datos/inta-siga/estaciones-cobertura.csv
           test -s docs/datos/inta-siga/precipitacion-anual-estaciones.csv
-
       - name: Empaquetar sitio
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs
-
   deploy:
     environment:
       name: github-pages
