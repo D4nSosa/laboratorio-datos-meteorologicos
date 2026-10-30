@@ -69,10 +69,38 @@
 /* Ajustes de lectura y exploración en pantallas pequeñas */
 .chart-modal{width:min(98vw,1500px);height:min(94dvh,980px);padding:12px}.chart-modal-content{display:block;height:calc(100% - 48px);padding:12px;overflow:auto}.chart-modal-content svg{display:block;width:100%;height:auto;min-height:0;max-height:none;aspect-ratio:3/1}.chartwrap{display:block;min-height:0}.chartwrap svg{display:block;width:100%;height:auto;aspect-ratio:3/1;min-height:260px}.carousel-track{align-items:stretch}.carousel-slide{scroll-snap-stop:always}.chartcard{height:100%}.map-tools .search{background:#08191b;color:var(--text)}.map-tools select{background:#102a2d;color:var(--text);border:1px solid #315357;border-radius:8px;padding:8px 10px}.leaflet-popup-content{line-height:1.65}.leaflet-popup-content small{color:#91aaa7}
 @media(max-width:760px){.chart-modal{width:100vw;height:94dvh;max-width:none;border-radius:12px;padding:10px}.chart-modal-content{padding:6px}.chart-modal-content svg{min-width:680px;aspect-ratio:3/1}.chartwrap svg{min-height:240px}.chartcard{padding:14px}}
+/* Rediseño funcional: navegación corta, carrusel táctil y gráficos ampliables */
+.tabs{max-width:100%;overflow-x:visible;white-space:normal;gap:6px}
+.tab{font-size:12px;padding:9px 13px}
+.lower.carousel-track{display:flex;overflow-x:auto;overflow-y:hidden;gap:14px;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#32645b #0a191b;cursor:grab}
+.lower.carousel-track:active{cursor:grabbing}
+.lower.carousel-track>.carousel-slide{flex:0 0 min(86%,1080px);min-width:0;scroll-snap-align:start;scroll-snap-stop:always}
+.chartwrap{width:100%;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+.chartwrap svg{display:block;width:100%;height:auto;min-width:640px;max-height:none;aspect-ratio:auto}
+.chart-modal{position:fixed;inset:0;margin:auto;width:min(96vw,1500px);height:min(94dvh,980px);max-width:none;max-height:none;padding:14px;overflow:hidden}
+.chart-modal-content{display:block;height:calc(100% - 46px);margin-top:10px;padding:10px;overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y}
+.chart-modal-content svg{display:block;width:100%;min-width:900px;height:auto;min-height:0;max-height:none;aspect-ratio:auto}
+.modal-head{position:sticky;top:0;z-index:2;background:#0b1b1d;padding-bottom:5px}
+.section.active{display:block}
+@media(max-width:760px){
+ .top{height:auto;min-height:62px;align-items:flex-start;flex-direction:column;padding:9px 10px;gap:6px}
+ .topright{width:100%;display:block}
+ .topright>.live{display:none}
+ .tabs{width:100%;display:flex;gap:5px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+ .tabs::-webkit-scrollbar{display:none}
+ .tab{flex:0 0 auto;font-size:11px;padding:8px 10px}
+ .lower.carousel-track>.carousel-slide{flex-basis:100%}
+ .chartwrap svg{min-width:680px;min-height:0}
+ .chart-modal{inset:0;width:100vw;height:96dvh;border-radius:12px;padding:9px}
+ .chart-modal-content{padding:5px;height:calc(100% - 44px)}
+ .chart-modal-content svg{min-width:900px}
+ .carousel-heading{align-items:center}
+ .carousel-nav{flex:0 0 auto}
+}
 </style>
 </head>
 <body><div class="app">
-<header class="top"><div class="brand">OJO METEOROLÓGICO <i>/ LABORATORIO</i></div><div class="topright"><span class="live"></span> INVESTIGACIÓN EN CURSO <nav class="tabs" aria-label="Secciones del laboratorio"><button class="tab active" data-tab="observatorio">Observatorio</button><button class="tab" data-tab="virasoro">Virasoro</button><button class="tab" data-tab="territorio">Mapa territorial</button><button class="tab" data-tab="enso">ENSO</button><button class="tab" data-tab="eventos">Eventos</button><button class="tab" data-tab="resultados">Resultados</button><button class="tab" data-tab="metodologia">Datos y método</button></nav></div></header><main><section id="observatorio" class="section active">
+<header class="top"><div class="brand">OJO METEOROLÓGICO <i>/ LABORATORIO</i></div><div class="topright"><span class="live"></span> INVESTIGACIÓN EN CURSO <nav class="tabs" aria-label="Secciones del laboratorio"><button class="tab active" data-tab="observatorio">Observatorio</button><button class="tab" data-tab="explorador">Explorador de datos</button><button class="tab" data-tab="metodologia">Metodología y fuentes</button></nav></div></header><main><section id="observatorio" class="section active">
 <div class="lab-intro">
 <div class="lab-kicker">Laboratorio independiente · Gobernador Virasoro, Corrientes</div>
 <h1>¿Cómo se comportan las lluvias en Virasoro y qué podemos aprender al ampliar la mirada?</h1>
@@ -92,7 +120,7 @@
 </div><div class="state-note"><b>Estado científico actual:</b> hay una línea base descriptiva ERA5 para Virasoro y una serie departamental de Santo Tomé. La integración de ONI/RONI y el análisis estadístico lluvia–ENSO todavía no están implementados. Los datos disponibles no permiten caracterizar tormentas eléctricas: para eso se requieren fuentes específicas como radar, descargas eléctricas u observaciones de estación.</div></div>
 </section>
 <section id="virasoro" class="section"><div class="heading"><div><div class="eyebrow">Análisis local · celda ERA5</div><h1>Precipitaciones en Gobernador Virasoro</h1><p>Serie de reanálisis 1991–2025, climatología mensual y comparación departamental por separado.</p></div><span class="scope">ERA5 · -28,00 / -56,00</span></div><div class="carousel-heading"><div><div class="eyebrow">Sala de análisis · datos disponibles</div><h2>Explorador de precipitaciones</h2><p class="small">Gráficos y registros consultables. Cada conjunto conserva su escala y su procedencia; seleccioná un panel o una estación para examinarlo.</p></div><div class="carousel-nav"><button class="action" id="chart-prev" aria-label="Anterior">‹</button><span id="chart-slide-count" class="small">1 / 3</span><button class="action" id="chart-next" aria-label="Siguiente">›</button></div></div>
-<div class="lower carousel-track" id="chart-carousel">
+<div class="lower carousel-track" id="chart-carousel" tabindex="0" role="region" aria-label="Gráficos explorables. Usá las flechas izquierda y derecha para cambiar de gráfico.">
 <article class="chartcard carousel-slide"><div class="charttop"><div><div class="eyebrow">01 · Escala local / celda ERA5</div><h3 id="chart-title">Precipitación anual · ERA5 / Virasoro</h3><div class="small" id="chart-subtitle">1991–2025 · milímetros por año</div></div><span class="pill blue" id="chart-source">REANÁLISIS</span></div><div class="chartwrap" id="main-chart"><div class="empty">Cargando serie histórica…</div></div><p class="chartnote" id="chart-note">Seleccioná una estación o un año para explorar los datos disponibles.</p><button class="action chart-fullscreen" data-target="main-chart">Ver gráfica completa ⛶</button></article>
 <article class="chartcard carousel-slide"><div class="eyebrow">02 · Ritmo intra-anual</div><h3 style="margin:5px 0">¿Cómo se distribuye la lluvia durante el año?</h3><div class="small">Promedio mensual 1991–2025 · mm</div><div class="chartwrap" id="monthly-chart"></div><p class="chartnote">Promedios mensuales del punto de grilla consultado. No representan una estación local.</p><button class="action chart-fullscreen" data-target="monthly-chart">Ver gráfica completa ⛶</button></article>
 <article class="chartcard carousel-slide"><div class="eyebrow">03 · Escala departamental</div><h3 style="margin:5px 0">¿Qué muestra la serie de Santo Tomé?</h3><div class="small">Ministerio de Producción de Corrientes · mm/año</div><div class="chartwrap" id="santo-tome-chart"><div class="empty">Cargando datos departamentales…</div></div><p class="chartnote">Agregado departamental; no equivale a la celda ERA5 de Virasoro ni a una estación puntual.</p><button class="action chart-fullscreen" data-target="santo-tome-chart">Ver gráfica completa ⛶</button></article>
@@ -157,7 +185,14 @@ function parseCSV(t){const out=[];let row=[],f='',q=false;for(let i=0;i<t.length
 async function get(p){const r=await fetch(p,{cache:'no-store'});if(!r.ok)throw Error(p+' · HTTP '+r.status);return r.text()}
 function lineChart(rows,key,label,unit,color='#087e70'){const W=900,H=300,L=62,R=22,T=22,B=42,vals=rows.map(r=>Number(r[key])).filter(Number.isFinite);if(!vals.length)return '<div class="empty">No hay datos para graficar.</div>';const max=Math.ceil(Math.max(...vals)/500)*500||1,min=Math.min(0,...vals),x=i=>L+i*(W-L-R)/Math.max(1,rows.length-1),y=v=>T+(H-T-B)*(1-(v-min)/(max-min||1));let s='<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg">';for(let i=0;i<=4;i++){let v=min+(max-min)*i/4,yy=y(v);s+='<line x1="'+L+'" y1="'+yy+'" x2="'+(W-R)+'" y2="'+yy+'" stroke="#d8e3e1"/><text x="'+(L-9)+'" y="'+(yy+4)+'" fill="#536b67" font-size="11" text-anchor="end">'+fmt(v)+'</text>'}const avg=vals.reduce((a,v)=>a+v,0)/vals.length;const avgY=y(avg);s+='<line x1="'+L+'" y1="'+avgY+'" x2="'+(W-R)+'" y2="'+avgY+'" stroke="#b17a1c" stroke-width="1.6" stroke-dasharray="6 5"/><text x="'+(W-R-3)+'" y="'+(avgY-6)+'" text-anchor="end" fill="#8a641f" font-size="10">Media '+fmt(avg,1)+' '+unit+'</text>';s+='<path d="'+rows.map((r,i)=>(i?'L':'M')+x(i)+' '+y(Number(r[key]))).join(' ')+'" fill="none" stroke="'+color+'" stroke-width="3" stroke-linecap="round"/>';rows.forEach((r,i)=>{let yy=y(Number(r[key])),xx=x(i);s+='<circle cx="'+xx+'" cy="'+yy+'" r="4.5" fill="'+color+'" stroke="#fff" stroke-width="1.5"><title>'+esc(r.label??r.anio)+': '+fmt(r[key],1)+' '+unit+'</title></circle>';if(i%Math.max(1,Math.ceil(rows.length/7))===0||i===rows.length-1)s+='<text x="'+xx+'" y="'+(H-15)+'" fill="#536b67" font-size="11" text-anchor="middle">'+esc(r.label??r.anio)+'</text>'});return s+'</svg>'}
 function barChart(rows){const W=500,H=250,L=35,R=12,T=15,B=42,max=Math.max(...rows.map(r=>r.value))*1.12;let s='<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg">';rows.forEach((r,i)=>{let bw=23,gap=(W-L-R)/rows.length,x=L+i*(W-L-R)/rows.length+(gap-bw)/2,h=(H-T-B)*r.value/max,y=H-B-h;s+='<rect x="'+x+'" y="'+y+'" width="'+bw+'" height="'+h+'" rx="4" fill="#138b7a"><title>'+r.month+': '+fmt(r.value,1)+' mm</title></rect><text x="'+(x+bw/2)+'" y="'+(H-18)+'" text-anchor="middle" fill="#536b67" font-size="10">'+r.month+'</text>'});return s+'</svg>'}
-document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('.section').forEach(x=>x.classList.toggle('active',x.id===b.dataset.tab));if(b.dataset.tab==='territorio')setTimeout(()=>window.labMap?.invalidateSize(),120);window.scrollTo({top:0,behavior:'smooth'})}));
+const sectionGroups={observatorio:['observatorio'],explorador:['virasoro','territorio'],metodologia:['enso','eventos','resultados','metodologia']};
+document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>{
+ document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('active',x===b));
+ const visible=sectionGroups[b.dataset.tab]||[b.dataset.tab];
+ document.querySelectorAll('.section').forEach(x=>x.classList.toggle('active',visible.includes(x.id)));
+ if(b.dataset.tab==='explorador')setTimeout(()=>window.labMap?.invalidateSize(),160);
+ window.scrollTo({top:0,behavior:'smooth'});
+}));
 let era=[],monthly=[],stations=[],annual=[],map,stationLayer,rainLayer,eraLayer,selectedStation=null;
 function setEraSelection(){document.getElementById('selection-kind').textContent='REANÁLISIS';document.getElementById('selection-name').textContent='Gobernador Virasoro';document.getElementById('selection-sub').textContent='Corrientes · Argentina';document.getElementById('selection-value').textContent='1.786,94';document.getElementById('selection-unit').textContent='mm · media anual ERA5';document.getElementById('selection-period').textContent='1991–2025';document.getElementById('selection-description').textContent='Celda ERA5 próxima a la ciudad (-28,00 / -56,00). No equivale a una estación meteorológica.';document.getElementById('chart-title').textContent='Precipitación anual · ERA5 / Virasoro';document.getElementById('chart-subtitle').textContent='1991–2025 · milímetros por año';document.getElementById('chart-source').textContent='REANÁLISIS';document.getElementById('main-chart').innerHTML=lineChart(era,'precipitacion_anual_mm','Año','mm');document.getElementById('chart-note').textContent='Fuente: ERA5 mediante Open-Meteo Historical Weather API. Serie de celda de grilla, no medición puntual.';selectedStation=null}
 function selectStation(s){selectedStation=s;document.getElementById('selection-kind').textContent='ESTACIÓN';document.getElementById('selection-name').textContent=s.nombre||s.id_estacion;document.getElementById('selection-sub').textContent=(s.localidad||'')+' · '+(s.provincia||'');document.getElementById('selection-value').textContent=fmt(Number(s.registros)||0);document.getElementById('selection-unit').textContent='registros en el consolidado';document.getElementById('selection-period').textContent=(s.fecha_inicial||'—')+' / '+(s.fecha_final||'—');document.getElementById('selection-description').textContent='ID '+s.id_estacion+'. Cobertura del archivo, no certificación de calidad instrumental.';const serie=annual.filter(r=>r.id_estacion===s.id_estacion&&Number(r.precip_pluviometrica_validos)>=300&&Number.isFinite(Number(r.suma_valores_precip_pluviometrica))).sort((a,b)=>Number(a.anio)-Number(b.anio));document.getElementById('chart-title').textContent='Registros anuales · '+(s.nombre||s.id_estacion);document.getElementById('chart-subtitle').textContent='Sumas del consolidado · años con ≥300 registros válidos';document.getElementById('chart-source').textContent='INTA-SIGA · EXPLORATORIO';document.getElementById('main-chart').innerHTML=serie.length?lineChart(serie.map(r=>({anio:r.anio,suma:r.suma_valores_precip_pluviometrica})).map(r=>({...r,label:r.anio})),'suma','Año','mm','#b17a1c'):'<div class="empty">No hay años con al menos 300 registros válidos para esta estación. La serie no se completa ni se interpola.</div>';document.getElementById('chart-note').textContent='Suma de valores disponibles; no normalizada por días faltantes. La unidad/frecuencia requiere confirmación.'}
@@ -176,15 +211,29 @@ document.querySelectorAll('[data-info-carousel]').forEach(root=>{
 
 const carousel=document.getElementById('chart-carousel');
 const slides=[...carousel.querySelectorAll('.carousel-slide')];
-function syncCarousel(){const idx=Math.round(carousel.scrollLeft/(slides[0].getBoundingClientRect().width+14));document.getElementById('chart-slide-count').textContent=(Math.min(slides.length,idx+1))+' / '+slides.length;}
-document.getElementById('chart-prev').addEventListener('click',()=>carousel.scrollBy({left:-slides[0].getBoundingClientRect().width-14,behavior:'smooth'}));
-document.getElementById('chart-next').addEventListener('click',()=>carousel.scrollBy({left:slides[0].getBoundingClientRect().width+14,behavior:'smooth'}));
-carousel.addEventListener('scroll',()=>requestAnimationFrame(syncCarousel));syncCarousel();
+let activeChartSlide=0;
+function slideLeft(slide){return slide.getBoundingClientRect().left-carousel.getBoundingClientRect().left+carousel.scrollLeft;}
+function goToChartSlide(index){activeChartSlide=Math.max(0,Math.min(slides.length-1,index));carousel.scrollTo({left:slideLeft(slides[activeChartSlide]),behavior:'smooth'});}
+function syncCarousel(){
+ const center=carousel.getBoundingClientRect().left+carousel.clientWidth/2;
+ activeChartSlide=slides.reduce((best,slide,i)=>Math.abs(slide.getBoundingClientRect().left+slide.getBoundingClientRect().width/2-center)<Math.abs(slides[best].getBoundingClientRect().left+slides[best].getBoundingClientRect().width/2-center)?i:best,0);
+ document.getElementById('chart-slide-count').textContent=(activeChartSlide+1)+' / '+slides.length;
+}
+document.getElementById('chart-prev').addEventListener('click',()=>goToChartSlide(activeChartSlide-1));
+document.getElementById('chart-next').addEventListener('click',()=>goToChartSlide(activeChartSlide+1));
+carousel.addEventListener('scroll',()=>requestAnimationFrame(syncCarousel),{passive:true});
+window.addEventListener('resize',()=>requestAnimationFrame(syncCarousel),{passive:true});
+carousel.addEventListener('keydown',event=>{if(event.key==='ArrowRight'){event.preventDefault();goToChartSlide(activeChartSlide+1)}if(event.key==='ArrowLeft'){event.preventDefault();goToChartSlide(activeChartSlide-1)}});
+syncCarousel();
+const chartModal=document.getElementById('chart-modal');
 document.querySelectorAll('.chart-fullscreen').forEach(btn=>btn.addEventListener('click',()=>{
  const source=document.getElementById(btn.dataset.target),svg=source.querySelector('svg');if(!svg)return;
- const modal=document.getElementById('chart-modal'),target=document.getElementById('chart-modal-content');target.innerHTML='';target.appendChild(svg.cloneNode(true));modal.showModal();
+ const target=document.getElementById('chart-modal-content');target.innerHTML='';
+ const enlarged=svg.cloneNode(true);enlarged.setAttribute('role','img');enlarged.setAttribute('aria-label','Gráfica ampliada');target.appendChild(enlarged);
+ chartModal.showModal();target.scrollTop=0;target.scrollLeft=0;
 }));
-document.getElementById('chart-modal-close').addEventListener('click',()=>document.getElementById('chart-modal').close());
+document.getElementById('chart-modal-close').addEventListener('click',()=>chartModal.close());
+chartModal.addEventListener('click',event=>{if(event.target===chartModal)chartModal.close()});
 
 init();
 const eraYear=document.getElementById('era-year');
