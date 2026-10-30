@@ -97,6 +97,45 @@
  .carousel-heading{align-items:center}
  .carousel-nav{flex:0 0 auto}
 }
+
+/* Laboratorio: gráficos legibles, desplazamiento táctil y modal adaptable */
+.lower.carousel-track{
+  display:flex; flex-wrap:nowrap; overflow-x:auto; overflow-y:hidden;
+  scroll-snap-type:x mandatory; scroll-padding-inline:2px;
+  overscroll-behavior-x:contain; -webkit-overflow-scrolling:touch;
+  touch-action:pan-x pan-y; scrollbar-width:thin;
+}
+.carousel-slide{scroll-snap-align:start;scroll-snap-stop:always;flex-shrink:0}
+.carousel-nav .action{min-width:38px;min-height:38px;font-size:18px}
+.chart-modal{
+  position:fixed;inset:3dvh auto auto 50%;transform:translateX(-50%);
+  width:min(96vw,1500px);height:94dvh;max-width:none;max-height:none;
+  margin:0;padding:clamp(10px,1.5vw,18px);overflow:hidden;
+}
+.chart-modal[open]{display:flex;flex-direction:column}
+.modal-head{flex:0 0 auto;gap:12px;min-height:42px}
+.modal-head strong{font-size:13px;line-height:1.4}
+.chart-modal-content{
+  flex:1 1 auto;min-height:0;height:auto;width:100%;
+  display:flex;align-items:flex-start;justify-content:center;
+  overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+  touch-action:pan-x pan-y;scrollbar-width:thin;
+}
+.chart-modal-content svg{
+  display:block;flex:0 0 auto;width:100%;height:auto;
+  min-width:0;max-width:1400px;max-height:none;object-fit:contain;
+}
+@media(max-width:760px){
+  .chart-modal{inset:env(safe-area-inset-top,8px) auto auto 50%;width:calc(100vw - 12px);height:calc(100dvh - 16px);border-radius:10px;padding:9px}
+  .chart-modal-content{justify-content:flex-start;align-items:flex-start}
+  .chart-modal-content svg{width:900px;min-width:900px;max-width:none;height:auto}
+  .carousel-slide{flex-basis:94%;max-width:94%}
+  .lower.carousel-track{padding:2px 10px 14px;scroll-padding-inline:10px}
+}
+@media(prefers-reduced-motion:reduce){
+  .lower.carousel-track{scroll-behavior:auto}
+}
+
 </style>
 </head>
 <body><div class="app">
@@ -175,7 +214,7 @@
 </article></div><div class="info-slide"><article class="doccard"><span class="pill warn">Auditoría técnica</span><h3>Estado de calidad de los conjuntos</h3><p><b>Verificado técnicamente:</b> estructura legible, integridad del archivo consolidado y ejecución de los procesos de análisis documentados.</p><p><b>Exploratorio:</b> sumas anuales derivadas de INTA-SIGA, debido a claves repetidas y definiciones de variable/frecuencia aún por confirmar.</p><p><b>Pendiente:</b> inspección de duplicados, unidades, frecuencia, completitud por estación, selección geográfica y contraste con fuentes oficiales.</p><p><b>ERA5:</b> reanálisis de una celda próxima a Virasoro, no observación de una estación local.</p><p><b>Santo Tomé:</b> serie departamental de una fuente diferente; no se fusiona con ERA5 ni con estaciones puntuales.</p></article></div><div class="info-slide"><article class="doccard"><span class="pill">Criterio editorial</span><h3>Qué se publica en este laboratorio</h3><p>Resultados, hipótesis y datos pendientes se distinguen visualmente. Las capas se activan cuando existe una fuente documentada y datos procesados. No se rellenan mapas con interpolaciones no declaradas, no se presentan estimaciones como observaciones y no se anuncian tendencias sin series comparables.</p><p>El laboratorio es una investigación independiente de DAN SOSA, iniciada en Gobernador Virasoro, Corrientes, con ampliación territorial condicionada por la disponibilidad y calidad de los datos.</p></article></div><div class="info-dots" data-info-dots></div></div></section>
 <footer class="footer"><span>OJO METEOROLÓGICO · Investigación independiente · DAN SOSA</span><span>Gobernador Virasoro, Corrientes · <a href="https://dansosa.vercel.app">dansosa.vercel.app</a></span></footer>
 </main></div>
-<dialog id="chart-modal" class="chart-modal"><div class="modal-head"><strong>Vista ampliada de la gráfica</strong><button class="action" id="chart-modal-close">Cerrar ✕</button></div><div id="chart-modal-content" class="chart-modal-content"></div></dialog>
+<dialog id="chart-modal" class="chart-modal" aria-labelledby="chart-modal-title"><div class="modal-head"><strong id="chart-modal-title">Gráfica ampliada</strong><button class="action" id="chart-modal-close" type="button">Cerrar ✕</button></div><div id="chart-modal-content" class="chart-modal-content" tabindex="0" aria-label="Gráfica ampliada; desplazate horizontalmente para recorrerla"></div></dialog>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <script>
 (()=>{'use strict';
@@ -226,14 +265,26 @@ window.addEventListener('resize',()=>requestAnimationFrame(syncCarousel),{passiv
 carousel.addEventListener('keydown',event=>{if(event.key==='ArrowRight'){event.preventDefault();goToChartSlide(activeChartSlide+1)}if(event.key==='ArrowLeft'){event.preventDefault();goToChartSlide(activeChartSlide-1)}});
 syncCarousel();
 const chartModal=document.getElementById('chart-modal');
+const chartModalContent=document.getElementById('chart-modal-content');
+const chartModalTitle=document.getElementById('chart-modal-title');
 document.querySelectorAll('.chart-fullscreen').forEach(btn=>btn.addEventListener('click',()=>{
- const source=document.getElementById(btn.dataset.target),svg=source.querySelector('svg');if(!svg)return;
- const target=document.getElementById('chart-modal-content');target.innerHTML='';
- const enlarged=svg.cloneNode(true);enlarged.setAttribute('role','img');enlarged.setAttribute('aria-label','Gráfica ampliada');target.appendChild(enlarged);
- chartModal.showModal();target.scrollTop=0;target.scrollLeft=0;
+ const source=document.getElementById(btn.dataset.target),svg=source?.querySelector('svg');if(!svg)return;
+ chartModalContent.replaceChildren();
+ const enlarged=svg.cloneNode(true);
+ enlarged.setAttribute('role','img');
+ enlarged.setAttribute('aria-label','Gráfica ampliada');
+ enlarged.removeAttribute('width');enlarged.removeAttribute('height');
+ enlarged.style.width='100%';enlarged.style.height='auto';enlarged.style.maxHeight='none';
+ if(window.matchMedia('(max-width: 760px)').matches){enlarged.style.width='900px';enlarged.style.maxWidth='none'}
+ chartModalTitle.textContent=source.closest('.chartcard')?.querySelector('h3')?.textContent||'Gráfica ampliada';
+ chartModalContent.appendChild(enlarged);
+ chartModal.showModal();
+ chartModalContent.scrollTo({top:0,left:0,behavior:'instant'});
 }));
 document.getElementById('chart-modal-close').addEventListener('click',()=>chartModal.close());
 chartModal.addEventListener('click',event=>{if(event.target===chartModal)chartModal.close()});
+chartModal.addEventListener('close',()=>{chartModalContent.replaceChildren()});
+document.addEventListener('keydown',event=>{if(event.key==='Escape'&&chartModal.open)chartModal.close()});
 
 init();
 const eraYear=document.getElementById('era-year');
