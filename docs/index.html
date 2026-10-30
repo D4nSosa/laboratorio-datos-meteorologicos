@@ -178,6 +178,18 @@
 .subtabs{background:#091a1d;border-bottom-color:#315357}
 .subtab{letter-spacing:.015em}
 @media(max-width:760px){.lab-intro{grid-template-columns:1fr;gap:0}.lab-snapshot{grid-column:1;grid-row:auto;margin-top:22px}.lab-intro:after{right:-160px;top:-140px}.lab-snapshot-main strong{font-size:34px}}
+
+/* Corrección de composición: la ficha forma parte del hero, no es un bloque externo */
+.lab-intro{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(270px,.72fr);grid-template-rows:auto auto auto auto auto;column-gap:clamp(22px,4vw,58px);align-items:center;min-height:390px;padding:clamp(24px,4vw,48px)}
+.lab-intro>.lab-kicker{grid-column:1;grid-row:1}
+.lab-intro>h1{grid-column:1;grid-row:2}
+.lab-intro>p{grid-column:1;grid-row:3}
+.lab-intro>.lab-question{grid-column:1;grid-row:4}
+.lab-intro>.lab-meta{grid-column:1;grid-row:5}
+.lab-intro>.lab-snapshot{grid-column:2;grid-row:1 / 6;align-self:stretch;display:flex;flex-direction:column;justify-content:center;margin:0;min-width:0}
+.lab-snapshot-main strong{font-variant-numeric:tabular-nums}
+.lab-snapshot-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:760px){.lab-intro{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto;min-height:0;gap:0}.lab-intro>.lab-kicker,.lab-intro>h1,.lab-intro>p,.lab-intro>.lab-question,.lab-intro>.lab-meta,.lab-intro>.lab-snapshot{grid-column:1;grid-row:auto}.lab-intro>.lab-snapshot{margin-top:22px}.lab-intro>.lab-meta{margin-top:16px}}
 </style>
 </head>
 <body><div class="app">
@@ -188,7 +200,8 @@
 <p>Investigamos la variabilidad de las precipitaciones, los episodios de lluvia intensa y su distribución territorial. Partimos de los registros disponibles para Virasoro, contrastamos fuentes de distinta escala y construimos una metodología que pueda extenderse a Corrientes, el NEA y el resto de Argentina.</p>
 <div class="lab-question"><b>Pregunta central</b><span>¿Qué patrones, extremos y diferencias territoriales muestran los datos, y cómo se relacionan —cuando la evidencia lo permita— con la variabilidad climática como ENSO?</span></div>
 <div class="lab-meta"><span>Área inicial: Virasoro</span><span>Base ERA5: 1991–2025</span><span>Escalas: local · departamental · nacional</span><span>Estado: descriptivo; ENSO pendiente de integración</span></div>
-</div><aside class="lab-snapshot" aria-label="Ficha de la serie de referencia ERA5"><div class="lab-snapshot-head"><b>FICHA DE OBSERVACIÓN</b><span>BASE DISPONIBLE</span></div><div class="lab-snapshot-main"><small>Precipitación media anual · 1991–2025</small><strong>1.786,94 <em>mm/año</em></strong><em>ERA5 · celda de grilla próxima a Virasoro</em></div><div class="lab-snapshot-rule"></div><div class="lab-snapshot-stats"><div class="lab-snapshot-stat"><small>Extensión</small><strong>35 años</strong></div><div class="lab-snapshot-stat"><small>Máximo</small><strong>2.588,7 mm</strong></div><div class="lab-snapshot-stat"><small>Mínimo</small><strong>1.126,8 mm</strong></div><div class="lab-snapshot-stat"><small>Último año</small><strong>2025</strong></div></div><p class="lab-snapshot-foot">La serie es un reanálisis de una celda atmosférica, no una medición de pluviómetro urbano. Los indicadores describen el conjunto disponible.</p></aside>
+<aside class="lab-snapshot" aria-label="Ficha de la serie de referencia ERA5"><div class="lab-snapshot-head"><b>FICHA DE OBSERVACIÓN</b><span>BASE DISPONIBLE</span></div><div class="lab-snapshot-main"><small>Precipitación media anual · 1991–2025</small><strong>1.786,94 <em>mm/año</em></strong><em>ERA5 · celda de grilla próxima a Virasoro</em></div><div class="lab-snapshot-rule"></div><div class="lab-snapshot-stats"><div class="lab-snapshot-stat"><small>Extensión</small><strong>35 años</strong></div><div class="lab-snapshot-stat"><small>Máximo</small><strong>2.588,7 mm</strong></div><div class="lab-snapshot-stat"><small>Mínimo</small><strong>1.126,8 mm</strong></div><div class="lab-snapshot-stat"><small>Último año</small><strong>2025</strong></div></div><p class="lab-snapshot-foot">La serie es un reanálisis de una celda atmosférica, no una medición de pluviómetro urbano. Los indicadores describen el conjunto disponible.</p></aside>
+</div>
 <div class="research-frame">
 <div class="frame-card"><div class="eyebrow">Propósito del laboratorio</div><h2>Construir evidencia, no anticipar conclusiones</h2><p>El objetivo es reunir, auditar y analizar datos meteorológicos y territoriales para comprender cómo varían las lluvias en el tiempo y el espacio. Cada resultado debe poder rastrearse hasta su fuente, período, unidad y procedimiento de cálculo.</p><p>La investigación avanza por etapas: primero caracterizamos la referencia local; después comparamos registros regionales; finalmente ampliamos la cobertura nacional donde existan series suficientemente documentadas.</p></div>
 <div class="frame-card"><div class="eyebrow">Preguntas que guían el análisis</div><ul><li>¿Cuánto llueve y cómo se distribuye a lo largo del año?</li><li>¿Qué años y episodios se apartan de los valores habituales?</li><li>¿Qué diferencias aparecen entre Virasoro, el departamento y otras regiones?</li><li>¿Qué relación estadística puede observarse con ENSO, sin confundir asociación con causalidad?</li><li>¿Dónde hay datos confiables y dónde siguen existiendo vacíos?</li></ul></div>
