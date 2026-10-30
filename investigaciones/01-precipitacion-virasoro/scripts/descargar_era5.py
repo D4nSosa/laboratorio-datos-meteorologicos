@@ -91,8 +91,11 @@ def main() -> int:
         raise RuntimeError("La climatología no contiene los doce meses.")
 
     OUT.mkdir(parents=True, exist_ok=True)
+    DOCS_DATA = ROOT / "docs" / "datos"
+    DOCS_DATA.mkdir(parents=True, exist_ok=True)
     daily.to_csv(OUT / "precipitacion_diaria.csv", index=False, date_format="%Y-%m-%d")
     monthly.to_csv(OUT / "precipitacion_mensual.csv", index=False)
+    monthly.to_csv(DOCS_DATA / "precipitacion_mensual_era5.csv", index=False)
     annual.to_csv(OUT / "precipitacion_anual.csv", index=False)
     climatology.to_csv(OUT / "climatologia_mensual.csv", index=False)
     metadata = {
