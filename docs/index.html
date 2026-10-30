@@ -120,7 +120,7 @@
 </div><div class="state-note"><b>Estado científico actual:</b> hay una línea base descriptiva ERA5 para Virasoro y una serie departamental de Santo Tomé. La integración de ONI/RONI y el análisis estadístico lluvia–ENSO todavía no están implementados. Los datos disponibles no permiten caracterizar tormentas eléctricas: para eso se requieren fuentes específicas como radar, descargas eléctricas u observaciones de estación.</div></div>
 </section>
 <section id="virasoro" class="section"><div class="heading"><div><div class="eyebrow">Análisis local · celda ERA5</div><h1>Precipitaciones en Gobernador Virasoro</h1><p>Serie de reanálisis 1991–2025, climatología mensual y comparación departamental por separado.</p></div><span class="scope">ERA5 · -28,00 / -56,00</span></div><div class="carousel-heading"><div><div class="eyebrow">Sala de análisis · datos disponibles</div><h2>Explorador de precipitaciones</h2><p class="small">Gráficos y registros consultables. Cada conjunto conserva su escala y su procedencia; seleccioná un panel o una estación para examinarlo.</p></div><div class="carousel-nav"><button class="action" id="chart-prev" aria-label="Anterior">‹</button><span id="chart-slide-count" class="small">1 / 3</span><button class="action" id="chart-next" aria-label="Siguiente">›</button></div></div>
-<div class="lower carousel-track" id="chart-carousel">
+<div class="lower carousel-track" id="chart-carousel" tabindex="0" role="region" aria-label="Gráficos explorables. Usá las flechas izquierda y derecha para cambiar de gráfico.">
 <article class="chartcard carousel-slide"><div class="charttop"><div><div class="eyebrow">01 · Escala local / celda ERA5</div><h3 id="chart-title">Precipitación anual · ERA5 / Virasoro</h3><div class="small" id="chart-subtitle">1991–2025 · milímetros por año</div></div><span class="pill blue" id="chart-source">REANÁLISIS</span></div><div class="chartwrap" id="main-chart"><div class="empty">Cargando serie histórica…</div></div><p class="chartnote" id="chart-note">Seleccioná una estación o un año para explorar los datos disponibles.</p><button class="action chart-fullscreen" data-target="main-chart">Ver gráfica completa ⛶</button></article>
 <article class="chartcard carousel-slide"><div class="eyebrow">02 · Ritmo intra-anual</div><h3 style="margin:5px 0">¿Cómo se distribuye la lluvia durante el año?</h3><div class="small">Promedio mensual 1991–2025 · mm</div><div class="chartwrap" id="monthly-chart"></div><p class="chartnote">Promedios mensuales del punto de grilla consultado. No representan una estación local.</p><button class="action chart-fullscreen" data-target="monthly-chart">Ver gráfica completa ⛶</button></article>
 <article class="chartcard carousel-slide"><div class="eyebrow">03 · Escala departamental</div><h3 style="margin:5px 0">¿Qué muestra la serie de Santo Tomé?</h3><div class="small">Ministerio de Producción de Corrientes · mm/año</div><div class="chartwrap" id="santo-tome-chart"><div class="empty">Cargando datos departamentales…</div></div><p class="chartnote">Agregado departamental; no equivale a la celda ERA5 de Virasoro ni a una estación puntual.</p><button class="action chart-fullscreen" data-target="santo-tome-chart">Ver gráfica completa ⛶</button></article>
@@ -212,15 +212,17 @@ document.querySelectorAll('[data-info-carousel]').forEach(root=>{
 const carousel=document.getElementById('chart-carousel');
 const slides=[...carousel.querySelectorAll('.carousel-slide')];
 let activeChartSlide=0;
-function goToChartSlide(index){activeChartSlide=Math.max(0,Math.min(slides.length-1,index));carousel.scrollTo({left:slides[activeChartSlide].offsetLeft-carousel.offsetLeft,behavior:'smooth'});}
+function slideLeft(slide){return slide.getBoundingClientRect().left-carousel.getBoundingClientRect().left+carousel.scrollLeft;}
+function goToChartSlide(index){activeChartSlide=Math.max(0,Math.min(slides.length-1,index));carousel.scrollTo({left:slideLeft(slides[activeChartSlide]),behavior:'smooth'});}
 function syncCarousel(){
- const center=carousel.scrollLeft+carousel.clientWidth/2;
- activeChartSlide=slides.reduce((best,slide,i)=>Math.abs(slide.offsetLeft+slide.offsetWidth/2-center)<Math.abs(slides[best].offsetLeft+slides[best].offsetWidth/2-center)?i:best,0);
+ const center=carousel.getBoundingClientRect().left+carousel.clientWidth/2;
+ activeChartSlide=slides.reduce((best,slide,i)=>Math.abs(slide.getBoundingClientRect().left+slide.getBoundingClientRect().width/2-center)<Math.abs(slides[best].getBoundingClientRect().left+slides[best].getBoundingClientRect().width/2-center)?i:best,0);
  document.getElementById('chart-slide-count').textContent=(activeChartSlide+1)+' / '+slides.length;
 }
 document.getElementById('chart-prev').addEventListener('click',()=>goToChartSlide(activeChartSlide-1));
 document.getElementById('chart-next').addEventListener('click',()=>goToChartSlide(activeChartSlide+1));
-carousel.addEventListener('scroll',()=>requestAnimationFrame(syncCarousel));
+carousel.addEventListener('scroll',()=>requestAnimationFrame(syncCarousel),{passive:true});
+window.addEventListener('resize',()=>requestAnimationFrame(syncCarousel),{passive:true});
 carousel.addEventListener('keydown',event=>{if(event.key==='ArrowRight'){event.preventDefault();goToChartSlide(activeChartSlide+1)}if(event.key==='ArrowLeft'){event.preventDefault();goToChartSlide(activeChartSlide-1)}});
 syncCarousel();
 const chartModal=document.getElementById('chart-modal');
