@@ -20,13 +20,17 @@ jobs:
     steps:
       - name: Descargar repositorio
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Instalar dependencias de análisis
+        run: python -m pip install -r requirements.txt
+      - name: Regenerar serie mensual ERA5
+        run: python investigaciones/01-precipitacion-virasoro/scripts/descargar_era5.py
       - name: Preparar datos dinámicos de la interfaz
         run: |
           mkdir -p docs/datos/inta-siga
           cp datos/fuentes-externas/inta-siga/analisis-cobertura.json docs/datos/inta-siga/
           cp datos/fuentes-externas/inta-siga/estaciones-cobertura.csv docs/datos/inta-siga/
           cp datos/fuentes-externas/inta-siga/precipitacion-anual-estaciones.csv docs/datos/inta-siga/
-          cp datos/virasoro_era5/precipitacion_mensual.csv docs/datos/precipitacion_mensual_era5.csv 2>/dev/null || true
+          test -s docs/datos/precipitacion_mensual_era5.csv
       - name: Validar HTML, gráficos y datasets
         run: |
           python - <<'PY'
@@ -58,7 +62,10 @@ jobs:
           with (root / "datos/climatologia_mensual_era5.csv").open(encoding="utf-8", newline="") as f:
               monthly=list(csv.DictReader(f))
           assert len(monthly)==12 and [int(r["mes"]) for r in monthly]==list(range(1,13))
+          with (root / "datos/precipitacion_mensual_era5.csv").open(encoding="utf-8", newline="") as f:
+              monthly_series=list(csv.DictReader(f))
+          assert len(monthly_series)==420 and len({(r["anio"],r["mes"]) for r in monthly_series})==420
           metadata=json.loads((root / "datos/metadatos_era5.json").read_text(encoding="utf-8"))
           assert metadata["dataset"]=="ERA5" and metadata["periodo"]=={"inicio":"1991-01-01","fin":"2025-12-31"}
-          print(f"Sitio validado: {len(parser.refs)} referencias locales, 35 años, 12 meses, metadatos y gráficos.")
+          print(f"Sitio validado: {len(parser.refs)} referencias locales, 35 años, 420 meses, 12 meses de climatología y metadatos.")
           PY
