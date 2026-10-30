@@ -100,12 +100,14 @@
 
 /* Laboratorio: gráficos legibles, desplazamiento táctil y modal adaptable */
 .lower.carousel-track{
+  cursor:grab;user-select:none;
   display:flex; flex-wrap:nowrap; overflow-x:auto; overflow-y:hidden;
   scroll-snap-type:x mandatory; scroll-padding-inline:2px;
   overscroll-behavior-x:contain; -webkit-overflow-scrolling:touch;
   touch-action:pan-x pan-y; scrollbar-width:thin;
 }
 .carousel-slide{scroll-snap-align:start;scroll-snap-stop:always;flex-shrink:0}
+.lower.carousel-track.is-dragging{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto}
 .carousel-nav .action{min-width:38px;min-height:38px;font-size:18px}
 .chart-modal{
   position:fixed;inset:3dvh auto auto 50%;transform:translateX(-50%);
@@ -253,6 +255,7 @@ function activateSection(group,id){
   });
  }else{subtabs.hidden=true}
  if(selected.id==='territorio')setTimeout(()=>window.labMap?.invalidateSize(),180);
+ if(selected.id==='virasoro')requestAnimationFrame(()=>syncCarousel());
 }
 document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>{
  document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('active',x===b));
@@ -291,6 +294,20 @@ document.getElementById('chart-next').addEventListener('click',()=>goToChartSlid
 carousel.addEventListener('scroll',()=>requestAnimationFrame(syncCarousel),{passive:true});
 window.addEventListener('resize',()=>requestAnimationFrame(syncCarousel),{passive:true});
 carousel.addEventListener('keydown',event=>{if(event.key==='ArrowRight'){event.preventDefault();goToChartSlide(activeChartSlide+1)}if(event.key==='ArrowLeft'){event.preventDefault();goToChartSlide(activeChartSlide-1)}});
+let dragStartX=0,dragStartScroll=0,dragging=false;
+carousel.addEventListener('pointerdown',event=>{
+ if(event.pointerType!=='mouse'||event.button!==0||event.target.closest('button,a,input,select'))return;
+ dragStartX=event.clientX;dragStartScroll=carousel.scrollLeft;dragging=true;
+ carousel.classList.add('is-dragging');carousel.setPointerCapture(event.pointerId);
+});
+carousel.addEventListener('pointermove',event=>{
+ if(!dragging)return;
+ carousel.scrollLeft=dragStartScroll-(event.clientX-dragStartX);
+});
+function stopCarouselDrag(){dragging=false;carousel.classList.remove('is-dragging')}
+carousel.addEventListener('pointerup',stopCarouselDrag);
+carousel.addEventListener('pointercancel',stopCarouselDrag);
+carousel.addEventListener('lostpointercapture',stopCarouselDrag);
 syncCarousel();
 const chartModal=document.getElementById('chart-modal');
 const chartModalContent=document.getElementById('chart-modal-content');
