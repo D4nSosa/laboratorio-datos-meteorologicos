@@ -1,1 +1,5 @@
-@media(max-width:680px){.nav{flex-wrap:wrap;gap:8px;padding:9px 0}.nav-links{display:flex;order:3;width:100%;overflow-x:auto;white-space:nowrap;gap:17px;padding:2px 0 6px;font-size:11px}.nav-actions{margin-left:auto}.theme-toggle{font-size:10px;padding:8px 10px}}body:has(#theme-switch:checked) .nav-links a{color:var(--muted)}body:has(#theme-switch:checked) .nav-links a:hover{color:var(--teal2)}
+/* Shared theme control. Theme variables are defined in site.css. */
+.theme-toggle{appearance:none;-webkit-appearance:none;border:1px solid var(--line);border-radius:999px;padding:9px 13px;background:var(--paper);color:var(--ink);cursor:pointer;font:700 12px/1.2 inherit;white-space:nowrap}
+.theme-toggle:hover{border-color:var(--teal);color:var(--teal2)}
+.theme-toggle:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+@media(max-width:680px){.theme-toggle{font-size:10px;padding:8px 10px}}
