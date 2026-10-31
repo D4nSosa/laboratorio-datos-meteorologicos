@@ -283,8 +283,8 @@ main{max-width:1580px;padding-top:24px}
  .carousel-slide{flex-basis:98%}
  .metricrow{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
-</style>
-</head>
+ .evidence-answers{margin-top:14px}.evidence-answers h2{font-size:clamp(21px,3vw,30px);margin:8px 0 16px}.answer-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.answer-grid article{padding:14px;border:1px solid #315357;border-radius:10px;background:#0a1c1e;min-width:0}.answer-grid article b{display:block;color:var(--mint);font-size:12px;line-height:1.45}.answer-grid article p{margin:8px 0 0;color:#bfd1cc;font-size:12px;line-height:1.65}.answer-grid article strong{color:#f0fbf7}.answer-foot{margin:14px 0 0;padding:12px 14px;border-left:3px solid var(--amber);background:#241f13;color:#e8d7ad;font-size:11px;line-height:1.6}@media(max-width:650px){.answer-grid{grid-template-columns:1fr}}\n</style>
+<style id="fullscreen-chart-fix">#chart-modal{position:fixed;inset:0;margin:0;width:100vw;height:100vh;height:100dvh;max-width:none;max-height:none;padding:clamp(10px,2vw,24px);border:0;border-radius:0;box-sizing:border-box;background:#071416;color:#e7f4f0}#chart-modal::backdrop{background:#000e}.modal-head{min-height:42px;gap:12px}#chart-modal-content{height:calc(100% - 52px);width:100%;margin-top:10px;overflow:auto;display:flex;align-items:center;justify-content:center;background:#f3f7f6;border-radius:10px;padding:8px}#chart-modal-content svg{display:block;width:100%;height:auto;max-width:100%;max-height:100%;object-fit:contain}#chart-modal-close{flex:0 0 auto;min-height:42px;padding:10px 16px}@media(max-width:650px){#chart-modal{padding:10px}#chart-modal-content{height:calc(100% - 54px);padding:4px;border-radius:8px}#chart-modal-content svg{width:100%;height:auto;max-height:100%}}</style></head>
 <body><div class="app">
 <header class="top"><div class="brand">OJO METEOROLÓGICO <i>/ LABORATORIO</i></div><div class="topright"><span class="live"></span> INVESTIGACIÓN EN CURSO <nav class="tabs" aria-label="Secciones del laboratorio"><button class="tab active" data-tab="observatorio">Observatorio</button><button class="tab" data-tab="explorador">Explorador de datos</button><button class="tab" data-tab="metodologia">Metodología y fuentes</button></nav></div></header><nav id="subtabs" class="subtabs" aria-label="Subsecciones" hidden></nav><main><section id="observatorio" class="section active">
 <div class="lab-intro">
@@ -322,7 +322,13 @@ main{max-width:1580px;padding-top:24px}
 </div>
 \n<div class="research-frame">
 <div class="frame-card"><div class="eyebrow">Propósito del laboratorio</div><h2>Construir evidencia, no anticipar conclusiones</h2><p>El objetivo es reunir, auditar y analizar datos meteorológicos y territoriales para comprender cómo varían las lluvias en el tiempo y el espacio. Cada resultado debe poder rastrearse hasta su fuente, período, unidad y procedimiento de cálculo.</p><p>La investigación avanza por etapas: primero caracterizamos la referencia local; después comparamos registros regionales; finalmente ampliamos la cobertura nacional donde existan series suficientemente documentadas.</p></div>
-<div class="frame-card"><div class="eyebrow">Preguntas que guían el análisis</div><ul><li>¿Cuánto llueve y cómo se distribuye a lo largo del año?</li><li>¿Qué años y episodios se apartan de los valores habituales?</li><li>¿Qué diferencias aparecen entre Virasoro, el departamento y otras regiones?</li><li>¿Qué relación estadística puede observarse con ENSO, sin confundir asociación con causalidad?</li><li>¿Dónde hay datos confiables y dónde siguen existiendo vacíos?</li></ul></div>
+<div class="frame-card evidence-answers"><div class="eyebrow">Preguntas de investigación · respuestas con la evidencia disponible</div><h2>Qué podemos afirmar hoy</h2><div class="answer-grid">
+<article><b>¿Cuánto llueve y cómo se distribuye?</b><p>La celda ERA5 próxima a Virasoro registra una media anual de <strong>1.786,94 mm</strong> entre 1991 y 2025. Octubre presenta el mayor promedio mensual (216,57 mm) y agosto el menor (95,03 mm).</p></article>
+<article><b>¿Qué años se apartan de lo habitual?</b><p>En la serie ERA5, 2002 alcanza 2.588,70 mm y 2020 registra 1.126,80 mm. Son extremos del total anual de esta serie; no describen por sí solos tormentas ni eventos diarios.</p></article>
+<article><b>¿Qué diferencias hay entre territorios?</b><p>Santo Tomé aporta una serie departamental independiente: media de 1.781,40 mm en 32 años completos. No se compara como si fuera una estación de Virasoro ni se combina con ERA5.</p></article>
+<article><b>¿Qué relación hay con ENSO?</b><p>La relación lluvia–ENSO todavía no fue calculada. Por ahora no atribuimos los años húmedos o secos a El Niño o La Niña.</p></article>
+<article><b>¿Dónde hay datos y qué vacíos persisten?</b><p>El catálogo INTA-SIGA relevado reúne 182 estaciones y 38 variables; diez estaciones aparecen dentro de 250 km. El catálogo no certifica continuidad ni calidad instrumental de cada registro.</p></article>
+</div><p class="answer-foot">Los resultados describen conjuntos y escalas diferentes. Para estudiar extremos diarios, tormentas intensas o impactos locales se necesitan series diarias de estación y fuentes específicas adicionales.</p></div>
 </div>
 <div class="frame-card" style="margin-bottom:20px"><div class="eyebrow">Estructura de investigación</div><h2>Del fenómeno climático a la evidencia territorial</h2><div class="frame-steps">
 <div class="frame-step"><b>01 · CONTEXTO</b><span>Variabilidad climática</span><small>ENSO, ONI/RONI y circulación regional</small></div>
@@ -485,7 +491,7 @@ document.querySelectorAll('.chart-fullscreen').forEach(btn=>btn.addEventListener
  enlarged.setAttribute('aria-label','Gráfica ampliada');
  enlarged.removeAttribute('width');enlarged.removeAttribute('height');
  enlarged.style.width='100%';enlarged.style.height='auto';enlarged.style.maxHeight='none';
- if(window.matchMedia('(max-width: 760px)').matches){enlarged.style.width='900px';enlarged.style.maxWidth='none'}
+ 
  chartModalTitle.textContent=source.closest('.chartcard')?.querySelector('h3')?.textContent||'Gráfica ampliada';
  chartModalContent.appendChild(enlarged);
  chartModal.showModal();
