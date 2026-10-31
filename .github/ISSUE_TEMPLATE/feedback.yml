@@ -1,0 +1,61 @@
+name: Aporte a la investigación meteorológica
+description: Compartí una observación, comentario, corrección o propuesta para el Laboratorio de Datos Meteorológicos.
+title: "[Aporte] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por participar. Los aportes ayudan a orientar preguntas y revisar información. Un testimonio no se considera automáticamente una medición meteorológica ni confirma una relación causal.
+  - type: dropdown
+    id: tipo
+    attributes:
+      label: ¿Qué tipo de aporte querés compartir?
+      options:
+        - Observación local de lluvia, tormenta, sequía o inundación
+        - Comentario sobre la investigación o los gráficos
+        - Corrección o posible error
+        - Fuente de datos o documento
+        - Pregunta o propuesta de investigación
+        - Otro
+    validations:
+      required: true
+  - type: input
+    id: localidad
+    attributes:
+      label: Localidad y provincia
+      description: Si tu aporte se refiere a un lugar concreto.
+      placeholder: Gobernador Virasoro, Corrientes
+    validations:
+      required: false
+  - type: input
+    id: fecha
+    attributes:
+      label: Fecha o período aproximado
+      description: Especialmente útil para eventos meteorológicos.
+      placeholder: Ej. 12 al 14 de mayo de 2025
+    validations:
+      required: false
+  - type: textarea
+    id: aporte
+    attributes:
+      label: Contanos tu aporte
+      description: ¿Qué observaste, qué te llamó la atención o qué deberíamos revisar?
+      placeholder: Describí el contexto con el mayor detalle posible.
+      render: text
+    validations:
+      required: true
+  - type: input
+    id: fuente
+    attributes:
+      label: Fuente, enlace o referencia (opcional)
+      description: Podés agregar un enlace a datos, noticias, documentos o registros.
+    validations:
+      required: false
+  - type: checkboxes
+    id: consentimiento
+    attributes:
+      label: Consideraciones
+      options:
+        - label: Entiendo que mi aporte puede ser revisado públicamente como parte de una conversación del proyecto y que no se incorporará como dato científico sin verificación.
+          required: true
