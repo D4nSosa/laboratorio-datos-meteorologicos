@@ -227,7 +227,63 @@ main{max-width:1580px;padding-top:24px}
 .studio-chart-panel{border:1px solid #dce6e1;border-radius:11px;overflow:hidden}.studio-chart-head{display:flex;justify-content:space-between;align-items:start;gap:15px;padding:16px 18px 8px}.studio-chart-head h3{font-size:18px;margin:4px 0;color:#17343a}.studio-chart-head p{font-size:11px;color:#657a7b;margin:0}.studio-legend{display:flex;gap:12px;flex-wrap:wrap;font-size:10px;color:#52696b}.studio-legend span{display:flex;align-items:center;gap:6px}.studio-legend i{display:inline-block;width:17px;height:3px;border-radius:4px}.legend-era{background:#087e70}.legend-santo{background:#b17a1c}.studio-chart{padding:4px 12px 0;min-height:250px;overflow-x:auto}.studio-chart svg{display:block;width:100%;min-width:600px;height:auto}.studio-chart-foot{display:flex;justify-content:space-between;gap:12px;padding:9px 16px;border-top:1px solid #e2eae6;color:#657a7b;font-size:10px}.studio-inspector{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:18px;align-items:center;margin-top:12px;padding:15px 17px;background:#edf5f1;border:1px solid #d1e2d9;border-radius:10px}.studio-inspector h3{font-size:21px;margin:3px 0;color:#17343a}.studio-inspector p{font-size:11px;color:#587073;margin:0}.inspector-value{min-width:130px}.inspector-value strong{display:block;font-size:21px;color:#087e70}.inspector-value span{font-size:9px;color:#657a7b}.studio-caveat{font-size:10px;line-height:1.6;color:#6a5a38;margin:12px 0 0;padding:10px 12px;border-left:3px solid #c18b36;background:#fff9ed}
 @media(max-width:760px){.studio-head{display:block}.studio-status{display:inline-block;margin-top:12px}.studio-kpis{grid-template-columns:repeat(2,1fr)}.studio-controls label{flex:1 1 42%}.studio-select{width:100%}.studio-chart-head{display:block}.studio-legend{margin-top:12px}.studio-inspector{grid-template-columns:1fr 1fr}.studio-inspector>div:first-child{grid-column:1/-1}.studio-chart-foot{display:block}.studio-chart-foot span{display:block;margin:3px 0}.data-studio{padding:13px}.lab-intro{padding:20px}.heading h1{color:#17343a}}
 @media(max-width:470px){.studio-kpis strong{font-size:19px}.studio-controls label{flex-basis:100%}.studio-inspector{gap:10px}.inspector-value{min-width:0}}
-\n</style>
+\n
+/* Mobile-first refinements: navigation, controls, charts and touch targets */
+@media(max-width:760px){
+ .top{height:auto;min-height:58px;padding:10px 12px;align-items:flex-start;flex-wrap:wrap;gap:8px}
+ .top .brand{font-size:10px;line-height:1.4;max-width:55%;letter-spacing:.08em}
+ .topright{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:7px;font-size:9px;max-width:100%}
+ .topright .tabs{display:flex!important;order:3;width:calc(100vw - 24px);overflow-x:auto;gap:4px;padding:4px 0 2px;scrollbar-width:none}
+ .topright .tabs::-webkit-scrollbar{display:none}
+ .tab{flex:0 0 auto;padding:9px 11px;font-size:11px;min-height:38px}
+ #subtabs{display:flex;gap:7px;overflow-x:auto;white-space:nowrap;padding:8px 10px;scrollbar-width:none}
+ #subtabs::-webkit-scrollbar{display:none}
+ #subtabs button{flex:0 0 auto;min-height:36px}
+ main{padding:12px 10px 28px;max-width:100%;width:100%}
+ .lab-intro{padding-left:0;padding-right:0}
+ .lab-intro h1{font-size:clamp(27px,7.5vw,36px);line-height:1.12;overflow-wrap:anywhere}
+ .lab-intro>p{font-size:14px;line-height:1.65}
+ .lab-meta{display:flex;flex-wrap:wrap;gap:7px}
+ .lab-snapshot{padding:14px}
+ .lab-snapshot-main strong{font-size:clamp(26px,8vw,38px)}
+ .lab-snapshot-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .workspace{grid-template-columns:minmax(0,1fr)}
+ .side{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ .side .panel:last-child{grid-column:1/-1}
+ #map{height:55vh;min-height:300px;max-height:520px}
+ .maphead{align-items:flex-start;padding:10px;gap:8px}
+ .controls{width:100%;gap:6px}
+ .control{min-height:38px;padding:8px;max-width:100%}
+ .mapfoot{font-size:10px;line-height:1.5}
+ .metricrow{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .metric{min-width:0;padding:10px}
+ .metric .big{font-size:clamp(17px,5vw,22px);overflow-wrap:anywhere}
+ .chartcard,.doccard,.panel{min-width:0;padding:12px}
+ .charttop{flex-wrap:wrap}
+ .lower{gap:10px;padding-bottom:10px}
+ .carousel-slide{flex-basis:94%;min-width:0}
+ .researchgrid{grid-template-columns:minmax(0,1fr)}
+ .enso-phases{grid-template-columns:1fr}
+ .story-slide{min-height:0;padding:22px 16px}
+ .story-copy h2{font-size:clamp(24px,7vw,34px)}
+ .story-question{margin-top:16px;padding:12px}
+ .chart-modal{width:100vw;height:100dvh;max-height:100dvh;border-radius:0;padding:10px}
+ .chart-modal-content{height:calc(100% - 42px);overflow:auto}
+ .footer{gap:8px;flex-direction:column}
+}
+@media(max-width:470px){
+ .top .brand{max-width:48%;font-size:9px}
+ .topright{font-size:8px}
+ .side{grid-template-columns:1fr}
+ .side .panel:last-child{grid-column:auto}
+ .heading h1{font-size:25px}
+ .scope{white-space:normal}
+ .controls{display:grid;grid-template-columns:1fr 1fr}
+ .control{min-width:0}
+ .carousel-slide{flex-basis:98%}
+ .metricrow{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+</style>
 </head>
 <body><div class="app">
 <header class="top"><div class="brand">OJO METEOROLÓGICO <i>/ LABORATORIO</i></div><div class="topright"><span class="live"></span> INVESTIGACIÓN EN CURSO <nav class="tabs" aria-label="Secciones del laboratorio"><button class="tab active" data-tab="observatorio">Observatorio</button><button class="tab" data-tab="explorador">Explorador de datos</button><button class="tab" data-tab="metodologia">Metodología y fuentes</button></nav></div></header><nav id="subtabs" class="subtabs" aria-label="Subsecciones" hidden></nav><main><section id="observatorio" class="section active">
