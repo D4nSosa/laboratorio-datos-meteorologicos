@@ -117,6 +117,56 @@ async function compare(){
   status.textContent=station.name+' · '+network+' · '+obs.length+' reportes de temperatura SMN. Coordenadas de estación: '+station.lat.toFixed(4)+', '+station.lon.toFixed(4)+'.';
  }catch(e){status.textContent='La comparación no pudo completarse: '+e.message+'. El catálogo, la API de observaciones o el servicio de reanálisis puede estar temporalmente inaccesible.';}
 }
+
+let variableRecords=[];
+function discoverVariables(){
+ const status=$('smn-variable-status');
+ Promise.all([
+  get(collectionUrl(COLLECTIONS.synop,{f:'json',limit:'1000',sortby:'-phenomenonTime'})),
+  get(collectionUrl(COLLECTIONS.auto,{f:'json',limit:'1000',sortby:'-phenomenonTime'}))
+ ]).then(([syn,aut])=>{
+  const names=[...new Set([...feats(syn),...feats(aut)].map(f=>props(f).name).filter(Boolean))].sort();
+  $('smn-variable-name').innerHTML='<option value="">Seleccioná una variable…</option>'+names.map(n=>'<option value="'+esc(n)+'">'+esc(n)+'</option>').join('');
+  $('smn-variable-station').innerHTML='<option value="">Todas las estaciones</option>'+smnStations.slice().sort((a,b)=>a.name.localeCompare(b.name,'es')).map(s=>'<option value="'+esc(s.id)+'">'+esc(s.name)+' · '+esc(s.id)+'</option>').join('');
+  const end=new Date();end.setUTCDate(end.getUTCDate()-1);const start=new Date(end);start.setUTCDate(start.getUTCDate()-6);
+  $('smn-variable-end').value=end.toISOString().slice(0,10);
+  $('smn-variable-start').value=start.toISOString().slice(0,10);
+  status.textContent=names.length+' variables encontradas en una muestra de hasta 1.000 registros por red. El catálogo no es exhaustivo.';
+ }).catch(e=>{status.textContent='No se pudo descubrir la muestra de variables: '+e.message;});
+}
+async function exploreVariable(){
+ const name=$('smn-variable-name').value,network=$('smn-variable-network').value,id=$('smn-variable-station').value,start=$('smn-variable-start').value,end=$('smn-variable-end').value;
+ const status=$('smn-variable-status');
+ if(!name||!start||!end||start>end){status.textContent='Seleccioná una variable y un rango válido.';return;}
+ if((Date.parse(end)-Date.parse(start))/86400000>31){status.textContent='Limitá la consulta a 31 días.';return;}
+ status.textContent='Consultando '+name+'…';
+ $('smn-variable-table').innerHTML='';$('smn-variable-summary').textContent='';
+ try{
+  const params={f:'json',limit:'1000',sortby:'-phenomenonTime',name,datetime:start+'/'+end};
+  if(id)params.wigos_station_identifier=id;
+  const d=await get(collectionUrl(COLLECTIONS[network],params));
+  variableRecords=feats(d).map(f=>props(f)).filter(p=>p.value!==null&&p.value!==undefined).map(p=>({
+   time:p.phenomenonTime||p.reportTime||'',station:p.wigos_station_identifier||'',
+   variable:p.name||name,value:p.value,unit:p.units||'—',
+   description:p.description||'',reportId:p.reportId||p.id||''
+  })).sort((a,b)=>String(b.time).localeCompare(String(a.time)));
+  const shown=variableRecords.slice(0,250);
+  $('smn-variable-summary').textContent=variableRecords.length+' registros devueltos. La tabla muestra hasta 250; el CSV incluye todos los registros recibidos.';
+  $('smn-variable-table').innerHTML=shown.length?'<div class="lab-table-wrap"><table><thead><tr><th>Fecha/hora UTC</th><th>Estación WIGOS</th><th>Variable</th><th>Valor</th><th>Unidad</th><th>Descripción</th></tr></thead><tbody>'+shown.map(r=>'<tr><td>'+esc(parseDate(r.time))+'</td><td>'+esc(r.station)+'</td><td>'+esc(r.variable)+'</td><td>'+esc(r.value)+'</td><td>'+esc(r.unit)+'</td><td>'+esc(r.description)+'</td></tr>').join('')+'</tbody></table></div>':'<p class="lab-muted">No se encontraron registros. Probá otra red, estación o período.</p>';
+  $('smn-variable-download').disabled=!variableRecords.length;
+  status.textContent='Consulta finalizada. No se interpolaron ni completaron valores faltantes.';
+ }catch(e){variableRecords=[];$('smn-variable-download').disabled=true;status.textContent='Consulta no disponible: '+e.message;}
+}
+function downloadVariableCSV(){
+ if(!variableRecords.length)return;
+ const keys=['time','station','variable','value','unit','description','reportId'];
+ const head=['fecha_hora_utc','estacion_wigos','variable','valor','unidad','descripcion','id_reporte'];
+ const quote=v=>'"'+String(v??'').replace(/"/g,'""')+'"';
+ const csv=[head.map(quote).join(','),...variableRecords.map(r=>keys.map(k=>quote(r[k])).join(','))].join('\\n');
+ const a=document.createElement('a'),u=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));
+ a.href=u;a.download='observaciones-variables-smn.csv';a.click();URL.revokeObjectURL(u);
+}
+
 function alerts(){
  const s=$('smn-alert-status'),box=$('smn-alert-list');s.textContent='Consultando feed CAP oficial…';box.innerHTML='<p class="lab-muted">Cargando…</p>';
  fetch('https://ssl.smn.gob.ar/feeds/CAP/rss_alertaCAP_nuevo.xml',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.text();}).then(t=>{
@@ -131,6 +181,8 @@ function init(){
  $('smn-refresh').addEventListener('click',()=>{loadStations();loadLatest();});
  $('smn-alert-refresh').addEventListener('click',alerts);
  $('smn-compare-run').addEventListener('click',compare);
+ $('smn-variable-run').addEventListener('click',exploreVariable);
+ $('smn-variable-download').addEventListener('click',downloadVariableCSV);
  $('smn-compare-download').addEventListener('click',()=>{
   if(!comparisonRows.length)return;
   const keys=['date','smn','smn_count','era5','era5_land'],head=['fecha_utc','smn_temperatura_media_reportes_c','cantidad_reportes_smn','era5_temperatura_media_c','era5_land_temperatura_media_c'];
@@ -139,7 +191,7 @@ function init(){
   const a=document.createElement('a'),u=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.href=u;a.download='comparacion-smn-era5-era5land.csv';a.click();URL.revokeObjectURL(u);
  });
  $('smn-compare-station').addEventListener('change',()=>{$('smn-compare-status').textContent='Estación seleccionada. Definí el período y ejecutá la comparación.';});
- loadStations().then(loadLatest);alerts();
+ loadStations().then(()=>{loadLatest();discoverVariables();});alerts();
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
