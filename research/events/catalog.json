@@ -1,0 +1,5 @@
+{
+  "schema_version":"1.0.0",
+  "description":"Catálogo inicial vacío. Incorporar eventos solamente con evidencia trazable y revisión documentada.",
+  "events":[]
+}

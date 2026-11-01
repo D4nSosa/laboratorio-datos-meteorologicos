@@ -1,4 +1,4 @@
-# Laboratorio de Datos Meteorológicos y Territoriales
+# Laboratorio Meteorológico Nacional\n\n**Investigación atmosférica, observación, análisis y seguimiento de fenómenos meteorológicos.**\n\nRepositorio de investigación con origen en Gobernador Virasoro, Corrientes, y cobertura objetivo nacional. La plataforma preserva las investigaciones de precipitaciones existentes y amplía su arquitectura hacia observación atmosférica y análisis multifuente.
 
 Este repositorio reúne investigaciones personales sobre datos meteorológicos y territoriales. El punto de partida es Gobernador Virasoro, Corrientes, con la intención de ampliar el análisis a la provincia, el NEA y otras regiones cuando los datos permitan comparaciones útiles.
 
@@ -45,3 +45,26 @@ Se usa Python 3.12 y las dependencias declaradas en `requirements.txt` están fi
 Proyecto personal de **DAN SOSA**, desde Gobernador Virasoro, Corrientes, Argentina.
 
 Sitio personal: https://dansosa.vercel.app
+
+
+## Laboratorio Meteorológico Nacional
+
+La arquitectura integrada, los contratos de datos y las limitaciones de cada módulo se documentan en [Arquitectura del LNM](docs/arquitectura-lnm.md). El [Centro de operaciones](docs/explorador-interactivo.html) presenta el estado de las fuentes y capacidades; no representa datos en tiempo real cuando no existe un conector operativo.
+
+### Infraestructura incorporada
+
+- Catálogo de fuentes con estado de integración, cobertura, resolución y limitaciones: [catalogo-fuentes.json](docs/datos/catalogo-fuentes.json).
+- Contratos y validadores para catálogos de fuentes, eventos y manifiestos de datasets (paquete Python en src/lnm).
+- Archivo de eventos con evidencia trazable y estados de revisión; comienza vacío deliberadamente.
+- Entorno experimental LNM Neural Research Engine: baseline CNN-GRU opcional con PyTorch, manifiestos de muestras y control de fuga entre particiones por evento. No hay modelo entrenado ni predicción operativa.
+- Validaciones automatizadas independientes para metadatos y scripts del centro de operaciones.
+
+### Validación local
+
+- `python -m pip install -r requirements.txt`
+- `PYTHONPATH=src python -m unittest discover -s tests -v`
+- `PYTHONPATH=src python -m lnm sources`
+- `PYTHONPATH=src python -m lnm events`
+- `node --check docs/assets/js/lnm-center.js`
+
+Las dependencias de aprendizaje automático están separadas en [requirements-neural.txt](requirements-neural.txt) y no se instalan en el flujo de publicación del sitio.
