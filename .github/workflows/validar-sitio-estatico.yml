@@ -2,6 +2,13 @@ name: Validar interfaz estática
 
 on:
   workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - "docs/**"
+      - ".github/workflows/validar-sitio-estatico.yml"
+      - "datos/fuentes-externas/inta-siga/**"
+      - "datos/fuentes-externas/corrientes/**"
   push:
     branches: [main]
     paths:
