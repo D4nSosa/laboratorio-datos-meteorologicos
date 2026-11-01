@@ -84,7 +84,7 @@ jobs:
           parser=Checker(); parser.feed(html); parser.close()
           assert parser.lang, "Falta lang=es"
           for ref in parser.refs:
-              target=(root / ref.split("#",1)[0]).resolve()
+              target=(root / ref.split("#",1)[0].split("?",1)[0]).resolve()
               assert target.is_relative_to(root.resolve()), f"Ruta fuera de docs: {ref}"
               assert target.exists(), f"Enlace local roto: {ref}"
           with (root / "datos/precipitacion_anual_era5.csv").open(encoding="utf-8", newline="") as f:
