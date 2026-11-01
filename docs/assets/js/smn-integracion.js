@@ -176,6 +176,74 @@ function alerts(){
   s.textContent=items.length+' avisos devueltos por el feed CAP. Revisá vigencia y área en el documento oficial.';
  }).catch(e=>{box.innerHTML='<p class="lab-muted">No fue posible leer el feed desde este navegador ('+esc(e.message)+'). Puede estar bloqueado por CORS; esto no significa que no existan alertas.</p>';s.textContent='Feed CAP no accesible desde el navegador. Usá el portal oficial.';});
 }
+
+let rainRows=[];
+function discoverRainVariables(){
+ const status=$('smn-rain-status');
+ Promise.all([get(collectionUrl(COLLECTIONS.synop,{f:'json',limit:'1000',sortby:'-phenomenonTime'})),get(collectionUrl(COLLECTIONS.auto,{f:'json',limit:'1000',sortby:'-phenomenonTime'}))]).then(([a,b])=>{
+  const names=[...new Set([...feats(a),...feats(b)].map(f=>props(f).name).filter(n=>n&&/precip|rain/i.test(n)))].sort();
+  $('smn-rain-variable').innerHTML='<option value="">Seleccioná variable…</option>'+names.map(n=>'<option value="'+esc(n)+'">'+esc(n)+'</option>').join('');
+  $('smn-rain-station').innerHTML='<option value="">Seleccioná estación…</option>'+smnStations.slice().sort((x,y)=>x.name.localeCompare(y.name,'es')).map(s=>'<option value="'+esc(s.id)+'">'+esc(s.name)+' · '+esc(s.id)+'</option>').join('');
+  const end=new Date();end.setUTCDate(end.getUTCDate()-2);const start=new Date(end);start.setUTCDate(start.getUTCDate()-29);
+  $('smn-rain-start').value=start.toISOString().slice(0,10);$('smn-rain-end').value=end.toISOString().slice(0,10);
+  status.textContent=names.length?names.length+' variables relacionadas con precipitación encontradas en una muestra reciente. La muestra no es exhaustiva.':'No se detectaron variables de precipitación en la muestra consultada; revisá el explorador general de variables.';
+ }).catch(e=>{status.textContent='No se pudo descubrir variables de precipitación: '+e.message;});
+}
+async function compareRain(){
+ const id=$('smn-rain-station').value,network=$('smn-rain-network').value,name=$('smn-rain-variable').value,start=$('smn-rain-start').value,end=$('smn-rain-end').value,status=$('smn-rain-status');
+ if(!id||!name||!start||!end||start>end){status.textContent='Seleccioná estación, variable y un período válido.';return;}
+ if((Date.parse(end)-Date.parse(start))/86400000>92){status.textContent='Limitá el período a 92 días para esta consulta.';return;}
+ const station=smnStations.find(s=>s.id===id);if(!station||!Number.isFinite(station.lat)||!Number.isFinite(station.lon)){status.textContent='La estación no tiene coordenadas válidas.';return;}
+ status.textContent='Consultando registros SMN y precipitación diaria ERA5…';$('smn-rain-summary').textContent='';$('smn-rain-metrics').innerHTML='';$('smn-rain-chart').innerHTML='';$('smn-rain-table').innerHTML='';
+ try{
+  const params={f:'json',limit:'1000',sortby:'-phenomenonTime',wigos_station_identifier:id,name,datetime:start+'/'+end};
+  const [d,era]=await Promise.all([
+   get(collectionUrl(COLLECTIONS[network],params)),
+   get(ARCHIVE+'?'+new URLSearchParams({latitude:String(station.lat),longitude:String(station.lon),start_date:start,end_date:end,daily:'precipitation_sum',timezone:'UTC',models:'era5',precipitation_unit:'mm'}))
+  ]);
+  const raw=feats(d).map(f=>props(f)).filter(p=>p.value!==null&&p.value!==undefined&&Number.isFinite(Number(p.value))&&p.phenomenonTime);
+  const descriptions=[...new Set(raw.map(p=>String(p.description||'').trim()).filter(Boolean))];
+  const explicitDaily=descriptions.some(x=>/(24\s*[- ]?h(?:our)?|daily|diari[oa]|24\s*horas)/i.test(x));
+  const units=[...new Set(raw.map(p=>String(p.units||'').trim()).filter(Boolean))];
+  if(!explicitDaily){
+   rainRows=[];
+   $('smn-rain-summary').textContent='Se recibieron '+raw.length+' registros SMN. Unidad(es): '+(units.join(', ')||'no informada')+'. Descripción(es): '+(descriptions.join(' | ')||'sin descripción en los registros')+'. No se calculan métricas: el registro no documenta inequívocamente una acumulación diaria/24 h. Revisá los reportes originales antes de establecer equivalencia.';
+   $('smn-rain-table').innerHTML=raw.length?'<div class="lab-table-wrap"><table><thead><tr><th>Fecha/hora UTC</th><th>Valor</th><th>Unidad</th><th>Descripción</th></tr></thead><tbody>'+raw.slice(0,100).map(p=>'<tr><td>'+esc(parseDate(p.phenomenonTime))+'</td><td>'+esc(p.value)+'</td><td>'+esc(p.units||'—')+'</td><td>'+esc(p.description||'—')+'</td></tr>').join('')+'</tbody></table></div>':'<p class="lab-muted">La API no devolvió registros para esta combinación.</p>';
+   $('smn-rain-download').disabled=true;status.textContent='Comparación bloqueada por definición temporal no verificada. Se conservan los datos originales sin agregarlos.';return;
+  }
+  const unitOK=units.length===1&&/^(mm|millimeter|millimeters|kg\s*[/]?\s*m-?2)$/i.test(units[0].replace(/²/g,'2'));
+  if(!unitOK){$('smn-rain-summary').textContent='La descripción indica acumulación diaria, pero las unidades devueltas ('+(units.join(', ')||'sin unidad')+') no se reconocen como equivalentes de mm. No se calculan métricas.';status.textContent='Unidad no compatible o ambigua.';return;}
+  const byDay=new Map();
+  raw.forEach(p=>{const date=isoDay(p.phenomenonTime),t=String(p.phenomenonTime);const old=byDay.get(date);if(!old||t>old.time)byDay.set(date,{time:t,value:Number(p.value),unit:p.units||'mm',description:p.description||''});});
+  const daily=era.daily||{},dates=daily.time||[];
+  rainRows=dates.map((date,i)=>({date,smn:byDay.get(date)?.value,smn_time:byDay.get(date)?.time||'',era5:Number.isFinite(Number(daily.precipitation_sum?.[i]))?Number(daily.precipitation_sum[i]):null,smn_unit:byDay.get(date)?.unit||'',description:byDay.get(date)?.description||''}));
+  const pairs=rainRows.filter(r=>Number.isFinite(r.smn)&&Number.isFinite(r.era5));
+  if(pairs.length<10){$('smn-rain-metrics').textContent='Métricas no calculadas: solo '+pairs.length+' días emparejados. Se requieren al menos 10 pares para un resumen exploratorio.';}
+  else{
+   const dif=pairs.map(r=>r.smn-r.era5),bias=dif.reduce((a,b)=>a+b,0)/dif.length,mae=dif.reduce((a,b)=>a+Math.abs(b),0)/dif.length,rmse=Math.sqrt(dif.reduce((a,b)=>a+b*b,0)/dif.length);
+   const mx=pairs.reduce((a,r)=>a+r.smn,0)/pairs.length,my=pairs.reduce((a,r)=>a+r.era5,0)/pairs.length;
+   const cov=pairs.reduce((a,r)=>a+(r.smn-mx)*(r.era5-my),0),sx=Math.sqrt(pairs.reduce((a,r)=>a+(r.smn-mx)**2,0)),sy=Math.sqrt(pairs.reduce((a,r)=>a+(r.era5-my)**2,0)),corr=sx&&sy?cov/(sx*sy):null;
+   $('smn-rain-metrics').innerHTML='<div class="lab-grid"><div class="lab-stat"><b>'+fmt(bias,2)+' mm</b><span>Sesgo medio (SMN − ERA5)</span></div><div class="lab-stat"><b>'+fmt(mae,2)+' mm</b><span>MAE</span></div><div class="lab-stat"><b>'+fmt(rmse,2)+' mm</b><span>RMSE</span></div><div class="lab-stat"><b>'+(corr===null?'—':fmt(corr,3))+'</b><span>Correlación de Pearson</span></div></div>';
+  }
+  $('smn-rain-summary').textContent=station.name+' · '+raw.length+' reportes recibidos · '+byDay.size+' días con registro diario identificado · '+pairs.length+' pares válidos de '+rainRows.length+' días del período. Se usa el último registro del día UTC cuando existe más de uno; no se suman duplicados.';
+  const vals=rainRows.flatMap(r=>[r.smn,r.era5]).filter(Number.isFinite),max=Math.max(1,...vals),W=1000,H=320,L=65,R=20,T=20,B=50,slot=(W-L-R)/Math.max(1,rainRows.length),bw=Math.min(12,slot*.34);
+  let svg='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Precipitación diaria SMN y ERA5 en milímetros">';
+  for(let k=0;k<=4;k++){const v=max*k/4,y=T+(H-T-B)*(1-k/4);svg+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y+'" y2="'+y+'" stroke="currentColor" opacity=".15"/><text x="'+(L-8)+'" y="'+(y+4)+'" text-anchor="end" fill="currentColor" font-size="11">'+fmt(v,0)+'</text>';}
+  rainRows.forEach((r,i)=>{const cx=L+(i+.5)*slot;[['smn',-bw*.65,'#54c6a7'],['era5',bw*.65,'#80aee8']].forEach(([key,off,color])=>{if(Number.isFinite(r[key])){const ht=(r[key]/max)*(H-T-B);svg+='<rect x="'+(cx+off-bw/2)+'" y="'+(H-B-ht)+'" width="'+bw+'" height="'+ht+'" fill="'+color+'"><title>'+r.date+' · '+key+' '+fmt(r[key],2)+' mm</title></rect>';}});});
+  [0,Math.floor((rainRows.length-1)/2),rainRows.length-1].forEach(i=>{if(i>=0)svg+='<text x="'+(L+(i+.5)*slot)+'" y="'+(H-15)+'" fill="currentColor" font-size="11" text-anchor="middle">'+rainRows[i].date+'</text>';});
+  svg+='</svg><div class="lab-legend"><span><i style="background:#54c6a7"></i>SMN</span><span><i style="background:#80aee8"></i>ERA5</span></div>';$('smn-rain-chart').innerHTML=svg;
+  $('smn-rain-table').innerHTML='<div class="lab-table-wrap"><table><thead><tr><th>Fecha UTC</th><th>SMN (mm)</th><th>Hora del reporte</th><th>ERA5 (mm)</th><th>Diferencia (mm)</th></tr></thead><tbody>'+rainRows.map(r=>'<tr><td>'+r.date+'</td><td>'+(Number.isFinite(r.smn)?fmt(r.smn,2):'—')+'</td><td>'+esc(r.smn_time?parseDate(r.smn_time):'—')+'</td><td>'+(Number.isFinite(r.era5)?fmt(r.era5,2):'—')+'</td><td>'+(Number.isFinite(r.smn)&&Number.isFinite(r.era5)?fmt(r.smn-r.era5,2):'—')+'</td></tr>').join('')+'</tbody></table></div>';
+  $('smn-rain-download').disabled=!rainRows.length;status.textContent='Consulta finalizada. Se compararon únicamente días UTC con unidad y duración documentadas.';
+ }catch(e){rainRows=[];$('smn-rain-download').disabled=true;status.textContent='No se pudo completar la comparación: '+e.message;}
+}
+function downloadRainCSV(){
+ if(!rainRows.length)return;
+ const head=['fecha_utc','smn_mm','smn_hora_reporte_utc','era5_mm','diferencia_smn_menos_era5_mm','unidad_smn','descripcion_smn'];
+ const q=v=>'"'+String(v??'').replace(/"/g,'""')+'"';
+ const csv=[head.map(q).join(','),...rainRows.map(r=>[r.date,r.smn,r.smn_time,r.era5,Number.isFinite(r.smn)&&Number.isFinite(r.era5)?r.smn-r.era5:'',r.smn_unit,r.description].map(q).join(','))].join('\n');
+ const a=document.createElement('a'),u=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.href=u;a.download='comparacion-precipitacion-smn-era5.csv';a.click();URL.revokeObjectURL(u);
+}
+
 function init(){
  if(!$('smn-map'))return;
  $('smn-refresh').addEventListener('click',()=>{loadStations();loadLatest();});
@@ -183,6 +251,8 @@ function init(){
  $('smn-compare-run').addEventListener('click',compare);
  $('smn-variable-run').addEventListener('click',exploreVariable);
  $('smn-variable-download').addEventListener('click',downloadVariableCSV);
+ $('smn-rain-run').addEventListener('click',compareRain);
+ $('smn-rain-download').addEventListener('click',downloadRainCSV);
  $('smn-compare-download').addEventListener('click',()=>{
   if(!comparisonRows.length)return;
   const keys=['date','smn','smn_count','era5','era5_land'],head=['fecha_utc','smn_temperatura_media_reportes_c','cantidad_reportes_smn','era5_temperatura_media_c','era5_land_temperatura_media_c'];
@@ -191,7 +261,7 @@ function init(){
   const a=document.createElement('a'),u=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.href=u;a.download='comparacion-smn-era5-era5land.csv';a.click();URL.revokeObjectURL(u);
  });
  $('smn-compare-station').addEventListener('change',()=>{$('smn-compare-status').textContent='Estación seleccionada. Definí el período y ejecutá la comparación.';});
- loadStations().then(()=>{loadLatest();discoverVariables();});alerts();
+ loadStations().then(()=>{loadLatest();discoverVariables();discoverRainVariables();});alerts();
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
