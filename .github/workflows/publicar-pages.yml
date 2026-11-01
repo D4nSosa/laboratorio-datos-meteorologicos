@@ -37,6 +37,8 @@ jobs:
           cp datos/fuentes-externas/inta-siga/analisis-cobertura.json docs/datos/inta-siga/
           cp datos/fuentes-externas/inta-siga/estaciones-cobertura.csv docs/datos/inta-siga/
           cp datos/fuentes-externas/inta-siga/precipitacion-anual-estaciones.csv docs/datos/inta-siga/
+          cp datos/fuentes-externas/inta-siga/estaciones.json docs/datos/inta-siga/
+          cp datos/fuentes-externas/inta-siga/estaciones-observaciones.csv.gz docs/datos/inta-siga/
           mkdir -p docs/datos/fuentes-externas/corrientes
           cp datos/fuentes-externas/corrientes/rainfall-daily.csv docs/datos/fuentes-externas/corrientes/
           cp datos/fuentes-externas/corrientes/qa-summary.json docs/datos/fuentes-externas/corrientes/
@@ -48,6 +50,10 @@ jobs:
           test -s docs/datos/inta-siga/analisis-cobertura.json
           test -s docs/datos/inta-siga/estaciones-cobertura.csv
           test -s docs/datos/inta-siga/precipitacion-anual-estaciones.csv
+          test -s docs/datos/inta-siga/estaciones.json
+          test -s docs/datos/inta-siga/estaciones-observaciones.csv.gz
+          test -s docs/assets/js/laboratorio-nacional.js
+          test -s docs/assets/css/laboratorio-nacional.css
           test -s docs/explorador-interactivo.html
           test -s docs/datos/fuentes-externas/corrientes/rainfall-daily.csv
           test -s docs/datos/fuentes-externas/corrientes/qa-summary.json
