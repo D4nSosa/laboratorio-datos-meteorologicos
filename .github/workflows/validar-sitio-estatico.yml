@@ -31,6 +31,8 @@ jobs:
           cp datos/fuentes-externas/inta-siga/analisis-cobertura.json docs/datos/inta-siga/
           cp datos/fuentes-externas/inta-siga/estaciones-cobertura.csv docs/datos/inta-siga/
           cp datos/fuentes-externas/inta-siga/precipitacion-anual-estaciones.csv docs/datos/inta-siga/
+          cp datos/fuentes-externas/inta-siga/estaciones.json docs/datos/inta-siga/
+          cp datos/fuentes-externas/inta-siga/estaciones-observaciones.csv.gz docs/datos/inta-siga/
           mkdir -p docs/datos/fuentes-externas/corrientes
           cp datos/fuentes-externas/corrientes/rainfall-daily.csv docs/datos/fuentes-externas/corrientes/
           cp datos/fuentes-externas/corrientes/qa-summary.json docs/datos/fuentes-externas/corrientes/
@@ -50,6 +52,13 @@ jobs:
           assert 'data-view="corrientes"' in explorer, "Falta navegación al explorador provincial"
           assert 'id="corrientes"' in explorer, "Falta sección integrada de Corrientes"
           assert "initCorrientes()" in explorer, "Falta inicialización de datos diarios"
+          assert 'data-view="national-lab"' in explorer and 'id="national-lab"' in explorer
+          assert "assets/js/laboratorio-nacional.js" in explorer
+          assert "assets/css/laboratorio-nacional.css" in explorer
+          assert (root / "assets/js/laboratorio-nacional.js").exists()
+          assert (root / "assets/css/laboratorio-nacional.css").exists()
+          assert (root / "datos/inta-siga/estaciones.json").exists()
+          assert (root / "datos/inta-siga/estaciones-observaciones.csv.gz").stat().st_size > 1000000
           html = html_path.read_text(encoding="utf-8")
           class Checker(HTMLParser):
               def __init__(self):
