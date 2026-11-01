@@ -1,1 +1,83 @@
 #national-lab{margin:28px 0 60px}#national-lab .lab-intro{max-width:900px;color:var(--muted)}#national-lab .lab-panel{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:20px;margin:18px 0}#national-lab .lab-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}#national-lab label{display:grid;gap:6px;color:var(--muted);font-size:12px}#national-lab input,#national-lab select{width:100%;min-width:0;background:var(--surface2);border:1px solid var(--line);color:var(--text);padding:10px;border-radius:9px}#national-lab .lab-controls{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-items:end}#national-lab button,#national-lab .lab-link{background:var(--surface2);border:1px solid var(--line);color:var(--text);padding:10px 14px;border-radius:9px;text-decoration:none}#national-lab button.primary{background:var(--accent);color:#09201b;border-color:var(--accent);font-weight:700}#national-lab button:disabled{opacity:.45;cursor:not-allowed}#national-lab .lab-muted,#national-lab .lab-status{font-size:12px;color:var(--muted)}#national-lab .lab-status{padding:10px 12px;border-left:3px solid var(--accent2);background:var(--surface2);margin:12px 0}#national-lab #national-chart svg{width:100%;height:auto}#national-lab .lab-axis{display:flex;justify-content:space-between;color:var(--muted);font-size:11px}#national-lab .lab-table-wrap{overflow:auto;max-height:440px;border:1px solid var(--line);border-radius:10px}#national-lab table{border-collapse:collapse;width:100%;font-size:12px}#national-lab th,#national-lab td{padding:9px 11px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}#national-lab th{position:sticky;top:0;background:var(--surface2);z-index:1}#national-lab #station-map{height:420px;border-radius:12px;border:1px solid var(--line)}#national-lab .lab-source{border-top:1px solid var(--line);padding:12px 0}#national-lab .lab-source a{color:var(--accent2)}#national-lab .lab-badge{display:inline-block;padding:3px 8px;border:1px solid var(--line);border-radius:99px;font-size:10px;color:var(--muted)}#national-lab .lab-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}#national-lab h2{margin:0 0 8px}@media(max-width:850px){#national-lab .lab-grid{grid-template-columns:1fr}#national-lab .lab-controls{grid-template-columns:repeat(2,minmax(0,1fr))}#national-lab .lab-panel{padding:14px}}@media(max-width:480px){#national-lab .lab-controls{grid-template-columns:1fr}}
+
+/* Responsive system-wide layout: prevent page-level horizontal overflow. */
+html{max-width:100%;overflow-x:clip}
+body{width:100%;max-width:100%;overflow-x:hidden}
+.shell{width:100%;max-width:1700px;min-width:0}
+main,.view,.panel,.hero,.hero-copy,.hero-fact,.sectionhead,.lnm-hero,.lnm-card,.lnm-module,.lnm-source{min-width:0;max-width:100%}
+.view{overflow-wrap:anywhere}
+img,svg,canvas,video{max-width:100%}
+.panelbody,.panelhead,.tabletools,.controls,.maptoolbar,.mapfoot{min-width:0}
+.chart{width:100%;height:clamp(260px,38vw,430px);min-height:260px;max-width:100%;position:relative}
+.chart>div,.chart canvas{max-width:100%}
+.chart svg{max-width:100%}
+.tablewrap,.lab-table-wrap,#ct-table,#smn-compare-table{width:100%;max-width:100%;overflow:auto;overscroll-behavior-x:contain}
+table{max-width:100%}
+.tabletools{flex-wrap:wrap}
+.tabletools>*{min-width:0}
+.paneltools{flex-wrap:wrap;min-width:0}
+.paneltools select{max-width:100%}
+.controls>*{min-width:0}
+.controls .field{flex:1 1 150px}
+.controls .field select,.controls .field input{width:100%;min-width:0}
+.maptoolbar>*{min-width:0}
+.maptoolbar .search{flex:1 1 220px;min-width:0}
+.mapfoot span{min-width:0;overflow-wrap:anywhere}
+#map,#corrientes-map,#smn-map{width:100%;max-width:100%}
+.viewer{max-width:100vw;overflow:hidden}
+.viewercontent{min-width:0;max-width:100vw;overflow:auto}
+.viewercontent>.panel{width:100%;max-width:100%}
+#national-lab .lab-panel,#national-lab .lab-grid,#national-lab .lab-controls{min-width:0}
+#national-lab .lab-controls>*{min-width:0;max-width:100%}
+#national-lab .lab-controls input,#national-lab .lab-controls select{width:100%;min-width:0}
+@media(max-width:760px){
+ .shell{padding-left:14px;padding-right:14px}
+ .topinner{height:auto;min-height:60px;flex-wrap:wrap;padding:9px 0;gap:8px}
+ .topactions{margin-left:auto}
+ .brand{min-width:0;max-width:calc(100% - 100px);font-size:10px;letter-spacing:.06em}
+ .brand small{font-size:8px}
+ .nav{gap:3px}
+ .navbtn{font-size:11px;padding:8px 10px}
+ main{padding-top:16px;padding-bottom:38px}
+ .hero{grid-template-columns:minmax(0,1fr);gap:12px}
+ .hero-copy,.hero-fact{padding:19px}
+ h1{font-size:clamp(29px,8vw,42px)}
+ .sectionhead{gap:8px;margin-top:22px}
+ .sectionhead h2{font-size:21px}
+ .grid2,.grid3,.methodgrid,.participation-hero{grid-template-columns:minmax(0,1fr)}
+ .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .panelhead{flex-wrap:wrap}
+ .panelhead>div{min-width:0}
+ .paneltools{width:100%;justify-content:flex-start}
+ .chart{height:310px;min-height:250px}
+ .controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}
+ .controls .field{width:100%;min-width:0}
+ .controls button{width:100%;min-width:0}
+ .maptoolbar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+ .maptoolbar .search{grid-column:1/-1;width:100%}
+ .maptoolbar .expand{grid-column:1/-1;width:100%}
+ #map{height:440px}
+ .mapfoot{display:grid}
+ .tabletools{align-items:flex-start}
+ .tabletools .paneltools{width:100%}
+ .tabletools .search{max-width:100%!important;width:100%}
+ .participation-hero{gap:12px}
+ .feedback-types{grid-template-columns:minmax(0,1fr)}
+ .viewerbar{gap:8px}
+}
+@media(max-width:420px){
+ .shell{padding-left:10px;padding-right:10px}
+ .topinner{align-items:flex-start}
+ .topactions{gap:6px}
+ .theme{font-size:10px;padding:7px 8px}
+ .brand{font-size:9px}
+ .kpi{padding:9px}
+ .kpi b{font-size:18px;overflow-wrap:anywhere}
+ .controls{grid-template-columns:minmax(0,1fr)}
+ .maptoolbar{grid-template-columns:minmax(0,1fr)}
+ .maptoolbar .search,.maptoolbar .expand{grid-column:auto}
+ .chart{height:280px}
+ .panelhead{padding-left:11px;padding-right:11px}
+ .panelbody{padding-left:8px;padding-right:8px}
+ .tabletools{padding-left:10px;padding-right:10px}
+}
