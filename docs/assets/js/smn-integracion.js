@@ -1,58 +1,145 @@
 (() => {
 'use strict';
 const $=id=>document.getElementById(id);
-const BASE='https://w2b.smn.gov.ar/oapi/collections/';
+const ROOT='https://w2b.smn.gov.ar/oapi/collections/';
+const COLLECTIONS={synop:'urn:wmo:md:ar-smn:slt0ci',auto:'urn:wmo:md:ar-smn:autosmn'};
+const ARCHIVE='https://archive-api.open-meteo.com/v1/archive';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const date=v=>{if(!v)return '—';const d=new Date(v);return Number.isNaN(+d)?String(v):d.toLocaleString('es-AR',{dateStyle:'short',timeStyle:'short',timeZone:'UTC'})+' UTC';};
+const fmt=(v,n=1)=>Number(v).toLocaleString('es-AR',{maximumFractionDigits:n});
+const isoDay=v=>String(v||'').slice(0,10);
+const parseDate=v=>{const d=new Date(v);return Number.isNaN(+d)?'—':d.toLocaleString('es-AR',{timeZone:'UTC',dateStyle:'short',timeStyle:'short'})+' UTC';};
 async function get(url){const r=await fetch(url,{headers:{Accept:'application/geo+json, application/json'}});if(!r.ok)throw Error('HTTP '+r.status);return r.json();}
-function features(d){return d.features||d.items||d.records||[];}
+function feats(d){return d.features||d.items||[];}
 function props(f){return f.properties||f;}
-function first(p,keys){for(const k of keys){const v=p[k];if(v!==undefined&&v!==null&&v!=='')return v;}return '—';}
-function stationName(p){return first(p,['name','station_name','stationName','wigos_station_identifier','wmo_station_id','id','identifier']);}
-function table(id,rows){const cols=[['name','Estación'],['time','Fecha/hora UTC'],['temperature','Temperatura'],['precipitation','Precipitación'],['wind','Viento'],['humidity','Humedad']];if(!rows.length){$(id).innerHTML='<p class="lab-muted">El servicio no devolvió reportes en esta consulta.</p>';return;}$(id).innerHTML='<div class="lab-table-wrap"><table><thead><tr>'+cols.map(x=>'<th>'+x[1]+'</th>').join('')+'</tr></thead><tbody>'+rows.slice(0,35).map(p=>{const t=first(p,['phenomenonTime','phenomenon_time','datetime','dateTime','time','resultTime']);const v=first(p,['temperature','air_temperature','airTemperature']);const rain=first(p,['precipitation','total_precipitation','precipitation_amount']);const wind=first(p,['wind_speed','windSpeed','wind']);const hum=first(p,['relative_humidity','relativeHumidity','humidity']);return '<tr><td>'+esc(stationName(p))+'</td><td>'+esc(date(t))+'</td><td>'+esc(v)+'</td><td>'+esc(rain)+'</td><td>'+esc(wind)+'</td><td>'+esc(hum)+'</td></tr>';}).join('')+'</tbody></table></div>';}
-let smnMap,smnLayer;
+function prop(p,k){return p[k]??p[k.toLowerCase()]??null;}
+function stationId(p){return prop(p,'wigos_station_identifier')||prop(p,'id')||'';}
+function stationName(p){return prop(p,'name')||prop(p,'station_name')||stationId(p)||'Estación SMN';}
+function collectionUrl(collection,params){return ROOT+encodeURIComponent(collection)+'/items?'+new URLSearchParams(params);}
+function reportTable(id,features){
+ const rows=features.map(f=>props(f));
+ if(!rows.length){$(id).innerHTML='<p class="lab-muted">Sin reportes devueltos por el servicio para esta consulta.</p>';return;}
+ $(id).innerHTML='<div class="lab-table-wrap"><table><thead><tr><th>Fecha UTC</th><th>Estación WIGOS</th><th>Variable</th><th>Valor</th><th>Unidad</th><th>Descripción</th></tr></thead><tbody>'+rows.slice(0,30).map(p=>'<tr><td>'+esc(parseDate(p.phenomenonTime||p.reportTime))+'</td><td>'+esc(p.wigos_station_identifier||'—')+'</td><td>'+esc(p.name||'—')+'</td><td>'+esc(p.value??'—')+'</td><td>'+esc(p.units||'—')+'</td><td>'+esc(p.description||'—')+'</td></tr>').join('')+'</tbody></table></div>';
+}
+let smnMap,smnLayer,smnStations=[],comparisonRows=[];
 async function loadStations(){
- const status=$('smn-station-status');status.textContent='Consultando catálogo WIS2 del SMN…';
+ const status=$('smn-station-status');status.textContent='Consultando las estaciones publicadas en WIS2…';
  try{
-  const d=await get(BASE+'stations/items?f=geojson&limit=1000');
-  const fs=features(d);
-  const good=fs.filter(f=>Array.isArray(f.geometry?.coordinates)&&f.geometry.coordinates.length>=2&&f.geometry.coordinates.slice(0,2).every(Number.isFinite));
-  $('smn-station-count').textContent=good.length+' estaciones con coordenadas';
+  const d=await get(collectionUrl('stations',{f:'json',limit:'1000'}));
+  const fs=feats(d);
+  smnStations=fs.map(f=>{const p=props(f),c=f.geometry?.coordinates||[];return {id:stationId(p),name:stationName(p),status:p.status||'—',lat:Number(c[1]),lon:Number(c[0]),props:p};}).filter(s=>s.id);
+  const mapped=smnStations.filter(s=>Number.isFinite(s.lat)&&Number.isFinite(s.lon)&&s.lat>=-60&&s.lat<=-20&&s.lon>=-75&&s.lon<=-52);
+  $('smn-station-count').textContent=smnStations.length+' estaciones en catálogo';
+  const select=$('smn-compare-station');
+  select.innerHTML='<option value="">Seleccioná una estación…</option>'+smnStations.slice().sort((a,b)=>a.name.localeCompare(b.name,'es')).map(s=>'<option value="'+esc(s.id)+'">'+esc(s.name)+' · '+esc(s.id)+'</option>').join('');
+  const vir=mapped.find(s=>/GOBERNADOR VIRASORO/i.test(s.name))||mapped.slice().sort((a,b)=>Math.hypot(a.lat+28.05,a.lon+56.02)-Math.hypot(b.lat+28.05,b.lon+56.02))[0];
+  if(vir)select.value=vir.id;
   if(window.L&&$('smn-map')){
    if(!smnMap){smnMap=L.map('smn-map').setView([-38.5,-63.6],4);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap'}).addTo(smnMap);}
    if(smnLayer)smnMap.removeLayer(smnLayer);
-   smnLayer=L.layerGroup(good.map(f=>{const p=props(f),c=f.geometry.coordinates;return L.circleMarker([c[1],c[0]],{radius:5,color:'#397dc1',fillOpacity:.75}).bindPopup('<b>'+esc(stationName(p))+'</b><br>'+esc(first(p,['wigos_station_identifier','wmo_station_id','identifier']))+'<br>Catálogo WIS2 SMN');})).addTo(smnMap);
-   setTimeout(()=>smnMap.invalidateSize(),100);
+   smnLayer=L.layerGroup(mapped.map(s=>L.circleMarker([s.lat,s.lon],{radius:5,color:'#397dc1',fillOpacity:.78}).bindPopup('<b>'+esc(s.name)+'</b><br>WIGOS: '+esc(s.id)+'<br>Estado de catálogo: '+esc(s.status)))).addTo(smnMap);
+   setTimeout(()=>smnMap.invalidateSize(),120);
   }
-  status.textContent=good.length+' estaciones con geometría válida de '+fs.length+' elementos recibidos. El catálogo no implica transmisión activa en tiempo real.';
- }catch(e){$('smn-station-count').textContent='No disponible';status.textContent='No se pudo consultar el catálogo WIS2: '+e.message+'. Consultá el catálogo oficial del SMN.';}
+  status.textContent=smnStations.length+' estaciones devueltas por el catálogo; '+mapped.length+' con coordenadas dentro del territorio continental argentino. El estado del catálogo no certifica transmisión activa.';
+ }catch(e){$('smn-station-count').textContent='No disponible';status.textContent='No se pudo consultar el catálogo WIS2: '+e.message;}
 }
-async function loadObs(collection,id){
- const d=await get(BASE+encodeURIComponent(collection)+'/items?f=json&limit=500');
- const fs=features(d);return fs.map(f=>{const p=props(f);return {...p,name:stationName(p)};});
+async function latestReports(collection){
+ const url=collectionUrl(collection,{f:'json',limit:'30',sortby:'-phenomenonTime',name:'air_temperature'});
+ const d=await get(url);return feats(d);
 }
-async function loadObservations(){
- const s=$('smn-station-status');s.textContent='Consultando inventario y reportes publicados por WIS2…';
- const results=await Promise.allSettled([
-  loadObs('urn:wmo:md:ar-smn:slt0ci','synop'),
-  loadObs('urn:wmo:md:ar-smn:autosmn','auto')
- ]);
- if(results[0].status==='fulfilled')table('smn-synop-table',results[0].value);else $('smn-synop-table').innerHTML='<p class="lab-muted">Consulta fallida: '+esc(results[0].reason.message)+'</p>';
- if(results[1].status==='fulfilled')table('smn-auto-table',results[1].value);else $('smn-auto-table').innerHTML='<p class="lab-muted">Consulta fallida: '+esc(results[1].reason.message)+'</p>';
- const ok=results.filter(x=>x.status==='fulfilled').length;
- s.textContent+=' Reportes: '+(results[0].status==='fulfilled'?results[0].value.length:0)+' sinópticos y '+(results[1].status==='fulfilled'?results[1].value.length:0)+' automáticos devueltos. '+(ok?'Los campos disponibles dependen del reporte y del esquema publicado.':'No se pudieron recuperar reportes en este momento.');
+async function loadLatest(){
+ const s=$('smn-station-status');
+ const results=await Promise.allSettled([latestReports(COLLECTIONS.synop),latestReports(COLLECTIONS.auto)]);
+ if(results[0].status==='fulfilled')reportTable('smn-synop-table',results[0].value);else $('smn-synop-table').innerHTML='<p class="lab-muted">Consulta no disponible: '+esc(results[0].reason.message)+'</p>';
+ if(results[1].status==='fulfilled')reportTable('smn-auto-table',results[1].value);else $('smn-auto-table').innerHTML='<p class="lab-muted">Consulta no disponible: '+esc(results[1].reason.message)+'</p>';
+ const times=results.flatMap(x=>x.status==='fulfilled'?x.value.map(f=>props(f).phenomenonTime||props(f).reportTime).filter(Boolean):[]).sort();
+ if(times.length&&!$('smn-compare-end').value){
+  const end=isoDay(times[times.length-1]),d=new Date(end+'T00:00:00Z');d.setUTCDate(d.getUTCDate()-13);
+  $('smn-compare-end').value=end;$('smn-compare-start').value=d.toISOString().slice(0,10);
+ }
+ const counts=results.map(x=>x.status==='fulfilled'?x.value.length:0);
+ s.textContent+=' Últimos reportes de temperatura consultados: '+counts[0]+' sinópticos y '+counts[1]+' automáticos. La fecha real de cada registro se muestra en las tablas.';
 }
-async function alerts(){
- const s=$('smn-alert-status'),box=$('smn-alert-list');s.textContent='Consultando feed CAP oficial…';box.innerHTML='<p class="lab-muted">Cargando…</p>';
+async function getStationTemperature(collection,id,start,end){
+ const params={f:'json',limit:'1000',sortby:'phenomenonTime',wigos_station_identifier:id,name:'air_temperature',datetime:start+'/'+end};
+ const out=[];let offset=0;
+ for(let page=0;page<5;page++){
+  params.startindex=String(offset);
+  const d=await get(collectionUrl(collection,params)),fs=feats(d);out.push(...fs);
+  if(fs.length<1000)break;offset+=fs.length;
+ }
+ return out.map(f=>props(f)).filter(p=>p.value!==null&&p.value!==undefined&&Number.isFinite(Number(p.value))&&p.phenomenonTime).map(p=>({time:p.phenomenonTime,date:isoDay(p.phenomenonTime),value:Number(p.value),unit:p.units||'—',name:p.name||'air_temperature',reportId:p.reportId||p.id||''})).sort((a,b)=>a.time.localeCompare(b.time));
+}
+function dailyMean(rows){const m=new Map();rows.forEach(r=>{if(!m.has(r.date))m.set(r.date,[]);m.get(r.date).push(r.value);});return new Map([...m].map(([d,v])=>[d,v.reduce((a,b)=>a+b,0)/v.length]));}
+async function getReanalysis(lat,lon,start,end,model){
+ const url='https://archive-api.open-meteo.com/v1/archive?'+new URLSearchParams({latitude:String(lat),longitude:String(lon),start_date:start,end_date:end,daily:'temperature_2m_mean',timezone:'UTC',models:model});
+ const d=await get(url);return new Map((d.daily?.time||[]).map((date,i)=>[date,d.daily.temperature_2m_mean?.[i]]));
+}
+function drawComparison(rows){
+ if(!rows.length){$('smn-compare-chart').innerHTML='<p class="lab-muted">No hay días coincidentes para graficar.</p>';return;}
+ const series=[['smn','SMN · promedio de reportes'],['era5','ERA5'],['era5_land','ERA5-Land']];
+ const vals=rows.flatMap(r=>series.map(s=>r[s[0]])).filter(v=>Number.isFinite(v));
+ if(!vals.length){$('smn-compare-chart').innerHTML='';return;}
+ const lo=Math.floor(Math.min(...vals)-1),hi=Math.ceil(Math.max(...vals)+1),span=Math.max(1,hi-lo),W=1000,H=330,L=62,R=20,T=24,B=48;
+ const x=i=>L+i*(W-L-R)/Math.max(1,rows.length-1),y=v=>T+(hi-v)*(H-T-B)/span;
+ let svg='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Comparación de temperatura diaria SMN, ERA5 y ERA5-Land">';
+ for(let k=0;k<=4;k++){const v=lo+(hi-lo)*k/4,yy=y(v);svg+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+yy+'" y2="'+yy+'" stroke="currentColor" opacity=".15"/><text x="'+(L-9)+'" y="'+(yy+4)+'" fill="currentColor" font-size="11" text-anchor="end">'+fmt(v,0)+'°</text>';}
+ series.forEach((s,j)=>{const points=rows.map((r,i)=>Number.isFinite(r[s[0]])?x(i)+','+y(r[s[0]]):null).filter(Boolean).join(' ');svg+='<polyline points="'+points+'" fill="none" stroke="'+['#f0b35b','#54c6a7','#80aee8'][j]+'" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>';});
+ [0,Math.floor((rows.length-1)/2),rows.length-1].forEach(i=>{if(i>=0)svg+='<text x="'+x(i)+'" y="'+(H-15)+'" fill="currentColor" font-size="11" text-anchor="middle">'+rows[i].date+'</text>';});
+ svg+='</svg><div class="lab-legend">'+series.map((s,j)=>'<span><i style="background:'+['#f0b35b','#54c6a7','#80aee8'][j]+'"></i>'+s[1]+'</span>').join('')+'</div>';
+ $('smn-compare-chart').innerHTML=svg;
+}
+function renderComparison(rows,obsCount){
+ comparisonRows=rows;
+ const n=rows.length,smnN=rows.filter(r=>Number.isFinite(r.smn)).length,eraN=rows.filter(r=>Number.isFinite(r.era5)).length,landN=rows.filter(r=>Number.isFinite(r.era5_land)).length;
+ $('smn-compare-summary').textContent='Días del período: '+n+' · días con observación SMN: '+smnN+' · ERA5: '+eraN+' · ERA5-Land: '+landN+'. SMN: '+obsCount+' reportes individuales agrupados como promedio diario.';
+ drawComparison(rows);
+ $('smn-compare-table').innerHTML=n?'<table><thead><tr><th>Fecha UTC</th><th>SMN · media de reportes °C</th><th>N reportes</th><th>ERA5 °C</th><th>ERA5-Land °C</th></tr></thead><tbody>'+rows.map(r=>'<tr><td>'+r.date+'</td><td>'+ (Number.isFinite(r.smn)?fmt(r.smn,2):'—')+'</td><td>'+r.smn_count+'</td><td>'+(Number.isFinite(r.era5)?fmt(r.era5,2):'—')+'</td><td>'+(Number.isFinite(r.era5_land)?fmt(r.era5_land,2):'—')+'</td></tr>').join('')+'</tbody></table>':'<p class="lab-muted">No se encontraron fechas coincidentes. Revisá estación y período.</p>';
+ $('smn-compare-download').disabled=!n;
+}
+async function compare(){
+ const id=$('smn-compare-station').value,start=$('smn-compare-start').value,end=$('smn-compare-end').value,network=$('smn-compare-network').value;
+ const status=$('smn-compare-status');
+ if(!id||!start||!end||start>end){status.textContent='Seleccioná estación y un rango de fechas válido.';return;}
+ const station=smnStations.find(s=>s.id===id);
+ if(!station||!Number.isFinite(station.lat)||!Number.isFinite(station.lon)){status.textContent='La estación no tiene coordenadas válidas para consultar ERA5.';return;}
+ if((Date.parse(end)-Date.parse(start))/86400000>366){status.textContent='Para mantener una comparación ágil, limitá el período a un año.';return;}
+ status.textContent='Consultando observaciones SMN para '+station.name+'…';
+ $('smn-compare-summary').textContent='Descargando reportes y reanálisis…';$('smn-compare-chart').innerHTML='';$('smn-compare-table').innerHTML='';
  try{
-  const u='https://ssl.smn.gob.ar/feeds/CAP/rss_alertaCAP_nuevo.xml';
-  const r=await fetch(u,{cache:'no-store'});if(!r.ok)throw Error('HTTP '+r.status);
-  const xml=new DOMParser().parseFromString(await r.text(),'application/xml');if(xml.querySelector('parsererror'))throw Error('El feed no devolvió XML válido');
+  const [obs,era5,land]=await Promise.all([
+   getStationTemperature(COLLECTIONS[network],id,start,end),
+   getReanalysis(station.lat,station.lon,start,end,'era5'),
+   getReanalysis(station.lat,station.lon,start,end,'era5_land')
+  ]);
+  const smn=dailyMean(obs),dates=new Set([...smn.keys(),...era5.keys(),...land.keys()]);
+  const rows=[...dates].sort().map(date=>({date,smn:smn.get(date),smn_count:obs.filter(o=>o.date===date).length,era5:era5.get(date),era5_land:land.get(date)}));
+  renderComparison(rows,obs.length);
+  status.textContent=station.name+' · '+network+' · '+obs.length+' reportes de temperatura SMN. Coordenadas de estación: '+station.lat.toFixed(4)+', '+station.lon.toFixed(4)+'.';
+ }catch(e){status.textContent='La comparación no pudo completarse: '+e.message+'. El catálogo, la API de observaciones o el servicio de reanálisis puede estar temporalmente inaccesible.';}
+}
+function alerts(){
+ const s=$('smn-alert-status'),box=$('smn-alert-list');s.textContent='Consultando feed CAP oficial…';box.innerHTML='<p class="lab-muted">Cargando…</p>';
+ fetch('https://ssl.smn.gob.ar/feeds/CAP/rss_alertaCAP_nuevo.xml',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.text();}).then(t=>{
+  const xml=new DOMParser().parseFromString(t,'application/xml');if(xml.querySelector('parsererror'))throw Error('XML no válido');
   const items=[...xml.querySelectorAll('item')].map(n=>({title:n.querySelector('title')?.textContent||'Alerta meteorológica',description:n.querySelector('description')?.textContent||'',link:n.querySelector('link')?.textContent||'https://www.smn.gob.ar/alertas',date:n.querySelector('pubDate')?.textContent||''}));
   box.innerHTML=items.length?items.slice(0,20).map(a=>'<article class="lab-alert"><strong>'+esc(a.title)+'</strong><small>'+esc(a.date)+'</small><p>'+esc(a.description.replace(/<[^>]*>/g,' ').slice(0,420))+'</p><a href="'+esc(a.link)+'" target="_blank" rel="noopener">Abrir aviso oficial ↗</a></article>').join(''):'<p class="lab-muted">El feed no publica avisos en este momento. Confirmá en el portal oficial.</p>';
   s.textContent=items.length+' avisos devueltos por el feed CAP. Revisá vigencia y área en el documento oficial.';
- }catch(e){box.innerHTML='<p class="lab-muted">No fue posible leer el feed desde este navegador ('+esc(e.message)+'). El canal puede bloquear solicitudes CORS; no significa que no existan alertas.</p>';s.textContent='Feed CAP no accesible desde el navegador. Usá el portal oficial.';}
+ }).catch(e=>{box.innerHTML='<p class="lab-muted">No fue posible leer el feed desde este navegador ('+esc(e.message)+'). Puede estar bloqueado por CORS; esto no significa que no existan alertas.</p>';s.textContent='Feed CAP no accesible desde el navegador. Usá el portal oficial.';});
 }
-function init(){if(!$('smn-map'))return;$('smn-refresh').addEventListener('click',()=>{loadStations();loadObservations();});$('smn-alert-refresh').addEventListener('click',alerts);loadStations();loadObservations();alerts();}
+function init(){
+ if(!$('smn-map'))return;
+ $('smn-refresh').addEventListener('click',()=>{loadStations();loadLatest();});
+ $('smn-alert-refresh').addEventListener('click',alerts);
+ $('smn-compare-run').addEventListener('click',compare);
+ $('smn-compare-download').addEventListener('click',()=>{
+  if(!comparisonRows.length)return;
+  const keys=['date','smn','smn_count','era5','era5_land'],head=['fecha_utc','smn_temperatura_media_reportes_c','cantidad_reportes_smn','era5_temperatura_media_c','era5_land_temperatura_media_c'];
+  const q=v=>'"'+String(v??'').replace(/"/g,'""')+'"';
+  const csv=[head.map(q).join(','),...comparisonRows.map(r=>keys.map(k=>q(r[k])).join(','))].join('\n');
+  const a=document.createElement('a'),u=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.href=u;a.download='comparacion-smn-era5-era5land.csv';a.click();URL.revokeObjectURL(u);
+ });
+ $('smn-compare-station').addEventListener('change',()=>{$('smn-compare-status').textContent='Estación seleccionada. Definí el período y ejecutá la comparación.';});
+ loadStations().then(loadLatest);alerts();
+}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();

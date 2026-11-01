@@ -65,6 +65,10 @@ jobs:
           assert "assets/js/laboratorio-nacional.js" in explorer
           assert "assets/js/smn-integracion.js" in explorer
           assert 'id="smn-map"' in explorer and 'id="smn-alert-list"' in explorer
+          assert 'id="smn-compare-station"' in explorer and 'id="smn-compare-run"' in explorer
+          assert 'id="smn-compare-chart"' in explorer and 'id="smn-compare-download"' in explorer
+          assert "getStationTemperature" in (root / "assets/js/smn-integracion.js").read_text(encoding="utf-8")
+          assert "era5_land" in (root / "assets/js/smn-integracion.js").read_text(encoding="utf-8")
           assert (root / "assets/js/smn-integracion.js").exists()
           assert "assets/css/laboratorio-nacional.css" in explorer
           assert (root / "assets/js/laboratorio-nacional.js").exists()
