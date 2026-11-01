@@ -8,13 +8,16 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const fmt=(v,n=1)=>Number(v).toLocaleString('es-AR',{maximumFractionDigits:n});
 const isoDay=v=>String(v||'').slice(0,10);
 const parseDate=v=>{const d=new Date(v);return Number.isNaN(+d)?'—':d.toLocaleString('es-AR',{timeZone:'UTC',dateStyle:'short',timeStyle:'short'})+' UTC';};
-async function get(url){const r=await fetch(url,{headers:{Accept:'application/geo+json, application/json'}});if(!r.ok)throw Error('HTTP '+r.status);return r.json();}
+async function getText(url,options={}){const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),20000);try{const r=await fetch(url,{...options,signal:controller.signal});if(!r.ok)throw Error('HTTP '+r.status);return await r.text();}catch(e){if(e.name==='AbortError')throw Error('Tiempo de espera agotado (20 s)');throw e;}finally{clearTimeout(timer);}}
+async function get(url){const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),20000);try{const r=await fetch(url,{headers:{Accept:'application/geo+json, application/json'},signal:controller.signal});const body=await r.text();if(!r.ok)throw Error('HTTP '+r.status+(body?' · '+body.slice(0,180):''));try{return JSON.parse(body);}catch(e){throw Error('La API devolvió una respuesta que no es JSON válido.');}}catch(e){if(e.name==='AbortError')throw Error('Tiempo de espera agotado (20 s)');throw e;}finally{clearTimeout(timer);}}
 function feats(d){return d.features||d.items||[];}
 function props(f){return f.properties||f;}
 function prop(p,k){return p[k]??p[k.toLowerCase()]??null;}
 function stationId(p){return prop(p,'wigos_station_identifier')||prop(p,'id')||'';}
 function stationName(p){return prop(p,'name')||prop(p,'station_name')||stationId(p)||'Estación SMN';}
 function collectionUrl(collection,params){return ROOT+encodeURIComponent(collection)+'/items?'+new URLSearchParams(params);}
+const sampleCache=new Map();
+function sampleCollection(collection){if(!sampleCache.has(collection))sampleCache.set(collection,get(collectionUrl(collection,{f:'json',limit:'500',sortby:'-reportTime'})));return sampleCache.get(collection);}
 function reportTable(id,features){
  const rows=features.map(f=>props(f));
  if(!rows.length){$(id).innerHTML='<p class="lab-muted">Sin reportes devueltos por el servicio para esta consulta.</p>';return;}
@@ -24,7 +27,7 @@ let smnMap,smnLayer,smnStations=[],comparisonRows=[];
 async function loadStations(){
  const status=$('smn-station-status');status.textContent='Consultando las estaciones publicadas en WIS2…';
  try{
-  const d=await get(collectionUrl('stations',{f:'json',limit:'1000'}));
+  const d=await get(collectionUrl('stations',{f:'json',limit:'250'}));
   const fs=feats(d);
   smnStations=fs.map(f=>{const p=props(f),c=f.geometry?.coordinates||[];return {id:stationId(p),name:stationName(p),status:p.status||'—',lat:Number(c[1]),lon:Number(c[0]),props:p};}).filter(s=>s.id);
   const mapped=smnStations.filter(s=>Number.isFinite(s.lat)&&Number.isFinite(s.lon)&&s.lat>=-60&&s.lat<=-20&&s.lon>=-75&&s.lon<=-52);
@@ -40,11 +43,11 @@ async function loadStations(){
    setTimeout(()=>smnMap.invalidateSize(),120);
   }
   status.textContent=smnStations.length+' estaciones devueltas por el catálogo; '+mapped.length+' con coordenadas dentro del territorio continental argentino. El estado del catálogo no certifica transmisión activa.';
- }catch(e){$('smn-station-count').textContent='No disponible';status.textContent='No se pudo consultar el catálogo WIS2: '+e.message;}
+ }catch(e){$('smn-station-count').textContent='No disponible';$('smn-compare-station').innerHTML='<option value="">Catálogo WIS2 no disponible</option>';status.textContent='No se pudo consultar el catálogo WIS2: '+e.message;}
 }
 async function latestReports(collection){
- const url=collectionUrl(collection,{f:'json',limit:'30',sortby:'-phenomenonTime',name:'air_temperature'});
- const d=await get(url);return feats(d);
+ const d=await sampleCollection(collection);
+ return feats(d).filter(f=>/air_temperature|temperature/i.test(String(props(f).name||''))).sort((a,b)=>String(props(b).reportTime||props(b).phenomenonTime||'').localeCompare(String(props(a).reportTime||props(a).phenomenonTime||''))).slice(0,30);
 }
 async function loadLatest(){
  const s=$('smn-station-status');
@@ -60,7 +63,7 @@ async function loadLatest(){
  s.textContent+=' Últimos reportes de temperatura consultados: '+counts[0]+' sinópticos y '+counts[1]+' automáticos. La fecha real de cada registro se muestra en las tablas.';
 }
 async function getStationTemperature(collection,id,start,end){
- const params={f:'json',limit:'1000',sortby:'phenomenonTime',wigos_station_identifier:id,name:'air_temperature',datetime:start+'/'+end};
+ const params={f:'json',limit:'1000',sortby:'reportTime',wigos_station_identifier:id,name:'air_temperature',datetime:start+'/'+end};
  const out=[];let offset=0;
  for(let page=0;page<5;page++){
   params.startindex=String(offset);
@@ -122,8 +125,8 @@ let variableRecords=[];
 function discoverVariables(){
  const status=$('smn-variable-status');
  Promise.all([
-  get(collectionUrl(COLLECTIONS.synop,{f:'json',limit:'1000',sortby:'-phenomenonTime'})),
-  get(collectionUrl(COLLECTIONS.auto,{f:'json',limit:'1000',sortby:'-phenomenonTime'}))
+  sampleCollection(COLLECTIONS.synop),
+  sampleCollection(COLLECTIONS.auto)
  ]).then(([syn,aut])=>{
   const names=[...new Set([...feats(syn),...feats(aut)].map(f=>props(f).name).filter(Boolean))].sort();
   $('smn-variable-name').innerHTML='<option value="">Seleccioná una variable…</option>'+names.map(n=>'<option value="'+esc(n)+'">'+esc(n)+'</option>').join('');
@@ -131,8 +134,8 @@ function discoverVariables(){
   const end=new Date();end.setUTCDate(end.getUTCDate()-1);const start=new Date(end);start.setUTCDate(start.getUTCDate()-6);
   $('smn-variable-end').value=end.toISOString().slice(0,10);
   $('smn-variable-start').value=start.toISOString().slice(0,10);
-  status.textContent=names.length+' variables encontradas en una muestra de hasta 1.000 registros por red. El catálogo no es exhaustivo.';
- }).catch(e=>{status.textContent='No se pudo descubrir la muestra de variables: '+e.message;});
+  status.textContent=names.length+' variables encontradas en una muestra de hasta 500 registros recientes por red. El catálogo no es exhaustivo.';
+ }).catch(e=>{$('smn-variable-name').innerHTML='<option value="">Variables no disponibles</option>';status.textContent='No se pudo descubrir la muestra de variables: '+e.message;});
 }
 async function exploreVariable(){
  const name=$('smn-variable-name').value,network=$('smn-variable-network').value,id=$('smn-variable-station').value,start=$('smn-variable-start').value,end=$('smn-variable-end').value;
@@ -142,7 +145,7 @@ async function exploreVariable(){
  status.textContent='Consultando '+name+'…';
  $('smn-variable-table').innerHTML='';$('smn-variable-summary').textContent='';
  try{
-  const params={f:'json',limit:'1000',sortby:'-phenomenonTime',name,datetime:start+'/'+end};
+  const params={f:'json',limit:'1000',sortby:'-reportTime',name,datetime:start+'/'+end};
   if(id)params.wigos_station_identifier=id;
   const d=await get(collectionUrl(COLLECTIONS[network],params));
   variableRecords=feats(d).map(f=>props(f)).filter(p=>p.value!==null&&p.value!==undefined).map(p=>({
@@ -169,7 +172,7 @@ function downloadVariableCSV(){
 
 function alerts(){
  const s=$('smn-alert-status'),box=$('smn-alert-list');s.textContent='Consultando feed CAP oficial…';box.innerHTML='<p class="lab-muted">Cargando…</p>';
- fetch('https://ssl.smn.gob.ar/feeds/CAP/rss_alertaCAP_nuevo.xml',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.text();}).then(t=>{
+ getText('https://ssl.smn.gob.ar/feeds/CAP/rss_alertaCAP_nuevo.xml',{cache:'no-store'}).then(t=>{
   const xml=new DOMParser().parseFromString(t,'application/xml');if(xml.querySelector('parsererror'))throw Error('XML no válido');
   const items=[...xml.querySelectorAll('item')].map(n=>({title:n.querySelector('title')?.textContent||'Alerta meteorológica',description:n.querySelector('description')?.textContent||'',link:n.querySelector('link')?.textContent||'https://www.smn.gob.ar/alertas',date:n.querySelector('pubDate')?.textContent||''}));
   box.innerHTML=items.length?items.slice(0,20).map(a=>'<article class="lab-alert"><strong>'+esc(a.title)+'</strong><small>'+esc(a.date)+'</small><p>'+esc(a.description.replace(/<[^>]*>/g,' ').slice(0,420))+'</p><a href="'+esc(a.link)+'" target="_blank" rel="noopener">Abrir aviso oficial ↗</a></article>').join(''):'<p class="lab-muted">El feed no publica avisos en este momento. Confirmá en el portal oficial.</p>';
@@ -180,14 +183,14 @@ function alerts(){
 let rainRows=[];
 function discoverRainVariables(){
  const status=$('smn-rain-status');
- Promise.all([get(collectionUrl(COLLECTIONS.synop,{f:'json',limit:'1000',sortby:'-phenomenonTime'})),get(collectionUrl(COLLECTIONS.auto,{f:'json',limit:'1000',sortby:'-phenomenonTime'}))]).then(([a,b])=>{
+ Promise.all([sampleCollection(COLLECTIONS.synop),sampleCollection(COLLECTIONS.auto)]).then(([a,b])=>{
   const names=[...new Set([...feats(a),...feats(b)].map(f=>props(f).name).filter(n=>n&&/precip|rain/i.test(n)))].sort();
   $('smn-rain-variable').innerHTML='<option value="">Seleccioná variable…</option>'+names.map(n=>'<option value="'+esc(n)+'">'+esc(n)+'</option>').join('');
   $('smn-rain-station').innerHTML='<option value="">Seleccioná estación…</option>'+smnStations.slice().sort((x,y)=>x.name.localeCompare(y.name,'es')).map(s=>'<option value="'+esc(s.id)+'">'+esc(s.name)+' · '+esc(s.id)+'</option>').join('');
   const end=new Date();end.setUTCDate(end.getUTCDate()-2);const start=new Date(end);start.setUTCDate(start.getUTCDate()-29);
   $('smn-rain-start').value=start.toISOString().slice(0,10);$('smn-rain-end').value=end.toISOString().slice(0,10);
   status.textContent=names.length?names.length+' variables relacionadas con precipitación encontradas en una muestra reciente. La muestra no es exhaustiva.':'No se detectaron variables de precipitación en la muestra consultada; revisá el explorador general de variables.';
- }).catch(e=>{status.textContent='No se pudo descubrir variables de precipitación: '+e.message;});
+ }).catch(e=>{$('smn-rain-variable').innerHTML='<option value="">Variables no disponibles</option>';status.textContent='No se pudo descubrir variables de precipitación: '+e.message;});
 }
 async function compareRain(){
  const id=$('smn-rain-station').value,network=$('smn-rain-network').value,name=$('smn-rain-variable').value,start=$('smn-rain-start').value,end=$('smn-rain-end').value,status=$('smn-rain-status');
@@ -196,7 +199,7 @@ async function compareRain(){
  const station=smnStations.find(s=>s.id===id);if(!station||!Number.isFinite(station.lat)||!Number.isFinite(station.lon)){status.textContent='La estación no tiene coordenadas válidas.';return;}
  status.textContent='Consultando registros SMN y precipitación diaria ERA5…';$('smn-rain-summary').textContent='';$('smn-rain-metrics').innerHTML='';$('smn-rain-chart').innerHTML='';$('smn-rain-table').innerHTML='';
  try{
-  const params={f:'json',limit:'1000',sortby:'-phenomenonTime',wigos_station_identifier:id,name,datetime:start+'/'+end};
+  const params={f:'json',limit:'1000',sortby:'-reportTime',wigos_station_identifier:id,name,datetime:start+'/'+end};
   const [d,era]=await Promise.all([
    get(collectionUrl(COLLECTIONS[network],params)),
    get(ARCHIVE+'?'+new URLSearchParams({latitude:String(station.lat),longitude:String(station.lon),start_date:start,end_date:end,daily:'precipitation_sum',timezone:'UTC',models:'era5',precipitation_unit:'mm'}))
@@ -246,7 +249,7 @@ function downloadRainCSV(){
 
 function init(){
  if(!$('smn-map'))return;
- $('smn-refresh').addEventListener('click',()=>{loadStations();loadLatest();});
+ $('smn-refresh').addEventListener('click',()=>{sampleCache.clear();$('smn-station-count').textContent='Actualizando…';$('smn-synop-table').innerHTML='';$('smn-auto-table').innerHTML='';loadStations().then(()=>{loadLatest();discoverVariables();discoverRainVariables();});});
  $('smn-alert-refresh').addEventListener('click',alerts);
  $('smn-compare-run').addEventListener('click',compare);
  $('smn-variable-run').addEventListener('click',exploreVariable);
