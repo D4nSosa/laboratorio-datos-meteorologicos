@@ -42,7 +42,7 @@ async function loadStations(){
    setTimeout(()=>smnMap.invalidateSize(),120);
   }
   status.textContent=smnStations.length+' estaciones devueltas por el catálogo; '+mapped.length+' con coordenadas dentro del territorio continental argentino. El estado del catálogo no certifica transmisión activa.';
- }catch(e){$('smn-station-count').textContent='No disponible';status.textContent='No se pudo consultar el catálogo WIS2: '+e.message;}
+ }catch(e){$('smn-station-count').textContent='No disponible';$('smn-compare-station').innerHTML='<option value="">Catálogo WIS2 no disponible</option>';status.textContent='No se pudo consultar el catálogo WIS2: '+e.message;}
 }
 async function latestReports(collection){
  const d=await sampleCollection(collection);
@@ -134,7 +134,7 @@ function discoverVariables(){
   $('smn-variable-end').value=end.toISOString().slice(0,10);
   $('smn-variable-start').value=start.toISOString().slice(0,10);
   status.textContent=names.length+' variables encontradas en una muestra de hasta 500 registros recientes por red. El catálogo no es exhaustivo.';
- }).catch(e=>{status.textContent='No se pudo descubrir la muestra de variables: '+e.message;});
+ }).catch(e=>{$('smn-variable-name').innerHTML='<option value="">Variables no disponibles</option>';status.textContent='No se pudo descubrir la muestra de variables: '+e.message;});
 }
 async function exploreVariable(){
  const name=$('smn-variable-name').value,network=$('smn-variable-network').value,id=$('smn-variable-station').value,start=$('smn-variable-start').value,end=$('smn-variable-end').value;
@@ -189,7 +189,7 @@ function discoverRainVariables(){
   const end=new Date();end.setUTCDate(end.getUTCDate()-2);const start=new Date(end);start.setUTCDate(start.getUTCDate()-29);
   $('smn-rain-start').value=start.toISOString().slice(0,10);$('smn-rain-end').value=end.toISOString().slice(0,10);
   status.textContent=names.length?names.length+' variables relacionadas con precipitación encontradas en una muestra reciente. La muestra no es exhaustiva.':'No se detectaron variables de precipitación en la muestra consultada; revisá el explorador general de variables.';
- }).catch(e=>{status.textContent='No se pudo descubrir variables de precipitación: '+e.message;});
+ }).catch(e=>{$('smn-rain-variable').innerHTML='<option value="">Variables no disponibles</option>';status.textContent='No se pudo descubrir variables de precipitación: '+e.message;});
 }
 async function compareRain(){
  const id=$('smn-rain-station').value,network=$('smn-rain-network').value,name=$('smn-rain-variable').value,start=$('smn-rain-start').value,end=$('smn-rain-end').value,status=$('smn-rain-status');
