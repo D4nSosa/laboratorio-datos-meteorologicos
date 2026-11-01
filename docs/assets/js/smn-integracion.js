@@ -31,7 +31,7 @@ async function loadStations(){
   $('smn-station-count').textContent=smnStations.length+' estaciones en catálogo';
   const select=$('smn-compare-station');
   select.innerHTML='<option value="">Seleccioná una estación…</option>'+smnStations.slice().sort((a,b)=>a.name.localeCompare(b.name,'es')).map(s=>'<option value="'+esc(s.id)+'">'+esc(s.name)+' · '+esc(s.id)+'</option>').join('');
-  const vir=mapped.find(s=>/VIRASORO|SANTO TOME|ITUZAINGO|CORRIENTES AERO/i.test(s.name));
+  const vir=mapped.find(s=>/GOBERNADOR VIRASORO/i.test(s.name))||mapped.slice().sort((a,b)=>Math.hypot(a.lat+28.05,a.lon+56.02)-Math.hypot(b.lat+28.05,b.lon+56.02))[0];
   if(vir)select.value=vir.id;
   if(window.L&&$('smn-map')){
    if(!smnMap){smnMap=L.map('smn-map').setView([-38.5,-63.6],4);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap'}).addTo(smnMap);}
