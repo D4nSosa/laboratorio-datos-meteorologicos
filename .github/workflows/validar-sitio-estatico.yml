@@ -69,6 +69,8 @@ jobs:
           assert 'id="smn-compare-chart"' in explorer and 'id="smn-compare-download"' in explorer
           assert "getStationTemperature" in (root / "assets/js/smn-integracion.js").read_text(encoding="utf-8")
           assert "era5_land" in (root / "assets/js/smn-integracion.js").read_text(encoding="utf-8")
+          assert 'id="smn-variable-name"' in explorer and 'id="smn-variable-run"' in explorer
+          assert "discoverVariables" in (root / "assets/js/smn-integracion.js").read_text(encoding="utf-8")
           assert (root / "assets/js/smn-integracion.js").exists()
           assert "assets/css/laboratorio-nacional.css" in explorer
           assert (root / "assets/js/laboratorio-nacional.js").exists()
