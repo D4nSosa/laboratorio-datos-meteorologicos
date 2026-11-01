@@ -48,6 +48,8 @@ jobs:
           test -s docs/datos/fuentes-externas/corrientes/qa-summary.json
       - name: Validar HTML, gráficos y datasets
         run: |
+          node --check docs/assets/js/smn-integracion.js
+          node --check docs/assets/js/laboratorio-nacional.js
           python - <<'PY'
           import csv, json
           from html.parser import HTMLParser
@@ -61,6 +63,9 @@ jobs:
           assert "initCorrientes()" in explorer, "Falta inicialización de datos diarios"
           assert 'data-view="national-lab"' in explorer and 'id="national-lab"' in explorer
           assert "assets/js/laboratorio-nacional.js" in explorer
+          assert "assets/js/smn-integracion.js" in explorer
+          assert 'id="smn-map"' in explorer and 'id="smn-alert-list"' in explorer
+          assert (root / "assets/js/smn-integracion.js").exists()
           assert "assets/css/laboratorio-nacional.css" in explorer
           assert (root / "assets/js/laboratorio-nacional.js").exists()
           assert (root / "assets/css/laboratorio-nacional.css").exists()
