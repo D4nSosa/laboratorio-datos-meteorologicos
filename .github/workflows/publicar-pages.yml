@@ -10,6 +10,7 @@ on:
       - "datos/fuentes-externas/inta-siga/analisis-cobertura.json"
       - "datos/fuentes-externas/inta-siga/estaciones-cobertura.csv"
       - "datos/fuentes-externas/inta-siga/precipitacion-anual-estaciones.csv"
+      - "datos/fuentes-externas/corrientes/**"
 
 permissions:
   contents: read
@@ -36,6 +37,9 @@ jobs:
           cp datos/fuentes-externas/inta-siga/analisis-cobertura.json docs/datos/inta-siga/
           cp datos/fuentes-externas/inta-siga/estaciones-cobertura.csv docs/datos/inta-siga/
           cp datos/fuentes-externas/inta-siga/precipitacion-anual-estaciones.csv docs/datos/inta-siga/
+          mkdir -p docs/datos/fuentes-externas/corrientes
+          cp datos/fuentes-externas/corrientes/rainfall-daily.csv docs/datos/fuentes-externas/corrientes/
+          cp datos/fuentes-externas/corrientes/qa-summary.json docs/datos/fuentes-externas/corrientes/
       - name: Validar estructura pública
         run: |
           test -s docs/index.html
@@ -44,6 +48,9 @@ jobs:
           test -s docs/datos/inta-siga/analisis-cobertura.json
           test -s docs/datos/inta-siga/estaciones-cobertura.csv
           test -s docs/datos/inta-siga/precipitacion-anual-estaciones.csv
+          test -s docs/explorador-interactivo.html
+          test -s docs/datos/fuentes-externas/corrientes/rainfall-daily.csv
+          test -s docs/datos/fuentes-externas/corrientes/qa-summary.json
       - name: Empaquetar sitio
         uses: actions/upload-pages-artifact@v3
         with:
