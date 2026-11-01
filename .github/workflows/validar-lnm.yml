@@ -1,0 +1,81 @@
+name: Validar base del Laboratorio Meteorológico Nacional
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "research/**"
+      - "schemas/**"
+      - "docs/datos/catalogo-fuentes.json"
+      - "docs/explorador-interactivo.html"
+      - "docs/assets/js/lnm-center.js"
+      - "docs/assets/css/lnm-center.css"
+      - "docs/arquitectura-lnm.md"
+      - "tests/**"
+      - ".github/workflows/validar-lnm.yml"
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "research/**"
+      - "schemas/**"
+      - "docs/datos/catalogo-fuentes.json"
+      - "docs/explorador-interactivo.html"
+      - "docs/assets/js/lnm-center.js"
+      - "docs/assets/css/lnm-center.css"
+      - "docs/arquitectura-lnm.md"
+      - "tests/**"
+      - ".github/workflows/validar-lnm.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.12"
+      - name: Install core dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Validate Python tests
+        run: PYTHONPATH=src python -m unittest discover -s tests -v
+      - name: Validate catalogues
+        run: |
+          PYTHONPATH=src python -m lnm sources
+          PYTHONPATH=src python -m lnm events
+      - name: Validate browser scripts
+        run: |
+          node --check docs/assets/js/laboratorio-nacional.js
+          node --check docs/assets/js/lnm-center.js
+      - name: Validate JSON, dashboard and schemas
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          files = [
+              Path("docs/datos/catalogo-fuentes.json"),
+              Path("research/events/catalog.json"),
+              Path("research/neural/experiment-registry.json"),
+              *Path("schemas").glob("*.json"),
+          ]
+          for path in files:
+              json.loads(path.read_text(encoding="utf-8"))
+              print(f"OK {path}")
+          page = Path("docs/explorador-interactivo.html").read_text(encoding="utf-8")
+          assert 'data-view="lnm-center"' in page
+          assert 'id="lnm-center"' in page
+          assert 'id="lnm-module-grid"' in page
+          assert 'id="lnm-source-grid"' in page
+          assert 'assets/js/lnm-center.js' in page
+          assert 'assets/css/lnm-center.css' in page
+          assert Path("docs/assets/js/lnm-center.js").is_file()
+          assert Path("docs/assets/css/lnm-center.css").is_file()
+          print("OK centro de operaciones y activos locales")
+          PY

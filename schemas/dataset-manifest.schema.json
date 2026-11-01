@@ -1,0 +1,5 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","title":"LNM dataset manifest","type":"object","required":["dataset_id","source_id","product","variable","observation_type","units","temporal_resolution","spatial_resolution","time_start","time_end","retrieved_at","source_url","quality_status"],
+  "properties":{"dataset_id":{"type":"string","minLength":1},"source_id":{"type":"string","minLength":1},"product":{"type":"string"},"variable":{"type":"string"},"observation_type":{"enum":["station_observation","satellite_estimate","radar_product","reanalysis","forecast","derived"]},"units":{"type":"string"},"temporal_resolution":{"type":"string"},"spatial_resolution":{"type":"string"},"time_start":{"type":"string","format":"date-time"},"time_end":{"type":"string","format":"date-time"},"retrieved_at":{"type":"string","format":"date-time"},"source_url":{"type":"string","format":"uri"},"quality_status":{"enum":["unreviewed","structural_check_passed","scientifically_reviewed","rejected"]},"checksum_sha256":{"type":"string","pattern":"^[a-fA-F0-9]{64}$"}},
+  "additionalProperties":false
+}

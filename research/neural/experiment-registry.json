@@ -1,0 +1,5 @@
+{
+  "schema_version":"1.0.0",
+  "experiments":[],
+  "note":"No hay experimentos entrenados registrados. Añadir un registro solamente después de ejecutar y evaluar un entrenamiento reproducible."
+}
