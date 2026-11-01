@@ -10,6 +10,7 @@ on:
       - "datos/fuentes-externas/inta-siga/analisis-cobertura.json"
       - "datos/fuentes-externas/inta-siga/estaciones-cobertura.csv"
       - "datos/fuentes-externas/inta-siga/precipitacion-anual-estaciones.csv"
+      - "datos/fuentes-externas/corrientes/**"
 
 permissions:
   contents: read
@@ -30,7 +31,12 @@ jobs:
           cp datos/fuentes-externas/inta-siga/analisis-cobertura.json docs/datos/inta-siga/
           cp datos/fuentes-externas/inta-siga/estaciones-cobertura.csv docs/datos/inta-siga/
           cp datos/fuentes-externas/inta-siga/precipitacion-anual-estaciones.csv docs/datos/inta-siga/
+          mkdir -p docs/datos/fuentes-externas/corrientes
+          cp datos/fuentes-externas/corrientes/rainfall-daily.csv docs/datos/fuentes-externas/corrientes/
+          cp datos/fuentes-externas/corrientes/qa-summary.json docs/datos/fuentes-externas/corrientes/
           test -s docs/datos/precipitacion_mensual_era5.csv
+          test -s docs/datos/fuentes-externas/corrientes/rainfall-daily.csv
+          test -s docs/datos/fuentes-externas/corrientes/qa-summary.json
       - name: Validar HTML, gráficos y datasets
         run: |
           python - <<'PY'
@@ -39,6 +45,11 @@ jobs:
           from pathlib import Path
           root = Path("docs")
           html_path = root / "index.html"
+          explorer_path = root / "explorador-interactivo.html"
+          explorer = explorer_path.read_text(encoding="utf-8")
+          assert 'data-view="corrientes"' in explorer, "Falta navegación al explorador provincial"
+          assert 'id="corrientes"' in explorer, "Falta sección integrada de Corrientes"
+          assert "initCorrientes()" in explorer, "Falta inicialización de datos diarios"
           html = html_path.read_text(encoding="utf-8")
           class Checker(HTMLParser):
               def __init__(self):
@@ -67,5 +78,9 @@ jobs:
           assert len(monthly_series)==420 and len({(r["anio"],r["mes"]) for r in monthly_series})==420
           metadata=json.loads((root / "datos/metadatos_era5.json").read_text(encoding="utf-8"))
           assert metadata["dataset"]=="ERA5" and metadata["periodo"]=={"inicio":"1991-01-01","fin":"2025-12-31"}
-          print(f"Sitio validado: {len(parser.refs)} referencias locales, 35 años, 420 meses, 12 meses de climatología y metadatos.")
+          with (root / "datos/fuentes-externas/corrientes/rainfall-daily.csv").open(encoding="utf-8", newline="") as f:
+              corrientes=list(csv.DictReader(f))
+          assert len(corrientes)==5186, f"Cantidad inesperada de filas diarias Corrientes: {len(corrientes)}"
+          assert all(r["date"] and r["department"] and float(r["rainfall_mm"])>=0 for r in corrientes)
+          print(f"Sitio validado: {len(parser.refs)} referencias locales, 35 años, 420 meses, 12 meses de climatología y {len(corrientes)} filas provinciales.")
           PY
