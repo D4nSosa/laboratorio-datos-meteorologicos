@@ -81,3 +81,25 @@ table{max-width:100%}
  .panelbody{padding-left:8px;padding-right:8px}
  .tabletools{padding-left:10px;padding-right:10px}
 }
+
+
+/* Touch-first chart controls and focused fullscreen analysis. */
+.chart{height:clamp(320px,42vw,460px)}
+.chart-actions{display:flex;align-items:center;justify-content:flex-end;gap:8px;flex-wrap:wrap}
+.chart-action{min-height:40px;padding:8px 12px;border:1px solid var(--line);border-radius:9px;background:var(--surface2);color:var(--text);font:inherit;font-size:12px;cursor:pointer}
+.chart-action:active{transform:translateY(1px)}
+.chart-focus{min-width:0}
+#ct-chart{touch-action:pan-y}
+.viewercontent>.chart-focus{min-height:0}
+.viewercontent .chart{height:min(68vh,760px);min-height:360px}
+.viewercontent #ct-chart{height:min(68vh,760px)}
+@media(max-width:760px){
+ .chart{height:360px;min-height:320px}
+ .panelhead{align-items:flex-start}
+ .chart-actions{width:100%;justify-content:flex-start}
+ .chart-action,.panelhead .expand{min-height:42px}
+ .viewer{width:calc(100vw - 16px);max-width:calc(100vw - 16px);max-height:calc(100dvh - 16px);padding:10px}
+ .viewercontent{max-height:calc(100dvh - 76px)}
+ .viewercontent .chart{height:calc(100dvh - 180px);min-height:340px}
+}
+@media(max-width:420px){.chart{height:340px;min-height:320px}.chart-action{flex:1 1 auto}}
