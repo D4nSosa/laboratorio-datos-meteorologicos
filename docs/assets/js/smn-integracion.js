@@ -8,6 +8,7 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const fmt=(v,n=1)=>Number(v).toLocaleString('es-AR',{maximumFractionDigits:n});
 const isoDay=v=>String(v||'').slice(0,10);
 const parseDate=v=>{const d=new Date(v);return Number.isNaN(+d)?'—':d.toLocaleString('es-AR',{timeZone:'UTC',dateStyle:'short',timeStyle:'short'})+' UTC';};
+async function getText(url,options={}){const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),20000);try{const r=await fetch(url,{...options,signal:controller.signal});if(!r.ok)throw Error('HTTP '+r.status);return await r.text();}catch(e){if(e.name==='AbortError')throw Error('Tiempo de espera agotado (20 s)');throw e;}finally{clearTimeout(timer);}}
 async function get(url){const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),20000);try{const r=await fetch(url,{headers:{Accept:'application/geo+json, application/json'},signal:controller.signal});const body=await r.text();if(!r.ok)throw Error('HTTP '+r.status+(body?' · '+body.slice(0,180):''));try{return JSON.parse(body);}catch(e){throw Error('La API devolvió una respuesta que no es JSON válido.');}}catch(e){if(e.name==='AbortError')throw Error('Tiempo de espera agotado (20 s)');throw e;}finally{clearTimeout(timer);}}
 function feats(d){return d.features||d.items||[];}
 function props(f){return f.properties||f;}
@@ -171,7 +172,7 @@ function downloadVariableCSV(){
 
 function alerts(){
  const s=$('smn-alert-status'),box=$('smn-alert-list');s.textContent='Consultando feed CAP oficial…';box.innerHTML='<p class="lab-muted">Cargando…</p>';
- fetch('https://ssl.smn.gob.ar/feeds/CAP/rss_alertaCAP_nuevo.xml',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.text();}).then(t=>{
+ getText('https://ssl.smn.gob.ar/feeds/CAP/rss_alertaCAP_nuevo.xml',{cache:'no-store'}).then(t=>{
   const xml=new DOMParser().parseFromString(t,'application/xml');if(xml.querySelector('parsererror'))throw Error('XML no válido');
   const items=[...xml.querySelectorAll('item')].map(n=>({title:n.querySelector('title')?.textContent||'Alerta meteorológica',description:n.querySelector('description')?.textContent||'',link:n.querySelector('link')?.textContent||'https://www.smn.gob.ar/alertas',date:n.querySelector('pubDate')?.textContent||''}));
   box.innerHTML=items.length?items.slice(0,20).map(a=>'<article class="lab-alert"><strong>'+esc(a.title)+'</strong><small>'+esc(a.date)+'</small><p>'+esc(a.description.replace(/<[^>]*>/g,' ').slice(0,420))+'</p><a href="'+esc(a.link)+'" target="_blank" rel="noopener">Abrir aviso oficial ↗</a></article>').join(''):'<p class="lab-muted">El feed no publica avisos en este momento. Confirmá en el portal oficial.</p>';
