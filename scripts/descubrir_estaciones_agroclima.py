@@ -58,7 +58,7 @@ class PageText(HTMLParser):
 def clean(value: str | None) -> str | None:
     if not value:
         return None
-    value = re.sub(r"\\s+", " ", value).strip(" \\t\\r\\n:-")
+    value = re.sub(r"\s+", " ", value).strip(" \t\r\n:-")
     return value or None
 
 
@@ -90,8 +90,8 @@ def extract_station(station_id: int, session: requests.Session) -> dict | None:
 
             name = None
             patterns = (
-                r"Estación\\s*:\\s*([^|]{3,100}?)(?=\\s+(?:Temperatura|Humedad|Viento|Presión|Presion|Lluvia|Precipitación))",
-                r"(?:Estación|Estacion)\\s+([^|]{3,100}?)(?=\\s+(?:Temperatura|Humedad|Viento|Presión|Presion|Lluvia|Precipitación))",
+                r"Estación\s*:\s*([^|]{3,100}?)(?=\s+(?:Temperatura|Humedad|Viento|Presión|Presion|Lluvia|Precipitación))",
+                r"(?:Estación|Estacion)\s+([^|]{3,100}?)(?=\s+(?:Temperatura|Humedad|Viento|Presión|Presion|Lluvia|Precipitación))",
             )
             for pattern in patterns:
                 match = re.search(pattern, text, re.I)
@@ -102,7 +102,7 @@ def extract_station(station_id: int, session: requests.Session) -> dict | None:
             lat = lon = None
             # Coordinate pairs in visible text or embedded scripts/JSON.
             coord_text = response.text
-            pairs = re.findall(r"(-?\\d{1,2}\\.\\d{4,})\\s*[,;]\\s*(-?\\d{1,3}\\.\\d{4,})", coord_text)
+            pairs = re.findall(r"(-?\d{1,2}\.\d{4,})\s*[,;]\s*(-?\d{1,3}\.\d{4,})", coord_text)
             for a, b in pairs:
                 x, y = float(a), float(b)
                 if -60 <= x <= 15 and -85 <= y <= -30:
@@ -113,7 +113,7 @@ def extract_station(station_id: int, session: requests.Session) -> dict | None:
                     break
 
             updated = None
-            m = re.search(r"(?:última observación|ultima observacion|actualizado|actualización)\\s*:?\\s*([^|]{5,50})", text, re.I)
+            m = re.search(r"(?:última observación|ultima observacion|actualizado|actualización)\s*:?\s*([^|]{5,50})", text, re.I)
             if m:
                 updated = clean(m.group(1))
 
@@ -142,22 +142,22 @@ def discover_map_assets(session: requests.Session) -> dict:
         response.raise_for_status()
         html = response.text
         result["station_ids_in_html"] = sorted({int(x) for x in re.findall(
-            r"(?:estacion(?:_id)?|station(?:_id)?)\\D{0,12}(\\d{3,5})", html, re.I
+            r"(?:estacion(?:_id)?|station(?:_id)?)\D{0,12}(\d{3,5})", html, re.I
         )})
         parser = PageText()
         parser.feed(html)
-        srcs = re.findall(r'<script[^>]+src=[\\"\\']([^\\"\\']+)', html, re.I)
+        srcs = re.findall(r'<script[^>]+src=[\"\']([^\"\']+)', html, re.I)
         for src in srcs:
             script_url = urljoin(response.url, src)
             result["scripts"].append(script_url)
             try:
                 js = session.get(script_url, timeout=TIMEOUT).text
                 # Record likely JSON/API endpoints for later review, without blindly calling them.
-                for candidate in re.findall(r'[\\"\\']([^\\"\\']*(?:api|estacion|station|mapa)[^\\"\\']*)[\\"\\']', js, re.I):
+                for candidate in re.findall(r'[\"\']([^\"\']*(?:api|estacion|station|mapa)[^\"\']*)[\"\']', js, re.I):
                     if candidate.startswith(("http://", "https://", "/", "./")):
                         result["candidate_urls"].append(urljoin(script_url, candidate))
                 result["station_ids_in_html"].extend(int(x) for x in re.findall(
-                    r"(?:estacion(?:_id)?|station(?:_id)?)\\D{0,12}(\\d{3,5})", js, re.I
+                    r"(?:estacion(?:_id)?|station(?:_id)?)\D{0,12}(\d{3,5})", js, re.I
                 ))
             except requests.RequestException:
                 continue
@@ -210,7 +210,7 @@ def main():
         ],
         "map_inspection": map_assets,
     }
-    (output / "estaciones.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
+    (output / "estaciones.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     lines = ["provider,station_id,name,latitude,longitude,last_observation_label,page_url,catalog_status"]
     for s in found:
         vals = [s["provider"], s["station_id"], s["name"], s["latitude"], s["longitude"],
@@ -220,7 +220,7 @@ def main():
         buf = StringIO()
         csv.writer(buf).writerow(vals)
         lines.append(buf.getvalue().strip())
-    (output / "estaciones.csv").write_text("\\n".join(lines) + "\\n", encoding="utf-8")
+    (output / "estaciones.csv").write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"IDs candidatos: {len(ids)} | páginas validadas: {len(found)}")
     print(f"Archivos: {output / 'estaciones.json'} y {output / 'estaciones.csv'}")
 
