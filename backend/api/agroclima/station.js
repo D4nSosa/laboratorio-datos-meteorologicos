@@ -17,7 +17,7 @@ function send(res, status, body) {
   res.status(status);
   for (const [key, value] of Object.entries(CORS)) res.setHeader(key, value);
   res.setHeader("Content-Type", "application/json; charset=utf-8");
-  res.setHeader("Cache-Control", "no-store");
+  res.setHeader("Cache-Control", "public, s-maxage=60, stale-while-revalidate=300");
   return res.send(JSON.stringify(body));
 }
 
@@ -174,15 +174,9 @@ module.exports = async function handler(req, res) {
       }
       const fetchedAt = new Date().toISOString();
       const payload = parseStationPage(html, Number(rawId), response.url || upstream.toString(), fetchedAt);
-      if (!payload.observation_count) {
-        return send(res, 502, {
-          ok: false,
-          station_id: Number(rawId),
-          error: "observation_table_not_recognized",
-          source_url: payload.source_url,
-          fetched_at: fetchedAt
-        });
-      }
+      // A valid provider page remains useful to the current frontend even if
+      // AgroClima changes its table headers and the structured parser needs updating.
+      payload.normalization_status = payload.observation_count > 0 ? "parsed" : "html_available_parser_review_required";
       return send(res, 200, payload);
     } catch (error) {
       lastError = error?.name === "TimeoutError" || error?.name === "AbortError"
