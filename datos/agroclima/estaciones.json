@@ -1,6 +1,6 @@
 {
   "dataset": "AgroClima public station page inventory",
-  "generated_at_utc": "2026-11-02T17:03:43+00:00",
+  "generated_at_utc": "2026-11-02T17:09:06+00:00",
   "source_map": "https://agroclima.com/3/public/mapa.php",
   "scan": {
     "min_id": 1400,
@@ -19,7 +19,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1402",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:07+00:00"
+      "checked_at_utc": "2026-11-02T17:08:34+00:00"
     },
     {
       "provider": "AgroClima",
@@ -31,7 +31,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1405",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:07+00:00"
+      "checked_at_utc": "2026-11-02T17:08:34+00:00"
     },
     {
       "provider": "AgroClima",
@@ -43,7 +43,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1406",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:07+00:00"
+      "checked_at_utc": "2026-11-02T17:08:34+00:00"
     },
     {
       "provider": "AgroClima",
@@ -55,7 +55,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1409",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:07+00:00"
+      "checked_at_utc": "2026-11-02T17:08:34+00:00"
     },
     {
       "provider": "AgroClima",
@@ -67,7 +67,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1410",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:08+00:00"
+      "checked_at_utc": "2026-11-02T17:08:35+00:00"
     },
     {
       "provider": "AgroClima",
@@ -79,7 +79,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1411",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:08+00:00"
+      "checked_at_utc": "2026-11-02T17:08:35+00:00"
     },
     {
       "provider": "AgroClima",
@@ -91,7 +91,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1413",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:08+00:00"
+      "checked_at_utc": "2026-11-02T17:08:35+00:00"
     },
     {
       "provider": "AgroClima",
@@ -103,7 +103,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1414",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:08+00:00"
+      "checked_at_utc": "2026-11-02T17:08:35+00:00"
     },
     {
       "provider": "AgroClima",
@@ -115,7 +115,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1415",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:08+00:00"
+      "checked_at_utc": "2026-11-02T17:08:35+00:00"
     },
     {
       "provider": "AgroClima",
@@ -127,7 +127,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1418",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:08+00:00"
+      "checked_at_utc": "2026-11-02T17:08:35+00:00"
     },
     {
       "provider": "AgroClima",
@@ -139,7 +139,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1419",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:08+00:00"
+      "checked_at_utc": "2026-11-02T17:08:35+00:00"
     },
     {
       "provider": "AgroClima",
@@ -151,7 +151,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1420",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:08+00:00"
+      "checked_at_utc": "2026-11-02T17:08:35+00:00"
     },
     {
       "provider": "AgroClima",
@@ -163,7 +163,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1421",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:08+00:00"
+      "checked_at_utc": "2026-11-02T17:08:35+00:00"
     },
     {
       "provider": "AgroClima",
@@ -175,7 +175,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1423",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:08+00:00"
+      "checked_at_utc": "2026-11-02T17:08:35+00:00"
     },
     {
       "provider": "AgroClima",
@@ -187,7 +187,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1426",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:08+00:00"
+      "checked_at_utc": "2026-11-02T17:08:35+00:00"
     },
     {
       "provider": "AgroClima",
@@ -199,7 +199,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1427",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:09+00:00"
+      "checked_at_utc": "2026-11-02T17:08:36+00:00"
     },
     {
       "provider": "AgroClima",
@@ -211,7 +211,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1431",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:09+00:00"
+      "checked_at_utc": "2026-11-02T17:08:36+00:00"
     },
     {
       "provider": "AgroClima",
@@ -223,7 +223,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1433",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:10+00:00"
+      "checked_at_utc": "2026-11-02T17:08:37+00:00"
     },
     {
       "provider": "AgroClima",
@@ -235,7 +235,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1434",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:09+00:00"
+      "checked_at_utc": "2026-11-02T17:08:35+00:00"
     },
     {
       "provider": "AgroClima",
@@ -247,7 +247,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1435",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:09+00:00"
+      "checked_at_utc": "2026-11-02T17:08:35+00:00"
     },
     {
       "provider": "AgroClima",
@@ -259,7 +259,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1436",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:10+00:00"
+      "checked_at_utc": "2026-11-02T17:08:36+00:00"
     },
     {
       "provider": "AgroClima",
@@ -271,7 +271,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1437",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:10+00:00"
+      "checked_at_utc": "2026-11-02T17:08:37+00:00"
     },
     {
       "provider": "AgroClima",
@@ -283,7 +283,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1438",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:09+00:00"
+      "checked_at_utc": "2026-11-02T17:08:36+00:00"
     },
     {
       "provider": "AgroClima",
@@ -295,7 +295,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1439",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:10+00:00"
+      "checked_at_utc": "2026-11-02T17:08:36+00:00"
     },
     {
       "provider": "AgroClima",
@@ -307,7 +307,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1440",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:10+00:00"
+      "checked_at_utc": "2026-11-02T17:08:37+00:00"
     },
     {
       "provider": "AgroClima",
@@ -319,7 +319,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1442",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:11+00:00"
+      "checked_at_utc": "2026-11-02T17:08:38+00:00"
     },
     {
       "provider": "AgroClima",
@@ -331,7 +331,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1443",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:10+00:00"
+      "checked_at_utc": "2026-11-02T17:08:37+00:00"
     },
     {
       "provider": "AgroClima",
@@ -343,7 +343,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1444",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:10+00:00"
+      "checked_at_utc": "2026-11-02T17:08:37+00:00"
     },
     {
       "provider": "AgroClima",
@@ -355,7 +355,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1447",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:10+00:00"
+      "checked_at_utc": "2026-11-02T17:08:37+00:00"
     },
     {
       "provider": "AgroClima",
@@ -367,7 +367,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1451",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:11+00:00"
+      "checked_at_utc": "2026-11-02T17:08:37+00:00"
     },
     {
       "provider": "AgroClima",
@@ -379,7 +379,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1454",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:11+00:00"
+      "checked_at_utc": "2026-11-02T17:08:37+00:00"
     },
     {
       "provider": "AgroClima",
@@ -391,7 +391,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1455",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:12+00:00"
+      "checked_at_utc": "2026-11-02T17:08:38+00:00"
     },
     {
       "provider": "AgroClima",
@@ -403,7 +403,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1457",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:12+00:00"
+      "checked_at_utc": "2026-11-02T17:08:38+00:00"
     },
     {
       "provider": "AgroClima",
@@ -415,7 +415,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1458",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:11+00:00"
+      "checked_at_utc": "2026-11-02T17:08:38+00:00"
     },
     {
       "provider": "AgroClima",
@@ -427,7 +427,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1459",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:11+00:00"
+      "checked_at_utc": "2026-11-02T17:08:38+00:00"
     },
     {
       "provider": "AgroClima",
@@ -439,7 +439,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1460",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:11+00:00"
+      "checked_at_utc": "2026-11-02T17:08:38+00:00"
     },
     {
       "provider": "AgroClima",
@@ -451,7 +451,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1461",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:12+00:00"
+      "checked_at_utc": "2026-11-02T17:08:39+00:00"
     },
     {
       "provider": "AgroClima",
@@ -463,7 +463,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1463",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:12+00:00"
+      "checked_at_utc": "2026-11-02T17:08:38+00:00"
     },
     {
       "provider": "AgroClima",
@@ -475,7 +475,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1465",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:13+00:00"
+      "checked_at_utc": "2026-11-02T17:08:40+00:00"
     },
     {
       "provider": "AgroClima",
@@ -487,7 +487,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1466",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:13+00:00"
+      "checked_at_utc": "2026-11-02T17:08:39+00:00"
     },
     {
       "provider": "AgroClima",
@@ -499,7 +499,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1468",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:12+00:00"
+      "checked_at_utc": "2026-11-02T17:08:39+00:00"
     },
     {
       "provider": "AgroClima",
@@ -511,7 +511,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1470",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:14+00:00"
+      "checked_at_utc": "2026-11-02T17:08:40+00:00"
     },
     {
       "provider": "AgroClima",
@@ -523,7 +523,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1471",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:14+00:00"
+      "checked_at_utc": "2026-11-02T17:08:40+00:00"
     },
     {
       "provider": "AgroClima",
@@ -535,7 +535,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1473",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:13+00:00"
+      "checked_at_utc": "2026-11-02T17:08:40+00:00"
     },
     {
       "provider": "AgroClima",
@@ -547,7 +547,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1474",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:14+00:00"
+      "checked_at_utc": "2026-11-02T17:08:40+00:00"
     },
     {
       "provider": "AgroClima",
@@ -559,7 +559,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1476",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:14+00:00"
+      "checked_at_utc": "2026-11-02T17:08:40+00:00"
     },
     {
       "provider": "AgroClima",
@@ -571,7 +571,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1477",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:14+00:00"
+      "checked_at_utc": "2026-11-02T17:08:40+00:00"
     },
     {
       "provider": "AgroClima",
@@ -583,7 +583,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1478",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:15+00:00"
+      "checked_at_utc": "2026-11-02T17:08:41+00:00"
     },
     {
       "provider": "AgroClima",
@@ -595,7 +595,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1480",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:14+00:00"
+      "checked_at_utc": "2026-11-02T17:08:40+00:00"
     },
     {
       "provider": "AgroClima",
@@ -607,7 +607,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1481",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:14+00:00"
+      "checked_at_utc": "2026-11-02T17:08:40+00:00"
     },
     {
       "provider": "AgroClima",
@@ -619,7 +619,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1482",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:14+00:00"
+      "checked_at_utc": "2026-11-02T17:08:40+00:00"
     },
     {
       "provider": "AgroClima",
@@ -631,7 +631,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1485",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:15+00:00"
+      "checked_at_utc": "2026-11-02T17:08:41+00:00"
     },
     {
       "provider": "AgroClima",
@@ -643,7 +643,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1486",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:16+00:00"
+      "checked_at_utc": "2026-11-02T17:08:41+00:00"
     },
     {
       "provider": "AgroClima",
@@ -655,7 +655,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1488",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:16+00:00"
+      "checked_at_utc": "2026-11-02T17:08:42+00:00"
     },
     {
       "provider": "AgroClima",
@@ -667,7 +667,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1490",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:16+00:00"
+      "checked_at_utc": "2026-11-02T17:08:42+00:00"
     },
     {
       "provider": "AgroClima",
@@ -679,7 +679,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1491",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:15+00:00"
+      "checked_at_utc": "2026-11-02T17:08:41+00:00"
     },
     {
       "provider": "AgroClima",
@@ -691,7 +691,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1492",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:16+00:00"
+      "checked_at_utc": "2026-11-02T17:08:41+00:00"
     },
     {
       "provider": "AgroClima",
@@ -703,7 +703,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1493",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:16+00:00"
+      "checked_at_utc": "2026-11-02T17:08:41+00:00"
     },
     {
       "provider": "AgroClima",
@@ -715,7 +715,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1494",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:17+00:00"
+      "checked_at_utc": "2026-11-02T17:08:43+00:00"
     },
     {
       "provider": "AgroClima",
@@ -727,7 +727,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1495",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:17+00:00"
+      "checked_at_utc": "2026-11-02T17:08:43+00:00"
     },
     {
       "provider": "AgroClima",
@@ -739,7 +739,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1496",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:16+00:00"
+      "checked_at_utc": "2026-11-02T17:08:42+00:00"
     },
     {
       "provider": "AgroClima",
@@ -751,7 +751,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1500",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:17+00:00"
+      "checked_at_utc": "2026-11-02T17:08:43+00:00"
     },
     {
       "provider": "AgroClima",
@@ -763,7 +763,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1501",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:17+00:00"
+      "checked_at_utc": "2026-11-02T17:08:42+00:00"
     },
     {
       "provider": "AgroClima",
@@ -775,7 +775,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1502",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:18+00:00"
+      "checked_at_utc": "2026-11-02T17:08:43+00:00"
     },
     {
       "provider": "AgroClima",
@@ -787,7 +787,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1506",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:17+00:00"
+      "checked_at_utc": "2026-11-02T17:08:43+00:00"
     },
     {
       "provider": "AgroClima",
@@ -799,7 +799,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1507",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:17+00:00"
+      "checked_at_utc": "2026-11-02T17:08:43+00:00"
     },
     {
       "provider": "AgroClima",
@@ -811,7 +811,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1508",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:18+00:00"
+      "checked_at_utc": "2026-11-02T17:08:43+00:00"
     },
     {
       "provider": "AgroClima",
@@ -823,7 +823,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1509",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:19+00:00"
+      "checked_at_utc": "2026-11-02T17:08:44+00:00"
     },
     {
       "provider": "AgroClima",
@@ -835,7 +835,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1510",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:18+00:00"
+      "checked_at_utc": "2026-11-02T17:08:43+00:00"
     },
     {
       "provider": "AgroClima",
@@ -847,7 +847,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1511",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:19+00:00"
+      "checked_at_utc": "2026-11-02T17:08:44+00:00"
     },
     {
       "provider": "AgroClima",
@@ -859,7 +859,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1512",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:18+00:00"
+      "checked_at_utc": "2026-11-02T17:08:44+00:00"
     },
     {
       "provider": "AgroClima",
@@ -871,7 +871,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1514",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:19+00:00"
+      "checked_at_utc": "2026-11-02T17:08:45+00:00"
     },
     {
       "provider": "AgroClima",
@@ -883,7 +883,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1515",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:19+00:00"
+      "checked_at_utc": "2026-11-02T17:08:45+00:00"
     },
     {
       "provider": "AgroClima",
@@ -895,7 +895,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1518",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:20+00:00"
+      "checked_at_utc": "2026-11-02T17:08:46+00:00"
     },
     {
       "provider": "AgroClima",
@@ -907,7 +907,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1519",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:19+00:00"
+      "checked_at_utc": "2026-11-02T17:08:45+00:00"
     },
     {
       "provider": "AgroClima",
@@ -919,7 +919,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1520",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:20+00:00"
+      "checked_at_utc": "2026-11-02T17:08:46+00:00"
     },
     {
       "provider": "AgroClima",
@@ -931,7 +931,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1521",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:20+00:00"
+      "checked_at_utc": "2026-11-02T17:08:46+00:00"
     },
     {
       "provider": "AgroClima",
@@ -943,7 +943,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1522",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:21+00:00"
+      "checked_at_utc": "2026-11-02T17:08:46+00:00"
     },
     {
       "provider": "AgroClima",
@@ -955,7 +955,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1524",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:22+00:00"
+      "checked_at_utc": "2026-11-02T17:08:47+00:00"
     },
     {
       "provider": "AgroClima",
@@ -967,7 +967,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1525",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:21+00:00"
+      "checked_at_utc": "2026-11-02T17:08:46+00:00"
     },
     {
       "provider": "AgroClima",
@@ -979,7 +979,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1526",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:21+00:00"
+      "checked_at_utc": "2026-11-02T17:08:46+00:00"
     },
     {
       "provider": "AgroClima",
@@ -991,7 +991,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1527",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:22+00:00"
+      "checked_at_utc": "2026-11-02T17:08:47+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1003,7 +1003,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1528",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:22+00:00"
+      "checked_at_utc": "2026-11-02T17:08:47+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1015,7 +1015,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1529",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:21+00:00"
+      "checked_at_utc": "2026-11-02T17:08:46+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1027,7 +1027,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1530",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:21+00:00"
+      "checked_at_utc": "2026-11-02T17:08:46+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1039,7 +1039,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1531",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:22+00:00"
+      "checked_at_utc": "2026-11-02T17:08:47+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1051,7 +1051,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1536",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:23+00:00"
+      "checked_at_utc": "2026-11-02T17:08:48+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1063,7 +1063,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1537",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:23+00:00"
+      "checked_at_utc": "2026-11-02T17:08:48+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1075,7 +1075,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1538",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:23+00:00"
+      "checked_at_utc": "2026-11-02T17:08:48+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1087,7 +1087,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1539",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:23+00:00"
+      "checked_at_utc": "2026-11-02T17:08:47+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1099,7 +1099,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1540",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:23+00:00"
+      "checked_at_utc": "2026-11-02T17:08:47+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1111,7 +1111,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1541",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:23+00:00"
+      "checked_at_utc": "2026-11-02T17:08:47+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1123,7 +1123,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1543",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:24+00:00"
+      "checked_at_utc": "2026-11-02T17:08:48+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1135,7 +1135,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1544",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:24+00:00"
+      "checked_at_utc": "2026-11-02T17:08:49+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1147,7 +1147,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1545",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:24+00:00"
+      "checked_at_utc": "2026-11-02T17:08:48+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1159,7 +1159,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1546",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:24+00:00"
+      "checked_at_utc": "2026-11-02T17:08:49+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1171,7 +1171,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1547",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:25+00:00"
+      "checked_at_utc": "2026-11-02T17:08:50+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1183,7 +1183,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1551",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:25+00:00"
+      "checked_at_utc": "2026-11-02T17:08:49+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1195,7 +1195,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1553",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:26+00:00"
+      "checked_at_utc": "2026-11-02T17:08:50+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1207,7 +1207,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1554",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:26+00:00"
+      "checked_at_utc": "2026-11-02T17:08:50+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1219,7 +1219,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1555",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:26+00:00"
+      "checked_at_utc": "2026-11-02T17:08:50+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1231,7 +1231,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1556",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:25+00:00"
+      "checked_at_utc": "2026-11-02T17:08:50+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1243,7 +1243,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1557",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:26+00:00"
+      "checked_at_utc": "2026-11-02T17:08:50+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1255,7 +1255,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1558",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:26+00:00"
+      "checked_at_utc": "2026-11-02T17:08:50+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1267,7 +1267,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1559",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:26+00:00"
+      "checked_at_utc": "2026-11-02T17:08:50+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1279,7 +1279,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1563",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:26+00:00"
+      "checked_at_utc": "2026-11-02T17:08:50+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1291,7 +1291,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1565",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:28+00:00"
+      "checked_at_utc": "2026-11-02T17:08:52+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1303,7 +1303,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1566",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:27+00:00"
+      "checked_at_utc": "2026-11-02T17:08:52+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1315,7 +1315,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1567",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:27+00:00"
+      "checked_at_utc": "2026-11-02T17:08:51+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1327,7 +1327,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1570",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:28+00:00"
+      "checked_at_utc": "2026-11-02T17:08:52+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1339,7 +1339,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1572",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:28+00:00"
+      "checked_at_utc": "2026-11-02T17:08:52+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1351,7 +1351,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1573",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:29+00:00"
+      "checked_at_utc": "2026-11-02T17:08:53+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1363,7 +1363,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1574",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:29+00:00"
+      "checked_at_utc": "2026-11-02T17:08:53+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1375,7 +1375,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1575",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:29+00:00"
+      "checked_at_utc": "2026-11-02T17:08:53+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1387,7 +1387,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1576",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:30+00:00"
+      "checked_at_utc": "2026-11-02T17:08:54+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1399,7 +1399,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1578",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:30+00:00"
+      "checked_at_utc": "2026-11-02T17:08:54+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1411,7 +1411,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1579",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:29+00:00"
+      "checked_at_utc": "2026-11-02T17:08:53+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1423,7 +1423,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1580",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:29+00:00"
+      "checked_at_utc": "2026-11-02T17:08:54+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1435,7 +1435,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1581",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:30+00:00"
+      "checked_at_utc": "2026-11-02T17:08:54+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1447,7 +1447,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1582",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:31+00:00"
+      "checked_at_utc": "2026-11-02T17:08:55+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1459,7 +1459,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1583",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:31+00:00"
+      "checked_at_utc": "2026-11-02T17:08:55+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1471,7 +1471,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1584",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:31+00:00"
+      "checked_at_utc": "2026-11-02T17:08:55+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1483,7 +1483,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1585",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:30+00:00"
+      "checked_at_utc": "2026-11-02T17:08:54+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1495,7 +1495,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1586",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:31+00:00"
+      "checked_at_utc": "2026-11-02T17:08:55+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1507,7 +1507,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1587",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:31+00:00"
+      "checked_at_utc": "2026-11-02T17:08:55+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1519,7 +1519,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1589",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:32+00:00"
+      "checked_at_utc": "2026-11-02T17:08:55+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1531,7 +1531,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1590",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:31+00:00"
+      "checked_at_utc": "2026-11-02T17:08:55+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1543,7 +1543,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1591",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:32+00:00"
+      "checked_at_utc": "2026-11-02T17:08:56+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1555,7 +1555,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1592",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:31+00:00"
+      "checked_at_utc": "2026-11-02T17:08:55+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1567,7 +1567,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1595",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:33+00:00"
+      "checked_at_utc": "2026-11-02T17:08:56+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1579,7 +1579,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1596",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:32+00:00"
+      "checked_at_utc": "2026-11-02T17:08:55+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1591,7 +1591,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1598",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:32+00:00"
+      "checked_at_utc": "2026-11-02T17:08:55+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1603,7 +1603,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1600",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:32+00:00"
+      "checked_at_utc": "2026-11-02T17:08:56+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1615,7 +1615,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1601",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:33+00:00"
+      "checked_at_utc": "2026-11-02T17:08:57+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1627,7 +1627,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1602",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:33+00:00"
+      "checked_at_utc": "2026-11-02T17:08:57+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1639,7 +1639,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1604",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:32+00:00"
+      "checked_at_utc": "2026-11-02T17:08:57+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1651,7 +1651,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1605",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:33+00:00"
+      "checked_at_utc": "2026-11-02T17:08:57+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1663,7 +1663,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1607",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:33+00:00"
+      "checked_at_utc": "2026-11-02T17:08:57+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1675,7 +1675,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1609",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:33+00:00"
+      "checked_at_utc": "2026-11-02T17:08:57+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1687,7 +1687,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1610",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:33+00:00"
+      "checked_at_utc": "2026-11-02T17:08:57+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1699,7 +1699,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1611",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:33+00:00"
+      "checked_at_utc": "2026-11-02T17:08:57+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1711,7 +1711,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1612",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:33+00:00"
+      "checked_at_utc": "2026-11-02T17:08:57+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1723,7 +1723,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1613",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:35+00:00"
+      "checked_at_utc": "2026-11-02T17:08:58+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1735,7 +1735,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1614",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:35+00:00"
+      "checked_at_utc": "2026-11-02T17:08:58+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1747,7 +1747,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1615",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:34+00:00"
+      "checked_at_utc": "2026-11-02T17:08:58+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1759,7 +1759,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1616",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:34+00:00"
+      "checked_at_utc": "2026-11-02T17:08:58+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1771,7 +1771,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1617",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:36+00:00"
+      "checked_at_utc": "2026-11-02T17:08:59+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1783,7 +1783,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1618",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:34+00:00"
+      "checked_at_utc": "2026-11-02T17:08:58+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1795,7 +1795,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1619",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:35+00:00"
+      "checked_at_utc": "2026-11-02T17:08:58+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1807,7 +1807,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1620",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:35+00:00"
+      "checked_at_utc": "2026-11-02T17:08:59+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1819,7 +1819,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1621",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:35+00:00"
+      "checked_at_utc": "2026-11-02T17:08:59+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1831,7 +1831,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1623",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:36+00:00"
+      "checked_at_utc": "2026-11-02T17:09:00+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1843,7 +1843,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1624",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:36+00:00"
+      "checked_at_utc": "2026-11-02T17:08:59+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1855,7 +1855,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1625",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:36+00:00"
+      "checked_at_utc": "2026-11-02T17:08:59+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1867,7 +1867,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1626",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:39+00:00"
+      "checked_at_utc": "2026-11-02T17:09:03+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1879,7 +1879,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1627",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:36+00:00"
+      "checked_at_utc": "2026-11-02T17:09:00+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1891,7 +1891,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1629",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:37+00:00"
+      "checked_at_utc": "2026-11-02T17:09:00+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1903,7 +1903,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1630",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:37+00:00"
+      "checked_at_utc": "2026-11-02T17:09:00+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1915,7 +1915,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1631",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:38+00:00"
+      "checked_at_utc": "2026-11-02T17:09:01+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1927,7 +1927,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1632",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:38+00:00"
+      "checked_at_utc": "2026-11-02T17:09:01+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1939,7 +1939,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1633",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:38+00:00"
+      "checked_at_utc": "2026-11-02T17:09:01+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1951,7 +1951,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1634",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:39+00:00"
+      "checked_at_utc": "2026-11-02T17:09:02+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1963,7 +1963,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1635",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:39+00:00"
+      "checked_at_utc": "2026-11-02T17:09:02+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1975,7 +1975,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1636",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:39+00:00"
+      "checked_at_utc": "2026-11-02T17:09:02+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1987,7 +1987,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1637",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:39+00:00"
+      "checked_at_utc": "2026-11-02T17:09:02+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1999,7 +1999,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1638",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:39+00:00"
+      "checked_at_utc": "2026-11-02T17:09:03+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2011,7 +2011,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1639",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:39+00:00"
+      "checked_at_utc": "2026-11-02T17:09:03+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2023,7 +2023,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1640",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:40+00:00"
+      "checked_at_utc": "2026-11-02T17:09:03+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2035,7 +2035,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1641",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:39+00:00"
+      "checked_at_utc": "2026-11-02T17:09:03+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2047,7 +2047,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1642",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:40+00:00"
+      "checked_at_utc": "2026-11-02T17:09:03+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2059,7 +2059,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1643",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:40+00:00"
+      "checked_at_utc": "2026-11-02T17:09:03+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2071,7 +2071,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1644",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:40+00:00"
+      "checked_at_utc": "2026-11-02T17:09:03+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2083,7 +2083,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1645",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:40+00:00"
+      "checked_at_utc": "2026-11-02T17:09:04+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2095,7 +2095,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1647",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:41+00:00"
+      "checked_at_utc": "2026-11-02T17:09:04+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2107,7 +2107,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1648",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:41+00:00"
+      "checked_at_utc": "2026-11-02T17:09:04+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2119,7 +2119,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1649",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:41+00:00"
+      "checked_at_utc": "2026-11-02T17:09:04+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2131,7 +2131,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1651",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:41+00:00"
+      "checked_at_utc": "2026-11-02T17:09:04+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2143,7 +2143,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1654",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:41+00:00"
+      "checked_at_utc": "2026-11-02T17:09:04+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2155,7 +2155,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1656",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:41+00:00"
+      "checked_at_utc": "2026-11-02T17:09:04+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2167,7 +2167,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1657",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:41+00:00"
+      "checked_at_utc": "2026-11-02T17:09:04+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2179,7 +2179,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1658",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:41+00:00"
+      "checked_at_utc": "2026-11-02T17:09:04+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2191,7 +2191,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1659",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:41+00:00"
+      "checked_at_utc": "2026-11-02T17:09:04+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2203,7 +2203,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1660",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:41+00:00"
+      "checked_at_utc": "2026-11-02T17:09:04+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2215,7 +2215,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1661",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:41+00:00"
+      "checked_at_utc": "2026-11-02T17:09:04+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2227,7 +2227,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1662",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:42+00:00"
+      "checked_at_utc": "2026-11-02T17:09:05+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2239,7 +2239,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1663",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:42+00:00"
+      "checked_at_utc": "2026-11-02T17:09:04+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2251,7 +2251,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1664",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:42+00:00"
+      "checked_at_utc": "2026-11-02T17:09:05+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2263,7 +2263,7 @@
       "page_url": "https://agroclima.com/3/public/estacion.php?id=1665",
       "catalog_status": "page_validated",
       "evidence_terms": 3,
-      "checked_at_utc": "2026-11-02T17:03:42+00:00"
+      "checked_at_utc": "2026-11-02T17:09:04+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2275,7 +2275,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1666",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:42+00:00"
+      "checked_at_utc": "2026-11-02T17:09:04+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2287,7 +2287,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1667",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:42+00:00"
+      "checked_at_utc": "2026-11-02T17:09:05+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2299,7 +2299,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1668",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:42+00:00"
+      "checked_at_utc": "2026-11-02T17:09:05+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2311,7 +2311,7 @@
       "page_url": "https://agroclima.com/public/estacion.php?id=1669",
       "catalog_status": "page_validated",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:03:42+00:00"
+      "checked_at_utc": "2026-11-02T17:09:05+00:00"
     }
   ],
   "limitations": [
