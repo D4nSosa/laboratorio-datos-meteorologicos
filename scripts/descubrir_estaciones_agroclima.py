@@ -41,7 +41,7 @@ def station_name(p,visible):
     candidates=[(p.meta.get(k),k) for k in ("og:title","twitter:title")]
     candidates += [(x,"heading") for x in p.headings]+[(x,"title") for x in p.titles]
     for pat in (r"(?:nombre\s+de\s+la\s+estaci[oó]n|estaci[oó]n)\s*[:：]\s*([^|;]{3,100})",
-                r"(?:nombre\s+estaci[oó]n)\s*=\s*['\\"]([^'\\"]{3,100})"):
+                r"(?:nombre\s+estaci[oó]n)\s*=\s*['\"]([^'\"]{3,100})"):
         m=re.search(pat,visible,re.I)
         if m: candidates.append((m.group(1),"explicit_label"))
     for raw,src in candidates:
@@ -61,8 +61,8 @@ def pair(a,b):
 
 def coordinates(src):
     pats=[
-      (r"(?:latitude|latitud|lat)\s*['\\"]?\s*[:=]\s*['\\"]?(-?\d{1,2}\.\d+).*?(?:longitude|longitud|lng|lon)\s*['\\"]?\s*[:=]\s*['\\"]?(-?\d{1,3}\.\d+)","labelled"),
-      (r"(?:longitude|longitud|lng|lon)\s*['\\"]?\s*[:=]\s*['\\"]?(-?\d{1,3}\.\d+).*?(?:latitude|latitud|lat)\s*['\\"]?\s*[:=]\s*['\\"]?(-?\d{1,2}\.\d+)","labelled"),
+      (r"(?:latitude|latitud|lat)\s*['\"]?\s*[:=]\s*['\"]?(-?\d{1,2}\.\d+).*?(?:longitude|longitud|lng|lon)\s*['\"]?\s*[:=]\s*['\"]?(-?\d{1,3}\.\d+)","labelled"),
+      (r"(?:longitude|longitud|lng|lon)\s*['\"]?\s*[:=]\s*['\"]?(-?\d{1,3}\.\d+).*?(?:latitude|latitud|lat)\s*['\"]?\s*[:=]\s*['\"]?(-?\d{1,2}\.\d+)","labelled"),
       (r"(?:setView|L\.marker|marker|center)\s*\(\s*\[\s*(-?\d{1,2}\.\d+)\s*,\s*(-?\d{1,3}\.\d+)","map_array"),
       (r"\{\s*lat\s*:\s*(-?\d{1,2}\.\d+)\s*,\s*(?:lng|lon)\s*:\s*(-?\d{1,3}\.\d+)\s*\}","map_object"),
       (r"""["'](?:lat|latitude)["']\s*:\s*(-?\d{1,2}\.\d+)\s*,\s*["'](?:lng|lon|longitude)["']\s*:\s*(-?\d{1,3}\.\d+)""","json_labels")]
