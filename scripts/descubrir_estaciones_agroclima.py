@@ -146,7 +146,7 @@ def discover_map_assets(session: requests.Session) -> dict:
         )})
         parser = PageText()
         parser.feed(html)
-        srcs = re.findall(r'<script[^>]+src=[\"\']([^\"\']+)', html, re.I)
+        srcs = re.findall(r"""<script[^>]+src=["']([^"']+)""", html, re.I)
         for src in srcs:
             script_url = urljoin(response.url, src)
             result["scripts"].append(script_url)
