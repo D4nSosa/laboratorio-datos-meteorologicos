@@ -13,7 +13,7 @@ BASES=("https://agroclima.com/public/estacion.php?id={station_id}",
 MAP_URL="https://agroclima.com/3/public/mapa.php"
 SEEDS=(1490,1528,1578,1584,1609,1620)
 UA="LaboratorioMeteorologicoNacional/1.1 (public research; station catalogue)"
-GENERIC=re.compile(r"^(?:estaci[oó]n\\s+)?agroclima(?:\\s+\\d+)?$",re.I)
+GENERIC=re.compile(r"^(?:estaci[oó]n\s+)?agroclima(?:\s+\d+)?$",re.I)
 
 class Parsed(HTMLParser):
     def __init__(self):
@@ -35,19 +35,19 @@ class Parsed(HTMLParser):
         if self.mode!="script" and data.strip(): self.text.append(data.strip())
 
 def clean(s):
-    return re.sub(r"\\s+"," ",s).strip(" \\t\\r\\n:-|") if s else None
+    return re.sub(r"\s+"," ",s).strip(" \t\r\n:-|") if s else None
 
 def station_name(p,visible):
     candidates=[(p.meta.get(k),k) for k in ("og:title","twitter:title")]
     candidates += [(x,"heading") for x in p.headings]+[(x,"title") for x in p.titles]
-    for pat in (r"(?:nombre\\s+de\\s+la\\s+estaci[oó]n|estaci[oó]n)\\s*[:：]\\s*([^|;]{3,100})",
-                r"(?:nombre\\s+estaci[oó]n)\\s*=\\s*['\\\"]([^'\\\"]{3,100})"):
+    for pat in (r"(?:nombre\s+de\s+la\s+estaci[oó]n|estaci[oó]n)\s*[:：]\s*([^|;]{3,100})",
+                r"(?:nombre\s+estaci[oó]n)\s*=\s*['\\"]([^'\\"]{3,100})"):
         m=re.search(pat,visible,re.I)
         if m: candidates.append((m.group(1),"explicit_label"))
     for raw,src in candidates:
         n=clean(raw)
         if not n: continue
-        n=re.sub(r"\\s*[|–-]\\s*(?:AgroClima.*)?$","",n,flags=re.I).strip()
+        n=re.sub(r"\s*[|–-]\s*(?:AgroClima.*)?$","",n,flags=re.I).strip()
         if len(n)<=100 and not GENERIC.match(n) and not re.search(r"temperatura|humedad|precipitaci[oó]n|pron[oó]stico|mapa",n,re.I):
             return n,src
     return None,None
@@ -61,25 +61,25 @@ def pair(a,b):
 
 def coordinates(src):
     pats=[
-      (r"(?:latitude|latitud|lat)\\s*['\\\"]?\\s*[:=]\\s*['\\\"]?(-?\\d{1,2}\\.\\d+).*?(?:longitude|longitud|lng|lon)\\s*['\\\"]?\\s*[:=]\\s*['\\\"]?(-?\\d{1,3}\\.\\d+)","labelled"),
-      (r"(?:longitude|longitud|lng|lon)\\s*['\\\"]?\\s*[:=]\\s*['\\\"]?(-?\\d{1,3}\\.\\d+).*?(?:latitude|latitud|lat)\\s*['\\\"]?\\s*[:=]\\s*['\\\"]?(-?\\d{1,2}\\.\\d+)","labelled"),
-      (r"(?:setView|L\\.marker|marker|center)\\s*\\(\\s*\\[\\s*(-?\\d{1,2}\\.\\d+)\\s*,\\s*(-?\\d{1,3}\\.\\d+)","map_array"),
-      (r"\\{\\s*lat\\s*:\\s*(-?\\d{1,2}\\.\\d+)\\s*,\\s*(?:lng|lon)\\s*:\\s*(-?\\d{1,3}\\.\\d+)\\s*\\}","map_object"),
-      (r"""["'](?:lat|latitude)["']\\s*:\\s*(-?\\d{1,2}\\.\\d+)\\s*,\\s*["'](?:lng|lon|longitude)["']\\s*:\\s*(-?\\d{1,3}\\.\\d+)""","json_labels")]
+      (r"(?:latitude|latitud|lat)\s*['\\"]?\s*[:=]\s*['\\"]?(-?\d{1,2}\.\d+).*?(?:longitude|longitud|lng|lon)\s*['\\"]?\s*[:=]\s*['\\"]?(-?\d{1,3}\.\d+)","labelled"),
+      (r"(?:longitude|longitud|lng|lon)\s*['\\"]?\s*[:=]\s*['\\"]?(-?\d{1,3}\.\d+).*?(?:latitude|latitud|lat)\s*['\\"]?\s*[:=]\s*['\\"]?(-?\d{1,2}\.\d+)","labelled"),
+      (r"(?:setView|L\.marker|marker|center)\s*\(\s*\[\s*(-?\d{1,2}\.\d+)\s*,\s*(-?\d{1,3}\.\d+)","map_array"),
+      (r"\{\s*lat\s*:\s*(-?\d{1,2}\.\d+)\s*,\s*(?:lng|lon)\s*:\s*(-?\d{1,3}\.\d+)\s*\}","map_object"),
+      (r"""["'](?:lat|latitude)["']\s*:\s*(-?\d{1,2}\.\d+)\s*,\s*["'](?:lng|lon|longitude)["']\s*:\s*(-?\d{1,3}\.\d+)""","json_labels")]
     for pat,kind in pats:
         m=re.search(pat,src,re.I|re.S)
         if m:
             xy=pair(m.group(1),m.group(2))
             if xy:return xy[0],xy[1],kind
-    for a,b in re.findall(r"(-?\\d{1,2}\\.\\d{4,})\\s*[,;]\\s*(-?\\d{1,3}\\.\\d{4,})",src):
+    for a,b in re.findall(r"(-?\d{1,2}\.\d{4,})\s*[,;]\s*(-?\d{1,3}\.\d{4,})",src):
         xy=pair(a,b)
         if xy:return xy[0],xy[1],"unlabelled_pair"
     return None,None,None
 
 def last_obs(text):
-    date=r"((?:\\d{1,2}[/-]\\d{1,2}[/-]\\d{2,4}|\\d{4}-\\d{2}-\\d{2})(?:[ T,]+\\d{1,2}:\\d{2}(?::\\d{2})?)?)"
-    labels=r"(?:última\\s+observaci[oó]n|último\\s+registro|datos\\s+actualizados?|última\\s+actualizaci[oó]n)"
-    m=re.search(labels+r"\\s*[:：-]?\\s*"+date,text,re.I)
+    date=r"((?:\d{1,2}[/-]\d{1,2}[/-]\d{2,4}|\d{4}-\d{2}-\d{2})(?:[ T,]+\d{1,2}:\d{2}(?::\d{2})?)?)"
+    labels=r"(?:última\s+observaci[oó]n|último\s+registro|datos\s+actualizados?|última\s+actualizaci[oó]n)"
+    m=re.search(labels+r"\s*[:：-]?\s*"+date,text,re.I)
     return clean(m.group(1)) if m else None
 
 def extract(sid,session):
@@ -90,7 +90,7 @@ def extract(sid,session):
             p=Parsed();p.feed(r.text); visible=clean(" ".join(p.text)) or ""; low=visible.lower()
             evidence=sum(t in low for t in ("temperatura","humedad","precipitación","precipitacion","presión","presion","estación","estacion","viento","lluvia","meteorológica","meteorologica"))
             if evidence<2 or any(t in low for t in ("estacion no encontrada","estación inexistente","estacion inexistente","access denied","forbidden","internal server error")): continue
-            src=r.text+"\\n"+"\\n".join(p.scripts)
+            src=r.text+"\n"+"\n".join(p.scripts)
             name,name_src=station_name(p,visible); lat,lon,coord_src=coordinates(src)
             return {"provider":"AgroClima","station_id":sid,"name":name,"name_source":name_src,
               "latitude":lat,"longitude":lon,"coordinate_source":coord_src,"last_observation":last_obs(visible),
@@ -104,7 +104,7 @@ def map_assets(session):
     out={"map_url":MAP_URL,"scripts":[],"candidate_urls":[],"station_ids_in_html":[]}
     try:
         r=session.get(MAP_URL,timeout=18);r.raise_for_status(); html=r.text
-        rx=r"(?:estacion(?:_id)?|station(?:_id)?)\\D{0,12}(\\d{3,5})"
+        rx=r"(?:estacion(?:_id)?|station(?:_id)?)\D{0,12}(\d{3,5})"
         out["station_ids_in_html"]=sorted({int(x) for x in re.findall(rx,html,re.I)})
         for src in re.findall(r"""<script[^>]+src=["']([^"']+)""",html,re.I):
             u=urljoin(r.url,src);out["scripts"].append(u)
@@ -140,7 +140,7 @@ def main():
       "Unlabelled coordinate pairs are marked and require manual review.",
       "The bounded ID scan does not guarantee a complete provider catalogue.",
       "This inventory does not download or integrate observations."],"map_inspection":mi}
-    (out/"estaciones.json").write_text(json.dumps(data,ensure_ascii=False,indent=2)+"\\n",encoding="utf-8")
+    (out/"estaciones.json").write_text(json.dumps(data,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     fields=["provider","station_id","name","name_source","latitude","longitude","coordinate_source","last_observation","page_url","catalog_status","metadata_quality"]
     with (out/"estaciones.csv").open("w",encoding="utf-8",newline="") as h:
         w=csv.DictWriter(h,fieldnames=fields);w.writeheader();w.writerows({k:x.get(k) for k in fields} for x in found)
