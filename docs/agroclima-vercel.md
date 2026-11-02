@@ -1,21 +1,30 @@
-# Despliegue Vercel del conector AgroClima
+# Arquitectura del conector AgroClima
 
-El frontend del Laboratorio está en `docs/`. Para publicar el sitio y la función API en el mismo proyecto Vercel:
+El Laboratorio Meteorológico Nacional tiene **un solo frontend público**, alojado en GitHub Pages:
 
-1. Crear un proyecto Vercel conectado al repositorio `D4nSosa/laboratorio-datos-meteorologicos`.
-2. Configurar **Root Directory** como `docs`.
-3. Usar el branch `main` como Production Branch.
-4. No configurar un comando de build; el sitio es HTML/CSS/JS estático y la función está en `docs/api/agroclima/station.js`.
-5. El endpoint resultante será `https://<dominio-del-proyecto>/api/agroclima/station?id=1609`.
-6. Actualizar `docs/assets/js/agroclima-config.js` con la URL absoluta del endpoint para que el frontend alojado en GitHub Pages también pueda consultarlo. La función incluye CORS para ese uso.
+- Frontend: https://d4nsosa.github.io/laboratorio-datos-meteorologicos/explorador-interactivo.html
+- Backend: Vercel, exclusivamente para endpoints API. No publica una segunda copia del sitio.
 
-La función consulta exclusivamente las rutas públicas de AgroClima `/public/estacion.php` y `/3/public/estacion.php`; no acepta URLs arbitrarias. Es una consulta bajo demanda, no un proceso de polling.
+## Estructura
 
-## Validación antes de anunciar disponibilidad
+- `docs/`: frontend estático de GitHub Pages.
+- `backend/api/agroclima/station.js`: función serverless que consulta AgroClima y devuelve JSON estructurado.
+- El proyecto Vercel debe tener **Root Directory = backend**. Así Vercel no sirve los archivos HTML del Laboratorio.
 
-- Confirmar que el deployment de Vercel está en estado READY.
-- Consultar el endpoint con un ID conocido y comprobar `ok: true`, `station_id`, `source_url`, `fetched_at` y `html`.
-- Confirmar que el HTML contiene tablas de observaciones meteorológicas que el parser del frontend pueda reconocer.
-- Comparar la hora de consulta (`fetched_at`) con las marcas de tiempo de medición que publique AgroClima.
+Endpoint:
+`https://laboratorio-datos-meteorologicos.vercel.app/api/agroclima/station?id=1609`
 
-La cantidad de fichas del inventario (192) no equivale al número de estaciones con observaciones recientes. El total efectivo solo se podrá informar después de consultar las fichas y clasificar su recencia.
+## Respuesta
+
+La API devuelve metadatos de la estación, última observación, cantidad de registros y una serie de observaciones normalizadas. Se conserva temporalmente el HTML original para compatibilidad con la interfaz actual mientras se completa la migración del frontend a JSON.
+
+Cada observación incluye hora local, temperatura, humedad, velocidad y dirección del viento, lluvia, presión, punto de rocío y sensación térmica. La hora de consulta (`fetched_at`) no debe confundirse con la hora de medición (`observed_at_local`).
+
+## Validación
+
+- Consultar una estación conocida y comprobar `ok: true`.
+- Verificar que `observation_count` sea mayor que cero y que `observations` contenga registros reales.
+- Comparar `latest_observation` con la última fila publicada por AgroClima.
+- Si cambia el HTML de AgroClima y no se reconoce la tabla, la API devuelve un error explícito; no inventa ni estima mediciones.
+
+La cantidad de fichas del inventario no equivale al número de estaciones con observaciones recientes.
