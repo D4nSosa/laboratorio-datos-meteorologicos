@@ -54,6 +54,7 @@ jobs:
           test -s docs/datos/inta-siga/estaciones-observaciones.csv.gz
           test -s docs/assets/js/laboratorio-nacional.js
           test -s docs/assets/css/laboratorio-nacional.css
+          test -s docs/assets/js/agroclima-config.js
           test -s docs/explorador-interactivo.html
           test -s docs/datos/fuentes-externas/corrientes/rainfall-daily.csv
           test -s docs/datos/fuentes-externas/corrientes/qa-summary.json
