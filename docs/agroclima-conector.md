@@ -10,9 +10,9 @@ La interfaz convierte las tablas HTML devueltas en tablas de texto usando `textC
 
 ## Despliegue requerido
 
-1. Crear un Cloudflare Worker nuevo.
-2. Publicar el contenido de `infra/agroclima-proxy/worker.js` como Worker.
-3. Asignarle un nombre, por ejemplo `lnm-agroclima-proxy`.
+1. Iniciar sesión en Cloudflare desde una terminal con Wrangler (`npx wrangler login`).
+2. Desde la raíz del repositorio, publicar el Worker con `npx wrangler deploy infra/agroclima-proxy/worker.js --name lnm-agroclima-proxy`.
+3. Si preferís el Dashboard, crear un Worker nuevo y pegar el contenido de `infra/agroclima-proxy/worker.js`.
 4. Copiar su URL pública y agregar la ruta `/api/agroclima/station`.
 5. Pegar esa URL en `docs/assets/js/agroclima-config.js`, en `window.LNM_AGROCLIMA_PROXY_URL`.
 6. Publicar el cambio en GitHub Pages.
