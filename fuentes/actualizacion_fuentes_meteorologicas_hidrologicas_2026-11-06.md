@@ -24,7 +24,7 @@ Tres recursos resultan especialmente relevantes:
 | SMN | Observaciones oficiales y campos espaciales de precipitación | Red de estaciones y productos regionales; disponibilidad por producto | Fuentes identificadas; no se afirma integración de nuevos productos |
 | INTA-SIGA | Observaciones y metadatos de estaciones | Según catálogo y estación | Snapshot archivado; requiere validación de variables y series |
 | Ministerio de Producción de Corrientes | Registros diarios y mensuales de precipitación | Provincia de Corrientes; cobertura temporal y geográfica desigual | Snapshot archivado del 29/10/2026 |
-| RainViewer | Mosaico compuesto de reflectividad radar y cuadros recientes | 14 radares integrados para Argentina; cobertura irregular | Capa de teselas operativa en el mapa, con atribución y límites de uso |
+| RainViewer | Mosaico compuesto de reflectividad radar y cuadros recientes | Feed del SMN argentino; cobertura irregular y no homogénea | Capa de teselas operativa en el mapa, con atribución y límites de uso |
 | NOAA GOES-19 ABI | GeoColor y secuencia sectorial de bandas visibles/infrarrojas | Disco completo y sector sur de Sudamérica | Visor GeoColor y secuencia NOAA integrados |
 | SMN / SINARAME | Mosaicos e imágenes de radares oficiales | Red nacional; alcance variable por radar | Enlaces a visores oficiales; ingesta directa pendiente |
 | IGN / Georef | Límites administrativos provinciales GeoJSON | 23 provincias y CABA | Geometrías integradas para agregación exploratoria por provincia |
