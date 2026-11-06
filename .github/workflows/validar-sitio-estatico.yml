@@ -63,11 +63,12 @@ jobs:
           scripts = re.findall(r'<script(?:\s[^>]*)?>([\s\S]*?)</script>', page, flags=re.I)
           inline = max(scripts, key=len)
           Path("/tmp/explorador-inline.js").write_text(inline, encoding="utf-8")
-          assert 'id="show-radar"' in page and 'id="radar-frame"' in page
+          assert 'id="workspace-picker"' in page
           assert 'id="weather-mode"' in page and 'id="weather-load"' in page
-          assert 'id="goes-loop-frame"' in page and 'id="goes-band"' in page
-          assert 'value="cape_max"' in page and 'value="thunderstorm_probability_max"' in page
-          print("OK controles de radar, satélite y mapa provincial")
+          assert 'id="weather-variable"' in page and 'id="weather-day"' in page
+          assert 'id="show-provinces"' in page and 'id="show-weather-points"' in page
+          assert 'function initNav()' in inline and 'Promise.allSettled' in inline
+          print("OK navegación, controles meteorológicos y arranque resiliente")
           PY
           node --check /tmp/explorador-inline.js
           python - <<'PY'
