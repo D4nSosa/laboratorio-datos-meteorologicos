@@ -39,7 +39,7 @@ La interfaz pública reúne las siguientes capacidades existentes:
 - El repositorio conserva un consolidado comunitario atribuido a SIGA-INTA con 1.177.258 filas y un catálogo de 182 estaciones. La integridad del archivo no demuestra calibración, homogeneidad ni validación instrumental. Hay claves estación-fecha repetidas que requieren tratamiento antes de producir estadísticas definitivas.
 - El snapshot provincial de Corrientes contiene registros diarios y mensuales con cobertura desigual. Los agregados departamentales no son equivalentes a mediciones puntuales.
 - El conector de AgroClima consulta observaciones publicadas por estación. Su ventana reciente no reemplaza un archivo histórico diario de precipitaciones.
-- NASA GPM IMERG, GOES ABI/GLM, SINARAME, CHIRPS, radiosondeos, INA-SIyAH y SNIH forman parte del inventario de fuentes nacionales y globales. Sus estados son explícitos: algunas ya se consultan, otras están documentadas y otras requieren verificación de acceso o integración. No se presentan como operativas por el solo hecho de estar catalogadas.
+- GOES-19 ABI GeoColor ya se consulta desde el archivo público de NOAA en Panorama. Los canales infrarrojos y de vapor de agua, GLM, GPM IMERG, SINARAME, CHIRPS, radiosondeos, INA-SIyAH y SNIH forman parte del inventario nacional/global; sus estados distinguen productos integrados de fuentes documentadas o pendientes de verificación.
 
 ## Cómo trabajamos
 
