@@ -15,7 +15,8 @@ El trabajo se organiza alrededor de preguntas que pueden abordarse con las capac
 - Cómo varían las precipitaciones entre años, estaciones y regiones.
 - Dónde existen registros meteorológicos y qué continuidad temporal tienen.
 - Qué diferencias aparecen entre mediciones de estaciones, agregados territoriales, estimaciones satelitales y reanálisis.
-- Cómo caracterizar episodios de lluvia intensa con datos diarios y subdiarios.
+- Cómo evolucionan la nubosidad, el viento, la humedad, la presión y la precipitación en distintas escalas.
+- Cómo caracterizar sistemas convectivos y episodios de tiempo severo mediante satélite, actividad eléctrica, radar y perfiles atmosféricos cuando haya datos disponibles.
 - Qué contexto meteorológico e hidrológico acompaña a crecidas, anegamientos y sequías.
 - Qué relaciones estadísticas pueden explorarse entre precipitación, estacionalidad e índices de variabilidad climática como ENSO.
 
@@ -57,7 +58,7 @@ No convertimos datos faltantes en cero, no inventamos mediciones y no presentamo
 | Línea | Pregunta principal | Estado |
 |---|---|---|
 | [Precipitaciones en Gobernador Virasoro](investigaciones/01-precipitacion-virasoro/README.md) | ¿Qué muestran las referencias históricas y la serie ERA5 del entorno local? | Primera fase documental y descriptiva procesada; falta una serie primaria continua y homogénea. |
-| [Corrientes y el NEA](investigaciones/02-corrientes-nea/README.md) | ¿Cómo se distribuye la precipitación entre zonas comparables? | Planificada; requiere consolidar períodos y coberturas comparables. |
+| Comparación provincial y regional | ¿Cómo se distribuyen las variables atmosféricas entre zonas comparables? | Parte del alcance nacional; se implementará por fuente, variable y disponibilidad espacial, sin una secuencia territorial obligatoria. |
 | [Exploración meteorológica nacional](investigaciones/03-contexto-nacional/README.md) | ¿Cómo varían los patrones atmosféricos entre regiones, provincias y localidades? | Alcance geográfico nacional; integración de capas y agregados en desarrollo según fuente y variable. |
 | [Lluvia y variabilidad climática](investigaciones/04-lluvia-y-variabilidad-climatica/README.md) | ¿Qué asociaciones aparecen con ENSO y otros indicadores? | Pendiente de series compatibles y evaluación estadística. |
 | Atmósfera y sistemas convectivos | ¿Cómo evolucionan nubosidad, viento, precipitación y actividad eléctrica en distintos episodios? | GOES ABI/GLM documentados; radar SINARAME en verificación de acceso y productos. |
