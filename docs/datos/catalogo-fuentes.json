@@ -227,7 +227,7 @@
       "products": [
         "Consulta puntual ERA5 desde 1940 y ERA5-Land desde 1950 según variable/modelo",
         "Pronóstico multimodelo global hasta 16 días",
-        "Variables horarias: temperatura, humedad, punto de rocío, precipitación, nubosidad, presión, viento, ráfagas y CAPE",
+        "Variables horarias: temperatura, humedad, punto de rocío, precipitación, nubosidad, presión, viento, ráfagas, CAPE y probabilidad de tormenta eléctrica cuando el modelo seleccionado las ofrece",
         "Archivo Historical Forecast para analizar pronósticos pasados desde aproximadamente 2021/2022; disponibilidad por modelo"
       ],
       "variables": [
@@ -240,13 +240,14 @@
         "wind_speed",
         "wind_direction",
         "wind_gusts",
-        "CAPE"
+        "CAPE",
+        "thunderstorm_probability"
       ],
       "temporal_resolution": "Histórico ERA5 horario/diario; pronóstico horario/diario; horizonte de pronóstico hasta 16 días según producto",
       "spatial_resolution": "Global; ERA5 0,25° (~25 km), ERA5-Land 0,1° (~11 km), IFS HRES ~9 km y otros modelos según proveedor",
       "coverage": "Global, incluidas localidades argentinas; consulta puntual por coordenadas, no visualización ráster nacional integrada",
       "url": "https://open-meteo.com/en/docs",
-      "limitations": "La consulta de punto y el pronóstico de hasta 16 días están integrados en Laboratorio abierto. La API no equivale a una red de estaciones. ERA5 tiene retraso de publicación; las predicciones cambian con cada ciclo y no sustituyen al SMN."
+      "limitations": "La consulta de punto y el pronóstico de hasta 16 días están integrados en Laboratorio abierto. La API no equivale a una red de estaciones. La disponibilidad de variables depende del modelo y la región. CAPE es un diagnóstico de inestabilidad, no una garantía de tormenta; la probabilidad de tormenta es una salida de modelo y no una alerta oficial. ERA5 tiene retraso de publicación; las predicciones cambian con cada ciclo y no sustituyen al SMN."
     },
     {
       "id": "hydrology_networks",
