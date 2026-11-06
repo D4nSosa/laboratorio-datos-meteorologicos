@@ -291,20 +291,26 @@ main,.view,.panel,.hero,.hero-copy,.hero-fact,.sectionhead,.participation-hero{m
 </div>
 </section>
 <section class="view" id="lnm-center">
-<div class="sectionhead"><div><div class="eyebrow">Laboratorio de Datos Meteorológicos · Argentina</div><h2>Centro de operaciones atmosféricas</h2><p>Vista integrada del estado de las fuentes, capacidades científicas, métodos y líneas de investigación del Laboratorio.</p></div><span class="lab-badge">Arquitectura integrada</span></div>
-<div class="lnm-hero"><article class="lnm-card"><div class="eyebrow">Estado de la plataforma</div><h3>Una infraestructura común para investigar la atmósfera</h3><p>El Laboratorio reúne datos históricos, observaciones y productos científicos bajo criterios compartidos de procedencia, cobertura y calidad. La ampliación se incorpora a las secciones existentes: mejora las comparaciones, el contexto territorial y la explicación de cada investigación sin duplicar módulos.</p><div class="lnm-toolbar"><span id="lnm-catalog-status" aria-live="polite">Cargando catálogo de fuentes…</span><span id="lnm-source-summary">Clasificando integraciones…</span></div></article><article class="lnm-card"><div class="eyebrow">Catálogo de fuentes</div><div class="lnm-stat" id="lnm-source-count">—</div><p>Fuentes registradas con estado de integración, cobertura, resolución y limitaciones documentadas.</p></article></div>
-<div class="lnm-note"><strong>Importante:</strong> este panel informa la arquitectura y el estado de integración. No es un monitor meteorológico en tiempo real. Las fuentes sin conector operativo no se presentan como observaciones disponibles, y las salidas experimentales no sustituyen alertas oficiales.</div>
-<div class="sectionhead"><div><div class="eyebrow">Capacidades del laboratorio</div><h2>Módulos científicos</h2><p>Los módulos comparten catálogo, metadatos, almacenamiento y validación.</p></div></div><div class="lnm-grid" id="lnm-module-grid"><p class="empty">Cargando módulos…</p></div>
-<details class="source-disclosure"><summary>Consultar fuentes, procedencia y limitaciones</summary><p>La documentación técnica queda disponible cuando se necesita; no interrumpe la exploración principal.</p><div class="lnm-source-grid" id="lnm-source-grid"><p class="empty">Cargando catálogo…</p></div></details>
-<div class="lnm-note">La línea neuronal LNM está preparada como entorno experimental especializado. Todavía no existe un modelo entrenado ni una predicción propia operativa. El aprendizaje se habilitará con secuencias etiquetadas, eventos documentados y evaluación independiente.</div>
-<div class="hero-actions"><button class="primary-action" data-jump="national-lab">Abrir laboratorio de datos <span>↗</span></button><button class="secondary-action" data-jump="territorio">Explorar estaciones</button></div>
+<div class="sectionhead"><div><div class="eyebrow">Laboratorio de Datos Meteorológicos · Argentina</div><h2>Centro de operaciones</h2><p>Estado consultable de las fuentes conectadas y accesos directos a las herramientas del Laboratorio.</p></div><span class="lab-badge">Monitoreo de fuentes</span></div>
+<div class="lnm-ops-head"><div><div class="eyebrow">Condiciones de referencia · Gobernador Virasoro</div><h3 style="margin:5px 0">¿Qué está disponible ahora?</h3><p>Consultas directas a proveedores. Cada resultado indica su fuente y hora; un error no se reemplaza por datos antiguos.</p></div><div class="lnm-ops-toolbar"><small id="lnm-last-check" aria-live="polite">Esperando primera comprobación…</small><button type="button" class="btn" id="lnm-refresh-status">↻ Actualizar estado</button></div></div>
+<div class="lnm-health-grid" aria-live="polite">
+<article class="lnm-health-card"><span>Tiempo actual · Open-Meteo</span><strong class="lnm-health-value loading" id="lnm-weather-state">Pendiente</strong><small id="lnm-weather-state-detail">Consulta puntual para Gobernador Virasoro.</small></article>
+<article class="lnm-health-card"><span>Radar compuesto · RainViewer</span><strong class="lnm-health-value loading" id="lnm-radar-state">Pendiente</strong><small id="lnm-radar-state-detail">Verificación de cuadros recientes; cobertura parcial.</small></article>
+<article class="lnm-health-card"><span>Satélite · NOAA GOES-19</span><strong class="lnm-health-value loading" id="lnm-satellite-state">Pendiente</strong><small id="lnm-satellite-state-detail">Verificación de acceso al producto GeoColor.</small></article>
+</div>
+<div class="lnm-ops-note">Este tablero verifica la disponibilidad de tres productos externos. No es una red de estaciones en tiempo real ni un sistema de alertas. La hora de consulta no equivale a la hora de observación del producto. Consultá siempre la marca temporal de cada imagen o cuadro.</div>
+<div class="sectionhead"><div><div class="eyebrow">Herramientas disponibles</div><h2>Operar el Laboratorio</h2><p>Entrá directamente a cada espacio de consulta. Los módulos experimentales se identifican como tales y no se presentan como servicios operativos.</p></div></div>
+<div class="lnm-grid" id="lnm-module-grid"><p class="empty">Cargando herramientas…</p></div>
+<div class="lnm-ops-toolbar"><div><b>Catálogo y trazabilidad de fuentes</b><br><small id="lnm-catalog-status" aria-live="polite">Cargando catálogo…</small></div><div class="lnm-stat" id="lnm-source-count">—</div></div>
+<p id="lnm-source-summary" class="lnm-ops-note">Clasificando fuentes…</p>
+<details class="source-disclosure"><summary>Ver fuentes, procedencia, cobertura y limitaciones</summary><p>El estado del catálogo describe integración y disponibilidad técnica, no certificación científica de cada registro.</p><div class="lnm-source-grid" id="lnm-source-grid"><p class="empty">Cargando catálogo…</p></div></details>
 </section>
 </main>
 <footer class="footer"><div class="shell">LABORATORIO DE DATOS METEOROLÓGICOS · ARGENTINA · Primera investigación territorial: Gobernador Virasoro, Corrientes</div></footer>
 <dialog class="viewer" id="viewer"><div class="viewerbar"><strong id="viewer-title">Vista ampliada</strong><button class="theme" id="viewer-close">Cerrar ✕</button></div><div class="viewercontent" id="viewer-content"></div></dialog>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <script src="assets/js/laboratorio-nacional.js?v=20261101-ui2" defer></script>
-<script src="assets/js/lnm-center.js?v=20261101-2" defer></script>
+<script src="assets/js/lnm-center.js?v=20261106-ops1" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.6.0/dist/echarts.min.js"></script>
 
 <script>
