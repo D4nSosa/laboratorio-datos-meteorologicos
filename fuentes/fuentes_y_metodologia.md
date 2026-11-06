@@ -67,6 +67,8 @@ Esta agregación sirve para exploración y comparación descriptiva de campos de
 - **Satélite ABI:** observa radiancias en bandas visibles e infrarrojas; vapor de agua, temperatura de brillo y estructura de nubes se interpretan según banda. No mide directamente lluvia en superficie.
 - **GLM FED:** muestra densidad/extensión de flashes en celdas durante ventanas de cinco minutos; no equivale a una red terrestre que geolocaliza cada rayo.
 - **Modelo/reanálisis:** aporta variables calculadas o reconstruidas en puntos/celdas. No es una observación directa.
+- **CAPE y probabilidad de tormenta:** se consultan como variables horarias de pronóstico. El mapa muestra el máximo diario por punto y luego promedia esos máximos entre puntos provinciales. CAPE se expresa en J/kg y describe energía potencial disponible para convección; no garantiza iniciación ni severidad de tormentas. La probabilidad de tormenta es una estimación del modelo, no una alerta oficial. La disponibilidad depende del modelo y la región.
+
 - **Visores oficiales:** el SMN y SINARAME conservan la autoridad de sus productos y advertencias. La visualización experimental del Laboratorio no emite alertas ni sustituye avisos oficiales.
 
 ## 4. Reglas de cobertura y comparación

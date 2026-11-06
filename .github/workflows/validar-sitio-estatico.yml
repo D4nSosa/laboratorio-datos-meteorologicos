@@ -66,6 +66,7 @@ jobs:
           assert 'id="show-radar"' in page and 'id="radar-frame"' in page
           assert 'id="weather-mode"' in page and 'id="weather-load"' in page
           assert 'id="goes-loop-frame"' in page and 'id="goes-band"' in page
+          assert 'value="cape_max"' in page and 'value="thunderstorm_probability_max"' in page
           print("OK controles de radar, satélite y mapa provincial")
           PY
           node --check /tmp/explorador-inline.js

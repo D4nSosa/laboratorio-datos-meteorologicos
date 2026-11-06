@@ -117,11 +117,12 @@ Para vigilancia satelital se incorporó una secuencia NOAA GOES-19 ABI del secto
 Se integró la geometría GeoJSON provincial desde Georef/IGN. El mapa genera puntos de muestreo aproximados de 1° dentro de cada provincia y consulta Open-Meteo por lotes. Puede visualizar:
 
 - Pronóstico de siete días para precipitación acumulada, nubosidad media, viento máximo diario y temperatura máxima.
+- Diagnóstico convectivo en modo pronóstico: CAPE máximo diario (J/kg) y probabilidad máxima horaria de tormenta eléctrica (%), cuando los campos están disponibles para el modelo y la región.
 - Histórico ERA5 de hasta 90 días para las mismas variables; la precipitación se acumula por punto y las otras variables se promedian temporalmente.
 - Agregación provincial como promedio simple de puntos disponibles, con popup que informa media, rango y cantidad de puntos.
 - Puntos de muestreo visibles de forma opcional.
 
-La resolución de muestreo es aproximada y no corresponde a la resolución nativa de ERA5 ni de los modelos de pronóstico. No se pondera por área; los límites provinciales se usan para agrupar puntos, no para inventar valores de zonas sin cobertura. La consulta por localidad y el pronóstico puntual de hasta 16 días permanecen en Laboratorio abierto.
+CAPE por sí solo no confirma una tormenta y la probabilidad es una salida del modelo, no una alerta. La resolución de muestreo es aproximada y no corresponde a la resolución nativa de ERA5 ni de los modelos de pronóstico. No se pondera por área; los límites provinciales se usan para agrupar puntos, no para inventar valores de zonas sin cobertura. La consulta por localidad y el pronóstico puntual de hasta 16 días permanecen en Laboratorio abierto.
 
 ## Verificación antes de publicar capas
 
