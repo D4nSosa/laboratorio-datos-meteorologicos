@@ -169,3 +169,17 @@ table{max-width:100%}
 @media(max-width:700px){.location-chart-toolbar{padding:9px 12px;flex-direction:column;gap:3px}.location-chart-track{padding:4px 12px 14px;gap:10px}.location-chart-slide{flex-basis:100%}.location-chart-canvas{height:300px}.location-chart-actions{width:100%}.location-chart-actions .expand{margin-right:auto}}
 @media(max-width:420px){.location-chart-slide{padding:8px}.location-chart-canvas{height:280px}}
 .viewercontent #location-analysis{min-height:0}.viewercontent #location-chart-track{height:calc(100dvh - 220px)}.viewercontent .location-chart-slide{flex-basis:min(100%,1100px)}.viewercontent .location-chart-canvas{height:calc(100dvh - 340px);min-height:320px}
+
+/* Carrusel de las series originales de AgroClima. */
+.agro-chart-carousel-head{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:20px 0 10px}
+.agro-chart-carousel-head .agro-section-title{margin:0}
+.agro-chart-carousel-head p{margin:5px 0 0;color:var(--muted);font-size:11px}
+.agro-chart-carousel-controls{display:flex;gap:7px;flex-shrink:0}
+#agro-charts-track{overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:var(--accent) var(--surface2);touch-action:pan-x pan-y}
+#agro-charts-track .agro-chart-slides{display:flex;gap:14px;padding:3px 1px 13px}
+#agro-charts-track .agro-chart-slide{flex:0 0 min(100%,760px);min-width:0;scroll-snap-align:start}
+#agro-charts-track .agro-series-chart{width:100%;height:300px;min-width:0}
+.agro-chart-dots{display:flex;justify-content:center;gap:8px;padding:8px 0 12px}
+.agro-chart-dots button{width:8px;height:8px;padding:0;border:0;border-radius:50%;background:var(--line);cursor:pointer}
+.agro-chart-dots button.active{background:var(--accent);transform:scale(1.2)}
+@media(max-width:640px){.agro-chart-carousel-head{align-items:flex-start}.agro-chart-carousel-head p{max-width:230px}#agro-charts-track .agro-chart-slide{flex-basis:100%}#agro-charts-track .agro-series-chart{height:280px}}
