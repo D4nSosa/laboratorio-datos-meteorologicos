@@ -1,7 +1,7 @@
 # Actualización de fuentes meteorológicas e hidrológicas — 6 de noviembre de 2026
 
 **Proyecto:** Laboratorio de Datos Meteorológicos  
-**Alcance:** revisión documental de fuentes públicas para ampliar las investigaciones existentes sobre precipitación, eventos y contexto hidrológico.  
+**Alcance:** revisión documental de fuentes nacionales y globales para ampliar la investigación meteorológica y atmosférica a escala de localidad, provincia y país.  
 **Estado:** fuentes identificadas y documentadas; esta revisión no incorpora conectores ni afirma que las series hayan sido descargadas y validadas por el Laboratorio.
 
 ## Síntesis
@@ -79,18 +79,35 @@ No se propone crear módulos nuevos. Las capacidades se integrarían en la estru
 - **Preguntas climáticas:** analizar episodios de lluvia intensa, períodos secos/húmedos, anomalías y relaciones estadísticas con índices climáticos.
 - **Método y límites:** explicar diferencias entre medición puntual, estimación satelital, campo interpolado, reanálisis y dato hidrológico modelado.
 
-## Caso de aplicación: Itatí y las crecidas del Paraná
+## Alcance territorial y temporal
 
-La invitación de Hub Ambiental sobre resiliencia y gestión de riesgos socioambientales ofrece un caso pertinente para probar la metodología, no para presentar el Laboratorio como sistema de alerta.
+La exploración debe poder realizarse a tres escalas complementarias:
 
-Una reconstrucción exploratoria podría estudiar:
-1. Precipitación acumulada antecedente en celdas IMERG y estaciones disponibles aguas arriba y en el entorno de Itatí.
-2. Evolución temporal de niveles hidrométricos y, si existen, caudales de estaciones del INA/SNIH.
-3. Diferencias entre estimación satelital y observaciones puntuales.
-4. Contexto de cuenca, aportes aguas arriba y antecedentes documentados.
-5. Incertidumbres: cobertura, latencia, horario de corte, faltantes y calidad.
+- **Localidad o coordenada:** perfil de variables y series históricas/pronósticas para un punto, identificando si el valor procede de una estación o de una celda de grilla.
+- **Provincia o región:** comparación de estaciones y celdas disponibles dentro del territorio. Los agregados deben declarar el método, la cantidad de puntos válidos y la cobertura temporal; no se debe sustituir el área por una única coordenada representativa.
+- **Nación:** panorama espacial de productos con cobertura argentina o global, con capas independientes para observaciones, satélite, reanálisis, radar y pronóstico.
 
-No se puede atribuir una crecida a una lluvia local aislada sin analizar el comportamiento de la cuenca. Tampoco se deben derivar umbrales de peligro propios sin metodología y validación de los organismos competentes.
+Gobernador Virasoro continúa como primera referencia territorial de investigación, pero no limita la cobertura ni la agenda nacional del Laboratorio.
+
+## Fuentes atmosféricas y vigilancia de tormentas
+
+- **GOES-19 ABI:** imágenes visibles, infrarrojas y vapor de agua. La disponibilidad por canal, sector, cadencia y latencia debe validarse en el flujo de datos antes de habilitar animación pública.
+- **GOES GLM:** eventos, grupos y flashes eléctricos. La cobertura alcanza América, pero la integración debe conservar producto, hora y resolución, y no confundir detección satelital con una red terrestre de rayos.
+- **SINARAME:** radar meteorológico argentino. Verificar mosaicos, reflectividad, velocidad radial, productos derivados, política de acceso y continuidad. Una imagen radar no debe reconstruirse a partir de precipitación modelada.
+- **GPM IMERG y CHIRPS:** productos de precipitación satelital/estimada para análisis espacial e histórico; no son radar ni pluviómetros.
+- **Open-Meteo / modelos numéricos:** variables de diagnóstico y pronóstico; identificar modelo, ciclo, hora de inicialización y horizonte.
+- **Radiosondeos:** perfiles verticales de temperatura, humedad y viento para estudiar estructura atmosférica e inestabilidad, según disponibilidad de estaciones y horarios.
+
+## Verificación antes de publicar capas
+
+1. Confirmar URL/API o bucket y acceso sin credenciales privadas desde el entorno previsto.
+2. Probar cobertura geográfica efectiva para Argentina y, cuando corresponda, para Corrientes/NEA.
+3. Descargar una muestra histórica y otra reciente, comprobar fechas, unidades, proyección, resolución y licencias.
+4. Comparar una muestra con una fuente independiente y documentar sesgos y límites.
+5. Implementar caché, control de errores y fecha de última actualización sin presentar caché vencida como dato actual.
+6. Activar cada capa solo cuando su flujo de datos sea reproducible y esté validado técnicamente.
+
+No se adopta una localidad como único caso de investigación. El diseño nacional debe permitir comparar zonas y escalas; las investigaciones locales se eligen por preguntas y evidencia disponible.
 
 ## Próximas verificaciones técnicas
 
