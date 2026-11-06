@@ -116,20 +116,21 @@
       "name": "GOES ABI",
       "organization": "NOAA / NESDIS",
       "type": "geostationary_satellite",
-      "status": "not_integrated",
+      "status": "operational",
       "products": [
-        "ABI visible, infrared and water-vapour channels"
+        "GOES-19 ABI GeoColor full-disk image, displayed in Panorama from NOAA's public image archive",
+        "ABI visible, infrared and water-vapour channels; channel-specific products pending integration"
       ],
       "variables": [
-        "radiance",
-        "brightness temperature",
-        "derived cloud-top products where validated"
+        "satellite imagery",
+        "cloud patterns",
+        "channel radiance and brightness temperature in future channel-specific integrations"
       ],
       "temporal_resolution": "product and scan-mode dependent",
       "spatial_resolution": "channel and product dependent",
       "coverage": "Sudamérica y océanos adyacentes bajo la vista de GOES-19 (GOES East); cobertura y resolución varían por canal y producto.",
-      "url": "https://registry.opendata.aws/noaa-goes/",
-      "limitations": "GOES-19 opera como GOES East desde el 7 de abril de 2025. Confirmar sector, canal, cadencia, latencia, calidad y ruta de descarga antes de habilitar animación pública."
+      "url": "https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/",
+      "limitations": "The public interface currently displays the latest full-disk GeoColor image only. It is not a georeferenced radar layer and does not quantify rainfall. Infrared, water-vapour and other ABI products still require separate processing; confirm acquisition timestamp in NOAA archive."
     },
     {
       "id": "goes_glm",
