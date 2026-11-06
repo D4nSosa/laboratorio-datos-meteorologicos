@@ -129,7 +129,7 @@
       "temporal_resolution": "Full disk every ~10 minutes; Southern South America animation provides 24 recent frames at ~10-minute intervals when NOAA feed is available",
       "spatial_resolution": "channel and product dependent",
       "coverage": "GOES-19 Southern South America sector and full disk; channel availability and image quality vary by scan and sunlight.",
-      "url": "https://www.star.nesdis.noaa.gov/goes-draft/sector_band.php?band=13&length=24&sat=G19&sector=ssa",
+      "url": "https://www.star.nesdis.noaa.gov/GOES/sector_band.php?band=13&length=24&sat=G19&sector=ssa",
       "limitations": "The interface embeds NOAA's public experimental sector viewer and separately displays GeoColor. Visible bands require sunlight; infrared brightness temperature describes the cloud top/scene, not surface air temperature. NOAA STAR notes its imagery is informational and not operational alert guidance."
     },
     {
