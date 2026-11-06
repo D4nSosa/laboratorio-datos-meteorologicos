@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "catalog_updated": "2026-11-06",
-  "coverage": "Argentina a escala de exploración mediante combinación de estaciones, grillas satelitales, reanálisis y modelos globales; la disponibilidad depende de cada fuente, variable, período y resolución.",
+  "coverage": "Argentina a escala nacional mediante redes de estaciones, radar compuesto, satélite, grillas de reanálisis y pronóstico. Las capas tienen distinta cobertura, resolución, latencia y calidad; no se presume disponibilidad homogénea en todas las localidades.",
   "status_definitions": {
     "archived": "Dataset stored in this repository; scientific validation may remain incomplete.",
     "documented": "Source documented but no operational connector is claimed.",
@@ -118,19 +118,19 @@
       "type": "geostationary_satellite",
       "status": "operational",
       "products": [
-        "GOES-19 ABI GeoColor full-disk image, displayed in Panorama from NOAA's public image archive",
-        "ABI visible, infrared and water-vapour channels; channel-specific products pending integration"
+        "GOES-19 ABI GeoColor full-disk image in Panorama",
+        "GOES-19 ABI Southern South America sector animation through NOAA STAR: infrared Band 13, water-vapour Band 8, visible Band 2 and cloud-phase Band 11"
       ],
       "variables": [
         "satellite imagery",
         "cloud patterns",
         "channel radiance and brightness temperature in future channel-specific integrations"
       ],
-      "temporal_resolution": "product and scan-mode dependent",
+      "temporal_resolution": "Full disk every ~10 minutes; Southern South America animation provides 24 recent frames at ~10-minute intervals when NOAA feed is available",
       "spatial_resolution": "channel and product dependent",
-      "coverage": "Sudamérica y océanos adyacentes bajo la vista de GOES-19 (GOES East); cobertura y resolución varían por canal y producto.",
-      "url": "https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/",
-      "limitations": "The public interface currently displays the latest full-disk GeoColor image only. It is not a georeferenced radar layer and does not quantify rainfall. Infrared, water-vapour and other ABI products still require separate processing; confirm acquisition timestamp in NOAA archive."
+      "coverage": "GOES-19 Southern South America sector and full disk; channel availability and image quality vary by scan and sunlight.",
+      "url": "https://www.star.nesdis.noaa.gov/goes-draft/sector_band.php?band=13&length=24&sat=G19&sector=ssa",
+      "limitations": "The interface embeds NOAA's public experimental sector viewer and separately displays GeoColor. Visible bands require sunlight; infrared brightness temperature describes the cloud top/scene, not surface air temperature. NOAA STAR notes its imagery is informational and not operational alert guidance."
     },
     {
       "id": "goes_glm",
@@ -330,6 +330,68 @@
       "coverage": "Redes y estaciones adheridas; no asumir cobertura nacional homogénea",
       "url": "https://snih.hidricosargentina.gob.ar/",
       "limitations": "El portal advierte que los datos a tiempo útil pueden ser registros crudos no validados y que la red no es un sistema de alerta. Priorizar series históricas procesadas para análisis y conservar las advertencias de calidad."
+    },
+    {
+      "id": "rainviewer",
+      "name": "RainViewer · mosaico de radar compuesto",
+      "organization": "RainViewer / MeteoLab Inc.; mosaico derivado de radares públicos de agencias meteorológicas",
+      "type": "radar_composite",
+      "status": "operational",
+      "products": [
+        "Teselas de reflectividad radar compuesta",
+        "Hasta 2 horas de cuadros históricos en intervalos aproximados de 10 minutos",
+        "Máscara de cobertura radar disponible en el servicio"
+      ],
+      "variables": [
+        "composite_radar_reflectivity",
+        "precipitation_echo"
+      ],
+      "temporal_resolution": "Cuadros recientes cada ~10 minutos; disponibilidad del proveedor variable",
+      "spatial_resolution": "Teselas web; zoom nativo máximo 7 en API pública gratuita",
+      "coverage": "Cobertura mundial parcial; RainViewer publica 14 radares integrados para Argentina, pero la cobertura efectiva es irregular y puede incluir fuentes de países vecinos.",
+      "url": "https://www.rainviewer.com/api.html",
+      "limitations": "Uso gratuito destinado a fines personales, educativos y comunitarios de pequeña escala; requiere atribución visible y no ofrece SLA. No equivale a toda la red SINARAME/SMN, presenta huecos y retrasos, y la ausencia de ecos o teselas no demuestra ausencia de precipitación. La API pública consultada entrega cuadros pasados; no se debe anunciar nowcast si no aparece en el manifiesto."
+    },
+    {
+      "id": "smn_radar",
+      "name": "SMN · visor oficial de imágenes de radar",
+      "organization": "Servicio Meteorológico Nacional de Argentina",
+      "type": "official_weather_radar_viewer",
+      "status": "documented",
+      "products": [
+        "Mosaico Argentina y mosaicos regionales",
+        "Imágenes de radares individuales, incluido Ituzaingó (Corrientes)",
+        "Visor web público de vigilancia de precipitación"
+      ],
+      "variables": [
+        "radar_reflectivity",
+        "precipitation_echo"
+      ],
+      "temporal_resolution": "Imágenes recientes; frecuencia y latencia dependen de radar y producto",
+      "spatial_resolution": "Radar individual y mosaicos; depende del producto",
+      "coverage": "Red nacional SINARAME y radares integrados al visor del SMN; cobertura efectiva variable por alcance y disponibilidad.",
+      "url": "https://ws2.smn.gob.ar/radar",
+      "limitations": "El Laboratorio enlaza al visor oficial, pero no descarga ni procesa todavía los productos del SMN. El radar requiere interpretación especializada; su ausencia no equivale a ausencia de precipitación ni constituye por sí sola una alerta."
+    },
+    {
+      "id": "ign_georef",
+      "name": "IGN / Georef · límites provinciales",
+      "organization": "Instituto Geográfico Nacional y API Georef del Estado argentino",
+      "type": "administrative_geospatial_reference",
+      "status": "operational",
+      "products": [
+        "GeoJSON de provincias argentinas para mapa y agregación espacial",
+        "Geometrías administrativas de referencia basadas en información del IGN"
+      ],
+      "variables": [
+        "province_boundary",
+        "administrative_unit"
+      ],
+      "temporal_resolution": "Actualización del servicio de referencia; no es una variable meteorológica",
+      "spatial_resolution": "Geometría vectorial en WGS84 / EPSG:4326",
+      "coverage": "23 provincias y Ciudad Autónoma de Buenos Aires; geometrías de referencia nacional.",
+      "url": "https://apis.datos.gob.ar/georef/api/v2.0/provincias.geojson",
+      "limitations": "Los límites administrativos permiten agrupar puntos de muestreo, pero no convierten una muestra puntual en un promedio areal oficial. La agregación del Laboratorio se calcula sobre puntos de grilla muestreados y debe mostrar cantidad de puntos y huecos."
     }
   ]
 }
