@@ -7,7 +7,7 @@
 <title>Laboratorio de Datos Meteorológicos | Argentina</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 <link rel="stylesheet" href="assets/css/laboratorio-nacional.css">
-<link rel="stylesheet" href="assets/css/lnm-center.css">
+<link rel="stylesheet" href="assets/css/lnm-center.css?v=20261106-ops1">
 <style>
 :root{color-scheme:dark;--bg:#0b1417;--surface:#111f23;--surface2:#17282d;--line:#2b4045;--text:#e9f1ee;--muted:#9aadaa;--accent:#7be0c3;--accent2:#7fc8dc;--warn:#e9bd72;--danger:#e58e82;--shadow:0 16px 45px #0003;--radius:15px}
 :root[data-theme=light]{color-scheme:light;--bg:#edf2ef;--surface:#fff;--surface2:#f4f8f5;--line:#d7e2dc;--text:#203236;--muted:#607477;--accent:#087e70;--accent2:#287c91;--warn:#9b681e;--danger:#a84b43;--shadow:0 12px 35px #263b3018}
@@ -299,7 +299,7 @@ main,.view,.panel,.hero,.hero-copy,.hero-fact,.sectionhead,.participation-hero{m
 <div class="sectionhead"><div><div class="eyebrow">Laboratorio de Datos Meteorológicos · Argentina</div><h2>Centro de operaciones</h2><p>Estado consultable de las fuentes conectadas y accesos directos a las herramientas del Laboratorio.</p></div><span class="lab-badge">Monitoreo de fuentes</span></div>
 <div class="lnm-ops-head"><div><div class="eyebrow">Condiciones de referencia · Gobernador Virasoro</div><h3 style="margin:5px 0">¿Qué está disponible ahora?</h3><p>Consultas directas a proveedores. Cada resultado indica su fuente y hora; un error no se reemplaza por datos antiguos.</p></div><div class="lnm-ops-toolbar"><small id="lnm-last-check" aria-live="polite">Esperando primera comprobación…</small><button type="button" class="btn" id="lnm-refresh-status">↻ Actualizar estado</button></div></div>
 <div class="lnm-health-grid" aria-live="polite">
-<article class="lnm-health-card"><span>Tiempo actual · Open-Meteo</span><strong class="lnm-health-value loading" id="lnm-weather-state">Pendiente</strong><small id="lnm-weather-state-detail">Consulta puntual para Gobernador Virasoro.</small></article>
+<article class="lnm-health-card"><span>Condición actual modelada · Open-Meteo</span><strong class="lnm-health-value loading" id="lnm-weather-state">Pendiente</strong><small id="lnm-weather-state-detail">Salida de modelo para Gobernador Virasoro; no es una estación de superficie.</small></article>
 <article class="lnm-health-card"><span>Radar compuesto · RainViewer</span><strong class="lnm-health-value loading" id="lnm-radar-state">Pendiente</strong><small id="lnm-radar-state-detail">Verificación de cuadros recientes; cobertura parcial.</small></article>
 <article class="lnm-health-card"><span>Satélite · NOAA GOES-19</span><strong class="lnm-health-value loading" id="lnm-satellite-state">Pendiente</strong><small id="lnm-satellite-state-detail">Verificación de acceso al producto GeoColor.</small></article>
 </div>
