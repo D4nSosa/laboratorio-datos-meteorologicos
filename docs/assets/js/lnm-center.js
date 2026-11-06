@@ -1,16 +1,16 @@
 (()=>{'use strict';
 const $=id=>document.getElementById(id);
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const statusLabel={archived:'Datos disponibles',documented:'Fuente identificada',not_integrated:'En evaluación',investigation_required:'En evaluación'};
-const statusClass={archived:'available',documented:'documented',not_integrated:'planned',investigation_required:'planned'};
+const statusLabel={archived:'Datos archivados',operational:'Consulta operativa',documented:'Fuente documentada',not_integrated:'No integrada',investigation_required:'Verificación requerida'};
+const statusClass={archived:'available',operational:'available',documented:'documented',not_integrated:'planned',investigation_required:'planned'};
 const modules=[
-{name:'Datos históricos',detail:'Serie ERA5 de Virasoro (1991–2025), climatologías y conjuntos territoriales; el reanálisis no es una medición puntual.',state:'Disponible',kind:'available'},
+{name:'Datos históricos',detail:'Consultas puntuales de ERA5 desde 1940, series archivadas y conjuntos territoriales. La grilla de reanálisis no es una medición puntual.',state:'Disponible · consulta por coordenadas',kind:'available'},
 {name:'Estaciones y observaciones',detail:'Catálogos y registros INTA-SIGA, AgroClima y fuentes provinciales; cobertura y calidad dependen de cada serie.',state:'Disponible · con límites documentados',kind:'available'},
 {name:'Exploración geográfica',detail:'Mapa de estaciones y referencias espaciales; permite explorar cobertura, pero no certifica continuidad ni calidad instrumental.',state:'Disponible',kind:'available'},
-{name:'Diagnóstico atmosférico',detail:'Línea de investigación para integrar perfiles y variables de diagnóstico cuando existan observaciones o productos identificados.',state:'En desarrollo',kind:'planned'},
-{name:'Satélite, radar y actividad eléctrica',detail:'GPM IMERG está documentado como estimación satelital; radar y actividad eléctrica requieren verificar cobertura y acceso. Aún no hay integración operativa.',state:'Línea de desarrollo',kind:'planned'},
-{name:'Modelos numéricos',detail:'Línea en evaluación para comparar productos de pronóstico con observaciones independientes; las salidas de modelos no son mediciones.',state:'Línea de desarrollo',kind:'planned'},
-{name:'Seguimiento de tormentas',detail:'Investigación futura de episodios con evidencia temporal y espacial revisable; no hay detección automática validada.',state:'Investigación',kind:'planned'},
+{name:'Diagnóstico atmosférico',detail:'Variables de temperatura, humedad, presión, punto de rocío, nubosidad, viento y CAPE en los productos disponibles; perfiles de altura y sondeos en evaluación.',state:'Consulta puntual disponible · perfiles en evaluación',kind:'documented'},
+{name:'Satélite, radar y actividad eléctrica',detail:'GOES-19 ABI/GLM y GPM IMERG están documentados. SINARAME está en verificación de acceso a productos. No se muestran como capas operativas hasta probar los flujos.',state:'Integración en desarrollo',kind:'planned'},
+{name:'Modelos numéricos',detail:'Pronóstico multimodelo puntual de hasta 16 días y consulta horaria/diaria. El archivo de pronósticos anteriores abre la vía para evaluar habilidad del modelo.',state:'Pronóstico puntual disponible',kind:'available'},
+{name:'Seguimiento de tormentas',detail:'Objetivo de integrar evolución satelital, actividad eléctrica, radar y variables de inestabilidad; aún no hay detección automática validada.',state:'Investigación · capas pendientes',kind:'planned'},
 {name:'Investigación experimental',detail:'Análisis descriptivo, anomalías, índices de extremos y evaluación estadística con datos y métodos documentados.',state:'Entorno preparado',kind:'documented'},
 {name:'LNM Neural Research Engine',detail:'Infraestructura experimental preparada; no hay modelo entrenado ni capacidad predictiva operativa.',state:'Investigación experimental',kind:'documented'}
 ];
