@@ -142,14 +142,16 @@ main,.view,.panel,.hero,.hero-copy,.hero-fact,.sectionhead,.participation-hero{m
  .map-place-tools{display:flex;gap:7px;align-items:center;flex:1 1 100%;min-width:0}.map-place-tools .search{flex:1;min-width:0}.map-place-tools select{max-width:100%;min-width:0}@media(max-width:760px){.map-place-tools{display:grid;grid-template-columns:minmax(0,1fr) auto}.map-place-tools select{grid-column:1/-1;width:100%}}
 
 /* Radar sources and nationwide locality research selector. */
-.radar-source-panel{margin:18px 0;padding-bottom:14px}
-.radar-source-toolbar{display:flex;gap:14px;align-items:end;flex-wrap:wrap;padding:12px 18px}
-.radar-source-toolbar label{min-width:220px}
-.radar-source-toolbar select,.data-locality-controls input,.data-locality-controls select{background:var(--surface2);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:10px;min-height:42px}
-.radar-source-toolbar span{font-size:11px;color:var(--muted);flex:1}
-.radar-source-toolbar a{font-size:11px;color:var(--accent)}
-.radar-source-frame-wrap{height:min(72vh,760px);min-height:460px;margin:0 14px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#dce7e4}
+.radar-source-panel{margin:12px 0;padding:0;overflow:hidden}
+.radar-source-toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:9px 12px}
+.radar-source-picker{display:flex;align-items:center;gap:8px;font-size:10px;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.radar-source-toolbar select{background:var(--surface2);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:9px 30px 9px 10px;min-height:38px}
+.radar-source-toolbar span{font-size:10px;color:var(--muted);flex:1 1 120px}
+.radar-source-toolbar .btn{font-size:11px;padding:9px 12px;white-space:nowrap}
+.radar-source-frame-wrap{height:min(78vh,860px);min-height:520px;border-top:1px solid var(--line);overflow:hidden;background:#dce7e4}
 .radar-source-frame-wrap iframe{display:block;width:100%;height:100%;border:0;background:#dce7e4}
+.radar-source-frame-wrap:fullscreen{height:100vh;min-height:0;border:0;border-radius:0}
+@media(max-width:760px){.radar-source-toolbar{gap:6px;padding:8px}.radar-source-picker{flex:1 1 100%}.radar-source-toolbar span{order:3;flex-basis:100%}.radar-source-toolbar .btn{flex:1}.radar-source-frame-wrap{height:76vh;min-height:500px}}
 .data-locality-research{margin:0 0 18px;padding-bottom:14px}
 .data-locality-controls{display:grid;grid-template-columns:minmax(180px,1fr) auto minmax(220px,1fr) auto;gap:9px;align-items:center;padding:12px 18px}
 .data-locality-controls select[hidden]{display:none}
@@ -204,22 +206,21 @@ main,.view,.panel,.hero,.hero-copy,.hero-fact,.sectionhead,.participation-hero{m
   <p id="weather-date-note" class="map-method-note">ERA5 tiene demora de publicación. El límite histórico se calcula automáticamente y no representa información en tiempo real.</p>
   <p class="map-method-note">Las estadísticas provinciales son promedios de puntos de muestreo de aproximadamente 1° (~100 km), no promedios oficiales de toda la superficie ni valores de estaciones. Los huecos y provincias sin muestras se mantienen como datos no disponibles. ERA5 es reanálisis; el pronóstico es salida de modelo. CAPE y probabilidad de tormenta son diagnósticos de pronóstico: CAPE por sí solo no confirma que se desarrolle una tormenta y ninguna de estas capas constituye una alerta oficial.</p>
 </div>
-<section class="radar-source-panel panel" id="radar-source-panel">
-  <div class="panelhead"><div><div class="eyebrow">Observación meteorológica · Argentina</div><h3>Radar en vivo y seguimiento temporal</h3><p>Visualización de radares nacionales. Elegí el visor; la hora de consulta no sustituye la marca temporal de cada cuadro.</p></div></div>
+<section class="radar-source-panel panel" id="radar-source-panel" aria-label="Visor de radares meteorológicos">
   <div class="radar-source-toolbar">
-    <label class="field">FUENTE
+    <label class="radar-source-picker">RADAR
       <select id="radar-source-select" aria-label="Seleccionar fuente de radar">
-        <option value="webmet">WebMet25 · OHMC</option>
-        <option value="smn">SMN · mosaicos y radares</option>
+        <option value="webmet">WebMet25</option>
+        <option value="smn">SMN oficial</option>
       </select>
     </label>
-    <span id="radar-source-status" aria-live="polite">Cargando visor WebMet25…</span>
-    <a id="radar-source-open" href="https://webmet.ohmc.ar/" target="_blank" rel="noopener noreferrer">Abrir visor en otra pestaña ↗</a>
+    <span id="radar-source-status" aria-live="polite">Cargando WebMet25…</span>
+    <button class="btn" id="radar-source-fullscreen" type="button">Ampliar mapa ⛶</button>
+    <a class="btn primary" id="radar-source-open" href="https://webmet.ohmc.ar/" target="_blank" rel="noopener noreferrer">Abrir WebMet25 ↗</a>
   </div>
-  <div class="radar-source-frame-wrap">
+  <div class="radar-source-frame-wrap" id="radar-source-frame-wrap">
     <iframe id="radar-source-frame" title="Visor de radar meteorológico WebMet25" src="https://webmet.ohmc.ar/" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   </div>
-  <p class="map-method-note">WebMet25 permite seleccionar radares como Mercedes (RMA8) e Ituzaingó (RMA13). El SMN publica mosaicos y radares individuales, incluidos ambos puntos de Corrientes. La disponibilidad del visor incrustado depende de las políticas del sitio; si no carga, usá el enlace externo.</p>
 </section>
 <div class="map-results"><div><b id="results-title">Estaciones del catálogo</b><small id="results-count"></small></div><div id="station-results" class="station-results"><p class="empty">Cargando catálogos…</p></div></div><p class="map-method-note">La cercanía geográfica no garantiza observaciones actuales ni calidad de los registros. La lluvia anual es exploratoria: exige al menos 300 registros válidos y no se normaliza ni interpola.</p></div>
 <div class="selection" id="station-selection"><div class="eyebrow">Elemento seleccionado</div><h3 id="selected-name">Gobernador Virasoro · referencia ERA5</h3><p id="selected-meta">Celda de reanálisis -28,00 / -56,00 · 1991–2025</p><strong id="selected-value">1.786,94 mm/año</strong><p id="selected-note">ERA5 combina observaciones y modelos; no equivale a una medición puntual de pluviómetro.</p><div id="agro-live-status" class="pill" aria-live="polite">AgroClima · sin consulta</div><div id="agro-live-data" aria-live="polite"></div><button class="btn" type="button" onclick="window.refreshAgroClimaSelected&&window.refreshAgroClimaSelected()">Actualizar observaciones</button></div>
@@ -350,7 +351,7 @@ main,.view,.panel,.hero,.hero-copy,.hero-fact,.sectionhead,.participation-hero{m
 <footer class="footer"><div class="shell">LABORATORIO DE DATOS METEOROLÓGICOS · ARGENTINA · Primera investigación territorial: Gobernador Virasoro, Corrientes</div></footer>
 <dialog class="viewer" id="viewer"><div class="viewerbar"><strong id="viewer-title">Vista ampliada</strong><button class="theme" id="viewer-close">Cerrar ✕</button></div><div class="viewercontent" id="viewer-content"></div></dialog>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-<script src="assets/js/laboratorio-nacional.js?v=20261106-radar-locality1" defer></script>
+<script src="assets/js/laboratorio-nacional.js?v=20261106-radar-controls2" defer></script>
 <script src="assets/js/lnm-center.js?v=20261106-radar-locality1" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.6.0/dist/echarts.min.js"></script>
 
@@ -378,20 +379,31 @@ function trendStats(){const n=era.length,xm=era.reduce((a,r)=>a+r.year,0)/n,ym=e
 let mapPlaceMarker=null;
 function searchMapPlace(){const query=$('map-place-search').value.trim();if(query.length<2){$('location-status').textContent='Escribí al menos dos caracteres para buscar una localidad.';return}const button=$('map-place-run');button.disabled=true;button.textContent='Buscando…';fetch('https://geocoding-api.open-meteo.com/v1/search?'+new URLSearchParams({name:query,count:'10',language:'es',format:'json',countryCode:'AR'})).then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json()}).then(data=>{const items=data.results||[],select=$('map-place-results');if(!items.length){select.hidden=true;$('location-status').textContent='No se encontraron localidades argentinas con ese nombre.';return}select.innerHTML=items.map((x,i)=>'<option value="'+i+'">'+esc([x.name,x.admin1,x.admin2].filter(Boolean).join(' · '))+'</option>').join('');select._items=items;select.hidden=false;const choose=()=>{const x=items[Number(select.value)];if(!x)return;const point=[Number(x.latitude),Number(x.longitude)];if(mapPlaceMarker)map.removeLayer(mapPlaceMarker);mapPlaceMarker=L.marker(point).addTo(map).bindPopup('<b>'+esc(x.name)+'</b><br>'+esc([x.admin1,x.admin2,'Argentina'].filter(Boolean).join(' · '))+'<br>'+point[0].toFixed(4)+', '+point[1].toFixed(4));map.flyTo(point,8,{duration:1});mapPlaceMarker.openPopup();$('location-status').textContent='Localidad seleccionada: '+[x.name,x.admin1,x.country].filter(Boolean).join(', ')+' · '+point[0].toFixed(4)+', '+point[1].toFixed(4)+'. Las capas muestran solo los datos disponibles para esa zona.'};select.onchange=choose;select.value='0';choose()}).catch(e=>{$('location-status').textContent='No se pudo buscar la localidad: '+e.message}).finally(()=>{button.disabled=false;button.textContent='Buscar lugar'})}function updateAgroCarousel(){const track=$('agro-charts-track'),slides=track?.querySelectorAll('.agro-chart-slide');if(!track||!slides?.length)return;const step=slides[0].getBoundingClientRect().width+16,index=Math.max(0,Math.min(slides.length-1,Math.round(track.scrollLeft/Math.max(1,step))));$('agro-chart-dots')?.querySelectorAll('button').forEach((b,i)=>b.classList.toggle('active',i===index))}function moveAgroCarousel(direction){const track=$('agro-charts-track'),slide=track?.querySelector('.agro-chart-slide');if(track&&slide)track.scrollBy({left:direction*(slide.getBoundingClientRect().width+16),behavior:'smooth'})}
 function initRadarSourceViewer(){
- const select=$('radar-source-select'),frame=$('radar-source-frame'),status=$('radar-source-status'),link=$('radar-source-open');
+ const select=$('radar-source-select'),frame=$('radar-source-frame'),status=$('radar-source-status'),link=$('radar-source-open'),full=$('radar-source-fullscreen'),wrap=$('radar-source-frame-wrap');
  if(!select||!frame||!status||!link)return;
  const sources={
-  webmet:{url:'https://webmet.ohmc.ar/',title:'Visor de radar meteorológico WebMet25',label:'WebMet25 · OHMC'},
-  smn:{url:'https://ws2.smn.gob.ar/radar',title:'Visor oficial de radares del SMN',label:'SMN · imágenes de radares'}
+  webmet:{url:'https://webmet.ohmc.ar/',title:'Visor de radar meteorológico WebMet25',label:'WebMet25',open:'Abrir WebMet25 ↗'},
+  smn:{url:'https://ws2.smn.gob.ar/radar',title:'Imágenes oficiales de radares del SMN',label:'SMN oficial',open:'Abrir SMN ↗'}
  };
  const load=()=>{
   const source=sources[select.value]||sources.webmet;
-  status.textContent='Solicitando '+source.label+'…';
-  frame.title=source.title;link.href=source.url;frame.src=source.url;
+  status.textContent='Cargando '+source.label+'…';
+  frame.title=source.title;
+  link.href=source.url;
+  link.textContent=source.open;
+  frame.src=source.url;
  };
- frame.addEventListener('load',()=>{status.textContent='El navegador recibió la carga del visor seleccionado. Comprobá dentro del mapa la hora y disponibilidad de los cuadros.';});
- frame.addEventListener('error',()=>{status.textContent='No se pudo cargar el visor incrustado. Abrilo desde el enlace externo.';});
+ frame.addEventListener('load',()=>{
+  status.textContent=select.value==='smn'
+   ?'SMN seleccionado. Si el recuadro no muestra el radar, abrí el visor oficial.'
+   :'WebMet25 cargado. Elegí el radar y el período dentro del visor.';
+ });
+ frame.addEventListener('error',()=>{status.textContent='No se pudo cargar dentro del Laboratorio. Usá “Abrir” para acceder al visor.';});
  select.addEventListener('change',load);
+ if(full&&wrap)full.addEventListener('click',async()=>{
+  try{if(!document.fullscreenElement)await wrap.requestFullscreen();else await document.exitFullscreen();}
+  catch(e){status.textContent='El navegador no permitió ampliar el mapa. Probá abrir el visor en otra pestaña.';}
+ });
  load();
 }
 function initMap(){if(!window.L){$('map-status').textContent='No se pudo cargar el motor cartográfico.';return}map=L.map('map',{zoomControl:true}).setView([-36.5,-64.5],4.7);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'© OpenStreetMap'}).addTo(map);stationLayer=L.layerGroup().addTo(map);rainLayer=L.layerGroup();eraLayer=L.layerGroup().addTo(map);agroLayer=L.layerGroup().addTo(map);weatherPointsLayer=L.layerGroup();provinceLayer=L.geoJSON(null,{style:provinceWeatherStyle,onEachFeature:onProvinceFeature});const ref=L.circleMarker([-28,-56],{radius:9,color:'#09221d',weight:2,fillColor:'#36b995',fillOpacity:1});ref.bindPopup('<b>ERA5 · referencia próxima a Virasoro</b><br>Celda -28,00 / -56,00<br>Reanálisis, no estación meteorológica.');ref.on('click',()=>selectERA());ref.addTo(eraLayer);$('map-year').innerHTML=era.map(r=>'<option value="'+r.year+'">'+r.year+'</option>').join('');$('map-year').value=String(selectedYear);fillProvinceFilter();$('station-search').addEventListener('input',renderStations);$('province-filter').addEventListener('change',renderStations);$('source-filter').addEventListener('change',renderStations);$('agro-station-select').addEventListener('change',e=>{const station=agroStations.find(x=>String(x.station_id)===e.target.value);if(station)loadAgroClimaLive(station)});$('show-stations').addEventListener('change',e=>e.target.checked?map.addLayer(stationLayer):map.removeLayer(stationLayer));$('show-rain').addEventListener('change',e=>{e.target.checked?map.addLayer(rainLayer):map.removeLayer(rainLayer);updateMapRain()});$('show-era').addEventListener('change',e=>e.target.checked?map.addLayer(eraLayer):map.removeLayer(eraLayer));$('show-agroclima').addEventListener('change',e=>e.target.checked?map.addLayer(agroLayer):map.removeLayer(agroLayer));initWeatherControls();initRadarSourceViewer();$('map-year').addEventListener('change',e=>{selectedYear=Number(e.target.value);updateMapRain()});$('locate-me').addEventListener('click',locateUser);$('map-place-run').addEventListener('click',searchMapPlace);$('map-place-search').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();searchMapPlace()}});$('reset-map').addEventListener('click',()=>{map.setView([-36.5,-64.5],4.7);$('station-search').value='';$('map-place-search').value='';$('map-place-results').hidden=true;if(mapPlaceMarker){map.removeLayer(mapPlaceMarker);mapPlaceMarker=null}$('province-filter').value='';$('source-filter').value='all';$('location-status').textContent='Vista nacional de Argentina.';renderStations()});$('station-results').addEventListener('click',e=>{const btn=e.target.closest('[data-station-key]');if(!btn)return;const item=stationItems().find(x=>x.key===btn.dataset.stationKey)||nearestStations.find(x=>x.key===btn.dataset.stationKey);if(item)focusStation(item)});$('map-status').textContent='Cargando catálogos de estaciones…';updateMapRain();loadAgroClima();renderStations();loadProvinceBoundaries().catch(err=>{$('weather-map-status').textContent='No se pudieron cargar los límites provinciales: '+err.message});setTimeout(()=>map.invalidateSize(),250)}
