@@ -183,3 +183,11 @@ table{max-width:100%}
 .agro-chart-dots button{width:8px;height:8px;padding:0;border:0;border-radius:50%;background:var(--line);cursor:pointer}
 .agro-chart-dots button.active{background:var(--accent);transform:scale(1.2)}
 @media(max-width:640px){.agro-chart-carousel-head{align-items:flex-start}.agro-chart-carousel-head p{max-width:230px}#agro-charts-track .agro-chart-slide{flex-basis:100%}#agro-charts-track .agro-series-chart{height:280px}}
+
+/* Navegación principal: cuatro módulos visibles, alineados y operables en todas las pantallas. */
+.nav{display:flex;flex-wrap:nowrap;align-items:center;justify-content:flex-start;gap:8px;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+.nav::-webkit-scrollbar{display:none}
+.navbtn{flex:0 0 auto;min-height:40px;padding:10px 15px;white-space:nowrap;cursor:pointer;}
+.navbtn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.navbtn.active{font-weight:750;background:var(--surface2);border-color:var(--accent);color:var(--accent)}
+@media(max-width:760px){.nav{display:flex;flex-wrap:nowrap;gap:6px;margin:0 -12px;padding:8px 12px}.navbtn{width:auto;flex:0 0 auto;padding:9px 12px;font-size:11px}}
