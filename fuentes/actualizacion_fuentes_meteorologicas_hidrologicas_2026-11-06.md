@@ -97,7 +97,7 @@ Gobernador Virasoro continúa como primera referencia territorial de investigaci
 ## Fuentes atmosféricas y vigilancia de tormentas
 
 - **GOES-19 ABI:** imágenes visibles, infrarrojas y vapor de agua. La disponibilidad por canal, sector, cadencia y latencia debe validarse en el flujo de datos antes de habilitar animación pública.
-- **GOES GLM:** eventos, grupos y flashes eléctricos. La cobertura alcanza América, pero la integración debe conservar producto, hora y resolución, y no confundir detección satelital con una red terrestre de rayos.
+- **GOES GLM FED:** visor NOAA activo para el sector sur de Sudamérica, con 24 imágenes en un bucle de dos horas y actualización aproximada cada cinco minutos. La densidad de flashes se representa sobre GeoColor; no es una red terrestre de localización de rayos ni una alerta oficial.
 - **SINARAME:** radar meteorológico argentino. Verificar mosaicos, reflectividad, velocidad radial, productos derivados, política de acceso y continuidad. Una imagen radar no debe reconstruirse a partir de precipitación modelada.
 - **GPM IMERG y CHIRPS:** productos de precipitación satelital/estimada para análisis espacial e histórico; no son radar ni pluviómetros.
 - **Open-Meteo / modelos numéricos:** variables de diagnóstico y pronóstico; identificar modelo, ciclo, hora de inicialización y horizonte.
