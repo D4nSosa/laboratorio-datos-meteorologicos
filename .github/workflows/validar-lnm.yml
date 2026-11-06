@@ -71,7 +71,7 @@ jobs:
           page = Path("docs/explorador-interactivo.html").read_text(encoding="utf-8")
           assert 'data-view="lnm-center"' in page
           assert 'id="lnm-center"' in page
-          assert 'id="lnm-module-grid"' in page
+          assert 'class="lnm-health-grid"' in page
           assert 'id="lnm-source-grid"' in page
           assert 'assets/js/lnm-center.js' in page
           assert 'assets/css/lnm-center.css' in page
