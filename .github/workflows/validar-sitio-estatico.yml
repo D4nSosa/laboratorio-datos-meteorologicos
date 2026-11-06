@@ -55,6 +55,20 @@ jobs:
       - name: Validar HTML, gráficos y datasets
         run: |
           node --check docs/assets/js/laboratorio-nacional.js
+          node --check docs/assets/js/lnm-center.js
+          python - <<'PY'
+          import re
+          from pathlib import Path
+          page = Path("docs/explorador-interactivo.html").read_text(encoding="utf-8")
+          scripts = re.findall(r'<script(?:\\s[^>]*)?>([\\s\\S]*?)</script>', page, flags=re.I)
+          inline = max(scripts, key=len)
+          Path("/tmp/explorador-inline.js").write_text(inline, encoding="utf-8")
+          assert 'id="show-radar"' in page and 'id="radar-frame"' in page
+          assert 'id="weather-mode"' in page and 'id="weather-load"' in page
+          assert 'id="goes-loop-frame"' in page and 'id="goes-band"' in page
+          print("OK controles de radar, satélite y mapa provincial")
+          PY
+          node --check /tmp/explorador-inline.js
           python - <<'PY'
           import csv, json
           from html.parser import HTMLParser
