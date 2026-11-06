@@ -60,7 +60,7 @@ jobs:
           import re
           from pathlib import Path
           page = Path("docs/explorador-interactivo.html").read_text(encoding="utf-8")
-          scripts = re.findall(r'<script(?:\\s[^>]*)?>([\\s\\S]*?)</script>', page, flags=re.I)
+          scripts = re.findall(r'<script(?:\s[^>]*)?>([\s\S]*?)</script>', page, flags=re.I)
           inline = max(scripts, key=len)
           Path("/tmp/explorador-inline.js").write_text(inline, encoding="utf-8")
           assert 'id="show-radar"' in page and 'id="radar-frame"' in page
