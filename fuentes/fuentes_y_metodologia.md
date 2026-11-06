@@ -38,7 +38,7 @@ Fuentes de interés:
 - [SMN — precipitación observada en campos de la Cuenca del Plata](https://www.smn.gob.ar/sites/default/files/Referencia_Pecipitacion_observada.pdf): campos espaciales interpolados a partir de observaciones, no mediciones en cada celda.
 - [NASA GPM IMERG](https://gpm.nasa.gov/data/directory): estimaciones satelitales globales de precipitación, 0,1° y múltiples latencias/productos.
 - [NOAA GOES-R ABI/GLM](https://www.ncei.noaa.gov/products/goes-terrestrial-weather-abi-glm): imágenes geoestacionarias y actividad eléctrica sobre América; GOES-19 es GOES East operativo y cubre Sudamérica.
-- [NOAA GOES-19 sector sur](https://www.star.nesdis.noaa.gov/goes-draft/sector_band.php?band=13&length=24&sat=G19&sector=ssa): secuencias ABI de 24 imágenes recientes para bandas visibles e infrarrojas.
+- [NOAA GOES-19 sector sur](https://www.star.nesdis.noaa.gov/GOES/sector_band.php?band=13&length=24&sat=G19&sector=ssa): secuencias ABI de 24 imágenes recientes para bandas visibles e infrarrojas.
 - [NOAA GOES-19 GLM FED sector sur](https://www.star.nesdis.noaa.gov/GOES/sector_band.php?band=EXTENT3&length=24&sat=G19&sector=ssa): densidad de extensión de flashes eléctricos sobre GeoColor, en ventanas de aproximadamente cinco minutos.
 - [RainViewer API](https://www.rainviewer.com/api.html): mosaico compuesto de reflectividad en teselas, cuadros recientes y cobertura parcial; uso personal/educativo/comunitario con atribución.
 - [SMN — imágenes de radar](https://ws2.smn.gob.ar/radar): visor oficial de mosaicos y radares individuales.
