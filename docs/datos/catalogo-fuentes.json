@@ -134,21 +134,23 @@
     },
     {
       "id": "goes_glm",
-      "name": "GOES GLM",
+      "name": "GOES-19 GLM · Flash Extent Density",
       "organization": "NOAA / NESDIS",
-      "type": "geostationary_lightning",
-      "status": "not_integrated",
+      "type": "geostationary_lightning_viewer",
+      "status": "operational",
       "products": [
-        "GLM events, groups and flashes"
+        "NOAA sector viewer GLM Flash Extent Density (FED) over GeoColor",
+        "Southern South America sector, 24 recent images in a 2-hour loop, approximately 5-minute cadence"
       ],
       "variables": [
-        "lightning event/group/flash locations and times"
+        "lightning_flash_extent_density",
+        "flashes_per_5_minute_grid_cell"
       ],
-      "temporal_resolution": "product dependent",
-      "spatial_resolution": "instrument footprint and product dependent",
-      "coverage": "América y regiones oceánicas adyacentes; producto GLM de resolución espacial aproximada de 10 km.",
-      "url": "https://registry.opendata.aws/noaa-goes/",
-      "limitations": "GLM detecta actividad eléctrica total (intra-nube, nube-nube y nube-tierra). No es una red terrestre de localización de rayos; no hay ingesta operativa actual."
+      "temporal_resolution": "Approximately 5-minute frames; 24-image / 2-hour loop when available",
+      "spatial_resolution": "GLM grid cells; effective footprint varies across the field of view, approximately 8–10 km in this sector; not point locations for each ground strike",
+      "coverage": "GOES-19 GLM coverage between 54°N and 54°S; NOAA sector Southern South America includes Argentina and adjacent regions.",
+      "url": "https://www.star.nesdis.noaa.gov/GOES/sector_band.php?band=EXTENT3&length=24&sat=G19&sector=ssa",
+      "limitations": "FED represents the density and extent of lightning flashes in grid cells over five-minute windows, not a precise ground network location for each discharge. NOAA identifies this viewer as informational/experimental; outages may occur. It is not an official alert service."
     },
     {
       "id": "sinarame",
