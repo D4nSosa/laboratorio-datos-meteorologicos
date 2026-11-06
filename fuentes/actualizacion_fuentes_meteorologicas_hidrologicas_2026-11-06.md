@@ -24,6 +24,11 @@ Tres recursos resultan especialmente relevantes:
 | SMN | Observaciones oficiales y campos espaciales de precipitación | Red de estaciones y productos regionales; disponibilidad por producto | Fuentes identificadas; no se afirma integración de nuevos productos |
 | INTA-SIGA | Observaciones y metadatos de estaciones | Según catálogo y estación | Snapshot archivado; requiere validación de variables y series |
 | Ministerio de Producción de Corrientes | Registros diarios y mensuales de precipitación | Provincia de Corrientes; cobertura temporal y geográfica desigual | Snapshot archivado del 29/10/2026 |
+| RainViewer | Mosaico compuesto de reflectividad radar y cuadros recientes | 14 radares integrados para Argentina; cobertura irregular | Capa de teselas operativa en el mapa, con atribución y límites de uso |
+| NOAA GOES-19 ABI | GeoColor y secuencia sectorial de bandas visibles/infrarrojas | Disco completo y sector sur de Sudamérica | Visor GeoColor y secuencia NOAA integrados |
+| SMN / SINARAME | Mosaicos e imágenes de radares oficiales | Red nacional; alcance variable por radar | Enlaces a visores oficiales; ingesta directa pendiente |
+| IGN / Georef | Límites administrativos provinciales GeoJSON | 23 provincias y CABA | Geometrías integradas para agregación exploratoria por provincia |
+| Open-Meteo | Pronóstico de 7 días e histórico ERA5 en puntos de muestreo | Cobertura nacional por combinación de puntos de grilla | Campos nacionales agregados por provincia; no es raster continuo ni promedio areal oficial |
 
 ## Detalles técnicos y advertencias
 
@@ -97,6 +102,26 @@ Gobernador Virasoro continúa como primera referencia territorial de investigaci
 - **GPM IMERG y CHIRPS:** productos de precipitación satelital/estimada para análisis espacial e histórico; no son radar ni pluviómetros.
 - **Open-Meteo / modelos numéricos:** variables de diagnóstico y pronóstico; identificar modelo, ciclo, hora de inicialización y horizonte.
 - **Radiosondeos:** perfiles verticales de temperatura, humedad y viento para estudiar estructura atmosférica e inestabilidad, según disponibilidad de estaciones y horarios.
+
+
+## Implementación de vigilancia atmosférica
+
+La sección existente de Mapa de estaciones ahora incluye una capa RainViewer de reflectividad compuesta. El manifiesto público entrega cuadros históricos recientes, con intervalos aproximados de diez minutos y hasta dos horas; la interfaz permite avanzar, retroceder, pausar y recorrer el tiempo. La cobertura en Argentina es parcial, por lo que una zona sin ecos o sin teselas no debe interpretarse como ausencia de lluvia. El proveedor requiere atribución y limita el uso gratuito a fines personales, educativos y comunitarios de pequeña escala.
+
+El mapa también enlaza los visores oficiales del SMN y SINARAME. No se declara ingestión propia de los productos oficiales: el usuario puede abrir los visores institucionales directamente.
+
+Para vigilancia satelital se incorporó una secuencia NOAA GOES-19 ABI del sector sur de Sudamérica. La selección incluye banda 13 infrarroja (10,3 µm), banda 8 de vapor de agua (6,2 µm), banda 2 visible (0,64 µm) y banda 11 (8,4 µm). La página NOAA entrega hasta 24 imágenes recientes; la disponibilidad depende del producto y del estado del sitio. La secuencia es informativa, no operativa.
+
+## Mapa nacional por provincia
+
+Se integró la geometría GeoJSON provincial desde Georef/IGN. El mapa genera puntos de muestreo aproximados de 1° dentro de cada provincia y consulta Open-Meteo por lotes. Puede visualizar:
+
+- Pronóstico de siete días para precipitación acumulada, nubosidad media, viento máximo diario y temperatura máxima.
+- Histórico ERA5 de hasta 90 días para las mismas variables; la precipitación se acumula por punto y las otras variables se promedian temporalmente.
+- Agregación provincial como promedio simple de puntos disponibles, con popup que informa media, rango y cantidad de puntos.
+- Puntos de muestreo visibles de forma opcional.
+
+La resolución de muestreo es aproximada y no corresponde a la resolución nativa de ERA5 ni de los modelos de pronóstico. No se pondera por área; los límites provinciales se usan para agrupar puntos, no para inventar valores de zonas sin cobertura. La consulta por localidad y el pronóstico puntual de hasta 16 días permanecen en Laboratorio abierto.
 
 ## Verificación antes de publicar capas
 
