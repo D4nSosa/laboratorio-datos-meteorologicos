@@ -337,7 +337,7 @@
     {
       "id": "rainviewer",
       "name": "RainViewer · mosaico de radar compuesto",
-      "organization": "RainViewer / MeteoLab Inc.; mosaico derivado de radares públicos de agencias meteorológicas",
+      "organization": "RainViewer; mosaico derivado de fuentes públicas de radares meteorológicos",
       "type": "radar_composite",
       "status": "operational",
       "products": [
@@ -351,7 +351,7 @@
       ],
       "temporal_resolution": "Cuadros recientes cada ~10 minutos; disponibilidad del proveedor variable",
       "spatial_resolution": "Teselas web; zoom nativo máximo 7 en API pública gratuita",
-      "coverage": "Cobertura mundial parcial; RainViewer publica 14 radares integrados para Argentina, pero la cobertura efectiva es irregular y puede incluir fuentes de países vecinos.",
+      "coverage": "Cobertura mundial parcial. Para Argentina, la atribución de RainViewer identifica el feed de radar del SMN; el alcance espacial, la continuidad y la disponibilidad efectiva varían y no equivalen a toda la red nacional.",
       "url": "https://www.rainviewer.com/api.html",
       "limitations": "The public API uses the Universal Blue (scheme 2) palette and native zoom up to 7. Use is intended for personal, educational and small-scale community purposes; visible attribution is required and no SLA is provided. It does not replace the complete official network, has gaps and latency, and missing echoes/tiles do not demonstrate no precipitation."
     },
