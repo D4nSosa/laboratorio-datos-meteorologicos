@@ -1,12 +1,13 @@
 {
   "schema_version": "1.0.0",
   "catalog_updated": "2026-11-06",
-  "coverage": "Argentina; regional expansion only where source coverage supports it",
+  "coverage": "Argentina a escala de exploración mediante combinación de estaciones, grillas satelitales, reanálisis y modelos globales; la disponibilidad depende de cada fuente, variable, período y resolución.",
   "status_definitions": {
     "archived": "Dataset stored in this repository; scientific validation may remain incomplete.",
     "documented": "Source documented but no operational connector is claimed.",
     "not_integrated": "Candidate source; access and implementation remain pending.",
-    "investigation_required": "Access, coverage, licensing or product availability must be verified."
+    "investigation_required": "Access, coverage, licensing or product availability must be verified.",
+    "operational": "Connector or query workflow is implemented and available in the public interface; scientific limits still apply."
   },
   "sources": [
     {
@@ -126,9 +127,9 @@
       ],
       "temporal_resolution": "product and scan-mode dependent",
       "spatial_resolution": "channel and product dependent",
-      "coverage": "Verify operational satellite, sector and product coverage for Argentina",
+      "coverage": "Sudamérica y océanos adyacentes bajo la vista de GOES-19 (GOES East); cobertura y resolución varían por canal y producto.",
       "url": "https://registry.opendata.aws/noaa-goes/",
-      "limitations": "No imagery feed is currently claimed. Verify satellite generation, bucket paths, scan cadence, latency and metadata."
+      "limitations": "GOES-19 opera como GOES East desde el 7 de abril de 2025. Confirmar sector, canal, cadencia, latencia, calidad y ruta de descarga antes de habilitar animación pública."
     },
     {
       "id": "goes_glm",
@@ -144,9 +145,9 @@
       ],
       "temporal_resolution": "product dependent",
       "spatial_resolution": "instrument footprint and product dependent",
-      "coverage": "Verify satellite view and usable coverage for Argentina",
+      "coverage": "América y regiones oceánicas adyacentes; producto GLM de resolución espacial aproximada de 10 km.",
       "url": "https://registry.opendata.aws/noaa-goes/",
-      "limitations": "No lightning observations are currently ingested. Do not infer flash density from cloud imagery."
+      "limitations": "GLM detecta actividad eléctrica total (intra-nube, nube-nube y nube-tierra). No es una red terrestre de localización de rayos; no hay ingesta operativa actual."
     },
     {
       "id": "sinarame",
@@ -166,9 +167,9 @@
       ],
       "temporal_resolution": "radar and product dependent",
       "spatial_resolution": "radar and product dependent",
-      "coverage": "National inventory and actual public data access require verification",
-      "url": "https://www.argentina.gob.ar/",
-      "limitations": "No operational radar feed is claimed. Distinguish original volumes, processed products and published image tiles."
+      "coverage": "Red argentina de radares meteorológicos; incluye el radar RMA19 de Ituzaingó, Corrientes. La cobertura útil depende de alcance, elevación, relieve y disponibilidad de cada producto.",
+      "url": "https://www.argentina.gob.ar/obras-publicas/recursos-hidricos/sistema-nacional-de-radares-meteorologicos-sinarame",
+      "limitations": "La existencia de la red no implica que todos los productos estén disponibles como API o tiles abiertos. Confirmar acceso, mosaicos, reflectividad, velocidad radial, formatos, latencia y condiciones de uso antes de integrar."
     },
     {
       "id": "gpm_imerg",
@@ -216,24 +217,33 @@
     },
     {
       "id": "open_nwp",
-      "name": "Open numerical weather prediction models",
-      "organization": "NOAA / ECMWF / DWD",
+      "name": "Open-Meteo — reanálisis y pronósticos multimodelo",
+      "organization": "Open-Meteo; modelos ECMWF, NOAA, DWD, JMA y otros proveedores según producto",
       "type": "numerical_model",
-      "status": "not_integrated",
+      "status": "operational",
       "products": [
-        "GFS",
-        "GEFS",
-        "ECMWF Open Data",
-        "ICON"
+        "Consulta puntual ERA5 desde 1940 y ERA5-Land desde 1950 según variable/modelo",
+        "Pronóstico multimodelo global hasta 16 días",
+        "Variables horarias: temperatura, humedad, punto de rocío, precipitación, nubosidad, presión, viento, ráfagas y CAPE",
+        "Archivo Historical Forecast para analizar pronósticos pasados desde aproximadamente 2021/2022; disponibilidad por modelo"
       ],
       "variables": [
-        "model-dependent atmospheric fields"
+        "temperature",
+        "relative_humidity",
+        "dew_point",
+        "precipitation",
+        "cloud_cover",
+        "pressure",
+        "wind_speed",
+        "wind_direction",
+        "wind_gusts",
+        "CAPE"
       ],
-      "temporal_resolution": "model cycle and forecast step dependent",
-      "spatial_resolution": "model and grid dependent",
-      "coverage": "Verify geographic coverage and open-data terms for each model",
-      "url": "https://www.ncei.noaa.gov/products/weather-climate-models/global-forecast",
-      "limitations": "Forecast model output is not an observation. HRRR is not treated as an Argentina-wide source."
+      "temporal_resolution": "Histórico ERA5 horario/diario; pronóstico horario/diario; horizonte de pronóstico hasta 16 días según producto",
+      "spatial_resolution": "Global; ERA5 0,25° (~25 km), ERA5-Land 0,1° (~11 km), IFS HRES ~9 km y otros modelos según proveedor",
+      "coverage": "Global, incluidas localidades argentinas; consulta puntual por coordenadas, no visualización ráster nacional integrada",
+      "url": "https://open-meteo.com/en/docs",
+      "limitations": "La consulta de punto y el pronóstico de hasta 16 días están integrados en Laboratorio abierto. La API no equivale a una red de estaciones. ERA5 tiene retraso de publicación; las predicciones cambian con cada ciclo y no sustituyen al SMN."
     },
     {
       "id": "hydrology_networks",
