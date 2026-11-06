@@ -41,7 +41,7 @@ La interfaz pública reúne las siguientes capacidades existentes:
 - El repositorio conserva un consolidado comunitario atribuido a SIGA-INTA con 1.177.258 filas y un catálogo de 182 estaciones. La integridad del archivo no demuestra calibración, homogeneidad ni validación instrumental. Hay claves estación-fecha repetidas que requieren tratamiento antes de producir estadísticas definitivas.
 - El snapshot provincial de Corrientes contiene registros diarios y mensuales con cobertura desigual. Los agregados departamentales no son equivalentes a mediciones puntuales.
 - El conector de AgroClima consulta observaciones publicadas por estación. Su ventana reciente no reemplaza un archivo histórico diario de precipitaciones.
-- GOES-19 ABI GeoColor y la secuencia sectorial ABI de NOAA ya se muestran en la interfaz; el visor permite seleccionar bandas visibles e infrarrojas. GLM, GPM IMERG, CHIRPS, radiosondeos, INA-SIyAH y SNIH siguen documentados o pendientes de integración.
+- GOES-19 ABI GeoColor y la secuencia sectorial ABI de NOAA ya se muestran en la interfaz; el visor permite seleccionar bandas visibles e infrarrojas. GLM FED ya se muestra en el visor NOAA para el sector sur de Sudamérica; GPM IMERG, CHIRPS, radiosondeos, INA-SIyAH y SNIH siguen documentados o pendientes de integración.
 - RainViewer aporta una capa radar compuesta con cobertura parcial; no equivale a la red oficial completa. El visor del SMN y el visor SINARAME se ofrecen como referencias oficiales externas, todavía sin ingestión propia de sus productos.
 - La capa provincial se calcula con puntos de muestreo aproximados de 1° dentro de polígonos IGN/Georef. No es una grilla nativa de modelo, una interpolación ni un promedio areal oficial. Los puntos válidos y las provincias sin muestra se explicitan.
 
@@ -65,7 +65,7 @@ No convertimos datos faltantes en cero, no inventamos mediciones y no presentamo
 | Comparación provincial y regional | ¿Cómo se distribuyen las variables atmosféricas entre zonas comparables? | Parte del alcance nacional; se implementará por fuente, variable y disponibilidad espacial, sin una secuencia territorial obligatoria. |
 | [Exploración meteorológica nacional](investigaciones/03-contexto-nacional/README.md) | ¿Cómo varían los patrones atmosféricos entre regiones, provincias y localidades? | Alcance geográfico nacional; integración de capas y agregados en desarrollo según fuente y variable. |
 | [Lluvia y variabilidad climática](investigaciones/04-lluvia-y-variabilidad-climatica/README.md) | ¿Qué asociaciones aparecen con ENSO y otros indicadores? | Pendiente de series compatibles y evaluación estadística. |
-| Atmósfera y sistemas convectivos | ¿Cómo evolucionan nubosidad, viento, precipitación y actividad eléctrica en distintos episodios? | GOES-19 ABI sectorial y radar compuesto RainViewer disponibles; GLM y productos directos SINARAME pendientes de integración. |
+| Atmósfera y sistemas convectivos | ¿Cómo evolucionan nubosidad, viento, precipitación y actividad eléctrica en distintos episodios? | GOES-19 ABI, GLM FED y radar compuesto RainViewer disponibles; la ingesta directa de productos SINARAME sigue pendiente de integración. |
 
 ## Documentación principal
 
