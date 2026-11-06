@@ -15,7 +15,7 @@ El frontend principal se publica como sitio estático desde `docs/` mediante Git
 3. **Corrientes · registros diarios:** consulta del snapshot provincial disponible, con su cobertura y limitaciones.
 4. **Laboratorio abierto:** consultas históricas por coordenadas/localidad y pronósticos multimodelo; incluye variables atmosféricas y series de estación cuando hay datos verificables.
 5. **Centro de operaciones:** estado de las capacidades y catálogo de fuentes.
-6. **Mapa de estaciones:** exploración geográfica de catálogos, coordenadas, filtros y referencias.
+6. **Mapa atmosférico:** catálogos de estaciones, radar compuesto animado, visor de satélite NOAA, límites provinciales y capas de pronóstico/histórico agregadas desde puntos de muestreo.
 7. **Conjuntos de datos:** descripción y acceso a archivos utilizados.
 8. **Preguntas climáticas:** agenda de investigación y estado de cada pregunta.
 9. **Método y límites:** procedencia, escalas, criterios de calidad e interpretación.
@@ -72,6 +72,19 @@ La incorporación de nuevas fuentes debe mejorar preguntas ya presentes en la in
 
 NASA GPM IMERG aporta estimaciones globales de precipitación de 0,1° (~10 km), con corridas Early, Late y Final de distinta latencia. GOES-19 (GOES East) ofrece observación geoestacionaria de Sudamérica mediante ABI y actividad eléctrica mediante GLM. SINARAME aporta infraestructura radar nacional, incluido el radar RMA19 de Ituzaingó; la disponibilidad de productos de radar para consumo directo debe verificarse. Open-Meteo ya está integrado en el Laboratorio abierto para consultas puntuales de reanálisis ERA5 y pronósticos; su Historical Forecast API permite evaluar pronósticos archivados. INA-SIyAH y SNIH aportan contexto hidrológico con coberturas de redes y cuencas, no una malla homogénea nacional. El catálogo distingue conectores activos de fuentes documentadas o pendientes.
 
+
+### Mapa atmosférico: capas y escalas
+
+La sección de mapa conserva las estaciones y referencias existentes y agrega capas de vigilancia y análisis espacial:
+
+- **Radar RainViewer:** consulta el manifiesto público, dibuja teselas de reflectividad compuesta y permite recorrer cuadros recientes (hasta dos horas, aproximadamente cada diez minutos). La API pública tiene zoom nativo máximo 7, cobertura parcial y uso gratuito personal/educativo/comunitario de pequeña escala; se atribuye al proveedor. No se interpreta una zona sin ecos como zona sin lluvia.
+- **Radar oficial:** enlaces al visor del SMN y al visor SINARAME. El Laboratorio no descarga ni reprocesa aún los datos originales de esos visores; por tanto no declara mosaicos oficiales propios.
+- **GOES-19 ABI:** secuencia NOAA para el sector sur de Sudamérica con bandas 13 (infrarrojo ventana), 8 (vapor de agua), 2 (visible) y 11 (fase nubosa). La banda visible depende de la iluminación solar. Las bandas infrarrojas muestran radiancia/temperatura de brillo de la escena, no temperatura del aire en superficie.
+- **Campos por provincia:** geometrías de referencia IGN/Georef, muestreo aproximado de 1° dentro de cada provincia y consultas por lotes a Open-Meteo. Se calcula el promedio de los puntos disponibles para cada provincia. La precipitación histórica se suma por punto en el período; otras variables se promedian. Se muestran puntos válidos, rangos y huecos. El resultado no es un promedio areal oficial ni una interpolación.
+- **Histórico y pronóstico:** el mapa nacional permite períodos ERA5 de hasta 90 días y pronósticos de siete días para precipitación, nubosidad, viento máximo y temperatura máxima. Laboratorio abierto mantiene la consulta puntual histórica y pronósticos de hasta 16 días.
+
+Los valores del mapa deben interpretarse como productos de reanálisis o modelo, nunca como mediciones de estaciones. Los radares y satélites se muestran como productos separados con sus propias horas, escalas y límites.
+
 ## Calidad, procedencia y revisión
 
 La integridad de un archivo, la validez estructural, el control de calidad automático y la validación meteorológica son niveles diferentes. Una ejecución exitosa de CI demuestra que el flujo computacional terminó según sus controles; no certifica por sí sola la calidad instrumental ni la interpretación científica.
@@ -101,7 +114,7 @@ El entorno neuronal es experimental. No hay un modelo entrenado ni una predicci�
 - El consolidado INTA-SIGA archivado procede de un proyecto comunitario y requiere revisión de duplicados, unidades, frecuencia y homogeneidad.
 - Los datos diarios provinciales de Corrientes tienen cobertura desigual y el snapshot archivado no contiene filas diarias explícitamente etiquetadas como Virasoro.
 - El conector AgroClima consulta fichas/observaciones recientes; no reemplaza una serie histórica diaria de lluvia.
-- GOES ABI/GLM, GPM IMERG, SINARAME, CHIRPS, radiosondeos, INA-SIyAH y SNIH están documentados o en verificación; no se deben mostrar como capas activas hasta probar ingestión, latencia, cobertura y calidad. Open-Meteo sí ofrece consultas puntuales históricas y de pronóstico en Laboratorio abierto, no una visualización ráster nacional en tiempo real.
+- RainViewer está integrado como radar compuesto de cobertura parcial; no reemplaza al visor oficial SMN/SINARAME ni a la red completa. GOES-19 ABI tiene visor sectorial NOAA embebido. GLM, GPM IMERG, CHIRPS, radiosondeos e ingesta directa SINARAME siguen pendientes. Open-Meteo aporta pronóstico e histórico por coordenadas y agregados provinciales muestreados, no una observación continua nacional.
 - El Laboratorio no es un sistema oficial de pronóstico ni de alerta hidrometeorológica.
 
 ## Validación
