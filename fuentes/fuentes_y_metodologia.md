@@ -38,6 +38,11 @@ Fuentes de interés:
 - [SMN — precipitación observada en campos de la Cuenca del Plata](https://www.smn.gob.ar/sites/default/files/Referencia_Pecipitacion_observada.pdf): campos espaciales interpolados a partir de observaciones, no mediciones en cada celda.
 - [NASA GPM IMERG](https://gpm.nasa.gov/data/directory): estimaciones satelitales globales de precipitación, 0,1° y múltiples latencias/productos.
 - [NOAA GOES-R ABI/GLM](https://www.ncei.noaa.gov/products/goes-terrestrial-weather-abi-glm): imágenes geoestacionarias y actividad eléctrica sobre América; GOES-19 es GOES East operativo y cubre Sudamérica.
+- [NOAA GOES-19 sector sur](https://www.star.nesdis.noaa.gov/goes-draft/sector_band.php?band=13&length=24&sat=G19&sector=ssa): secuencias ABI de 24 imágenes recientes para bandas visibles e infrarrojas.
+- [RainViewer API](https://www.rainviewer.com/api.html): mosaico compuesto de reflectividad en teselas, cuadros recientes y cobertura parcial; uso personal/educativo/comunitario con atribución.
+- [SMN — imágenes de radar](https://ws2.smn.gob.ar/radar): visor oficial de mosaicos y radares individuales.
+- [SINARAME — imágenes](https://radares.hidricosargentina.gob.ar/): visor del sistema nacional de radares; no implica que el Laboratorio tenga un conector propio.
+- [Georef — provincias GeoJSON](https://apis.datos.gob.ar/georef/api/v2.0/provincias.geojson) y [IGN — geoservicios](https://ide.ign.gob.ar/geoservicios/rest/services/servicio_fondos/MapServer/0): geometrías administrativas de referencia.
 - [SINARAME](https://www.argentina.gob.ar/obras-publicas/recursos-hidricos/sistema-nacional-de-radares-meteorologicos-sinarame): red argentina de radares; verificar productos, acceso y cobertura útil por localidad antes de integrar.
 - [Open-Meteo Forecast, Historical y Historical Forecast](https://open-meteo.com/en/docs): pronósticos globales de hasta 16 días, reanálisis ERA5 y archivo de pronósticos anteriores para evaluación.
 - [CHIRPS](https://www.chc.ucsb.edu/data/chirps): estimación de precipitación satelital y pluviómetros sobre tierra, con resolución y latencia propias.
@@ -47,6 +52,20 @@ Fuentes de interés:
 - [NOAA CPC — ONI](https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso/oni/v6/) y [RONI](https://cpc.ncep.noaa.gov/products/analysis_monitoring/enso/roni/): índices de variabilidad climática de gran escala.
 
 La inclusión de una fuente en esta lista no significa que el Laboratorio tenga un conector activo, que haya descargado sus datos o que la cobertura esté verificada para todas las localidades. El alcance nacional se logra combinando productos distintos y no implica observación directa homogénea en cada punto.
+
+
+## 4 bis. Agregación espacial del mapa nacional
+
+El mapa provincial obtiene límites administrativos desde Georef/IGN y genera puntos de muestreo dentro de cada polígono, aproximadamente cada 1° de latitud/longitud. Cada punto consulta por separado el producto elegido de Open-Meteo. Los valores de cada provincia se calculan como promedio de las muestras disponibles; para precipitación histórica, primero se suma la precipitación diaria en cada punto y luego se promedian los totales entre puntos. No se pondera por superficie, población ni densidad de estaciones. No se rellenan provincias sin muestras y se informa el número de puntos usados.
+
+Esta agregación sirve para exploración y comparación descriptiva de campos de modelo/reanálisis. No debe llamarse observación provincial, interpolación, grilla nativa del modelo ni promedio areal oficial. Para estudios cuantitativos de mayor precisión, se requiere una grilla nativa descargable y un método espacial reproducible (por ejemplo, ponderación por área de celda).
+
+## 4 ter. Interpretación de radar y satélite
+
+- **Radar:** mide ecos de precipitación/reflectividad dentro del alcance y geometría del radar. La capa RainViewer es un mosaico de terceros de cobertura parcial, con latencia y huecos.
+- **Satélite ABI:** observa radiancias en bandas visibles e infrarrojas; vapor de agua, temperatura de brillo y estructura de nubes se interpretan según banda. No mide directamente lluvia en superficie.
+- **Modelo/reanálisis:** aporta variables calculadas o reconstruidas en puntos/celdas. No es una observación directa.
+- **Visores oficiales:** el SMN y SINARAME conservan la autoridad de sus productos y advertencias. La visualización experimental del Laboratorio no emite alertas ni sustituye avisos oficiales.
 
 ## 4. Reglas de cobertura y comparación
 
