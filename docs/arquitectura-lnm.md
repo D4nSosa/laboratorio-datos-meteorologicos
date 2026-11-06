@@ -114,7 +114,7 @@ El entorno neuronal es experimental. No hay un modelo entrenado ni una predicci�
 - El consolidado INTA-SIGA archivado procede de un proyecto comunitario y requiere revisión de duplicados, unidades, frecuencia y homogeneidad.
 - Los datos diarios provinciales de Corrientes tienen cobertura desigual y el snapshot archivado no contiene filas diarias explícitamente etiquetadas como Virasoro.
 - El conector AgroClima consulta fichas/observaciones recientes; no reemplaza una serie histórica diaria de lluvia.
-- RainViewer está integrado como radar compuesto de cobertura parcial; no reemplaza al visor oficial SMN/SINARAME ni a la red completa. GOES-19 ABI tiene visor sectorial NOAA embebido. GLM, GPM IMERG, CHIRPS, radiosondeos e ingesta directa SINARAME siguen pendientes. Open-Meteo aporta pronóstico e histórico por coordenadas y agregados provinciales muestreados, no una observación continua nacional.
+- RainViewer está integrado como radar compuesto de cobertura parcial; no reemplaza al visor oficial SMN/SINARAME ni a la red completa. GOES-19 ABI y GLM FED tienen visores sectoriales NOAA embebidos. GPM IMERG, CHIRPS, radiosondeos e ingesta directa SINARAME siguen pendientes. Open-Meteo aporta pronóstico e histórico por coordenadas y agregados provinciales muestreados, no una observación continua nacional.
 - El Laboratorio no es un sistema oficial de pronóstico ni de alerta hidrometeorológica.
 
 ## Validación

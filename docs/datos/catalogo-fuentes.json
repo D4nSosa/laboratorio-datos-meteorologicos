@@ -129,26 +129,28 @@
       "temporal_resolution": "Full disk every ~10 minutes; Southern South America animation provides 24 recent frames at ~10-minute intervals when NOAA feed is available",
       "spatial_resolution": "channel and product dependent",
       "coverage": "GOES-19 Southern South America sector and full disk; channel availability and image quality vary by scan and sunlight.",
-      "url": "https://www.star.nesdis.noaa.gov/goes-draft/sector_band.php?band=13&length=24&sat=G19&sector=ssa",
+      "url": "https://www.star.nesdis.noaa.gov/GOES/sector_band.php?band=13&length=24&sat=G19&sector=ssa",
       "limitations": "The interface embeds NOAA's public experimental sector viewer and separately displays GeoColor. Visible bands require sunlight; infrared brightness temperature describes the cloud top/scene, not surface air temperature. NOAA STAR notes its imagery is informational and not operational alert guidance."
     },
     {
       "id": "goes_glm",
-      "name": "GOES GLM",
+      "name": "GOES-19 GLM · Flash Extent Density",
       "organization": "NOAA / NESDIS",
-      "type": "geostationary_lightning",
-      "status": "not_integrated",
+      "type": "geostationary_lightning_viewer",
+      "status": "operational",
       "products": [
-        "GLM events, groups and flashes"
+        "NOAA sector viewer GLM Flash Extent Density (FED) over GeoColor",
+        "Southern South America sector, 24 recent images in a 2-hour loop, approximately 5-minute cadence"
       ],
       "variables": [
-        "lightning event/group/flash locations and times"
+        "lightning_flash_extent_density",
+        "flashes_per_5_minute_grid_cell"
       ],
-      "temporal_resolution": "product dependent",
-      "spatial_resolution": "instrument footprint and product dependent",
-      "coverage": "América y regiones oceánicas adyacentes; producto GLM de resolución espacial aproximada de 10 km.",
-      "url": "https://registry.opendata.aws/noaa-goes/",
-      "limitations": "GLM detecta actividad eléctrica total (intra-nube, nube-nube y nube-tierra). No es una red terrestre de localización de rayos; no hay ingesta operativa actual."
+      "temporal_resolution": "Approximately 5-minute frames; 24-image / 2-hour loop when available",
+      "spatial_resolution": "GLM grid cells; effective footprint varies across the field of view, approximately 8–10 km in this sector; not point locations for each ground strike",
+      "coverage": "GOES-19 GLM coverage between 54°N and 54°S; NOAA sector Southern South America includes most of Argentina and adjacent regions, but latitudes south of 54°S are outside GLM coverage.",
+      "url": "https://www.star.nesdis.noaa.gov/GOES/sector_band.php?band=EXTENT3&length=24&sat=G19&sector=ssa",
+      "limitations": "FED represents the density and extent of lightning flashes in grid cells over five-minute windows, not a precise ground network location for each discharge. Latitudes south of 54°S are outside coverage. NOAA identifies this viewer as informational/experimental; outages may occur. It is not an official alert service."
     },
     {
       "id": "sinarame",
@@ -350,7 +352,7 @@
       "spatial_resolution": "Teselas web; zoom nativo máximo 7 en API pública gratuita",
       "coverage": "Cobertura mundial parcial; RainViewer publica 14 radares integrados para Argentina, pero la cobertura efectiva es irregular y puede incluir fuentes de países vecinos.",
       "url": "https://www.rainviewer.com/api.html",
-      "limitations": "Uso gratuito destinado a fines personales, educativos y comunitarios de pequeña escala; requiere atribución visible y no ofrece SLA. No equivale a toda la red SINARAME/SMN, presenta huecos y retrasos, y la ausencia de ecos o teselas no demuestra ausencia de precipitación. La API pública consultada entrega cuadros pasados; no se debe anunciar nowcast si no aparece en el manifiesto."
+      "limitations": "The public API uses the Universal Blue (scheme 2) palette and native zoom up to 7. Use is intended for personal, educational and small-scale community purposes; visible attribution is required and no SLA is provided. It does not replace the complete official network, has gaps and latency, and missing echoes/tiles do not demonstrate no precipitation."
     },
     {
       "id": "smn_radar",
