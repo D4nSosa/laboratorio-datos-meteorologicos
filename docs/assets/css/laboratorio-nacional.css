@@ -140,3 +140,5 @@ table{max-width:100%}
 .province-weather-popup{font-size:12px;line-height:1.55}
 @media(max-width:1000px){.weather-grid-controls{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:680px){.radar-console,.weather-grid-console,.goes-loop-panel{padding:12px}.weather-grid-controls{grid-template-columns:repeat(2,minmax(0,1fr))}.radar-timeline{grid-template-columns:1fr}.radar-timeline strong{white-space:normal}.goes-iframe-wrap{height:480px}.goes-loop-controls{width:100%}.goes-loop-controls label{min-width:0;flex:1}}
+
+.radar-dbz-legend{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:8px 0 12px;font-size:10px;color:var(--muted)}.radar-dbz-legend b{color:var(--text);margin-right:4px}.radar-dbz-legend span{display:flex;align-items:center;gap:4px}.radar-dbz-legend i{display:inline-block;width:12px;height:12px;border-radius:3px}.radar-dbz-legend small{flex-basis:100%;font-size:9px}
