@@ -148,9 +148,9 @@
       ],
       "temporal_resolution": "Approximately 5-minute frames; 24-image / 2-hour loop when available",
       "spatial_resolution": "GLM grid cells; effective footprint varies across the field of view, approximately 8–10 km in this sector; not point locations for each ground strike",
-      "coverage": "GOES-19 GLM coverage between 54°N and 54°S; NOAA sector Southern South America includes Argentina and adjacent regions.",
+      "coverage": "GOES-19 GLM coverage between 54°N and 54°S; NOAA sector Southern South America includes most of Argentina and adjacent regions, but latitudes south of 54°S are outside GLM coverage.",
       "url": "https://www.star.nesdis.noaa.gov/GOES/sector_band.php?band=EXTENT3&length=24&sat=G19&sector=ssa",
-      "limitations": "FED represents the density and extent of lightning flashes in grid cells over five-minute windows, not a precise ground network location for each discharge. NOAA identifies this viewer as informational/experimental; outages may occur. It is not an official alert service."
+      "limitations": "FED represents the density and extent of lightning flashes in grid cells over five-minute windows, not a precise ground network location for each discharge. Latitudes south of 54°S are outside coverage. NOAA identifies this viewer as informational/experimental; outages may occur. It is not an official alert service."
     },
     {
       "id": "sinarame",
@@ -352,7 +352,7 @@
       "spatial_resolution": "Teselas web; zoom nativo máximo 7 en API pública gratuita",
       "coverage": "Cobertura mundial parcial; RainViewer publica 14 radares integrados para Argentina, pero la cobertura efectiva es irregular y puede incluir fuentes de países vecinos.",
       "url": "https://www.rainviewer.com/api.html",
-      "limitations": "Uso gratuito destinado a fines personales, educativos y comunitarios de pequeña escala; requiere atribución visible y no ofrece SLA. No equivale a toda la red SINARAME/SMN, presenta huecos y retrasos, y la ausencia de ecos o teselas no demuestra ausencia de precipitación. La API pública consultada entrega cuadros pasados; no se debe anunciar nowcast si no aparece en el manifiesto."
+      "limitations": "The public API uses the Universal Blue (scheme 2) palette and native zoom up to 7. Use is intended for personal, educational and small-scale community purposes; visible attribution is required and no SLA is provided. It does not replace the complete official network, has gaps and latency, and missing echoes/tiles do not demonstrate no precipitation."
     },
     {
       "id": "smn_radar",
