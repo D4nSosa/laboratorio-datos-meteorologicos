@@ -4,7 +4,7 @@
 
 El Laboratorio de Datos Meteorológicos es un proyecto abierto de investigación y desarrollo iniciado desde Gobernador Virasoro, Corrientes, Argentina. Su propósito es reunir, explorar y analizar información meteorológica de distintas escalas para formular preguntas, contrastar evidencia y documentar hallazgos reproducibles.
 
-La expansión geográfica es progresiva: partimos de investigaciones locales y regionales y ampliamos el alcance a otras zonas del país cuando existen fuentes con cobertura, períodos y metadatos suficientes. La cobertura nacional es un objetivo de investigación, no una afirmación de que todas las variables o estaciones estén disponibles en todo el territorio.
+El alcance de exploración es nacional desde el diseño: se combinan redes de estaciones argentinas con productos satelitales y modelos de cobertura regional o global. La disponibilidad real depende de cada variable, fuente, período, resolución y territorio; una grilla nacional no equivale a una red nacional de observaciones puntuales.
 
 **Sitio público:** [Explorador interactivo](https://d4nsosa.github.io/laboratorio-datos-meteorologicos/explorador-interactivo.html)
 
@@ -29,7 +29,7 @@ La interfaz pública reúne las siguientes capacidades existentes:
 - **Exploración de series:** filtros temporales, anomalías y acumulados de la serie anual archivada.
 - **Registros diarios de Corrientes:** explorador del conjunto publicado por el Departamento de Economía Agraria. El snapshot archivado contiene 5.186 filas, 25 departamentos y fechas entre 2023-01-01 y 2026-10-25; no incluye registros diarios etiquetados explícitamente como Virasoro.
 - **Mapa de estaciones y referencias:** catálogo INTA-SIGA, inventario AgroClima, referencias de grilla y filtros geográficos. La presencia de una estación en un catálogo no garantiza datos recientes ni calidad instrumental.
-- **Conjuntos y consulta histórica:** consulta de ERA5 para coordenadas y períodos admitidos por el proveedor, pronóstico multimodelo y descarga del consolidado de observaciones atribuidas a SIGA-INTA.
+- **Conjuntos y consulta histórica:** consultas por coordenadas/localidad con ERA5, desde 1940, variables de precipitación, temperatura, humedad, nubosidad, presión, punto de rocío y viento; pronóstico multimodelo de hasta 16 días con variables diarias y horarias. La cobertura de estaciones se consulta por catálogo y fuente.
 - **Centro de operaciones:** catálogo de fuentes, estado de integración, cobertura, resoluciones y limitaciones. Informa arquitectura y estado de investigación; no es un monitor en tiempo real.
 
 ### Datos archivados y advertencias
@@ -38,7 +38,7 @@ La interfaz pública reúne las siguientes capacidades existentes:
 - El repositorio conserva un consolidado comunitario atribuido a SIGA-INTA con 1.177.258 filas y un catálogo de 182 estaciones. La integridad del archivo no demuestra calibración, homogeneidad ni validación instrumental. Hay claves estación-fecha repetidas que requieren tratamiento antes de producir estadísticas definitivas.
 - El snapshot provincial de Corrientes contiene registros diarios y mensuales con cobertura desigual. Los agregados departamentales no son equivalentes a mediciones puntuales.
 - El conector de AgroClima consulta observaciones publicadas por estación. Su ventana reciente no reemplaza un archivo histórico diario de precipitaciones.
-- NASA GPM IMERG, INA-SIyAH y SNIH están documentados como fuentes candidatas para ampliar análisis de precipitación y contexto hidrológico. Su registro en el catálogo no significa que ya estén integrados en la interfaz.
+- NASA GPM IMERG, GOES ABI/GLM, SINARAME, CHIRPS, radiosondeos, INA-SIyAH y SNIH forman parte del inventario de fuentes nacionales y globales. Sus estados son explícitos: algunas ya se consultan, otras están documentadas y otras requieren verificación de acceso o integración. No se presentan como operativas por el solo hecho de estar catalogadas.
 
 ## Cómo trabajamos
 
@@ -58,9 +58,9 @@ No convertimos datos faltantes en cero, no inventamos mediciones y no presentamo
 |---|---|---|
 | [Precipitaciones en Gobernador Virasoro](investigaciones/01-precipitacion-virasoro/README.md) | ¿Qué muestran las referencias históricas y la serie ERA5 del entorno local? | Primera fase documental y descriptiva procesada; falta una serie primaria continua y homogénea. |
 | [Corrientes y el NEA](investigaciones/02-corrientes-nea/README.md) | ¿Cómo se distribuye la precipitación entre zonas comparables? | Planificada; requiere consolidar períodos y coberturas comparables. |
-| [Contexto nacional](investigaciones/03-contexto-nacional/README.md) | ¿Cómo se ubican los patrones regionales dentro del país? | En evaluación de fuentes y métodos. |
+| [Exploración meteorológica nacional](investigaciones/03-contexto-nacional/README.md) | ¿Cómo varían los patrones atmosféricos entre regiones, provincias y localidades? | Alcance geográfico nacional; integración de capas y agregados en desarrollo según fuente y variable. |
 | [Lluvia y variabilidad climática](investigaciones/04-lluvia-y-variabilidad-climatica/README.md) | ¿Qué asociaciones aparecen con ENSO y otros indicadores? | Pendiente de series compatibles y evaluación estadística. |
-| Eventos de lluvia y contexto hidrológico | ¿Cómo se relacionan la precipitación acumulada, las crecidas y los anegamientos? | Línea de investigación; INA/SNIH y GPM están documentados, aún sin integración operativa. |
+| Atmósfera y sistemas convectivos | ¿Cómo evolucionan nubosidad, viento, precipitación y actividad eléctrica en distintos episodios? | GOES ABI/GLM documentados; radar SINARAME en verificación de acceso y productos. |
 
 ## Documentación principal
 
