@@ -1,4 +1,4 @@
-name: Validar base del Laboratorio Meteorológico Nacional
+name: Validar base del Laboratorio de Datos Meteorológicos
 
 on:
   pull_request:

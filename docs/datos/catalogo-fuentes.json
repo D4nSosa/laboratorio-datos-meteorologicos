@@ -1,19 +1,397 @@
 {
-  "schema_version":"1.0.0","catalog_updated":"2026-11-01","coverage":"Argentina; regional expansion only where source coverage supports it",
-  "status_definitions":{"archived":"Dataset stored in this repository; scientific validation may remain incomplete.","documented":"Source documented but no operational connector is claimed.","not_integrated":"Candidate source; access and implementation remain pending.","investigation_required":"Access, coverage, licensing or product availability must be verified."},
-  "sources":[
-    {"id":"era5","name":"ERA5","organization":"ECMWF / Copernicus; accessed through Open-Meteo Historical API","type":"reanalysis","status":"archived","products":["Daily historical precipitation series for Virasoro grid cell, 1991-2025"],"variables":["precipitation"],"temporal_resolution":"daily in archived series","spatial_resolution":"reanalysis grid; not a point observation","coverage":"Virasoro reference series","url":"https://open-meteo.com/en/docs/historical-weather-api","limitations":"Existing archive is not a complete atmospheric reconstruction and is not a station or radar observation."},
-    {"id":"inta_siga","name":"INTA-SIGA","organization":"Instituto Nacional de Tecnología Agropecuaria","type":"surface_observations","status":"archived","products":["National consolidated station observations","Station catalogue and exploratory coverage products"],"variables":["precipitation","other variables subject to field-level metadata review"],"temporal_resolution":"mixed; verify per station and variable","spatial_resolution":"station point","coverage":"182 catalogued stations in archived consolidated dataset","url":"https://siga.inta.gob.ar/","limitations":"Structural integrity does not imply instrumental validation. Confirm units, temporal meaning, duplicates and station history before aggregation."},
-    {"id":"corrientes_production","name":"Precipitaciones de Corrientes","organization":"Ministerio de Producción de Corrientes / public repository","type":"administrative_station_records","status":"archived","products":["Daily department records","Monthly department records"],"variables":["precipitation"],"temporal_resolution":"daily and monthly products","spatial_resolution":"department / reporting location as supplied","coverage":"25 departments in archived daily base; coverage is not uniform","url":"https://github.com/deaeconomiactes/Precipitaciones-Lluvias","limitations":"Not every locality is represented. Do not infer a Virasoro observation where no locality-specific record exists."},
-    {"id":"smn","name":"Servicio Meteorológico Nacional","organization":"SMN Argentina","type":"surface_observations_and_official_products","status":"documented","products":["Station observations","Official warnings","Public data products subject to availability"],"variables":["temperature","precipitation","humidity","pressure","wind"],"temporal_resolution":"product-dependent","spatial_resolution":"station / product grid","coverage":"Argentina; station and product availability varies","url":"https://www.smn.gob.ar/descarga-de-datos","limitations":"A source reference is not an operational connector. Verify endpoints, terms, latency, station metadata and historical continuity."},
-    {"id":"noaa_climate_indices","name":"NOAA Climate Indices","organization":"NOAA CPC / PSL","type":"climate_indices","status":"documented","products":["ONI","ENSO-related indices","Other circulation indices subject to selection"],"variables":["climate indices"],"temporal_resolution":"index-dependent","spatial_resolution":"large-scale index","coverage":"Global / basin-scale indices relevant to South America","url":"https://www.cpc.ncep.noaa.gov/","limitations":"Indices provide climate context; correlation does not establish the cause of an individual storm or rainfall event."},
-    {"id":"goes_abi","name":"GOES ABI","organization":"NOAA / NESDIS","type":"geostationary_satellite","status":"not_integrated","products":["ABI visible, infrared and water-vapour channels"],"variables":["radiance","brightness temperature","derived cloud-top products where validated"],"temporal_resolution":"product and scan-mode dependent","spatial_resolution":"channel and product dependent","coverage":"Verify operational satellite, sector and product coverage for Argentina","url":"https://registry.opendata.aws/noaa-goes/","limitations":"No imagery feed is currently claimed. Verify satellite generation, bucket paths, scan cadence, latency and metadata."},
-    {"id":"goes_glm","name":"GOES GLM","organization":"NOAA / NESDIS","type":"geostationary_lightning","status":"not_integrated","products":["GLM events, groups and flashes"],"variables":["lightning event/group/flash locations and times"],"temporal_resolution":"product dependent","spatial_resolution":"instrument footprint and product dependent","coverage":"Verify satellite view and usable coverage for Argentina","url":"https://registry.opendata.aws/noaa-goes/","limitations":"No lightning observations are currently ingested. Do not infer flash density from cloud imagery."},
-    {"id":"sinarame","name":"SINARAME / Argentine weather radars","organization":"SMN and participating public institutions","type":"weather_radar","status":"investigation_required","products":["Reflectivity","Radial velocity","Doppler and derived products only where openly available"],"variables":["reflectivity","radial_velocity","derived_precipitation"],"temporal_resolution":"radar and product dependent","spatial_resolution":"radar and product dependent","coverage":"National inventory and actual public data access require verification","url":"https://www.argentina.gob.ar/","limitations":"No operational radar feed is claimed. Distinguish original volumes, processed products and published image tiles."},
-    {"id":"gpm_imerg","name":"NASA GPM IMERG","organization":"NASA","type":"satellite_precipitation","status":"not_integrated","products":["IMERG Early","IMERG Late","IMERG Final"],"variables":["precipitation rate","precipitation accumulation"],"temporal_resolution":"product-dependent half-hourly and accumulated products","spatial_resolution":"gridded satellite estimate","coverage":"Global","url":"https://gpm.nasa.gov/data","limitations":"Satellite precipitation estimates are not gauge measurements. Preserve latency and distinguish Early, Late and Final runs."},
-    {"id":"radiosondes","name":"Radiosonde archives","organization":"NOAA NCEI IGRA / University of Wyoming","type":"upper_air_observations","status":"investigation_required","products":["Radiosonde soundings"],"variables":["pressure","temperature","dew point","wind","height"],"temporal_resolution":"launch schedule and station dependent","spatial_resolution":"sounding station / vertical profile","coverage":"Argentina and nearby stations; availability must be inventoried","url":"https://www.ncei.noaa.gov/products/weather-balloon/integrated-global-radiosonde-archive","limitations":"Do not substitute model profiles for observed soundings without explicitly identifying source type."},
-    {"id":"open_nwp","name":"Open numerical weather prediction models","organization":"NOAA / ECMWF / DWD","type":"numerical_model","status":"not_integrated","products":["GFS","GEFS","ECMWF Open Data","ICON"],"variables":["model-dependent atmospheric fields"],"temporal_resolution":"model cycle and forecast step dependent","spatial_resolution":"model and grid dependent","coverage":"Verify geographic coverage and open-data terms for each model","url":"https://www.ncei.noaa.gov/products/weather-climate-models/global-forecast","limitations":"Forecast model output is not an observation. HRRR is not treated as an Argentina-wide source."},
-    {"id":"hydrology_networks","name":"INA / SNIH / ICAA","organization":"Argentine public hydrological institutions","type":"hydrological_observations","status":"documented","products":["Water levels","Discharge","Hydrometeorological station records where published"],"variables":["water_level","discharge","precipitation where available"],"temporal_resolution":"station and service dependent","spatial_resolution":"station / basin","coverage":"Basin and station dependent","url":"https://www.argentina.gob.ar/ina/recursos/aplicacionweb-datos-hidrologicos","limitations":"Hydrological context is complementary. Distinguish validated historical series from raw telemetry."},
-    {"id":"chirps","name":"CHIRPS","organization":"Climate Hazards Center, UCSB","type":"satellite_gauge_precipitation","status":"not_integrated","products":["CHIRPS precipitation estimates"],"variables":["precipitation"],"temporal_resolution":"daily and pentadal/monthly products","spatial_resolution":"gridded estimate","coverage":"Global land areas","url":"https://www.chc.ucsb.edu/data/chirps","limitations":"Gridded satellite-gauge product, not a direct station observation. Add only where it provides justified complementary value."}
+  "schema_version": "1.0.0",
+  "catalog_updated": "2026-11-06",
+  "coverage": "Argentina a escala nacional mediante redes de estaciones, radar compuesto, satélite, grillas de reanálisis y pronóstico. Las capas tienen distinta cobertura, resolución, latencia y calidad; no se presume disponibilidad homogénea en todas las localidades.",
+  "status_definitions": {
+    "archived": "Dataset stored in this repository; scientific validation may remain incomplete.",
+    "documented": "Source documented but no operational connector is claimed.",
+    "not_integrated": "Candidate source; access and implementation remain pending.",
+    "investigation_required": "Access, coverage, licensing or product availability must be verified.",
+    "operational": "Connector or query workflow is implemented and available in the public interface; scientific limits still apply."
+  },
+  "sources": [
+    {
+      "id": "era5",
+      "name": "ERA5",
+      "organization": "ECMWF / Copernicus; accessed through Open-Meteo Historical API",
+      "type": "reanalysis",
+      "status": "archived",
+      "products": [
+        "Daily historical precipitation series for Virasoro grid cell, 1991-2025"
+      ],
+      "variables": [
+        "precipitation"
+      ],
+      "temporal_resolution": "daily in archived series",
+      "spatial_resolution": "reanalysis grid; not a point observation",
+      "coverage": "Virasoro reference series",
+      "url": "https://open-meteo.com/en/docs/historical-weather-api",
+      "limitations": "Existing archive is not a complete atmospheric reconstruction and is not a station or radar observation."
+    },
+    {
+      "id": "inta_siga",
+      "name": "INTA-SIGA",
+      "organization": "Instituto Nacional de Tecnología Agropecuaria",
+      "type": "surface_observations",
+      "status": "archived",
+      "products": [
+        "National consolidated station observations",
+        "Station catalogue and exploratory coverage products"
+      ],
+      "variables": [
+        "precipitation",
+        "other variables subject to field-level metadata review"
+      ],
+      "temporal_resolution": "mixed; verify per station and variable",
+      "spatial_resolution": "station point",
+      "coverage": "182 catalogued stations in archived consolidated dataset",
+      "url": "https://siga.inta.gob.ar/",
+      "limitations": "Structural integrity does not imply instrumental validation. Confirm units, temporal meaning, duplicates and station history before aggregation."
+    },
+    {
+      "id": "corrientes_production",
+      "name": "Precipitaciones de Corrientes",
+      "organization": "Ministerio de Producción de Corrientes / public repository",
+      "type": "administrative_station_records",
+      "status": "archived",
+      "products": [
+        "Daily department records",
+        "Monthly department records"
+      ],
+      "variables": [
+        "precipitation"
+      ],
+      "temporal_resolution": "daily and monthly products",
+      "spatial_resolution": "department / reporting location as supplied",
+      "coverage": "25 departments in archived daily base; coverage is not uniform",
+      "url": "https://github.com/deaeconomiactes/Precipitaciones-Lluvias",
+      "limitations": "Not every locality is represented. Do not infer a Virasoro observation where no locality-specific record exists."
+    },
+    {
+      "id": "smn",
+      "name": "Servicio Meteorológico Nacional",
+      "organization": "SMN Argentina",
+      "type": "surface_observations_and_official_products",
+      "status": "documented",
+      "products": [
+        "Station observations",
+        "Official warnings",
+        "Public data products subject to availability"
+      ],
+      "variables": [
+        "temperature",
+        "precipitation",
+        "humidity",
+        "pressure",
+        "wind"
+      ],
+      "temporal_resolution": "product-dependent",
+      "spatial_resolution": "station / product grid",
+      "coverage": "Argentina; station and product availability varies",
+      "url": "https://www.smn.gob.ar/descarga-de-datos",
+      "limitations": "A source reference is not an operational connector. Verify endpoints, terms, latency, station metadata and historical continuity."
+    },
+    {
+      "id": "noaa_climate_indices",
+      "name": "NOAA Climate Indices",
+      "organization": "NOAA CPC / PSL",
+      "type": "climate_indices",
+      "status": "documented",
+      "products": [
+        "ONI",
+        "ENSO-related indices",
+        "Other circulation indices subject to selection"
+      ],
+      "variables": [
+        "climate indices"
+      ],
+      "temporal_resolution": "index-dependent",
+      "spatial_resolution": "large-scale index",
+      "coverage": "Global / basin-scale indices relevant to South America",
+      "url": "https://www.cpc.ncep.noaa.gov/",
+      "limitations": "Indices provide climate context; correlation does not establish the cause of an individual storm or rainfall event."
+    },
+    {
+      "id": "goes_abi",
+      "name": "GOES ABI",
+      "organization": "NOAA / NESDIS",
+      "type": "geostationary_satellite",
+      "status": "operational",
+      "products": [
+        "GOES-19 ABI GeoColor full-disk image in Panorama",
+        "GOES-19 ABI Southern South America sector animation through NOAA STAR: infrared Band 13, water-vapour Band 8, visible Band 2 and cloud-phase Band 11"
+      ],
+      "variables": [
+        "satellite imagery",
+        "cloud patterns",
+        "channel radiance and brightness temperature in future channel-specific integrations"
+      ],
+      "temporal_resolution": "Full disk every ~10 minutes; Southern South America animation provides 24 recent frames at ~10-minute intervals when NOAA feed is available",
+      "spatial_resolution": "channel and product dependent",
+      "coverage": "GOES-19 Southern South America sector and full disk; channel availability and image quality vary by scan and sunlight.",
+      "url": "https://www.star.nesdis.noaa.gov/goes-draft/sector_band.php?band=13&length=24&sat=G19&sector=ssa",
+      "limitations": "The interface embeds NOAA's public experimental sector viewer and separately displays GeoColor. Visible bands require sunlight; infrared brightness temperature describes the cloud top/scene, not surface air temperature. NOAA STAR notes its imagery is informational and not operational alert guidance."
+    },
+    {
+      "id": "goes_glm",
+      "name": "GOES GLM",
+      "organization": "NOAA / NESDIS",
+      "type": "geostationary_lightning",
+      "status": "not_integrated",
+      "products": [
+        "GLM events, groups and flashes"
+      ],
+      "variables": [
+        "lightning event/group/flash locations and times"
+      ],
+      "temporal_resolution": "product dependent",
+      "spatial_resolution": "instrument footprint and product dependent",
+      "coverage": "América y regiones oceánicas adyacentes; producto GLM de resolución espacial aproximada de 10 km.",
+      "url": "https://registry.opendata.aws/noaa-goes/",
+      "limitations": "GLM detecta actividad eléctrica total (intra-nube, nube-nube y nube-tierra). No es una red terrestre de localización de rayos; no hay ingesta operativa actual."
+    },
+    {
+      "id": "sinarame",
+      "name": "SINARAME / Argentine weather radars",
+      "organization": "SMN and participating public institutions",
+      "type": "weather_radar",
+      "status": "investigation_required",
+      "products": [
+        "Reflectivity",
+        "Radial velocity",
+        "Doppler and derived products only where openly available"
+      ],
+      "variables": [
+        "reflectivity",
+        "radial_velocity",
+        "derived_precipitation"
+      ],
+      "temporal_resolution": "radar and product dependent",
+      "spatial_resolution": "radar and product dependent",
+      "coverage": "Red argentina de radares meteorológicos; incluye el radar RMA19 de Ituzaingó, Corrientes. La cobertura útil depende de alcance, elevación, relieve y disponibilidad de cada producto.",
+      "url": "https://www.argentina.gob.ar/obras-publicas/recursos-hidricos/sistema-nacional-de-radares-meteorologicos-sinarame",
+      "limitations": "La existencia de la red no implica que todos los productos estén disponibles como API o tiles abiertos. Confirmar acceso, mosaicos, reflectividad, velocidad radial, formatos, latencia y condiciones de uso antes de integrar."
+    },
+    {
+      "id": "gpm_imerg",
+      "name": "NASA GPM IMERG",
+      "organization": "NASA",
+      "type": "satellite_precipitation",
+      "status": "documented",
+      "products": [
+        "IMERG Early V07B: estimaciones subdiarias de baja latencia",
+        "IMERG Late V07B: estimaciones subdiarias con procesamiento adicional",
+        "IMERG Final V07B: producto diferido con ajuste basado en pluviómetros",
+        "Productos acumulados diarios y campos cada 30 minutos"
+      ],
+      "variables": [
+        "precipitation rate",
+        "precipitation accumulation"
+      ],
+      "temporal_resolution": "Cada 30 minutos y productos acumulados diarios; Early ~4 h, Late ~14 h, Final ~3,5 meses de latencia",
+      "spatial_resolution": "Grilla de 0,1° × 0,1° (aprox. 10 km); estimación satelital, no observación puntual",
+      "coverage": "Global; serie V07B desde enero de 1998 hasta el presente",
+      "url": "https://gpm.nasa.gov/data/directory",
+      "limitations": "Las corridas Early, Late y Final tienen latencias y procesamiento distintos. No son mediciones de pluviómetro. Verificar horario UTC, sesgos regionales y compatibilidad temporal antes de comparar con estaciones."
+    },
+    {
+      "id": "radiosondes",
+      "name": "Radiosonde archives",
+      "organization": "NOAA NCEI IGRA / University of Wyoming",
+      "type": "upper_air_observations",
+      "status": "investigation_required",
+      "products": [
+        "Radiosonde soundings"
+      ],
+      "variables": [
+        "pressure",
+        "temperature",
+        "dew point",
+        "wind",
+        "height"
+      ],
+      "temporal_resolution": "launch schedule and station dependent",
+      "spatial_resolution": "sounding station / vertical profile",
+      "coverage": "Argentina and nearby stations; availability must be inventoried",
+      "url": "https://www.ncei.noaa.gov/products/weather-balloon/integrated-global-radiosonde-archive",
+      "limitations": "Do not substitute model profiles for observed soundings without explicitly identifying source type."
+    },
+    {
+      "id": "open_nwp",
+      "name": "Open-Meteo — reanálisis y pronósticos multimodelo",
+      "organization": "Open-Meteo; modelos ECMWF, NOAA, DWD, JMA y otros proveedores según producto",
+      "type": "numerical_model",
+      "status": "operational",
+      "products": [
+        "Consulta puntual ERA5 desde 1940 y ERA5-Land desde 1950 según variable/modelo",
+        "Pronóstico multimodelo global hasta 16 días",
+        "Variables horarias: temperatura, humedad, punto de rocío, precipitación, nubosidad, presión, viento, ráfagas y CAPE",
+        "Archivo Historical Forecast para analizar pronósticos pasados desde aproximadamente 2021/2022; disponibilidad por modelo"
+      ],
+      "variables": [
+        "temperature",
+        "relative_humidity",
+        "dew_point",
+        "precipitation",
+        "cloud_cover",
+        "pressure",
+        "wind_speed",
+        "wind_direction",
+        "wind_gusts",
+        "CAPE"
+      ],
+      "temporal_resolution": "Histórico ERA5 horario/diario; pronóstico horario/diario; horizonte de pronóstico hasta 16 días según producto",
+      "spatial_resolution": "Global; ERA5 0,25° (~25 km), ERA5-Land 0,1° (~11 km), IFS HRES ~9 km y otros modelos según proveedor",
+      "coverage": "Global, incluidas localidades argentinas; consulta puntual por coordenadas, no visualización ráster nacional integrada",
+      "url": "https://open-meteo.com/en/docs",
+      "limitations": "La consulta de punto y el pronóstico de hasta 16 días están integrados en Laboratorio abierto. La API no equivale a una red de estaciones. ERA5 tiene retraso de publicación; las predicciones cambian con cada ciclo y no sustituyen al SMN."
+    },
+    {
+      "id": "hydrology_networks",
+      "name": "INA / SNIH / ICAA",
+      "organization": "Argentine public hydrological institutions",
+      "type": "hydrological_observations",
+      "status": "documented",
+      "products": [
+        "Water levels",
+        "Discharge",
+        "Hydrometeorological station records where published"
+      ],
+      "variables": [
+        "water_level",
+        "discharge",
+        "precipitation where available"
+      ],
+      "temporal_resolution": "station and service dependent",
+      "spatial_resolution": "station / basin",
+      "coverage": "Basin and station dependent",
+      "url": "https://www.argentina.gob.ar/ina/recursos/aplicacionweb-datos-hidrologicos",
+      "limitations": "Hydrological context is complementary. Distinguish validated historical series from raw telemetry."
+    },
+    {
+      "id": "chirps",
+      "name": "CHIRPS",
+      "organization": "Climate Hazards Center, UCSB",
+      "type": "satellite_gauge_precipitation",
+      "status": "not_integrated",
+      "products": [
+        "CHIRPS precipitation estimates"
+      ],
+      "variables": [
+        "precipitation"
+      ],
+      "temporal_resolution": "daily and pentadal/monthly products",
+      "spatial_resolution": "gridded estimate",
+      "coverage": "Global land areas",
+      "url": "https://www.chc.ucsb.edu/data/chirps",
+      "limitations": "Gridded satellite-gauge product, not a direct station observation. Add only where it provides justified complementary value."
+    },
+    {
+      "id": "ina_dsiyah",
+      "name": "INA — DSIyAH / API de datos hidrológicos",
+      "organization": "Instituto Nacional del Agua (INA)",
+      "type": "hydrological_observations_and_model_products",
+      "status": "documented",
+      "products": [
+        "Catálogo de estaciones y áreas de interés",
+        "Series temporales puntuales observadas y simuladas",
+        "Capas ráster del ciclo hidrológico y agregaciones espaciales/temporales"
+      ],
+      "variables": [
+        "water_level",
+        "discharge",
+        "precipitation",
+        "soil_moisture"
+      ],
+      "temporal_resolution": "Según estación, variable y producto; incluye series históricas y a tiempo real/cuasi real",
+      "spatial_resolution": "Estaciones puntuales y capas ráster; metadatos y resolución según recurso",
+      "coverage": "Cuenca del Plata; no equivale a cobertura hidrológica de todo el país",
+      "url": "https://www.argentina.gob.ar/ina/recursos/aplicacionweb-datos-hidrologicos",
+      "limitations": "Distinguir series observadas de simuladas, revisar unidades y referencias de altura, y verificar metadatos de cada estación. La documentación de la API no implica que todas las series estén disponibles para cada localidad."
+    },
+    {
+      "id": "snih",
+      "name": "Sistema Nacional de Información Hídrica (SNIH)",
+      "organization": "Subsecretaría de Recursos Hídricos y organismos adheridos",
+      "type": "hydrological_station_records",
+      "status": "documented",
+      "products": [
+        "Datos históricos consolidados por estación",
+        "Datos a tiempo útil de sensores y redes adheridas"
+      ],
+      "variables": [
+        "water_level",
+        "discharge",
+        "precipitation",
+        "meteorological_variables"
+      ],
+      "temporal_resolution": "Según estación y red; históricos y registros a tiempo útil",
+      "spatial_resolution": "Estación puntual; cobertura según redes incorporadas",
+      "coverage": "Redes y estaciones adheridas; no asumir cobertura nacional homogénea",
+      "url": "https://snih.hidricosargentina.gob.ar/",
+      "limitations": "El portal advierte que los datos a tiempo útil pueden ser registros crudos no validados y que la red no es un sistema de alerta. Priorizar series históricas procesadas para análisis y conservar las advertencias de calidad."
+    },
+    {
+      "id": "rainviewer",
+      "name": "RainViewer · mosaico de radar compuesto",
+      "organization": "RainViewer / MeteoLab Inc.; mosaico derivado de radares públicos de agencias meteorológicas",
+      "type": "radar_composite",
+      "status": "operational",
+      "products": [
+        "Teselas de reflectividad radar compuesta",
+        "Hasta 2 horas de cuadros históricos en intervalos aproximados de 10 minutos",
+        "Máscara de cobertura radar disponible en el servicio"
+      ],
+      "variables": [
+        "composite_radar_reflectivity",
+        "precipitation_echo"
+      ],
+      "temporal_resolution": "Cuadros recientes cada ~10 minutos; disponibilidad del proveedor variable",
+      "spatial_resolution": "Teselas web; zoom nativo máximo 7 en API pública gratuita",
+      "coverage": "Cobertura mundial parcial; RainViewer publica 14 radares integrados para Argentina, pero la cobertura efectiva es irregular y puede incluir fuentes de países vecinos.",
+      "url": "https://www.rainviewer.com/api.html",
+      "limitations": "Uso gratuito destinado a fines personales, educativos y comunitarios de pequeña escala; requiere atribución visible y no ofrece SLA. No equivale a toda la red SINARAME/SMN, presenta huecos y retrasos, y la ausencia de ecos o teselas no demuestra ausencia de precipitación. La API pública consultada entrega cuadros pasados; no se debe anunciar nowcast si no aparece en el manifiesto."
+    },
+    {
+      "id": "smn_radar",
+      "name": "SMN · visor oficial de imágenes de radar",
+      "organization": "Servicio Meteorológico Nacional de Argentina",
+      "type": "official_weather_radar_viewer",
+      "status": "documented",
+      "products": [
+        "Mosaico Argentina y mosaicos regionales",
+        "Imágenes de radares individuales, incluido Ituzaingó (Corrientes)",
+        "Visor web público de vigilancia de precipitación"
+      ],
+      "variables": [
+        "radar_reflectivity",
+        "precipitation_echo"
+      ],
+      "temporal_resolution": "Imágenes recientes; frecuencia y latencia dependen de radar y producto",
+      "spatial_resolution": "Radar individual y mosaicos; depende del producto",
+      "coverage": "Red nacional SINARAME y radares integrados al visor del SMN; cobertura efectiva variable por alcance y disponibilidad.",
+      "url": "https://ws2.smn.gob.ar/radar",
+      "limitations": "El Laboratorio enlaza al visor oficial, pero no descarga ni procesa todavía los productos del SMN. El radar requiere interpretación especializada; su ausencia no equivale a ausencia de precipitación ni constituye por sí sola una alerta."
+    },
+    {
+      "id": "ign_georef",
+      "name": "IGN / Georef · límites provinciales",
+      "organization": "Instituto Geográfico Nacional y API Georef del Estado argentino",
+      "type": "administrative_geospatial_reference",
+      "status": "operational",
+      "products": [
+        "GeoJSON de provincias argentinas para mapa y agregación espacial",
+        "Geometrías administrativas de referencia basadas en información del IGN"
+      ],
+      "variables": [
+        "province_boundary",
+        "administrative_unit"
+      ],
+      "temporal_resolution": "Actualización del servicio de referencia; no es una variable meteorológica",
+      "spatial_resolution": "Geometría vectorial en WGS84 / EPSG:4326",
+      "coverage": "23 provincias y Ciudad Autónoma de Buenos Aires; geometrías de referencia nacional.",
+      "url": "https://apis.datos.gob.ar/georef/api/v2.0/provincias.geojson",
+      "limitations": "Los límites administrativos permiten agrupar puntos de muestreo, pero no convierten una muestra puntual en un promedio areal oficial. La agregación del Laboratorio se calcula sobre puntos de grilla muestreados y debe mostrar cantidad de puntos y huecos."
+    }
   ]
 }

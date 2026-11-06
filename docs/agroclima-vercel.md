@@ -1,6 +1,6 @@
 # Arquitectura del conector AgroClima
 
-El Laboratorio Meteorológico Nacional tiene **un solo frontend público**, alojado en GitHub Pages:
+El Laboratorio de Datos Meteorológicos tiene **un solo frontend público**, alojado en GitHub Pages:
 
 - Frontend: https://d4nsosa.github.io/laboratorio-datos-meteorologicos/explorador-interactivo.html
 - Backend: Vercel, exclusivamente para endpoints API. No publica una segunda copia del sitio.

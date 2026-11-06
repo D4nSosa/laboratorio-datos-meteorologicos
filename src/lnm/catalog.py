@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-ALLOWED_SOURCE_STATUSES = {"archived", "documented", "not_integrated", "investigation_required"}
+ALLOWED_SOURCE_STATUSES = {"archived", "operational", "documented", "not_integrated", "investigation_required"}
 REQUIRED_SOURCE_FIELDS = {"id", "name", "organization", "type", "status", "products", "variables", "temporal_resolution", "spatial_resolution", "coverage", "url", "limitations"}
 
 def load_json(path: str | Path) -> Any:
