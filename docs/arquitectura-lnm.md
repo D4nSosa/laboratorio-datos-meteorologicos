@@ -4,7 +4,7 @@
 
 El Laboratorio reúne una interfaz pública de exploración, conjuntos de datos archivados, conectores y herramientas de investigación reproducible. Su identidad y nombre se mantienen: la evolución consiste en ampliar la capacidad de investigación dentro de las secciones existentes, mejorar la explicación de los métodos y hacer más trazables las fuentes y los hallazgos.
 
-El alcance geográfico crece de forma progresiva. La cobertura nacional se construye por fuente, variable, período y región; no se presume que una red o producto tenga cobertura homogénea en todo el país.
+El alcance de exploración es nacional. El laboratorio combina fuentes puntuales argentinas con grillas satelitales y modelos globales. La cobertura nacional de una grilla no significa que existan observaciones de estación en cada localidad ni que todas las variables estén disponibles en cada región.
 
 ## Experiencia pública y componentes actuales
 
@@ -13,7 +13,7 @@ El frontend principal se publica como sitio estático desde `docs/` mediante Git
 1. **Panorama:** síntesis de la investigación, primera referencia ERA5 de Virasoro y hallazgos descriptivos disponibles.
 2. **Precipitaciones:** exploración de totales anuales, anomalías, acumulados y climatología mensual de la serie archivada.
 3. **Corrientes · registros diarios:** consulta del snapshot provincial disponible, con su cobertura y limitaciones.
-4. **Laboratorio abierto:** consultas históricas de ERA5 por coordenadas, pronóstico multimodelo y acceso al consolidado INTA-SIGA.
+4. **Laboratorio abierto:** consultas históricas por coordenadas/localidad y pronósticos multimodelo; incluye variables atmosféricas y series de estación cuando hay datos verificables.
 5. **Centro de operaciones:** estado de las capacidades y catálogo de fuentes.
 6. **Mapa de estaciones:** exploración geográfica de catálogos, coordenadas, filtros y referencias.
 7. **Conjuntos de datos:** descripción y acceso a archivos utilizados.
@@ -70,7 +70,7 @@ La incorporación de nuevas fuentes debe mejorar preguntas ya presentes en la in
 - **Método y límites:** explicar incertidumbre, resolución, sesgos, datos faltantes y diferencias entre medición, estimación y modelo.
 - **Contexto hidrológico:** relacionar episodios de lluvia con series de niveles y caudales cuando exista cobertura de estaciones; no inferir causalidad ni emitir alertas.
 
-NASA GPM IMERG está documentado como producto satelital global de precipitación de 0,1° (~10 km), con productos Early, Late y Final y latencias distintas. INA-SIyAH ofrece servicios de series observadas y simuladas y capas de la Cuenca del Plata; SNIH publica datos históricos consolidados y registros de tiempo útil que pueden ser crudos y no validados. Estas fuentes figuran en el catálogo, pero aún no constituyen conectores operativos del Laboratorio.
+NASA GPM IMERG aporta estimaciones globales de precipitación de 0,1° (~10 km), con corridas Early, Late y Final de distinta latencia. GOES-19 (GOES East) ofrece observación geoestacionaria de Sudamérica mediante ABI y actividad eléctrica mediante GLM. SINARAME aporta infraestructura radar nacional, incluido el radar RMA19 de Ituzaingó; la disponibilidad de productos de radar para consumo directo debe verificarse. Open-Meteo ya está integrado en el Laboratorio abierto para consultas puntuales de reanálisis ERA5 y pronósticos; su Historical Forecast API permite evaluar pronósticos archivados. INA-SIyAH y SNIH aportan contexto hidrológico con coberturas de redes y cuencas, no una malla homogénea nacional. El catálogo distingue conectores activos de fuentes documentadas o pendientes.
 
 ## Calidad, procedencia y revisión
 
@@ -101,7 +101,7 @@ El entorno neuronal es experimental. No hay un modelo entrenado ni una predicci�
 - El consolidado INTA-SIGA archivado procede de un proyecto comunitario y requiere revisión de duplicados, unidades, frecuencia y homogeneidad.
 - Los datos diarios provinciales de Corrientes tienen cobertura desigual y el snapshot archivado no contiene filas diarias explícitamente etiquetadas como Virasoro.
 - El conector AgroClima consulta fichas/observaciones recientes; no reemplaza una serie histórica diaria de lluvia.
-- GPM IMERG, INA-SIyAH y SNIH están documentados, pero no integrados como nuevas series operativas en el frontend.
+- GOES ABI/GLM, GPM IMERG, SINARAME, CHIRPS, radiosondeos, INA-SIyAH y SNIH están documentados o en verificación; no se deben mostrar como capas activas hasta probar ingestión, latencia, cobertura y calidad. Open-Meteo sí ofrece consultas puntuales históricas y de pronóstico en Laboratorio abierto, no una visualización ráster nacional en tiempo real.
 - El Laboratorio no es un sistema oficial de pronóstico ni de alerta hidrometeorológica.
 
 ## Validación
