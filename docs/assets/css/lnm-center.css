@@ -31,3 +31,26 @@
 .source-disclosure>p{font-size:11px;color:var(--muted);line-height:1.6;margin:0 0 10px}
 @media(max-width:850px){.lnm-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.lnm-hero{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:560px){.lnm-grid,.lnm-source-grid{grid-template-columns:minmax(0,1fr)}.lnm-card{padding:14px}.lnm-toolbar{align-items:flex-start}.lnm-source summary{padding:12px}}
+
+
+/* Operations center: live, source-aware dashboard */
+.lnm-ops-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin:16px 0}
+.lnm-ops-head p{margin:4px 0;color:var(--muted);font-size:12px}
+.lnm-health-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0}
+.lnm-health-card{background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:15px;min-width:0}
+.lnm-health-card>span{font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.lnm-health-value{display:block;font-size:20px;font-weight:800;line-height:1.25;margin:9px 0 5px;overflow-wrap:anywhere}
+.lnm-health-value.ok{color:var(--accent)}.lnm-health-value.error{color:var(--danger)}.lnm-health-value.loading{color:var(--warn)}
+.lnm-health-card small{display:block;color:var(--muted);font-size:10px;line-height:1.55}
+.lnm-ops-toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.lnm-ops-toolbar small{color:var(--muted);font-size:10px}
+.lnm-module{display:flex;flex-direction:column;gap:8px}
+.lnm-module-top{display:flex;justify-content:space-between;align-items:center}
+.lnm-module-state{font-size:9px;color:var(--accent);letter-spacing:.04em}
+.lnm-module-arrow{color:var(--muted)}
+.lnm-module h3{font-size:14px;line-height:1.35}
+.lnm-module p{flex:1;font-size:11px;line-height:1.65}
+.lnm-module-action{align-self:flex-start;border:1px solid var(--line);background:var(--surface2);color:var(--accent);border-radius:8px;padding:8px 11px;font-size:11px;font-weight:700}
+.lnm-module-action:hover{border-color:var(--accent)}
+.lnm-ops-note{border-left:3px solid var(--warn);background:var(--surface2);padding:12px 14px;border-radius:0 9px 9px 0;color:var(--muted);font-size:11px;line-height:1.65;margin:14px 0}
+@media(max-width:760px){.lnm-health-grid{grid-template-columns:1fr}.lnm-ops-head{display:grid}.lnm-health-card{padding:13px}}
