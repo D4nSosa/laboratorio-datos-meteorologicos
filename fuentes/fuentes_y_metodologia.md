@@ -37,12 +37,16 @@ Fuentes de interés:
 - [SMN — descarga de datos](https://www.smn.gob.ar/descarga-de-datos): observaciones y productos oficiales; comprobar qué variables y períodos ofrece cada archivo.
 - [SMN — precipitación observada en campos de la Cuenca del Plata](https://www.smn.gob.ar/sites/default/files/Referencia_Pecipitacion_observada.pdf): campos espaciales interpolados a partir de observaciones, no mediciones en cada celda.
 - [NASA GPM IMERG](https://gpm.nasa.gov/data/directory): estimaciones satelitales globales de precipitación, 0,1° y múltiples latencias/productos.
+- [NOAA GOES-R ABI/GLM](https://www.ncei.noaa.gov/products/goes-terrestrial-weather-abi-glm): imágenes geoestacionarias y actividad eléctrica sobre América; GOES-19 es GOES East operativo y cubre Sudamérica.
+- [SINARAME](https://www.argentina.gob.ar/obras-publicas/recursos-hidricos/sistema-nacional-de-radares-meteorologicos-sinarame): red argentina de radares; verificar productos, acceso y cobertura útil por localidad antes de integrar.
+- [Open-Meteo Forecast, Historical y Historical Forecast](https://open-meteo.com/en/docs): pronósticos globales de hasta 16 días, reanálisis ERA5 y archivo de pronósticos anteriores para evaluación.
+- [CHIRPS](https://www.chc.ucsb.edu/data/chirps): estimación de precipitación satelital y pluviómetros sobre tierra, con resolución y latencia propias.
 - [INA — API de datos hidrológicos](https://www.argentina.gob.ar/ina/recursos/aplicacionweb-datos-hidrologicos): estaciones y series de la Cuenca del Plata, observadas y simuladas.
 - [SNIH](https://snih.hidricosargentina.gob.ar/): datos históricos consolidados y registros a tiempo útil; estos últimos pueden ser crudos y no validados.
 - [ICAA — acceso a estaciones hidrometeorológicas](https://icaa.gov.ar/instructivo-acceso-estacion-icaa/): red y estaciones disponibles en Corrientes.
 - [NOAA CPC — ONI](https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso/oni/v6/) y [RONI](https://cpc.ncep.noaa.gov/products/analysis_monitoring/enso/roni/): índices de variabilidad climática de gran escala.
 
-La inclusión de una fuente en esta lista no significa que el Laboratorio tenga un conector activo, que haya descargado sus datos o que la cobertura esté verificada para todas las localidades.
+La inclusión de una fuente en esta lista no significa que el Laboratorio tenga un conector activo, que haya descargado sus datos o que la cobertura esté verificada para todas las localidades. El alcance nacional se logra combinando productos distintos y no implica observación directa homogénea en cada punto.
 
 ## 4. Reglas de cobertura y comparación
 
