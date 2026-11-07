@@ -1,6 +1,6 @@
 # Fuentes externas y archivos de investigación
 
-Esta carpeta conserva conjuntos de datos meteorológicos e hidrológicos con procedencia, unidades, cobertura y controles separados. **No forma parte todavía de la interfaz pública**: primero se archivan y validan los datos; la integración visual se hace después.
+Esta carpeta conserva conjuntos de datos meteorológicos e hidrológicos con procedencia, unidades, cobertura y controles separados. **No forma parte todavía de la interfaz pública**: primero se archivan y validan los datos; la integración visual se hace después. El índice consumible por software está en `catalogo-datasets.json`.
 
 ## Estructura
 
