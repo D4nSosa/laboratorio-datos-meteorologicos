@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Extract daily CHIRPS v3 Final point series at Argentine IGRA stations."""
+"""Extract daily CHIRPS v3 Final/rnl point series at Argentine IGRA stations."""
 import csv,gzip,hashlib,json
 from datetime import datetime,timezone
 from pathlib import Path
@@ -48,7 +48,7 @@ def main():
             "bytes":path.stat().st_size,"sha256":sha(path)})
         print(f"CHIRPS point {n}/{len(stations)} {sid}: {len(dates)} daily rows",flush=True)
     manifest={
-        "dataset":"CHIRPS v3 Final daily point series at Argentine IGRA stations",
+        "dataset":"CHIRPS v3 Final/rnl daily point series at Argentine IGRA stations",
         "source_dataset_id":DATASET,
         "source_provider":"UCSB Climate Hazards Center",
         "cloud_archive":"dynamical.org / AWS Open Data",
@@ -59,7 +59,7 @@ def main():
         "sampling":"Nearest native grid cell for each IGRA station coordinate; selected cell coordinates are included per row.",
         "retrieved_utc":datetime.now(timezone.utc).isoformat(),
         "files":files,
-        "note":"These are daily point samples, not a complete gridded daily Argentina archive. Use alongside the monthly national NetCDF grids."
+        "note":"These are daily point samples from the Final/rnl product (ERA5-based daily disaggregation), not a complete gridded daily Argentina archive. Use alongside the monthly national NetCDF grids. The date is a consistent product label, not a uniform local station observation window."
     }
     MANIFEST.parent.mkdir(parents=True,exist_ok=True)
     MANIFEST.write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
