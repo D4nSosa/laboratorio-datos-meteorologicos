@@ -2,7 +2,7 @@
   "dataset": "NOAA IGRA 2.2 Argentina soundings — normalized standard-pressure and surface levels",
   "source": "https://www.ncei.noaa.gov/pub/data/igra/data/data-por/",
   "format_documentation": "https://www.ncei.noaa.gov/pub/data/igra/data/igra2-data-format.txt",
-  "retrieved_utc": "2026-11-07T17:18:38.275761+00:00",
+  "retrieved_utc": "2026-11-07T17:21:55.113544+00:00",
   "stations_requested": 20,
   "stations_parsed": 20,
   "missing_archives": [],
@@ -214,980 +214,980 @@
       "year": 1957,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1957.csv.gz",
       "bytes": 57596,
-      "sha256": "4bc03787588f70960d466d815f83a5b719a21727731ad7a12f52fc2645648322"
+      "sha256": "816746684045233126ae328dd2d981a01c3137263393d110e2239147b8df712d"
     },
     {
       "type": "standard_surface_levels",
       "year": 1958,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1958.csv.gz",
       "bytes": 168168,
-      "sha256": "ec050efc385dd1a2819fcad29b0ca44458b7143592ed823f6e39f40d12e52c85"
+      "sha256": "d981ce55463ba73a58129398cc1e1826352027e9d53e46f181e69ed40bf52f7c"
     },
     {
       "type": "standard_surface_levels",
       "year": 1959,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1959.csv.gz",
       "bytes": 115160,
-      "sha256": "e0990be594e1c48f71c3fb0d3fe24512e3d5d4852704e19e18aef7cf698fbc3e"
+      "sha256": "5a7dc0c7ca608845aef28fce6caed48350cd28266f764ba1e8079277deded693"
     },
     {
       "type": "standard_surface_levels",
       "year": 1960,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1960.csv.gz",
       "bytes": 105164,
-      "sha256": "15a5d588c3187f5b189f15819f0b351680571502c2e1a07260458f8f6e7128f5"
+      "sha256": "18ae850b5410779c9c2cb8df65774dcf02df94105be34079f2985e6ec898afba"
     },
     {
       "type": "standard_surface_levels",
       "year": 1961,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1961.csv.gz",
       "bytes": 248247,
-      "sha256": "55519c8adb27fc09eb42fb2006f1656f61e32f24df9c8a4e8ffcb034a03a65a5"
+      "sha256": "337223d37aa1a057ccc66395e68c6bd378077be38bd014801737dbbde4048af3"
     },
     {
       "type": "standard_surface_levels",
       "year": 1962,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1962.csv.gz",
       "bytes": 363038,
-      "sha256": "b752ffaabad5bedcaf5d224dc027863a992cb973fb51b3060149addec895028f"
+      "sha256": "f53fab549bc52f7d64486c3b3bb8e97da503c709c426054ebb8efe507799a43b"
     },
     {
       "type": "standard_surface_levels",
       "year": 1963,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1963.csv.gz",
       "bytes": 207321,
-      "sha256": "0192f2b32e28c1c1c4732e0719520dbb2f318bd8d8e71f1950a2445fcb4ab8f3"
+      "sha256": "e14f6e8ed3858b455335a0393a79bc62e8487dd47215dc87a3a64f6f8c127d24"
     },
     {
       "type": "standard_surface_levels",
       "year": 1964,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1964.csv.gz",
       "bytes": 412171,
-      "sha256": "e73a7ef2ecb905ae931075a54ebfe27f6e87e52bad0d7c2c9865438cb4a98c14"
+      "sha256": "7914e045be3e429098b54b76082f0dde46691747581e09f65c037d99a681d728"
     },
     {
       "type": "standard_surface_levels",
       "year": 1965,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1965.csv.gz",
       "bytes": 596711,
-      "sha256": "abadfa54937474a62c441f4159ddc06a981b29127b3d517f0b0a36aa008edeaf"
+      "sha256": "b528255354aea70c8238bb0803dc8791bfb26f63bf04b78a47997ae823619319"
     },
     {
       "type": "standard_surface_levels",
       "year": 1966,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1966.csv.gz",
       "bytes": 559282,
-      "sha256": "f6b8510c9df5a6477e9a373c178fd5b4a4771915293be6f04106e3e8f5f4c970"
+      "sha256": "ed37338e32a3986a9b09d97e44ca8a3d0079b472dead18e6214d9a544919c380"
     },
     {
       "type": "standard_surface_levels",
       "year": 1967,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1967.csv.gz",
       "bytes": 496424,
-      "sha256": "ff2f34ee86407e4cfccc6f31df7d232e7f3da2f1f5bcb90f27b6af64e2b753a5"
+      "sha256": "98383408430dfc31f8ec3b40802878700663eb3c0ffea0b43e3f928a7ac2e23a"
     },
     {
       "type": "standard_surface_levels",
       "year": 1968,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1968.csv.gz",
       "bytes": 454405,
-      "sha256": "76666dcb4e3c6db9d278da1244d6ae03e21d6ef4a550dda95706b48d4ff26346"
+      "sha256": "66c8740e6afd94d2a96ba20a20842cb2b9f26a704b2ffcf910b9ac3d2b7632a6"
     },
     {
       "type": "standard_surface_levels",
       "year": 1969,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1969.csv.gz",
       "bytes": 482583,
-      "sha256": "61ddd5eb847178ceefaeed4512ffaf8c666905598cbe107e37ca78bcaa3d2f5e"
+      "sha256": "1235190aaf405f4309753b8f64710633acc7ea79dbbbcb65cc5a61aa26385070"
     },
     {
       "type": "standard_surface_levels",
       "year": 1970,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1970.csv.gz",
       "bytes": 532698,
-      "sha256": "ccea5c6a6b4f60e6a503dd179b4cf3c6f6e36e5d3859f87e9b47f209ab5414a1"
+      "sha256": "6c77c0bf9d8be1867db4ddf9972afc41800361aa9b5e9e8b0664961cfe45655e"
     },
     {
       "type": "standard_surface_levels",
       "year": 1971,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1971.csv.gz",
       "bytes": 835437,
-      "sha256": "66c46d0ab52b0522a928b3e397388b2df2a6e6d5e2f77483a330368c07968338"
+      "sha256": "727bf71711522a765c7f658e8b74b468f9996662e9a1f7fe1c097913137d232e"
     },
     {
       "type": "standard_surface_levels",
       "year": 1972,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1972.csv.gz",
       "bytes": 842559,
-      "sha256": "60c93bc1851f7239653f04d42693def69fd12d74c41bc0751570cd1da3120214"
+      "sha256": "0a51ee76857f2ad5f7a4753209845ce4fdd162af98b8be4a62ab7ee7e28f0357"
     },
     {
       "type": "standard_surface_levels",
       "year": 1973,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1973.csv.gz",
       "bytes": 897763,
-      "sha256": "0d9bfd220c5aefe8f2aaa92ad94d8b61cf53a8f5a4390c76aec1a9d3f6d53920"
+      "sha256": "8bb9afad4f9f2f4dc256564ca7e497d6c382ac5fe9c86085315bcffe6bd7403d"
     },
     {
       "type": "standard_surface_levels",
       "year": 1974,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1974.csv.gz",
       "bytes": 926664,
-      "sha256": "0a8b21660fc0f11c567b4cf9781cd8ed4e69b6d96426a71b02fce784cb8effe7"
+      "sha256": "e821aded787062fa9cf6ff4042f715f6c6de9ba92bba3eec0f7661deb99660d5"
     },
     {
       "type": "standard_surface_levels",
       "year": 1975,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1975.csv.gz",
       "bytes": 727744,
-      "sha256": "ae1e118f2048e1a9ba18aeed608bde33457db978de16cfa36c9ac4b6f3b8acd0"
+      "sha256": "9770d006a8486fe00c3e209b037d0240788ccb5b7fdfe7a2b1b8c8fa6b2f7757"
     },
     {
       "type": "standard_surface_levels",
       "year": 1976,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1976.csv.gz",
       "bytes": 543872,
-      "sha256": "8d8bae704fb45a3044619554f4c65b04294603dd658ba725c7a4d58e83ee6398"
+      "sha256": "90eb828db5f049c87c78ea2da03be1fd7f22462c35a3f80ab2239d026da52a52"
     },
     {
       "type": "standard_surface_levels",
       "year": 1977,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1977.csv.gz",
       "bytes": 545396,
-      "sha256": "ee1a60138e574a04a701ba435c0397cac82362ac48e512ff5b660a586cb9eba7"
+      "sha256": "5ab51daa78d2c9b08e2158d07d247963be4c84d59af951dd8c17d942d1eaeed2"
     },
     {
       "type": "standard_surface_levels",
       "year": 1978,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1978.csv.gz",
       "bytes": 510528,
-      "sha256": "cbd523558919d425d3276de728f90758ee6fd0741969f8939f72e85a3e7598e3"
+      "sha256": "d31cf50827f87c265fd7aa430fa7607a2e02ab8926d7b3e5770334fc091945c8"
     },
     {
       "type": "standard_surface_levels",
       "year": 1979,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1979.csv.gz",
       "bytes": 897347,
-      "sha256": "59835337552d229a716f357e8c2739b4ee2e06d8ae66482c74cf12b615666953"
+      "sha256": "f4857833429793e26afc1a8bed1bfbd93b50748c827289ac47604ba754ab3c15"
     },
     {
       "type": "standard_surface_levels",
       "year": 1980,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1980.csv.gz",
       "bytes": 716232,
-      "sha256": "14756b2b3ab3e46d1a351baa7ce41fe9a4fa5635cf5425b39221d406ad361e01"
+      "sha256": "65dfaa8849a03520668206d2ed0b7a3426e5d2e92d0a0e836f8f5ca042ac4fd7"
     },
     {
       "type": "standard_surface_levels",
       "year": 1981,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1981.csv.gz",
       "bytes": 638722,
-      "sha256": "308dcab91de871201d22a27ddb6e544690088b97c446db90d5f7022ee20add34"
+      "sha256": "909c9fecd02be4a15c6092c9bcaeee6dc0ba523b5b27b1fba9f7775edb13873a"
     },
     {
       "type": "standard_surface_levels",
       "year": 1982,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1982.csv.gz",
       "bytes": 680359,
-      "sha256": "e5718cd10968b34fdcd09538081d2d342caf930fbe96bf0a437482ea3fda5f87"
+      "sha256": "cdc1f6ee8ed10b771f9f0c2a493c635eaa2e87d8903b1f5d3fdc3667e93d2ed3"
     },
     {
       "type": "standard_surface_levels",
       "year": 1983,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1983.csv.gz",
       "bytes": 734277,
-      "sha256": "1cbc483c27ed3595061d5cdfc06b80d779b1698f28a3ff05d519148fe01ee36a"
+      "sha256": "a9bf7fcc87e2212d0bef5ef7a48cc2dd920481aa9d803fd44a0e75d0ad852f39"
     },
     {
       "type": "standard_surface_levels",
       "year": 1984,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1984.csv.gz",
       "bytes": 686316,
-      "sha256": "2624eb89134baa9e8d5c55e405a3e68055ac089701e688d529d34e8d53a4ff2d"
+      "sha256": "97e9287cd8ac7936606a7cc9d60c1ae6979f0dcc909744375fbe64c77f412c51"
     },
     {
       "type": "standard_surface_levels",
       "year": 1985,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1985.csv.gz",
       "bytes": 592049,
-      "sha256": "e3adc1f813cb699daa78b6586144c28318ea3d62d66350f36b4aef41f732c623"
+      "sha256": "92df4b2f8ba0ea851b0200e499bdc85617d2d6bb4d9eef3f38dd8d660de38485"
     },
     {
       "type": "standard_surface_levels",
       "year": 1986,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1986.csv.gz",
       "bytes": 539740,
-      "sha256": "374a586f8f947a1e5be93c97ad2bcbe18ae9f5e86a1731e52f099780d4bd49b5"
+      "sha256": "9652bc6f7131e9228805440cfd349d256a67afd50b584ef4b629e68c05b1eeb4"
     },
     {
       "type": "standard_surface_levels",
       "year": 1987,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1987.csv.gz",
       "bytes": 455156,
-      "sha256": "195205d753d4cffbf22d915fa3e29016cd5627392545c9dc71b8a7b3f82a6a5d"
+      "sha256": "9171a95f4b3dd587ec4a3f58bd7fdec83e4c5898f214c0486ec863882c72c9d1"
     },
     {
       "type": "standard_surface_levels",
       "year": 1988,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1988.csv.gz",
       "bytes": 525762,
-      "sha256": "8639556e7e2494168618a9b7baa57fa83618d0aa47ed3529e05f92c0a74332b2"
+      "sha256": "69d7c9416388403798ced3d6e4bb86744460ebee6f9636b7f90babbe0bc4da16"
     },
     {
       "type": "standard_surface_levels",
       "year": 1989,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1989.csv.gz",
       "bytes": 385828,
-      "sha256": "2c276624e4bcf776bed5d7ee31da377983a47073cd85e952e9843430d502727c"
+      "sha256": "febd84aa3ffacaf4e8c4cb8e38f68bfc9244e0f8011b52d5023542cad8a86de3"
     },
     {
       "type": "standard_surface_levels",
       "year": 1990,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1990.csv.gz",
       "bytes": 218642,
-      "sha256": "7d680070fbb493a4e6950cae2daf9aa84f8f7c0eb205faa6f9d0e6bbf9c54847"
+      "sha256": "20129977a54f79a67cfbfca2f09fa83c12b50b3bd1b42a2f680f1a15fa6b0d2a"
     },
     {
       "type": "standard_surface_levels",
       "year": 1991,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1991.csv.gz",
       "bytes": 421768,
-      "sha256": "691827bccce66ed9aa986847ef99e55d796f6c498e18cde599e26c4cb72029f0"
+      "sha256": "cb45aa9ff60dabbc406720f208f75c013e173905af0e5bfc4715116682c2d6f6"
     },
     {
       "type": "standard_surface_levels",
       "year": 1992,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1992.csv.gz",
       "bytes": 414339,
-      "sha256": "c352fe0d06c95f1691abd629249ce44d7e62e2b802c5fbd3a2e0b66dc7ba8baa"
+      "sha256": "ab715aef8a38a40b896280cf243fd71a2934b4cbac59676bfd5c8e4d4a1b7a5c"
     },
     {
       "type": "standard_surface_levels",
       "year": 1993,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1993.csv.gz",
       "bytes": 437052,
-      "sha256": "f61acd3132e542e87f85ea99ae35eb2ede9f7c57b858b14ee6f9f637cd1fbbdc"
+      "sha256": "4a22cd414b69c62a1185709544d03c8885cb5a5baef0d8e8855937ce62ef7df3"
     },
     {
       "type": "standard_surface_levels",
       "year": 1994,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1994.csv.gz",
       "bytes": 412371,
-      "sha256": "b0ec1369f3e21ba5bdb181374c51917bc826ffa6cbd3c85c34cccf539b995076"
+      "sha256": "e5eac71a8d1098fd8762f3eb51a35dcd6187d4d22814ae41ccde9d7e1d4da5a7"
     },
     {
       "type": "standard_surface_levels",
       "year": 1995,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1995.csv.gz",
       "bytes": 488826,
-      "sha256": "2197c8a7d2b63521efd2ed7ced0e149e32df93d0207d7b7a31acb800dd5e0977"
+      "sha256": "16d3d774bb6c8304bb47e4b75906fce2e5422102bb92593e7b2dc61cd73e595d"
     },
     {
       "type": "standard_surface_levels",
       "year": 1996,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1996.csv.gz",
       "bytes": 318466,
-      "sha256": "92725d8679a799a9db3a9e180c346401ce1a70d1b12903d8a22c39840b87ba95"
+      "sha256": "6fdfbba01ec1289f974ff1bf0ca7e7680a0b2909ac840f85e44a3288d782a4da"
     },
     {
       "type": "standard_surface_levels",
       "year": 1997,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1997.csv.gz",
       "bytes": 237405,
-      "sha256": "a9bd275514257f382ae0ef0e959d025b9fb0459f73ecb4171f7df8d77cf970fb"
+      "sha256": "22cdbc8f1947ea2632cb4cf751f61ec770faa50ca6b393a5090b6b3e0fdccd3b"
     },
     {
       "type": "standard_surface_levels",
       "year": 1998,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1998.csv.gz",
       "bytes": 437915,
-      "sha256": "73b54319f187fc7321ff881c62b79e36b9865686600c10126d2bd9945e3789fb"
+      "sha256": "e9729c1b9d215429c38bdfe460265568e9498025df1091e16fd3ea7c19487f24"
     },
     {
       "type": "standard_surface_levels",
       "year": 1999,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/1999.csv.gz",
       "bytes": 381998,
-      "sha256": "9689f3fd8d191628b09ec29f628af0253d1ea041d90d7a7d3b4a78f882c5a31c"
+      "sha256": "9907ae7e249ea2305ced2a790900229b3d9dfc69d3d1502261c6c8574de33b23"
     },
     {
       "type": "standard_surface_levels",
       "year": 2000,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/2000.csv.gz",
       "bytes": 438244,
-      "sha256": "66950705806b0177dab762ee252161ceab9b3d787297df88d110767013265972"
+      "sha256": "4f0e85042e2a21e728e0955b051544452113bd11f350f26ff51211b21fcdab8f"
     },
     {
       "type": "standard_surface_levels",
       "year": 2001,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/2001.csv.gz",
       "bytes": 365348,
-      "sha256": "f42caf0c0b978c36d6391b14ef8d4e49ca15432e4926324d30a39d8c7dba1b08"
+      "sha256": "78afa5ddab3c8d61707909a85675d7a2a4662caf53ab9a9e985f2880002dcdee"
     },
     {
       "type": "standard_surface_levels",
       "year": 2002,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/2002.csv.gz",
       "bytes": 206355,
-      "sha256": "1c72ed6c21b763f0169e8b8d6c1238ded94d6996a3f34c6ba9f4d134fe856733"
+      "sha256": "e923122bb015a9960a8c6ad31db755fecd73a811c9d1393d253ab99b8c16559b"
     },
     {
       "type": "standard_surface_levels",
       "year": 2003,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/2003.csv.gz",
       "bytes": 202153,
-      "sha256": "29a7c92d4a223e366cd76aa98b7384e988c8c7c31841a467b8f5cea0b728e5a6"
+      "sha256": "1d303a7cfb3312b55e67479469a8374c667264d2a7ac3acda67e7055862ad168"
     },
     {
       "type": "standard_surface_levels",
       "year": 2004,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/2004.csv.gz",
       "bytes": 291591,
-      "sha256": "0de04754daafcbd07d2fb2eb0228596bab2637d929b77555c09557241fff764f"
+      "sha256": "ed2402bade98a91fdd2a5560d5e2af3625005a2eadb987893b3fde83640ac500"
     },
     {
       "type": "standard_surface_levels",
       "year": 2005,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/2005.csv.gz",
       "bytes": 321373,
-      "sha256": "59f94e941968d642049b7651c6f9eac2fae06d57a532092ad034367305051c5c"
+      "sha256": "f661931961a0372438e2bf02e9e83a12416201e1c5a14408295faff14b5925d2"
     },
     {
       "type": "standard_surface_levels",
       "year": 2006,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/2006.csv.gz",
       "bytes": 315339,
-      "sha256": "cc766909da60f416084a0b1e868f74749f4b5130ce78d76c3693b48dc875c0ce"
+      "sha256": "9205717dd36993085e468f6b0ed6d25887b18b94eb71ed382adf09b8bf91e577"
     },
     {
       "type": "standard_surface_levels",
       "year": 2007,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/2007.csv.gz",
       "bytes": 260948,
-      "sha256": "62443594c4d5ed8fb7578ff63c24e72e581d3725f00ce8bd9095915f70312e2d"
+      "sha256": "dbd374db76ef55befc9a072a41407f827cde0574e19f86a236324f17429a6447"
     },
     {
       "type": "standard_surface_levels",
       "year": 2008,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/2008.csv.gz",
       "bytes": 300095,
-      "sha256": "f24da670dc5ed120ce6ec6c2fbbb14b76c264da59140b486ccb7e3f1f1723b9a"
+      "sha256": "2dfd02b3133beb5ca8632691827224f6509635f1c1f1a03c0edf611ff4c31705"
     },
     {
       "type": "standard_surface_levels",
       "year": 2009,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/2009.csv.gz",
       "bytes": 379710,
-      "sha256": "98a86457a6dce170294b985ea4273802630a8e6c48a8aab4be6bb8255ccdf18c"
+      "sha256": "df026dcd3d872e47edad1cc82a3680b9876e466b053456cf7d0a7b305bd2fa64"
     },
     {
       "type": "standard_surface_levels",
       "year": 2010,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/2010.csv.gz",
       "bytes": 300046,
-      "sha256": "5cc78262cb34e7fde7b478519d04656800eba9029d4cc8e30a79f459a46e6c5d"
+      "sha256": "d65064d154e27a5bfec75e4a558b36e2261b1b71aa3497763a7ee1505c24b8e2"
     },
     {
       "type": "standard_surface_levels",
       "year": 2011,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/2011.csv.gz",
       "bytes": 395361,
-      "sha256": "0fe804163f02bb2355778cc3063cf8c27978b9adad00af57133fbc96af3bcb59"
+      "sha256": "a642a853fbdc95af7fc9ddfb7d58158cb45f3e565ebb66e2c065a7a407f3ccec"
     },
     {
       "type": "standard_surface_levels",
       "year": 2012,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/2012.csv.gz",
       "bytes": 257745,
-      "sha256": "031b282c7d3fea5dd15fb10951a03119cfa47e5fd7cdd23f280c903405c6e616"
+      "sha256": "4378fe870ca97bcbf9029c697fb3a2617ac02050af74599d48af648cd2ab0386"
     },
     {
       "type": "standard_surface_levels",
       "year": 2013,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/2013.csv.gz",
       "bytes": 716421,
-      "sha256": "c5b0f90996d05f18cc841e70406544ec088cda9b17f17127bf549486687443da"
+      "sha256": "347d5e1a6266582d9988ba6ae84072a6af6141426ea068d9667d6f713a622a73"
     },
     {
       "type": "standard_surface_levels",
       "year": 2014,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/2014.csv.gz",
       "bytes": 374490,
-      "sha256": "409057ca60b1030a267e0f30d98d2f73c1e619c9c20a20d1c7b126e3836a0424"
+      "sha256": "64b3166b913bfe979a077609367c2c4a78626fe5286c567d4c06bd7c6e809bc8"
     },
     {
       "type": "standard_surface_levels",
       "year": 2015,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/2015.csv.gz",
       "bytes": 394100,
-      "sha256": "5274415ee27a544ff6128702c7fe6d34bc7bd0b1ef25ed9c7ea35b8f2289ad65"
+      "sha256": "717f033616374ad01739dd7f30050b57d5c0e6a0d75fb908a48b7f49699d9b5e"
     },
     {
       "type": "standard_surface_levels",
       "year": 2016,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/2016.csv.gz",
       "bytes": 610348,
-      "sha256": "2d146b7fc324e5efcb130131bf8da7d10c6c487777e5805e79b9778d13b7b909"
+      "sha256": "498f80b8217e4a9534556431b1ee21eb461e95dd4e099895d41d4544ee22791b"
     },
     {
       "type": "standard_surface_levels",
       "year": 2017,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/2017.csv.gz",
       "bytes": 707326,
-      "sha256": "6a69da82e0de26d13cce412a397dd6fc7274e6b151370711e367e308b99b7a71"
+      "sha256": "62d6028b8925a42a6689d4001cf57dea0c1a3ec1f5ce21dbbda96d25592e90e1"
     },
     {
       "type": "standard_surface_levels",
       "year": 2018,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/2018.csv.gz",
       "bytes": 732462,
-      "sha256": "b0439be03f3ac28af852399ae881652ab85fbc45fd8d214f2b8937deb5eba80c"
+      "sha256": "f3a89fd97191470760eb57e23e7f5532f83c5310bb8af9d8c09134f1ac199ddf"
     },
     {
       "type": "standard_surface_levels",
       "year": 2019,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/2019.csv.gz",
       "bytes": 435379,
-      "sha256": "f390febd92b39375e7e5229b45f108036d0abdf6dbb04c93deb30902b9cd0441"
+      "sha256": "315692d1643ea18ac2ac979625ec4ea98c13589ddf81083eb3bcb11f1861c1db"
     },
     {
       "type": "standard_surface_levels",
       "year": 2020,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/2020.csv.gz",
       "bytes": 356557,
-      "sha256": "05697adc4d9047815fad08f5fe86c9dd9df3259fbe2667e8b0f3a051f12697c4"
+      "sha256": "b0f09d183c04a225b025c1bf2060922c77218873ed99bce8f7f0a726769241ca"
     },
     {
       "type": "standard_surface_levels",
       "year": 2021,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/2021.csv.gz",
       "bytes": 263759,
-      "sha256": "039ffe2b06ccd5dce0db06ea9f881f093950d968144584421e743be3fe3d9afe"
+      "sha256": "6bde9d322fdf9dc54ef2e6272528b3753d4553cc9f77315d38150a0051b1e137"
     },
     {
       "type": "standard_surface_levels",
       "year": 2022,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/2022.csv.gz",
       "bytes": 266789,
-      "sha256": "1e2745fefc6c65bc43d9a18ab2b49987f745b6f29253a04c1735a4044b6bb7f1"
+      "sha256": "d7e18c9cdb16eded6e5efbdf85c6e5ee6b3f0faa9c85ae09b5fe35a8a6aae64e"
     },
     {
       "type": "standard_surface_levels",
       "year": 2023,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/2023.csv.gz",
       "bytes": 460272,
-      "sha256": "be506567bfc721b5db4d47c03cf8af133cb2184c83a1e213e80f9ce8da3e97ee"
+      "sha256": "7c592d7f316195ccef0aac449b5d97a6c191eda277072d1a07830684688510d7"
     },
     {
       "type": "standard_surface_levels",
       "year": 2024,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/2024.csv.gz",
       "bytes": 494546,
-      "sha256": "3763d1b00c8accf28cbb8b6358abff254e18004e51769559c6337f7eab2e4cca"
+      "sha256": "1149d0632aa8c139a1b32dab18602c3a9f1882c4772ba85a0db2e572c912ebf4"
     },
     {
       "type": "standard_surface_levels",
       "year": 2025,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/2025.csv.gz",
       "bytes": 502035,
-      "sha256": "d3b1088cf8fae3118bd09ced3b13d63459c82fbf7f24aaeb86b7cb088dd93e22"
+      "sha256": "070bb5e350c0df19f5a4787f46b2bd6c4f74acec1d54e8d55d571636594b6fa4"
     },
     {
       "type": "standard_surface_levels",
       "year": 2026,
       "file": "datos/fuentes-externas/radiosondeos/igra/perfiles-estandar/2026.csv.gz",
       "bytes": 274876,
-      "sha256": "7fb376b5e1f9298f5121cc62aeeac7dd6ff73280f705fa983152d3dd9ad31377"
+      "sha256": "7a274023c85c7c4ec4ced5fdb1bee841db6fe2ac2b1c74c151158aeb8f678155"
     },
     {
       "type": "sounding_index",
       "year": 1957,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1957.csv.gz",
       "bytes": 2931,
-      "sha256": "7a24d993217157811ac0a01224c55173b077184e18c713a750e7301f0a895ea5"
+      "sha256": "c391ca40378fe922affce25c1dcf89900fdebc8911d332fecdc6d1d15ac3aac9"
     },
     {
       "type": "sounding_index",
       "year": 1958,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1958.csv.gz",
       "bytes": 7590,
-      "sha256": "6d780a2c79ea805aec28dbc171f7a4668b4bfde7a8139b1b4e2f508529e6e148"
+      "sha256": "11431687fc429ff9a000d9b47d37a637faea9cfbfa7baaf562f9b6858e951f93"
     },
     {
       "type": "sounding_index",
       "year": 1959,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1959.csv.gz",
       "bytes": 4949,
-      "sha256": "3c82a91fccaf6435ae181eb9e15ee1153fd30c6f2181b364a6e75f52a537ff1c"
+      "sha256": "63abb52a6bce8b0ea34aa860c8d2166cc201168994f6fce8683bf1e0ebd28538"
     },
     {
       "type": "sounding_index",
       "year": 1960,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1960.csv.gz",
       "bytes": 3416,
-      "sha256": "c884969e134111c14142647e131d028a480e1ab1dc8a3fb04456047912dcfc24"
+      "sha256": "d1504a6bd61f88651b317666fb166e9afb988df1d6a64a889d34ffe46c51a4db"
     },
     {
       "type": "sounding_index",
       "year": 1961,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1961.csv.gz",
       "bytes": 7473,
-      "sha256": "c5c3499a374c192dcec4f77b5859a7e3e954ca6f3f99397da363fe123fbdb0e9"
+      "sha256": "2e0fb94381931309a51e29f9971d7ad60bcaeabe87f8d1cdb7ee4f7adde1da24"
     },
     {
       "type": "sounding_index",
       "year": 1962,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1962.csv.gz",
       "bytes": 10210,
-      "sha256": "40b74b55ba122dd23f3ff9b05f4082b734916561af7fa4fb4d2ae9f625e985f1"
+      "sha256": "39a4d4832924a23f6c536295ff335b7e3d5ec1af4baaeef2219f172a50f4c870"
     },
     {
       "type": "sounding_index",
       "year": 1963,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1963.csv.gz",
       "bytes": 6356,
-      "sha256": "50b10b76083cbc9dd5a1c875e1a8399ae4c36a5fd553be25ebc39b229053f816"
+      "sha256": "5ba0c0d13c4d14a03f6c15dfcfc21e80dc18e8dc26bb277c6bd5fbaf4eab058a"
     },
     {
       "type": "sounding_index",
       "year": 1964,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1964.csv.gz",
       "bytes": 11832,
-      "sha256": "e79f8ef02afb42da500aeaf3c4a1935368086dd25caf2aba9ec002fba9c46f10"
+      "sha256": "ce593e046b488899bc17415c011a42c22b3dfc84437fee7c775a6235d8230d7f"
     },
     {
       "type": "sounding_index",
       "year": 1965,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1965.csv.gz",
       "bytes": 17319,
-      "sha256": "7e12f62e28d51a7874c93c87990d08d20bafb6171c3c19b51e0217c933d6260b"
+      "sha256": "ffe5ae76c7daff6c38d2160ac870c5e45332a438a9591866c844bd155a3ff89a"
     },
     {
       "type": "sounding_index",
       "year": 1966,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1966.csv.gz",
       "bytes": 17611,
-      "sha256": "65176b84d70146158ca010b96dc486a2ee31211c30bd2fa2f4aedc62e667edec"
+      "sha256": "21a95907cbd32d41be85adf542479a3a7ae862c45470839b43f33947eff89433"
     },
     {
       "type": "sounding_index",
       "year": 1967,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1967.csv.gz",
       "bytes": 21999,
-      "sha256": "b7e285613563da7e813ad4274f86580df6ca8949ba0a2fb9db1b93f570ce9328"
+      "sha256": "3f9771c43d2b3d5b219f2e59eb483a4ce07c2818cfc96e0a56ec45c832b905ce"
     },
     {
       "type": "sounding_index",
       "year": 1968,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1968.csv.gz",
       "bytes": 21246,
-      "sha256": "338c4a7eba241ebc33df0d2da0a343eef124827567a42233a219b3faae50b5d1"
+      "sha256": "b23586e1b99a057ba98cb3337f61752e4eb1fa0e1a799d126e995dc4b9b31192"
     },
     {
       "type": "sounding_index",
       "year": 1969,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1969.csv.gz",
       "bytes": 22394,
-      "sha256": "061f46593d2d7ef562b0078e4c195bd205941f5470e3568433fc6c5c677f25f3"
+      "sha256": "bcd533d0f5cb79ed34f121e6b647062dd5c8e14fca9ee5a10ae0583eede6e0e5"
     },
     {
       "type": "sounding_index",
       "year": 1970,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1970.csv.gz",
       "bytes": 23236,
-      "sha256": "8f7a58b7d9a5d5f855b05fc972abecd3192d4a3163792b562ebacc5e37153a61"
+      "sha256": "9fe0d040ca670ba4640f3402733b35634d6cf640fc6180fda7e9d22e86333f56"
     },
     {
       "type": "sounding_index",
       "year": 1971,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1971.csv.gz",
       "bytes": 28349,
-      "sha256": "5f7d870e9304b669de720c8af68266ae77039de42d97d0c7338b27cbfd84e361"
+      "sha256": "a39aa01582645deb388d31bd7493442a1f37ab08e2f5a00ecef283b79705352e"
     },
     {
       "type": "sounding_index",
       "year": 1972,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1972.csv.gz",
       "bytes": 25630,
-      "sha256": "a12f8045d31eb6eea57a55eded96c5b3dd32765c6a2ac878a76170967d848a58"
+      "sha256": "7150b8e360f7b8cc01706e60c6383cfc2cf63907f44ce04043c7f3e75d3485e5"
     },
     {
       "type": "sounding_index",
       "year": 1973,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1973.csv.gz",
       "bytes": 33450,
-      "sha256": "2613fb6770c89e5ef7b2a0546f55b31c64b94c6a34516d24f916b8909deb392c"
+      "sha256": "460b8b46d7e6fcfec8263638b9d018fc6b761bfea5ffa0f836476d80567a8482"
     },
     {
       "type": "sounding_index",
       "year": 1974,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1974.csv.gz",
       "bytes": 34487,
-      "sha256": "6c7b875f7a7d9e52ffbc1902ca35201f8527620f8d9e18560048e1746dd537e3"
+      "sha256": "583fae3b16af07c70cf1627c77e54de20343658b36a92ee6764100a71d35a20f"
     },
     {
       "type": "sounding_index",
       "year": 1975,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1975.csv.gz",
       "bytes": 29862,
-      "sha256": "5f97cd05ee8f6fdf01ab3733d447b3a5af5d66c31dedfaf610238631ef31c9f1"
+      "sha256": "0b97ffd65b419a1aaadc771c8507664897a01351b0bf07debe6bee43004e417b"
     },
     {
       "type": "sounding_index",
       "year": 1976,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1976.csv.gz",
       "bytes": 23821,
-      "sha256": "075e625ae639c9e1304947deeae478b3a809eff43ef1456df76db232480356de"
+      "sha256": "938533bcca755f1364d935324886ef1ef76037230d6555afc9a4d8540d0f04b4"
     },
     {
       "type": "sounding_index",
       "year": 1977,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1977.csv.gz",
       "bytes": 24685,
-      "sha256": "27c35fc039b648fdce4db9e4e2575cbf399d229c1f0bf2d8a1d81f5df1782ec7"
+      "sha256": "05f10619510fc664d7e816f273720a2a255800a9628a8297db2ceeda05a81e46"
     },
     {
       "type": "sounding_index",
       "year": 1978,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1978.csv.gz",
       "bytes": 21827,
-      "sha256": "65d1908d9dda85fa6f980892d7e9a27297858432c471e9c581e682a7b5233300"
+      "sha256": "b2e0f72f25178758487d12d02e5d9f40bbee216d6583e236ce8b6c02e6160f81"
     },
     {
       "type": "sounding_index",
       "year": 1979,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1979.csv.gz",
       "bytes": 33390,
-      "sha256": "7a83164c7a73d07eb9b4455239c7b4722d01972fae0160ea420a5f821ef4a57e"
+      "sha256": "0214f10235d7cf2087e4d18a645f228f29b5de129b77cc131015527d49e06b11"
     },
     {
       "type": "sounding_index",
       "year": 1980,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1980.csv.gz",
       "bytes": 30205,
-      "sha256": "70b3e9710fba79d745df7602e57dd4c82e948648fc50c42d39d0f79f855b3cbe"
+      "sha256": "633620f6981aae3ce6cbb04d8b2796e80b8459a938a5dad15f3840f085e9043e"
     },
     {
       "type": "sounding_index",
       "year": 1981,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1981.csv.gz",
       "bytes": 26011,
-      "sha256": "2dd74054ccf147d012c09e334d2076b51802ee7936a322107a8e79aca063785a"
+      "sha256": "e5f578e04778ae2b8220f2400a0c8dce105c63bcda7dda612fefd2ff01ac2c43"
     },
     {
       "type": "sounding_index",
       "year": 1982,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1982.csv.gz",
       "bytes": 24460,
-      "sha256": "f98863efc29bc415079cb5ee02d614f07940ffae98f152c9b1439a715e6c018a"
+      "sha256": "754bf3bbeb65906927599edce946a69f7ce2f28357d2b58563cbeab9f91bd357"
     },
     {
       "type": "sounding_index",
       "year": 1983,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1983.csv.gz",
       "bytes": 28343,
-      "sha256": "cd3f183dab3a7dbafe9827b945c139d0586dbfebaa49646d4dfd8db992974b07"
+      "sha256": "8818f331950174a2f129f5a8269acdfa57bc5f66a90fb99cb40caf5552785f48"
     },
     {
       "type": "sounding_index",
       "year": 1984,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1984.csv.gz",
       "bytes": 25597,
-      "sha256": "39bfd4208ba944f8a838631352581a3500f1cde2e79bf836fcf0bf15b2393efe"
+      "sha256": "e4411ecd1cedbbf510017cffb5b55845bd34216b2b3b204c9fa0bda3e5206b59"
     },
     {
       "type": "sounding_index",
       "year": 1985,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1985.csv.gz",
       "bytes": 21426,
-      "sha256": "856593561fcb9cc45d2641f2b93c190cc6afd3214b768136df9bf7af8277e83e"
+      "sha256": "16dc3cb8bb8babe7212e9330c7969a732f428503857bc899c75c1a84e9da0b5d"
     },
     {
       "type": "sounding_index",
       "year": 1986,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1986.csv.gz",
       "bytes": 19963,
-      "sha256": "3069e8340d4f1bb6fe4d85d095fa3513f01fa573e9e6ef6bc45b58cea4f9676e"
+      "sha256": "db0c684af7ccbb2222e9cb3f1bbd863a5a8f3c8b7bf3a97912d4ab5c8707ba19"
     },
     {
       "type": "sounding_index",
       "year": 1987,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1987.csv.gz",
       "bytes": 18008,
-      "sha256": "2926abae49e5ac94ff79a882e89d7acb5338c1e3cd00c8125846738013e245f5"
+      "sha256": "3d071905a793b513a40ddb0c8e78bebc2437c80ff502623ed3d26fad66ba38d5"
     },
     {
       "type": "sounding_index",
       "year": 1988,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1988.csv.gz",
       "bytes": 21268,
-      "sha256": "6dbc170799420300fc64891be82cbf32982c8176a9f03d67938ff4d16686f462"
+      "sha256": "039e44a8b849b925152afa8247d2f7eab8883fe91a7f01c39777fd55c2b19d8f"
     },
     {
       "type": "sounding_index",
       "year": 1989,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1989.csv.gz",
       "bytes": 18203,
-      "sha256": "839063daee444590c6347aac20a30f6c78503a3460ab44623a855a079e54e9fa"
+      "sha256": "a9378d6400772b66e12bb8cf83026a9c000b660a01481b8d3ffe67bb5c5ee864"
     },
     {
       "type": "sounding_index",
       "year": 1990,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1990.csv.gz",
       "bytes": 13146,
-      "sha256": "5fefa9f4927126e1b41829873120f2338854fab9cfe854600148e0f39e3bbb84"
+      "sha256": "af322c89df396289086717bcf9163099d3cefab4b6f433fdc80987ce567f2e43"
     },
     {
       "type": "sounding_index",
       "year": 1991,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1991.csv.gz",
       "bytes": 19190,
-      "sha256": "bd58c15d964b549befbe26f91dc6446ef6f63d5ccd46f7ee7b11eb9dee502281"
+      "sha256": "7615040f7f03c497b6a2de95deedcb0438da9c63c369c61cd9d972205335a559"
     },
     {
       "type": "sounding_index",
       "year": 1992,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1992.csv.gz",
       "bytes": 21217,
-      "sha256": "cc067d116fecac33bffeeca5aaae3efc9c265b27b44050e234575cabd8edf947"
+      "sha256": "a109a95b7dd88d73459dbd1026f2f340e5d2350c11a13af056c1ed05db790cbd"
     },
     {
       "type": "sounding_index",
       "year": 1993,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1993.csv.gz",
       "bytes": 21491,
-      "sha256": "e0125067b60ebabfd8676b5779628fe0a7a19d3eea6b746b381c6054da90a392"
+      "sha256": "b08bb3f0821f80680810b783aa43563c5aca5ea0c3736e2399bde15e4146dace"
     },
     {
       "type": "sounding_index",
       "year": 1994,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1994.csv.gz",
       "bytes": 19727,
-      "sha256": "9b9fb68e598b5e280dfbaff16dc13c837dde4383050859f6785e4a9da8ab1fe5"
+      "sha256": "d4a4be7b30003eb9d5b6dbb509e7b61325e4665849ace2161599601a46b4ff34"
     },
     {
       "type": "sounding_index",
       "year": 1995,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1995.csv.gz",
       "bytes": 21093,
-      "sha256": "8b84473f3ed04e3224d358d1d18b8617dac7353cc53c50cd29a4258687adb53a"
+      "sha256": "0e3984bc3a32b869c84ed6a8fa589d55fef47f0d421238642a2ab9b30bb9e968"
     },
     {
       "type": "sounding_index",
       "year": 1996,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1996.csv.gz",
       "bytes": 15032,
-      "sha256": "b881155909d171590d35a7ad9fee5db5c1653ec40f735d857e20aeae6c32aef6"
+      "sha256": "0dc9521fb24307aac2f0af99967cf1a44eb83ec860c48e2c3ff896968326ae3c"
     },
     {
       "type": "sounding_index",
       "year": 1997,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1997.csv.gz",
       "bytes": 11073,
-      "sha256": "23ac2d72180391be9030bfd0673d76b7783fb2613e38ca94f4acca33d1355cb3"
+      "sha256": "0caa982ad30b9eacccf0cc4947db2afc2c67dfffce949f3a581d1bcd9d505b4c"
     },
     {
       "type": "sounding_index",
       "year": 1998,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1998.csv.gz",
       "bytes": 18021,
-      "sha256": "b4856ce6a3519c210a2afb85bd5ecedcaa9031ca4755c062f647c84beef835fa"
+      "sha256": "e732a70c3fae44ebe4cc6aa079e7e7b85a8fe1358ffc330d1f1e89aec6fe9928"
     },
     {
       "type": "sounding_index",
       "year": 1999,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/1999.csv.gz",
       "bytes": 15096,
-      "sha256": "8242ee2fa21dfbfb3f9780526ec774d8154d5ec86e5541a77f41316fa1274b08"
+      "sha256": "81251c6ec73507d8dabf1f0d93785cb1cb39ca28725092443bcb5e8d0ae810e3"
     },
     {
       "type": "sounding_index",
       "year": 2000,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/2000.csv.gz",
       "bytes": 18340,
-      "sha256": "a05186d5b2dfed16f3fc2aa543a2debf46ad74c8b61397f34275522596145014"
+      "sha256": "4b88e6a2a13bbb194fe827627e271995ba27c3fb64970155ff5f00f5116f1c1c"
     },
     {
       "type": "sounding_index",
       "year": 2001,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/2001.csv.gz",
       "bytes": 15237,
-      "sha256": "e7f1b8eaabc5dab0bc407a60cdd22c43a1b7969f6092553c4da58096d72e5069"
+      "sha256": "eec93ad41b4ab84b7312d4ac4d26f6a7e29e3a7c5f710472e9c1a56d629b6efa"
     },
     {
       "type": "sounding_index",
       "year": 2002,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/2002.csv.gz",
       "bytes": 9681,
-      "sha256": "d883b6c2520498b7e41da64bad34db08304ae2ca57004e68c2c7d146e0e3764f"
+      "sha256": "31ddb1581ddd931f5654eee33ac7467f768e0ff5f505ca229a29bddc790c25fb"
     },
     {
       "type": "sounding_index",
       "year": 2003,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/2003.csv.gz",
       "bytes": 9017,
-      "sha256": "08120ddcf6837a02a3ef62be2bd364b8a4b6fb47ecb9f186f3fbdd85f82b4bf7"
+      "sha256": "410f1ffa3804637410830f6b679982ee83f2dbc66c64f5facb461ab6b700a271"
     },
     {
       "type": "sounding_index",
       "year": 2004,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/2004.csv.gz",
       "bytes": 11655,
-      "sha256": "e0478cba9e16f248ef0ceac0d133af973f4fad887783cece055d2f69c3c909f9"
+      "sha256": "5b3338ea73b57fcad3da02b9f7f4ea7d8430245af434aa67c460a7119ad332cf"
     },
     {
       "type": "sounding_index",
       "year": 2005,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/2005.csv.gz",
       "bytes": 12341,
-      "sha256": "80b9666d4922000e111df541ff4f8706302949bf91e655acca2f1fa3b4ba227f"
+      "sha256": "2e2ef0cbcf57852a53e89079d53be50763d69c2b6e95435df4c72176a7ed6c8f"
     },
     {
       "type": "sounding_index",
       "year": 2006,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/2006.csv.gz",
       "bytes": 12555,
-      "sha256": "38c94efa35973cac7c4073704a7cf03a72b7e01395620dea3f24d8ab49342cdc"
+      "sha256": "e701c013a3a33764c5d4ae6a051a9e10b75aea16a74534736e91d3265314be2d"
     },
     {
       "type": "sounding_index",
       "year": 2007,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/2007.csv.gz",
       "bytes": 9564,
-      "sha256": "23b167fe761195d7876f6c920d46d9ec6e7751dbf942b6d49633d56c43e20cd3"
+      "sha256": "5cf6210cc22b87d7c3db0087d0ce5c8c994b94302e0f6b150c9214c8cb1421f6"
     },
     {
       "type": "sounding_index",
       "year": 2008,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/2008.csv.gz",
       "bytes": 10741,
-      "sha256": "d7bc484fb4ddc01f6d2f8c79a382fda1c8f9dea8fa8f71a2abee7ad3646479f2"
+      "sha256": "4788fe2c86eece3a390ed43f19db04d09d291222430a9129fe6365c4a45086d5"
     },
     {
       "type": "sounding_index",
       "year": 2009,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/2009.csv.gz",
       "bytes": 14256,
-      "sha256": "aafd85e860dd1ee74077c2931c25cd05d04b6447f552da9d8af0ed03ff69c2a2"
+      "sha256": "4e50c86f270fe91f3df1bf078d598f94206066a92efeef1cf97d0f35b3300d54"
     },
     {
       "type": "sounding_index",
       "year": 2010,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/2010.csv.gz",
       "bytes": 11756,
-      "sha256": "d380258dfc0e98cb5c5e232859c76c60318badfc2057f0da61aee7063fc89ccd"
+      "sha256": "e6a1d6b486bdb5c17dd67dedaa51c04a592b3c72e35a4f4561bf9fa41db2f170"
     },
     {
       "type": "sounding_index",
       "year": 2011,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/2011.csv.gz",
       "bytes": 14731,
-      "sha256": "5a1fc467ce71d9cde5cc0c39d55226fd7f6c85c73742353184c2533aabfc9d9d"
+      "sha256": "a86a1ff54a0032b07286e080d472020fd46b6c5e066cf8eb47193652c0716a28"
     },
     {
       "type": "sounding_index",
       "year": 2012,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/2012.csv.gz",
       "bytes": 9554,
-      "sha256": "ee7fa332c8f5dabe2b372749bcbd2748461d587ef57d66e6f0160d24c0082609"
+      "sha256": "6c7bc6aa111c3f57e833821683f0a1327d2384a3021ee32e8851b7903a18db86"
     },
     {
       "type": "sounding_index",
       "year": 2013,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/2013.csv.gz",
       "bytes": 24505,
-      "sha256": "1ac25c15e3c926b8fc0f1048696fedf54d5665dbed1888a9bf261066f0a2e696"
+      "sha256": "264c0141ddd4562446e25cbbac27601fb3dc8be60f9a457d014b1bcb4b263ca9"
     },
     {
       "type": "sounding_index",
       "year": 2014,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/2014.csv.gz",
       "bytes": 12732,
-      "sha256": "74c4534517c22aa0f0f0aea0d6e6d4bfce05245b1a59579256f5f63ca9e4698b"
+      "sha256": "39ebdd979c5a4744061dd56d28f8a0fd1ff390e5d74286ee3b4bd5f10118a27e"
     },
     {
       "type": "sounding_index",
       "year": 2015,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/2015.csv.gz",
       "bytes": 14280,
-      "sha256": "a7f287536d564853d42086e12fa1fb802e81a05938f055b5b8c7455cfd7cc193"
+      "sha256": "0d6bcfef23c5ea528d8ec6a7c362614107b8b86a7a06f787cc592f3758b442bd"
     },
     {
       "type": "sounding_index",
       "year": 2016,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/2016.csv.gz",
       "bytes": 22339,
-      "sha256": "91c776fc6afa4ce79a577752acbe0fca5f166afc6767a359a0962c5ceedf5e9c"
+      "sha256": "242d1942675129221ab6e34cfad6186a23dc1a38d939c7ab6812d7ab5e2c6a9d"
     },
     {
       "type": "sounding_index",
       "year": 2017,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/2017.csv.gz",
       "bytes": 25060,
-      "sha256": "82af16b23467f3f590f6befbda6f23fa2004fa7df371d47e1f2dcdbaa8ae0f08"
+      "sha256": "40e910bfbc50de9eee3000e14264e0d5676c22088685a06908b9f8b7ac394147"
     },
     {
       "type": "sounding_index",
       "year": 2018,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/2018.csv.gz",
       "bytes": 26617,
-      "sha256": "c804da0e2b87c8bf12da02892fdf763170df855a7621783b734a51a511543b09"
+      "sha256": "a4a8995db1997e22fb93640909f0d734d6ab9b5232f9a271f281d2b340ecf373"
     },
     {
       "type": "sounding_index",
       "year": 2019,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/2019.csv.gz",
       "bytes": 16208,
-      "sha256": "1ed10fd7c00e05aea211f3d3a863328bec43b0e60f31e9d8849ba4909721bf70"
+      "sha256": "eed0ff050b2bfe289c3f2a199de9b4e1307df33420f6a3492fa708eaad1e7e96"
     },
     {
       "type": "sounding_index",
       "year": 2020,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/2020.csv.gz",
       "bytes": 13392,
-      "sha256": "1b936da450e97c3c0549d611f9f3f7ebfc69b3ca1ca355c006655d600e84df84"
+      "sha256": "4eebdfadbb3b731bc946f44b9f5237366d9711c714a5a5063609deed61fbfcb5"
     },
     {
       "type": "sounding_index",
       "year": 2021,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/2021.csv.gz",
       "bytes": 9655,
-      "sha256": "e9db42e592152681dd7de4652356a336d4c518c681f861d07f29cc233ea129bd"
+      "sha256": "b3fe5d6b61ad2ba3a7b52c42ba6bdd0dde4704b3bd0f47e1bcb63c62d85e00d4"
     },
     {
       "type": "sounding_index",
       "year": 2022,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/2022.csv.gz",
       "bytes": 9827,
-      "sha256": "0d1cd87f70a42445e3baf6872946fdc54ba32ca242680190ff237838c36d27af"
+      "sha256": "4b55f1466eaa24a66100c2d64d845683aab3333259beae4506760197ed66b344"
     },
     {
       "type": "sounding_index",
       "year": 2023,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/2023.csv.gz",
       "bytes": 15871,
-      "sha256": "c0b2f47ca14958c2e81697bc885b7771fb87fe4fa040ad860bd7814d0672a9bf"
+      "sha256": "766cba9d2335dd8bed344c22fe542bd3fa0f2790a153adb64282f3c3e70dde61"
     },
     {
       "type": "sounding_index",
       "year": 2024,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/2024.csv.gz",
       "bytes": 16305,
-      "sha256": "e47692a0ccabd82f3d355bd17547de4046383092474c21bb4b62b27320fa6c48"
+      "sha256": "e3a33d96338fb947951124b982da8177e5f45ca996b9304cfa9e54bc31529a9d"
     },
     {
       "type": "sounding_index",
       "year": 2025,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/2025.csv.gz",
       "bytes": 16207,
-      "sha256": "fa8937f3610d341e8ae79a1b56c97cf043bbf0a95da49d66a1ad93c559a81dec"
+      "sha256": "964195b653a8ee6cf8a7680529019e3dca814c60fe5fa83407d8eb84a8edc153"
     },
     {
       "type": "sounding_index",
       "year": 2026,
       "file": "datos/fuentes-externas/radiosondeos/igra/indice-sondeos/2026.csv.gz",
       "bytes": 9302,
-      "sha256": "f85a1b99d901a8f2a08d093a4289a5cc7612f456a6d6d7b7fd07094c052dc999"
+      "sha256": "b92be30c3accac6840e5c1a04b3e6432a0b97ba362df24dc0e0e9aaabd285fa0"
     }
   ],
   "level_selection": "Retains LVLTYP1=1 standard pressure levels and LVLTYP2=1 surface levels. All variable/height levels remain in the original ZIP archives.",
