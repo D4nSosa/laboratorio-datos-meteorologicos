@@ -13,8 +13,12 @@ def parse():
         m=PATTERN.match(line)
         if not m: continue
         sid,lat,lon,elev,name,first,last,count=m.groups()
-        geographic_scope=("Islas Orcadas del Sur / Antártida (estación argentina)"
-            if sid=="ARM00088946" else "Argentina continental")
+        if sid=="ARM00088946":
+            geographic_scope="Islas Orcadas del Sur / Antártida (estación argentina)"
+        elif sid.startswith("ARM"):
+            geographic_scope="Argentina continental"
+        else:
+            geographic_scope=f"Contexto regional ({sid[:3]})"
         rows.append({"station_id":sid,"latitude":float(lat),"longitude":float(lon),
             "elevation_m":None if float(elev)<-900 else float(elev),
             "station_name":name.strip(),"geographic_scope":geographic_scope,
@@ -41,7 +45,8 @@ def main():
         for r in argentina]}
     (ROOT/"estaciones-argentina.geojson").write_text(json.dumps(geo,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
 
-    regional=[{**r,"is_argentina":r["station_id"].startswith("ARM")}
+    regional=[{**r,"station_country_code":r["station_id"][:3],
+        "station_code_country_is_argentina":r["station_id"].startswith("ARM")}
         for r in rows if -60<=r["latitude"]<=-10 and -85<=r["longitude"]<=-30]
     regional.sort(key=lambda x:x["station_id"])
     write_csv(ROOT/"estaciones-contexto-sudamerica.csv",regional)
