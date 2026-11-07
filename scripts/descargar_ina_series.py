@@ -14,8 +14,7 @@ MANIFEST=ROOT/"manifiestos"/"series-argentina.json"
 BASE="https://alerta.ina.gob.ar/pub/datos"
 LIMIT=20000
 WORKERS=5
-SESSION=requests.Session()
-SESSION.headers.update({"User-Agent":"LaboratorioDatosMeteorologicos/1.0","Accept":"application/json"})
+HEADERS={"User-Agent":"LaboratorioDatosMeteorologicos/1.0","Accept":"application/json"}
 
 def sha256(path):
     h=hashlib.sha256()
@@ -31,7 +30,7 @@ def get_window(series_id,start,end,depth=0):
     last=None
     for attempt in range(5):
         try:
-            r=SESSION.get(url,timeout=120)
+            r=requests.get(url,headers=HEADERS,timeout=120)
             r.raise_for_status()
             payload=r.json()
             data=payload.get("data") if isinstance(payload,dict) else None
@@ -50,7 +49,7 @@ def get_window(series_id,start,end,depth=0):
                     right=f"{BASE}/datos&timeStart={mid_dt.isoformat()}&timeEnd={end.isoformat()}T23:59:59&seriesId={series_id}&format=json"
                     combined=[]
                     for part in (left,right):
-                        rr=SESSION.get(part,timeout=120);rr.raise_for_status()
+                        rr=requests.get(part,headers=HEADERS,timeout=120);rr.raise_for_status()
                         pp=rr.json();combined.extend(pp.get("data") or [])
                     return combined
                 # Overlap midpoint by one day; timestamp deduplication below prevents duplicates.
@@ -129,8 +128,12 @@ def main():
     if MANIFEST.exists():
         try:existing=json.loads(MANIFEST.read_text(encoding="utf-8"))
         except Exception:existing={}
-    completed={str(x["series_id"]):x for x in existing.get("series",[])
-               if x.get("status") in ("downloaded","catalog_zero_observations","no_observations_returned")}
+    completed={}
+    for x in existing.get("series",[]):
+        if x.get("status") in ("catalog_zero_observations","no_observations_returned"):
+            completed[str(x["series_id"])]=x
+        elif x.get("status")=="downloaded" and x.get("file") and Path(x["file"]).exists():
+            completed[str(x["series_id"])]=x
     todo=[s for s in arg_series if str(s["seriesid"]) not in completed]
     manifest={
         "dataset":"INA DSIyAH — all Argentine observed series from the public series catalogue",
