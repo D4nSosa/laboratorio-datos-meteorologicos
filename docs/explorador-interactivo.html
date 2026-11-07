@@ -313,6 +313,31 @@ main,.view,.panel,.hero,.hero-copy,.hero-fact,.sectionhead,.participation-hero{m
 <label>Fuente histórica<select id="lab-historical-source"><option value="era5">ERA5 · reanálisis ECMWF</option><option value="power">NASA POWER · meteorología diaria</option></select></label><label>Desde<input id="lab-start" type="date"></label><label>Hasta<input id="lab-end" type="date"></label>
 <button class="primary" id="lab-run" type="button">Consultar histórico</button><button id="lab-preset-virasoro" type="button">Volver a Virasoro</button></div>
 <p id="lab-query-status" class="lab-status" aria-live="polite">Elegí coordenadas y período para iniciar una consulta.</p><div id="national-chart"></div><div id="national-table"></div><div class="lab-actions"><button id="lab-download" type="button" disabled>Descargar consulta CSV</button></div><p class="lab-muted">ERA5 ofrece reanálisis desde 1940 con demora de publicación. NASA POWER ofrece series diarias meteorológicas desde 1981, combinando observaciones satelitales y modelos; su resolución es de grilla y no equivale a una estación. Cada fuente tiene variables, resolución y latencia propias. Los faltantes se conservan como ausentes, nunca se convierten en cero.</p></div>
+<div class="lab-panel" id="hydrology-research">
+<h3>Series hidrológicas · INA / DSIyAH</h3>
+<p class="lab-muted">Consulta directa a la Web API pública del Sistema de Información Hidrológica de la Cuenca del Plata. Requiere el identificador de una serie observado en el catálogo INA; la cobertura corresponde a la Cuenca del Plata, no a todo el país.</p>
+<div class="lab-controls">
+<label>ID de serie INA<input id="ina-series-id" type="number" min="1" step="1" placeholder="Ej. 43"></label>
+<label>Desde<input id="ina-start" type="date"></label>
+<label>Hasta<input id="ina-end" type="date"></label>
+<button class="primary" id="ina-run" type="button">Consultar serie INA</button>
+</div>
+<p id="ina-status" class="lab-status" aria-live="polite">Ingresá un ID de serie del catálogo INA para consultar datos observados.</p>
+<div id="ina-table"></div>
+<div class="lab-actions"><a class="lab-link" href="https://alerta.ina.gov.ar/pub/gui/apibase" target="_blank" rel="noopener">Abrir catálogo de API INA ↗</a><a class="lab-link" href="https://snih.hidricosargentina.gob.ar/" target="_blank" rel="noopener">Abrir portal SNIH ↗</a></div>
+<p class="lab-muted">Los datos a tiempo útil pueden ser crudos y no validados. Verificá variable, unidad, estación, datum y estado de validación antes de comparar o calcular tendencias.</p>
+</div>
+<div class="lab-panel" id="other-source-access">
+<h3>Fuentes nacionales y satelitales · acceso y estado</h3>
+<div class="lab-actions">
+<a class="lab-link" href="https://www.smn.gob.ar/descarga-de-datos" target="_blank" rel="noopener">SMN · descarga oficial de datos históricos ↗</a>
+<a class="lab-link" href="https://datos.gob.ar/dataset/smn-datos-meteorologicos-horarios" target="_blank" rel="noopener">SMN · datos meteorológicos horarios ↗</a>
+<a class="lab-link" href="https://datos.gob.ar/dataset/smn-observaciones-diarias-temperaturas-extremas" target="_blank" rel="noopener">SMN · temperaturas extremas diarias ↗</a>
+<a class="lab-link" href="https://www.chc.ucsb.edu/data/chirps3" target="_blank" rel="noopener">CHIRPS v3 · datos diarios en grilla ↗</a>
+<a class="lab-link" href="https://gpm.nasa.gov/data/imerg" target="_blank" rel="noopener">NASA GPM IMERG · catálogo y acceso ↗</a>
+</div>
+<p class="lab-muted">SMN publica archivos descargables; todavía no hay una API histórica estable y verificada para consulta puntual desde GitHub Pages. CHIRPS v3 y GPM IMERG se distribuyen como rásteres/archivos científicos: no se presentan como series puntuales operativas hasta implementar extracción geoespacial y validar CORS, formatos y latencia. GPM puede requerir Earthdata para determinados productos.</p>
+</div>
 <div class="lab-grid"><div class="lab-panel"><h3>Pronóstico meteorológico</h3><p class="lab-muted">Pronóstico multimodelo para las coordenadas seleccionadas.</p><button class="primary" id="forecast-run" type="button">Consultar próximos 16 días</button><p id="forecast-status" class="lab-status" aria-live="polite">Pronóstico todavía no consultado.</p><div id="forecast-table"></div><h4>Pronóstico horario · próximas 48 horas</h4><div id="forecast-hourly-table"></div><p class="lab-muted">El pronóstico es una salida de modelo, no una observación ni una alerta oficial. Su incertidumbre aumenta con el horizonte.</p></div>
 <div class="lab-panel">
 <h3>Dataset observacional INTA-SIGA</h3>
