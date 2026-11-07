@@ -113,7 +113,18 @@
       ],
       "source_url": "https://dynamical.org/catalog/ucsb-chc-chirps-analysis-final/",
       "note": "Los totales mensuales se calcularon sumando el producto diario CHIRPS v3 Final. No son los GeoTIFF mensuales nativos del proveedor.",
-      "derived_products_status": "in_progress"
+      "derived_products_status": "in_progress",
+      "daily_point_fields": [
+        "station_id",
+        "date",
+        "precipitation_mm_day",
+        "grid_latitude",
+        "grid_longitude"
+      ],
+      "daily_point_units": {
+        "precipitation_mm_day": "mm/day"
+      },
+      "daily_point_note": "Nearest 0.05-degree CHIRPS grid cell to each Argentine IGRA station; 20 point files, separate from the nationwide monthly grid."
     },
     {
       "id": "gpm-imerg-late-v07-argentina-points",
