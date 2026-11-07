@@ -29,6 +29,8 @@ Esta carpeta conserva conjuntos de datos meteorológicos e hidrológicos con pro
 - Los perfiles IGRA originales son ZIP con archivos de texto por identificador de estación. Las tablas `perfiles-estandar/YYYY.csv.gz` conservan niveles estándar y superficie; `indice-sondeos/YYYY.csv.gz` contiene una fila por sondeo.
 - Los parámetros derivados IGRA se archivan en `parametros-derivados-por-sondeo.csv.gz` y `niveles-derivados/{station_id}-niveles-derivados.csv.gz`; las columnas normalizadas y sus factores de escala están descritos en el manifiesto. Los ZIP originales se conservan sin modificar.
 - INA: `series-observadas/series-<seriesId>.csv.gz` contiene una serie observada por archivo, con `timestart`, `valor`, estación, variable y unidad.
+- CHIRPS diario: `puntos-diarios/chirps-v3-final-diario-{station_id}.csv.gz` conserva series en las celdas de grilla más cercanas a estaciones IGRA; el producto diario es Final/rnl (ERA5-based).
+- CHIRPS climatología/anomalías: `climatologia/` guarda la normal 1991–2020 y `anomalias/` las anomalías mensuales por año.
 - IMERG Late: `daily-points-argentina/imerg-late-daily-argentina-YYYY-MM.csv.gz` contiene totales diarios derivados de intervalos de 30 minutos en puntos IGRA. No es una descarga raster completa.
 - SNIH: `series-historicas/procesadas/` separa las series históricas de `telemetria-cruda/`; no mezclar observaciones validadas con datos crudos.
 - Las observaciones históricas validadas y la telemetría cruda no validada se mantienen en rutas y variables separadas.
@@ -43,9 +45,9 @@ Inventario y perfiles originales: https://www.ncei.noaa.gov/pub/data/igra/ y htt
 Los archivos de perfil se distribuyen por identificador. Dos IDs cercanos pueden reflejar cambios de emplazamiento, series distintas o sitios separados; no se deduplican automáticamente. El inventario de estaciones es una tabla de disponibilidad, no un perfil atmosférico.
 
 ### CHIRPS v3 Final — UCSB CHC
-Fuente y producto procesado de acceso público: https://dynamical.org/catalog/ucsb-chc-chirps-analysis-final/
+Fuente y producto procesado de acceso público: https://dynamical.org/catalog/ucsb-chc-chirps-analysis-final/ (CHIRPS v3 Final/rnl). El producto cubre 60°S–60°N a 0,05° sobre tierra. Las fechas diarias son etiquetas coherentes de la desagregación, no ventanas uniformes de observación de pluviómetros.
 
-Los NetCDF nacionales anuales se derivan del producto diario Final: tasa media diaria `kg m-2 s-1` multiplicada por 86.400 segundos y sumada por mes. Unidades de salida: `mm month-1`. **No etiquetar estos archivos como el producto mensual nativo de CHIRPS**. Licencia CC BY 4.0; citar UCSB CHC/CHIRPS v3 y dynamical.org como procesador/archivo.
+Los NetCDF nacionales anuales se derivan del producto diario Final/rnl: tasa media diaria `kg m-2 s-1` multiplicada por 86.400 segundos y sumada por mes. La variante rnl usa ERA5 para repartir los totales pentadales en cantidades diarias; no es la variante sat basada en IMERG Late. Unidades de salida: `mm month-1`. **No etiquetar estos archivos como el producto mensual nativo de CHIRPS**. Licencia CC BY 4.0; citar UCSB CHC/CHIRPS v3 y dynamical.org como procesador/archivo.
 
 ### INA — DSIyAH
 API pública: https://alerta.ina.gob.ar/pub/gui/
