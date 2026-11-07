@@ -45,7 +45,7 @@ def main():
     },attrs={
         "title":"CHIRPS v3 Final Argentina monthly precipitation climatology",
         "baseline_period":"1991-01 to 2020-12",
-        "source":"UCSB CHC CHIRPS v3 Final daily, aggregated to monthly",
+        "source":"UCSB CHC CHIRPS v3 Final/rnl daily (ERA5-based), aggregated to monthly",
         "spatial_subset":"Argentina national polygon; 0.05 degree",
         "units":"mm month-1",
         "retrieved_utc":datetime.now(timezone.utc).isoformat(),
@@ -72,7 +72,7 @@ def main():
         },attrs={
             "title":f"CHIRPS v3 Argentina monthly precipitation anomalies ({year})",
             "baseline_period":"1991-2020",
-            "source":"UCSB CHC CHIRPS v3 Final daily, aggregated to monthly",
+            "source":"UCSB CHC CHIRPS v3 Final/rnl daily (ERA5-based), aggregated to monthly",
             "units":"precipitation and anomaly: mm month-1; standardized anomaly: dimensionless",
             "retrieved_utc":datetime.now(timezone.utc).isoformat(),
             "note":"Anomaly = monthly total minus the 1991-2020 climatological mean for the same calendar month. Standardized anomaly = anomaly / 1991-2020 standard deviation."
@@ -87,7 +87,7 @@ def main():
         print(f"CHIRPS anomalies {year}: {path.stat().st_size} bytes",flush=True)
     manifest={
         "dataset":"CHIRPS v3 Final Argentina climatology and monthly anomalies",
-        "source_dataset":"UCSB CHC CHIRPS v3 Final daily, monthly sums derived",
+        "source_dataset":"UCSB CHC CHIRPS v3 Final/rnl daily (ERA5-based), monthly sums derived",
         "baseline_period":"1991-2020",
         "input_months":int(precip.sizes["time"]),
         "climatology_variables":list(clim.data_vars),
