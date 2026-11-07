@@ -133,8 +133,10 @@
       "title": "NASA GPM IMERG Final V07B — grilla nacional",
       "provider": "NASA GPM / NASA GES DISC",
       "status": "blocked_authentication",
-      "source_url": "https://disc.gsfc.nasa.gov/datasets/GPM_3IMERGDF_07/summary",
-      "note": "Descarga masiva requiere autenticación NASA Earthdata; no se marca como descargada."
+      "source_url": "https://disc.gsfc.nasa.gov/datasets/GPM_3IMERGHH_07/summary",
+      "note": "NASA GPM IMERG Final half-hourly V07/V07B. GES DISC/PPS require free user registration (Earthdata) for bulk access; no archive file is marked downloaded until verified.",
+      "temporal_resolution": "30 minutes",
+      "spatial_resolution": "0.1 degree"
     },
     {
       "id": "ina-dsiyah-argentina",
