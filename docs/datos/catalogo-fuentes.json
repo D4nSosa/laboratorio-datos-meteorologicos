@@ -318,7 +318,7 @@
       "name": "INA — DSIyAH / API de datos hidrológicos",
       "organization": "Instituto Nacional del Agua (INA)",
       "type": "hydrological_observations_and_model_products",
-      "status": "documented",
+      "status": "operational",
       "products": [
         "Catálogo de estaciones y áreas de interés",
         "Series temporales puntuales observadas y simuladas",
@@ -334,7 +334,7 @@
       "spatial_resolution": "Estaciones puntuales y capas ráster; metadatos y resolución según recurso",
       "coverage": "Cuenca del Plata; no equivale a cobertura hidrológica de todo el país",
       "url": "https://www.argentina.gob.ar/ina/recursos/aplicacionweb-datos-hidrologicos",
-      "limitations": "Distinguir series observadas de simuladas, revisar unidades y referencias de altura, y verificar metadatos de cada estación. La documentación de la API no implica que todas las series estén disponibles para cada localidad."
+      "limitations": "El Laboratorio permite consultar directamente una serie observada cuando se conoce su seriesId y el servicio acepta la solicitud desde el navegador. No incorpora todavía descubrimiento integrado de estaciones/series ni cubre toda Argentina. Distinguir series observadas de simuladas, revisar unidades y referencias de altura, y verificar metadatos de cada estación."
     },
     {
       "id": "snih",
