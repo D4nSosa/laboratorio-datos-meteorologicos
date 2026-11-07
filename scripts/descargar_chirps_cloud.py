@@ -99,7 +99,7 @@ def main():
             continue
         start=f"{year}-01-01"
         stop=f"{year+1}-01-01"
-        year_da=da.where((da.time >= np.datetime64(start)) & (da.time < np.datetime64(stop)),drop=True)
+        year_da=da.sel(time=slice(start,f"{year}-12-31"))
         if year_da.sizes.get("time",0)==0:
             continue
         # Apply the polygon after slicing one year to bound peak memory.
