@@ -7,6 +7,7 @@ on:
     paths:
       - ".github/workflows/ingesta-chirps-cloud.yml"
       - "scripts/descargar_chirps_cloud.py"
+      - "scripts/push_branch_retry.sh"
   workflow_dispatch:
 
 permissions:
