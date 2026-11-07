@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 <link rel="stylesheet" href="assets/css/laboratorio-nacional.css?v=20261106-radar-locality1">
 <link rel="stylesheet" href="assets/css/lnm-center.css?v=20261106-arch1">
+<link rel="stylesheet" href="assets/css/historical-datasets.css?v=20261107-data1">
 <style>
 :root{color-scheme:dark;--bg:#0b1417;--surface:#111f23;--surface2:#17282d;--line:#2b4045;--text:#e9f1ee;--muted:#9aadaa;--accent:#7be0c3;--accent2:#7fc8dc;--warn:#e9bd72;--danger:#e58e82;--shadow:0 16px 45px #0003;--radius:15px}
 :root[data-theme=light]{color-scheme:light;--bg:#edf2ef;--surface:#fff;--surface2:#f4f8f5;--line:#d7e2dc;--text:#203236;--muted:#607477;--accent:#087e70;--accent2:#287c91;--warn:#9b681e;--danger:#a84b43;--shadow:0 12px 35px #263b3018}
@@ -218,6 +219,34 @@ main,.view,.panel,.hero,.hero-copy,.hero-fact,.sectionhead,.participation-hero{m
   <p id="data-place-status" class="map-method-note" aria-live="polite">La búsqueda utiliza geocodificación de Open-Meteo. La investigación histórica consulta ERA5 para la celda más próxima; es reanálisis, no medición de una estación local.</p>
 </section>
 <div class="panel" id="dataset-panel"><div class="tabletools"><div><b id="dataset-title">Precipitación anual · ERA5</b><br><small id="dataset-subtitle">1991–2025 · celda próxima a Virasoro · mm/año</small></div><div class="paneltools"><select id="dataset-select" class="search" style="margin:0"><option value="era">ERA5 · totales anuales</option><option value="monthly">ERA5 · climatología mensual</option><option value="santo">Santo Tomé · totales anuales</option><option value="stations">INTA-SIGA · estaciones</option></select><button class="expand" data-expand="dataset-panel">⛶ Ampliar tabla</button></div></div><div class="tabletools"><input id="dataset-search" class="search" style="margin:0;max-width:340px" placeholder="Filtrar filas…"><small id="dataset-count">— registros</small></div><div class="tablewrap" id="dataset-table"></div><div class="chart-caption">Los agregados de Santo Tomé son departamentales y no equivalen a la celda ERA5. El catálogo INTA-SIGA describe estaciones y cobertura; no certifica continuidad ni calidad instrumental.</div></div>
+
+<section class="panel historical-data-panel" id="historical-data-panel">
+  <div class="panelhead"><div><div class="eyebrow">Archivo científico · series diarias</div><h3>Explorador de precipitación histórica</h3><p>Consultá las series archivadas de CHIRPS e IMERG por estación de referencia. La consulta recupera únicamente los archivos del período seleccionado.</p></div><span class="pill">ARCHIVO NACIONAL</span></div>
+  <div class="historical-data-controls">
+    <label>FUENTE<select id="historical-data-source"><option value="chirps">CHIRPS v3 Final/rnl · diario</option><option value="imerg">NASA GPM IMERG Late V07 · diario derivado</option></select></label>
+    <label>ESTACIÓN IGRA<select id="historical-data-station"><option value="">Cargando inventario…</option></select></label>
+    <label>DESDE<input id="historical-data-start" type="date"></label>
+    <label>HASTA<input id="historical-data-end" type="date"></label>
+    <button id="historical-data-run" type="button">Consultar serie</button>
+  </div>
+  <p class="historical-data-note" id="historical-data-source-note">CHIRPS v3 Final/rnl · 0,05° · serie diaria en la celda más cercana a la estación IGRA. La desagregación diaria rnl utiliza ERA5; no es independiente de ERA5.</p>
+  <div class="historical-data-results">
+    <p class="historical-data-status" id="historical-data-status" aria-live="polite">Preparando el inventario de estaciones…</p>
+    <div id="historical-data-summary"></div>
+    <div class="historical-data-chart" id="historical-data-chart"></div>
+    <div class="tabletools"><b>Registros diarios</b><button class="btn" id="historical-data-download" type="button" disabled>Descargar consulta CSV</button></div>
+    <div id="historical-data-table"></div>
+  </div>
+  <div class="historical-data-links">
+    <a href="datos/fuentes-externas/radiosondeos/igra/estaciones-argentina.csv">Inventario de estaciones IGRA ↗</a>
+    <a href="datos/fuentes-externas/hidrologia/ina-dsiyah/catalogos/series-argentina.csv.gz">Catálogo de series INA/DSIyAH ↗</a>
+    <a href="datos/fuentes-externas/hidrologia/ina-dsiyah/catalogos/resumen-series-argentina.json">Resumen de variables INA ↗</a>
+    <a href="datos/fuentes-externas/hidrologia/snih/manifiestos/snih-ingesta.json">Manifiesto de ingesta SNIH ↗</a>
+    <a href="https://snih.hidricosargentina.gob.ar/" target="_blank" rel="noopener noreferrer">Portal oficial SNIH ↗</a>
+  </div>
+  <p class="historical-data-note">Alcance: 20 puntos de muestreo asociados a estaciones IGRA; una referencia corresponde a Islas Orcadas del Sur/Antártida. Las series puntuales no representan una grilla nacional completa. INA conserva su catálogo, pero la descarga masiva de series observadas sigue pendiente; SNIH conserva catálogos y series históricas nivométricas separadas de telemetría cruda.</p>
+</section>
+
 </section>
 <section class="view" id="preguntas">
 <div class="sectionhead"><div><div class="eyebrow">Agenda de investigación</div><h2>Preguntas, respuestas y evidencia</h2><p>Qué muestran los datos disponibles, qué podemos afirmar hoy y qué investigaciones todavía necesitan evidencia adicional.</p></div></div>
@@ -359,6 +388,7 @@ main,.view,.panel,.hero,.hero-copy,.hero-fact,.sectionhead,.participation-hero{m
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <script src="assets/js/laboratorio-nacional.js?v=20261106-radar-controls2" defer></script>
 <script src="assets/js/lnm-center.js?v=20261106-radar-locality1" defer></script>
+<script src="assets/js/historical-datasets.js?v=20261107-data1" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.6.0/dist/echarts.min.js"></script>
 
 <script>
