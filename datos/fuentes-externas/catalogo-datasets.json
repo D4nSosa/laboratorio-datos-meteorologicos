@@ -169,12 +169,13 @@
       "provider": "Subsecretaría de Recursos Hídricos / SNIH",
       "status": "in_progress",
       "paths": {
-        "stations_geojson": "hidrologia/snih/estaciones.geojson",
-        "stations_csv": "hidrologia/snih/estaciones.csv.gz",
-        "associations_csv": "hidrologia/snih/asociaciones.csv.gz",
+        "stations_geojson": "hidrologia/snih/catalogos/estaciones.geojson.gz",
+        "stations_csv": "hidrologia/snih/catalogos/estaciones.csv.gz",
+        "associations_csv": "hidrologia/snih/catalogos/asociaciones-parametros.csv.gz",
         "historical_series": "hidrologia/snih/series-historicas/procesadas/",
         "raw_telemetry": "hidrologia/snih/telemetria-cruda/",
-        "manifest": "hidrologia/snih/manifiesto-snih.json"
+        "manifest": "hidrologia/snih/manifiestos/snih-ingesta.json",
+        "snow_stations_csv": "hidrologia/snih/catalogos/estaciones-nivometricas.csv.gz"
       },
       "note": "Se mantiene separada la serie histórica validada de la telemetría cruda no validada."
     }
