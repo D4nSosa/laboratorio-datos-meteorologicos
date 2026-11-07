@@ -7,6 +7,7 @@ on:
     paths:
       - ".github/workflows/ingesta-imerg-late.yml"
       - "scripts/descargar_imerg_late_puntos.py"
+      - "datos/fuentes-externas/radiosondeos/igra/estaciones-argentina.csv"
       - "scripts/push_branch_retry.sh"
   workflow_dispatch:
 
