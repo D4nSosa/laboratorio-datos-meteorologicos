@@ -85,6 +85,7 @@ def main():
     points=[]
     for s in stations:
         points.append({"station_id":s["station_id"],"name":s["station_name"],
+            "geographic_scope":s.get("geographic_scope",""),
             "latitude":float(s["latitude"]),"longitude":float(s["longitude"])})
     if not points: raise RuntimeError("No hay estaciones IGRA para muestrear IMERG.")
 
@@ -111,7 +112,7 @@ def main():
         "conversion":"precipitation_mm_day = mean(valid half-hourly rate) * 86400 seconds; precipitation_sum_valid_intervals_mm = sum(rate * 1800 seconds). Both fields and valid interval count are retained; the first is an IMERG-style daily mean-rate estimate, not a separate official Daily file.",
         "source_temporal_resolution":"30 minutes",
         "source_spatial_resolution":"0.1 degree",
-        "sampling":"Nearest 0.1-degree grid cell to each Argentine IGRA radiosonde station; not a complete gridded Argentina download.",
+        "sampling":"Nearest 0.1-degree grid cell to each IGRA radiosonde station; includes one Argentine-operated South Orkney Islands reference station; not a complete gridded Argentina download.",
         "license":"CC BY 4.0 per dynamical.org catalog",
         "retrieved_utc":datetime.now(timezone.utc).isoformat(),
         "stations_requested":len(points),
@@ -168,6 +169,7 @@ def main():
                     grid=selected.get("grid") or {}
                     point_meta[p["station_id"]]={
                         "requested_latitude":p["latitude"],"requested_longitude":p["longitude"],
+                        "geographic_scope":p["geographic_scope"],
                         "selected_latitude":selected.get("latitude"),
                         "selected_longitude":selected.get("longitude"),
                         "latitude_index":grid.get("latitudeIndex"),
@@ -179,7 +181,7 @@ def main():
                         d=date.fromisoformat(day)
                         if first<=d<=last:
                             rows.append({
-                                "station_id":p["station_id"],"station_name":p["name"],
+                                "station_id":p["station_id"],"station_name":p["name"],"geographic_scope":p["geographic_scope"],
                                 "date":day,
                                 "precipitation_mm_day":round(rec["sum"]*48/rec["valid"],4) if rec["valid"] else None,
                                 "precipitation_sum_valid_intervals_mm":round(rec["sum"],4) if rec["valid"] else None,
