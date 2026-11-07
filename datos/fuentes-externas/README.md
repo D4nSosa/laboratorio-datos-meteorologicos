@@ -14,6 +14,14 @@ Esta carpeta conserva conjuntos de datos meteorológicos e hidrológicos con pro
 | `hidrologia/snih/` | Inventario SNIH, asociaciones de parámetros, series nivométricas y telemetría | Redes integradas al SNIH; cobertura y variables según estación |
 | `manifiestos/` | Manifiestos JSON con fechas, URL, versiones, conteos, errores y SHA-256 | Auditoría y reproducción |
 
+
+## Productos ya archivados
+
+- **IGRA Argentina:** 20 estaciones, 240.882 sondeos en el índice normalizado y 2.703.005 registros de niveles estándar/superficie listos para series y perfiles verticales. Los ZIP originales siguen conservados.
+- **CHIRPS v3 Final:** 46 archivos NetCDF anuales, 549 pasos mensuales, desde enero de 1981 hasta septiembre de 2026; grilla nacional a 0,05°. Los totales mensuales son agregaciones del producto diario Final.
+- **INA DSIyAH:** catálogo normalizado con 1.908 estaciones argentinas y 10.797 series; el manifiesto de descarga de observaciones se completa en segundo plano.
+- **IGRA regional, derivados, IMERG Late y SNIH:** sus workflows de descarga/normalización siguen en ejecución o reintento. Consultar siempre `catalogo-datasets.json` y los manifiestos antes de asumir que una ruta ya está disponible.
+
 ## Contrato de datos para la interfaz
 
 - Geometrías de estaciones: GeoJSON en EPSG:4326; coordenadas como `[longitud, latitud]`.
