@@ -110,10 +110,100 @@ def ingest_igra(manifest: dict):
     station_list_url = "https://www.ncei.noaa.gov/pub/data/igra/igra2-station-list.txt"
     station_list = out.parent / "igra2-station-list.txt"
     station_list.write_bytes(get(station_list_url).content)
+
+    # Parse the official fixed-width-like inventory by anchoring numeric fields
+    # from the right; preserve station IDs and never merge relocations.
+    import csv
+    import math
+    station_rows = []
+    pattern = re.compile(
+        r"^(\S+)\s+(-?\d+(?:\.\d+)?)\s+(-?\d+(?:\.\d+)?)\s+(-?\d+(?:\.\d+)?)\s+(.*?)\s+(\d{4})\s+(\d{4})\s+(\d+)\s*$"
+    )
+    for line in station_list.read_text(encoding="utf-8", errors="replace").splitlines():
+        if not line.startswith("ARM"):
+            continue
+        match = pattern.match(line)
+        if not match:
+            print(f"IGRA inventario: línea ARM no parseada: {line}")
+            continue
+        sid, lat, lon, elev, name, first, last, count = match.groups()
+        station_rows.append({
+            "station_id":sid,"latitude":float(lat),"longitude":float(lon),
+            "elevation_m":None if float(elev)<-900 else float(elev),
+            "station_name":name.strip(),"first_year":int(first),
+            "last_year":int(last),"observation_count":int(count),
+            "source_version":"IGRA 2.2"
+        })
+    station_rows.sort(key=lambda x:x["station_id"])
+    inventory_dir = out.parent
+    inventory_dir.mkdir(parents=True, exist_ok=True)
+    csv_path = inventory_dir / "estaciones-argentina.csv"
+    with csv_path.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=list(station_rows[0].keys()))
+        writer.writeheader()
+        writer.writerows(station_rows)
+    geojson = {
+        "type":"FeatureCollection","name":"IGRA_Argentina",
+        "features":[{
+            "type":"Feature",
+            "geometry":{"type":"Point","coordinates":[s["longitude"],s["latitude"]]},
+            "properties":{k:v for k,v in s.items() if k not in ("latitude","longitude")}
+        } for s in station_rows]
+    }
+    save_json(inventory_dir / "estaciones-argentina.geojson", geojson)
+
+    # A broad South American radiosonde context inventory; profiles outside
+    # Argentina remain listed but are not downloaded in this pass.
+    regional = []
+    for line in station_list.read_text(encoding="utf-8", errors="replace").splitlines():
+        match = pattern.match(line)
+        if not match:
+            continue
+        sid, lat, lon, elev, name, first, last, count = match.groups()
+        lat, lon = float(lat), float(lon)
+        if -60 <= lat <= -10 and -85 <= lon <= -30:
+            regional.append({
+                "station_id":sid,"latitude":lat,"longitude":lon,
+                "elevation_m":None if float(elev)<-900 else float(elev),
+                "station_name":name.strip(),"first_year":int(first),
+                "last_year":int(last),"observation_count":int(count),
+                "is_argentina":sid.startswith("ARM"),
+                "source_version":"IGRA 2.2"
+            })
+    regional.sort(key=lambda x:x["station_id"])
+    with (inventory_dir / "estaciones-contexto-sudamerica.csv").open("w",newline="",encoding="utf-8") as f:
+        writer=csv.DictWriter(f,fieldnames=list(regional[0].keys()))
+        writer.writeheader(); writer.writerows(regional)
+
+    # Flag near/overlapping named sites for review, not automatic deduplication.
+    possible = []
+    for i, a in enumerate(station_rows):
+        for b in station_rows[i+1:]:
+            p1,p2=math.radians(a["latitude"]),math.radians(b["latitude"])
+            dp=math.radians(b["latitude"]-a["latitude"])
+            dl=math.radians(b["longitude"]-a["longitude"])
+            h=math.sin(dp/2)**2+math.cos(p1)*math.cos(p2)*math.sin(dl/2)**2
+            km=6371*2*math.asin(math.sqrt(h))
+            if km <= 25:
+                overlap=max(a["first_year"],b["first_year"]) <= min(a["last_year"],b["last_year"])
+                possible.append({
+                    "station_a":a["station_id"],"name_a":a["station_name"],
+                    "station_b":b["station_id"],"name_b":b["station_name"],
+                    "distance_km":round(km,2),"periods_overlap":overlap,
+                    "review_note":"Proximity candidate only; not a proven duplicate or relocation."
+                })
+    if possible:
+        with (inventory_dir / "posibles-estaciones-cercanas.csv").open("w",newline="",encoding="utf-8") as f:
+            writer=csv.DictWriter(f,fieldnames=list(possible[0].keys()))
+            writer.writeheader(); writer.writerows(possible)
+
     manifest["IGRA"] = {
         "estado": "descargado_y_validado",
         "producto": "IGRA 2.2 period-of-record sounding files",
         "estaciones_archivo": len(downloaded),
+        "estaciones_argentina_inventario": len(station_rows),
+        "estaciones_contexto_sudamerica": len(regional),
+        "pares_cercanos_para_revision": len(possible),
         "archivos": downloaded,
         "inventario_oficial": {
             "archivo": str(station_list),
