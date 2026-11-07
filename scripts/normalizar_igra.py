@@ -13,9 +13,12 @@ def parse():
         m=PATTERN.match(line)
         if not m: continue
         sid,lat,lon,elev,name,first,last,count=m.groups()
+        geographic_scope=("Islas Orcadas del Sur / Antártida (estación argentina)"
+            if sid=="ARM00088946" else "Argentina continental")
         rows.append({"station_id":sid,"latitude":float(lat),"longitude":float(lon),
             "elevation_m":None if float(elev)<-900 else float(elev),
-            "station_name":name.strip(),"first_year":int(first),"last_year":int(last),
+            "station_name":name.strip(),"geographic_scope":geographic_scope,
+            "first_year":int(first),"last_year":int(last),
             "observation_count":int(count),"source_version":"IGRA 2.2"})
     return rows
 
@@ -59,7 +62,9 @@ def main():
                     "review_note":"Proximity candidate only; not a proven duplicate or relocation."})
     if nearby: write_csv(ROOT/"posibles-estaciones-cercanas.csv",nearby)
     summary={"source":str(SOURCE),"source_version":"IGRA 2.2",
-        "stations_argentina":len(argentina),"stations_regional_context":len(regional),
+        "stations_argentina_ids":len(argentina),"stations_continental":sum(1 for r in argentina if r["geographic_scope"]=="Argentina continental"),
+        "stations_antarctic_reference":sum(1 for r in argentina if "Antártida" in r["geographic_scope"]),
+        "stations_regional_context":len(regional),
         "nearby_pairs_for_review":len(nearby),
         "files":[str(ROOT/"estaciones-argentina.csv"),str(ROOT/"estaciones-argentina.geojson"),
                  str(ROOT/"estaciones-contexto-sudamerica.csv"),
