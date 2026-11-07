@@ -205,7 +205,7 @@ def main():
                 import io
                 buf=io.StringIO()
                 fields=list(rows[0].keys()) if rows else [
-                    "station_id","station_name","date","precipitation_mm_day",
+                    "station_id","station_name","geographic_scope","date","precipitation_mm_day",
                     "precipitation_sum_valid_intervals_mm","valid_half_hour_intervals","expected_half_hour_intervals","completeness_pct",
                     "selected_latitude","selected_longitude","product","run","version"]
                 w=csv.DictWriter(buf,fieldnames=fields)
