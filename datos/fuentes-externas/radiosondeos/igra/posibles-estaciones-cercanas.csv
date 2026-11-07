@@ -1,0 +1,4 @@
+station_a,name_a,station_b,name_b,distance_km,periods_overlap,review_note
+ARM00087155,RESISTENCIA AERO,ARM00087157,RESISTENCIA,6.92,True,Proximity candidate only; not a proven duplicate or relocation.
+ARM00087418,MENDOZA AERO,ARM00087420,OBSERV MENDOZA,6.67,False,Proximity candidate only; not a proven duplicate or relocation.
+ARM00087582,AEROPARQUE AERO,ARM00087585,BUENOS AIRES OBSERVATORIO,6.83,True,Proximity candidate only; not a proven duplicate or relocation.

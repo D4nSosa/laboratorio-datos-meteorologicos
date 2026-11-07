@@ -1,0 +1,14 @@
+{
+  "source": "datos/fuentes-externas/radiosondeos/igra/igra2-station-list.txt",
+  "source_version": "IGRA 2.2",
+  "stations_argentina": 20,
+  "stations_regional_context": 71,
+  "nearby_pairs_for_review": 3,
+  "files": [
+    "datos/fuentes-externas/radiosondeos/igra/estaciones-argentina.csv",
+    "datos/fuentes-externas/radiosondeos/igra/estaciones-argentina.geojson",
+    "datos/fuentes-externas/radiosondeos/igra/estaciones-contexto-sudamerica.csv",
+    "datos/fuentes-externas/radiosondeos/igra/posibles-estaciones-cercanas.csv"
+  ],
+  "note": "No station IDs are merged. Nearby pairs are flags for manual review only."
+}
