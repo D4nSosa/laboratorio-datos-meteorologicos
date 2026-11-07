@@ -1,0 +1,340 @@
+{
+  "stations_catalog_rows": 1955,
+  "stations_argentina": 1908,
+  "series_catalog_rows": 10847,
+  "series_argentina": 10797,
+  "variables": [
+    {
+      "varid": "1",
+      "name": "precipitación diaria 12Z",
+      "series": 930,
+      "observations_catalog_sum": 320414
+    },
+    {
+      "varid": "2",
+      "name": "Altura hidrométrica",
+      "series": 1129,
+      "observations_catalog_sum": 14355607
+    },
+    {
+      "varid": "4",
+      "name": "Caudal",
+      "series": 427,
+      "observations_catalog_sum": 507474
+    },
+    {
+      "varid": "11",
+      "name": "dirección del viento modal diaria",
+      "series": 3,
+      "observations_catalog_sum": 0
+    },
+    {
+      "varid": "14",
+      "name": "Radiación solar",
+      "series": 158,
+      "observations_catalog_sum": 853408
+    },
+    {
+      "varid": "19",
+      "name": "par Altura/Caudal",
+      "series": 178,
+      "observations_catalog_sum": 633
+    },
+    {
+      "varid": "27",
+      "name": "Precipitación a intervalo nativo",
+      "series": 922,
+      "observations_catalog_sum": 2637462
+    },
+    {
+      "varid": "28",
+      "name": "Aforos:Altura",
+      "series": 36,
+      "observations_catalog_sum": 364
+    },
+    {
+      "varid": "29",
+      "name": "Aforos:Caudal",
+      "series": 36,
+      "observations_catalog_sum": 420
+    },
+    {
+      "varid": "31",
+      "name": "precipitación horaria",
+      "series": 719,
+      "observations_catalog_sum": 1134273
+    },
+    {
+      "varid": "32",
+      "name": "Altura geométrica",
+      "series": 58,
+      "observations_catalog_sum": 0
+    },
+    {
+      "varid": "33",
+      "name": "Altura hidrométrica media mensual",
+      "series": 304,
+      "observations_catalog_sum": 46555
+    },
+    {
+      "varid": "34",
+      "name": "precipitación 3 horaria",
+      "series": 696,
+      "observations_catalog_sum": 787202
+    },
+    {
+      "varid": "35",
+      "name": "Altura de marea astronómica",
+      "series": 13,
+      "observations_catalog_sum": 120588
+    },
+    {
+      "varid": "36",
+      "name": "Altura de marea meteorológica",
+      "series": 13,
+      "observations_catalog_sum": 107964
+    },
+    {
+      "varid": "37",
+      "name": "nivel de nieve",
+      "series": 48,
+      "observations_catalog_sum": 3999
+    },
+    {
+      "varid": "38",
+      "name": "precipicación acumulada",
+      "series": 479,
+      "observations_catalog_sum": 327744
+    },
+    {
+      "varid": "39",
+      "name": "Altura hidrométrica media diaria",
+      "series": 1052,
+      "observations_catalog_sum": 2526675
+    },
+    {
+      "varid": "40",
+      "name": "Caudal medio diario",
+      "series": 185,
+      "observations_catalog_sum": 721534
+    },
+    {
+      "varid": "43",
+      "name": "temperatura de rocío",
+      "series": 3,
+      "observations_catalog_sum": 0
+    },
+    {
+      "varid": "48",
+      "name": "caudal medio mensual",
+      "series": 316,
+      "observations_catalog_sum": 11273
+    },
+    {
+      "varid": "49",
+      "name": "Altura hidrométrica mínima mensual",
+      "series": 89,
+      "observations_catalog_sum": 21788
+    },
+    {
+      "varid": "50",
+      "name": "Altura hidrométrica máxima mensual",
+      "series": 89,
+      "observations_catalog_sum": 21788
+    },
+    {
+      "varid": "51",
+      "name": "Caudal mínimo mensual",
+      "series": 89,
+      "observations_catalog_sum": 6352
+    },
+    {
+      "varid": "52",
+      "name": "Caudal máximo mensual",
+      "series": 89,
+      "observations_catalog_sum": 6347
+    },
+    {
+      "varid": "53",
+      "name": "Temperatura",
+      "series": 351,
+      "observations_catalog_sum": 6068167
+    },
+    {
+      "varid": "54",
+      "name": "Temperatura horaria",
+      "series": 3,
+      "observations_catalog_sum": 0
+    },
+    {
+      "varid": "55",
+      "name": "Velocidad del viento",
+      "series": 349,
+      "observations_catalog_sum": 6030742
+    },
+    {
+      "varid": "56",
+      "name": "Velocidad del viento horaria",
+      "series": 3,
+      "observations_catalog_sum": 0
+    },
+    {
+      "varid": "57",
+      "name": "Dirección del viento",
+      "series": 348,
+      "observations_catalog_sum": 6052556
+    },
+    {
+      "varid": "58",
+      "name": "Humedad relativa",
+      "series": 351,
+      "observations_catalog_sum": 6061731
+    },
+    {
+      "varid": "59",
+      "name": "Humedad relativa media horaria",
+      "series": 3,
+      "observations_catalog_sum": 0
+    },
+    {
+      "varid": "60",
+      "name": "Presión barométrica",
+      "series": 320,
+      "observations_catalog_sum": 5937336
+    },
+    {
+      "varid": "61",
+      "name": "Presión barométrica media horaria",
+      "series": 3,
+      "observations_catalog_sum": 0
+    },
+    {
+      "varid": "64",
+      "name": "Dirección del viento modal horaria",
+      "series": 3,
+      "observations_catalog_sum": 0
+    },
+    {
+      "varid": "67",
+      "name": "Altura hidrométrica media semanal",
+      "series": 85,
+      "observations_catalog_sum": 5127
+    },
+    {
+      "varid": "68",
+      "name": "Caudal Medio Diario Máximo",
+      "series": 2,
+      "observations_catalog_sum": 0
+    },
+    {
+      "varid": "69",
+      "name": "Caudal Medio Diario Mínimo",
+      "series": 2,
+      "observations_catalog_sum": 0
+    },
+    {
+      "varid": "70",
+      "name": "QMax Instantáneo",
+      "series": 1,
+      "observations_catalog_sum": 0
+    },
+    {
+      "varid": "71",
+      "name": "QMin Instantáneo",
+      "series": 1,
+      "observations_catalog_sum": 0
+    },
+    {
+      "varid": "73",
+      "name": "Temperatura del agua",
+      "series": 2,
+      "observations_catalog_sum": 0
+    },
+    {
+      "varid": "74",
+      "name": "guía de crecidas",
+      "series": 10,
+      "observations_catalog_sum": 0
+    },
+    {
+      "varid": "80",
+      "name": "temperatura de rocío horaria",
+      "series": 98,
+      "observations_catalog_sum": 0
+    },
+    {
+      "varid": "85",
+      "name": "Altura hidrométrica horaria",
+      "series": 17,
+      "observations_catalog_sum": 62484
+    },
+    {
+      "varid": "86",
+      "name": "Altura geométrica horaria",
+      "series": 23,
+      "observations_catalog_sum": 0
+    },
+    {
+      "varid": "87",
+      "name": "Caudal horario",
+      "series": 4,
+      "observations_catalog_sum": 0
+    },
+    {
+      "varid": "88",
+      "name": "altura geométrica diaria",
+      "series": 1,
+      "observations_catalog_sum": 0
+    },
+    {
+      "varid": "96",
+      "name": "Altura freatimétrica",
+      "series": 18,
+      "observations_catalog_sum": 8830
+    },
+    {
+      "varid": "97",
+      "name": "Humedad del suelo instantánea",
+      "series": 15,
+      "observations_catalog_sum": 0
+    },
+    {
+      "varid": "98",
+      "name": "Temperatura del suelo instantánea",
+      "series": 15,
+      "observations_catalog_sum": 0
+    },
+    {
+      "varid": "99",
+      "name": "Permitividad eléctrica relativa del suelo",
+      "series": 15,
+      "observations_catalog_sum": 0
+    },
+    {
+      "varid": "100",
+      "name": "Conductividad eléctrica del suelo",
+      "series": 15,
+      "observations_catalog_sum": 0
+    },
+    {
+      "varid": "101",
+      "name": "Altura hidrométrica 4-horaria",
+      "series": 527,
+      "observations_catalog_sum": 1215162
+    },
+    {
+      "varid": "102",
+      "name": "Caudal medio semanal",
+      "series": 6,
+      "observations_catalog_sum": 0
+    },
+    {
+      "varid": "104",
+      "name": "Estado hidrológico",
+      "series": 145,
+      "observations_catalog_sum": 10368
+    }
+  ],
+  "observations_catalog_sum_argentina": 55972367,
+  "download_strategy": "Use per-series requests with <=20,000 observations; prioritize complete series by variable and station, do not exceed source request limits."
+}
