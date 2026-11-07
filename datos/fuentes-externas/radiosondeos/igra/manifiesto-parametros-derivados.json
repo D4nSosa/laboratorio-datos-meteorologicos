@@ -1,0 +1,174 @@
+{
+  "dataset": "NOAA/NCEI IGRA 2.2 sounding-derived parameters",
+  "source": "https://www.ncei.noaa.gov/pub/data/igra/derived/derived-por/",
+  "documentation": "https://www.ncei.noaa.gov/pub/data/igra/derived/igra2-derived-format.txt",
+  "retrieved_utc": "2026-11-07T17:23:07.886621+00:00",
+  "station_ids_requested": 20,
+  "files_downloaded": 19,
+  "stations_without_derived_product": [
+    "ARM00087596"
+  ],
+  "soundings_with_derived_parameters": 198803,
+  "normalized_csv": {
+    "file": "datos/fuentes-externas/radiosondeos/igra/parametros-derivados-por-sondeo.csv.gz",
+    "bytes": 6904983,
+    "sha256": "37e754fd4f464c296ef6c1724b5d8ebec0011031ab59eb2d14086bf00d62cef3"
+  },
+  "files": [
+    {
+      "station_id": "ARM00087047",
+      "file": "datos/fuentes-externas/radiosondeos/igra/derivados-originales/ARM00087047-drvd.txt.zip",
+      "bytes": 12898704,
+      "sha256": "3f49a94eca304fbd0f4057ce2335657a4f2fd39e76f60661b4a432fa49bb8240",
+      "soundings_with_derived_parameters": 13571,
+      "url": "https://www.ncei.noaa.gov/pub/data/igra/derived/derived-por/ARM00087047-drvd.txt.zip"
+    },
+    {
+      "station_id": "ARM00087155",
+      "file": "datos/fuentes-externas/radiosondeos/igra/derivados-originales/ARM00087155-drvd.txt.zip",
+      "bytes": 35627252,
+      "sha256": "8b7712c142f7946f83f4ce5fc80d3eac6990dbdbf6afbf938d3a58960a0a57a2",
+      "soundings_with_derived_parameters": 23671,
+      "url": "https://www.ncei.noaa.gov/pub/data/igra/derived/derived-por/ARM00087155-drvd.txt.zip"
+    },
+    {
+      "station_id": "ARM00087157",
+      "file": "datos/fuentes-externas/radiosondeos/igra/derivados-originales/ARM00087157-drvd.txt.zip",
+      "bytes": 558529,
+      "sha256": "d3ded3360fc0dd9ceb8e70147be6dace5124fb3ee137a3a5dd00ac2c395292ea",
+      "soundings_with_derived_parameters": 1112,
+      "url": "https://www.ncei.noaa.gov/pub/data/igra/derived/derived-por/ARM00087157-drvd.txt.zip"
+    },
+    {
+      "station_id": "ARM00087244",
+      "file": "datos/fuentes-externas/radiosondeos/igra/derivados-originales/ARM00087244-drvd.txt.zip",
+      "bytes": 290300,
+      "sha256": "7628d964c0f17aa6566f8fb621d6b7c1415409b934234fab25e2bf88557ceb07",
+      "soundings_with_derived_parameters": 103,
+      "url": "https://www.ncei.noaa.gov/pub/data/igra/derived/derived-por/ARM00087244-drvd.txt.zip"
+    },
+    {
+      "station_id": "ARM00087344",
+      "file": "datos/fuentes-externas/radiosondeos/igra/derivados-originales/ARM00087344-drvd.txt.zip",
+      "bytes": 30698039,
+      "sha256": "6f9e5c250beab6b05fa2011d021a49f8346fb0c802946836b1753ef9cfec28d4",
+      "soundings_with_derived_parameters": 24173,
+      "url": "https://www.ncei.noaa.gov/pub/data/igra/derived/derived-por/ARM00087344-drvd.txt.zip"
+    },
+    {
+      "station_id": "ARM00087418",
+      "file": "datos/fuentes-externas/radiosondeos/igra/derivados-originales/ARM00087418-drvd.txt.zip",
+      "bytes": 19179268,
+      "sha256": "f03f1b1f2361f3ae558b4af7ed802b7acc012611050dfbd11ea3bd1bd3046868",
+      "soundings_with_derived_parameters": 15799,
+      "url": "https://www.ncei.noaa.gov/pub/data/igra/derived/derived-por/ARM00087418-drvd.txt.zip"
+    },
+    {
+      "station_id": "ARM00087420",
+      "file": "datos/fuentes-externas/radiosondeos/igra/derivados-originales/ARM00087420-drvd.txt.zip",
+      "bytes": 1538850,
+      "sha256": "9e020ac143ad83d63164df233012c3460f51810f7926547efd3435e84d040fe6",
+      "soundings_with_derived_parameters": 2947,
+      "url": "https://www.ncei.noaa.gov/pub/data/igra/derived/derived-por/ARM00087420-drvd.txt.zip"
+    },
+    {
+      "station_id": "ARM00087576",
+      "file": "datos/fuentes-externas/radiosondeos/igra/derivados-originales/ARM00087576-drvd.txt.zip",
+      "bytes": 45711581,
+      "sha256": "403fd4e4fcb987a9f4e8d159f4319be2c462adf6f4db364b3015a974e29b6baa",
+      "soundings_with_derived_parameters": 33299,
+      "url": "https://www.ncei.noaa.gov/pub/data/igra/derived/derived-por/ARM00087576-drvd.txt.zip"
+    },
+    {
+      "station_id": "ARM00087582",
+      "file": "datos/fuentes-externas/radiosondeos/igra/derivados-originales/ARM00087582-drvd.txt.zip",
+      "bytes": 1591546,
+      "sha256": "d2c6f19a0c658d4bc08edf7bc8b6c62ee771231530133c7abc458582e93f8b65",
+      "soundings_with_derived_parameters": 640,
+      "url": "https://www.ncei.noaa.gov/pub/data/igra/derived/derived-por/ARM00087582-drvd.txt.zip"
+    },
+    {
+      "station_id": "ARM00087585",
+      "file": "datos/fuentes-externas/radiosondeos/igra/derivados-originales/ARM00087585-drvd.txt.zip",
+      "bytes": 2704570,
+      "sha256": "48eac733bc70234de9b37ed88e62e42ea37d3f070ec5a6f31af52d003eeb8edd",
+      "soundings_with_derived_parameters": 711,
+      "url": "https://www.ncei.noaa.gov/pub/data/igra/derived/derived-por/ARM00087585-drvd.txt.zip"
+    },
+    {
+      "station_id": "ARM00087623",
+      "file": "datos/fuentes-externas/radiosondeos/igra/derivados-originales/ARM00087623-drvd.txt.zip",
+      "bytes": 27440849,
+      "sha256": "66a248539ec67ed106e8a06f7a04e38209207f6b3248e848c8873a37a6e85a64",
+      "soundings_with_derived_parameters": 20769,
+      "url": "https://www.ncei.noaa.gov/pub/data/igra/derived/derived-por/ARM00087623-drvd.txt.zip"
+    },
+    {
+      "station_id": "ARM00087715",
+      "file": "datos/fuentes-externas/radiosondeos/igra/derivados-originales/ARM00087715-drvd.txt.zip",
+      "bytes": 19312048,
+      "sha256": "178481a0d197d5d356f9e2f8ea3022a21ef26fbd891f09055566ce628f7fc04c",
+      "soundings_with_derived_parameters": 16745,
+      "url": "https://www.ncei.noaa.gov/pub/data/igra/derived/derived-por/ARM00087715-drvd.txt.zip"
+    },
+    {
+      "station_id": "ARM00087748",
+      "file": "datos/fuentes-externas/radiosondeos/igra/derivados-originales/ARM00087748-drvd.txt.zip",
+      "bytes": 8066389,
+      "sha256": "46f5a53f0cce2e7a0fcfc5877eb14482035e2c6a83c38f79b69c82c7d5bea2c2",
+      "soundings_with_derived_parameters": 12456,
+      "url": "https://www.ncei.noaa.gov/pub/data/igra/derived/derived-por/ARM00087748-drvd.txt.zip"
+    },
+    {
+      "station_id": "ARM00087827",
+      "file": "datos/fuentes-externas/radiosondeos/igra/derivados-originales/ARM00087827-drvd.txt.zip",
+      "bytes": 577421,
+      "sha256": "90873558588b05e33a79a4dcace9bddc5f1fd19c24fe4690de7e1099c22286bf",
+      "soundings_with_derived_parameters": 1140,
+      "url": "https://www.ncei.noaa.gov/pub/data/igra/derived/derived-por/ARM00087827-drvd.txt.zip"
+    },
+    {
+      "station_id": "ARM00087860",
+      "file": "datos/fuentes-externas/radiosondeos/igra/derivados-originales/ARM00087860-drvd.txt.zip",
+      "bytes": 30486359,
+      "sha256": "b6e5e4ee1ac967756a762a2c5a9088b623e8b483536f6c2eb6a790208b546012",
+      "soundings_with_derived_parameters": 22150,
+      "url": "https://www.ncei.noaa.gov/pub/data/igra/derived/derived-por/ARM00087860-drvd.txt.zip"
+    },
+    {
+      "station_id": "ARM00087926",
+      "file": "datos/fuentes-externas/radiosondeos/igra/derivados-originales/ARM00087926-drvd.txt.zip",
+      "bytes": 1878840,
+      "sha256": "aceb4f65bbdac5cfef9597a5d727b32667baf8f4a55100702afef0e3a6f94947",
+      "soundings_with_derived_parameters": 4219,
+      "url": "https://www.ncei.noaa.gov/pub/data/igra/derived/derived-por/ARM00087926-drvd.txt.zip"
+    },
+    {
+      "station_id": "ARM00087934",
+      "file": "datos/fuentes-externas/radiosondeos/igra/derivados-originales/ARM00087934-drvd.txt.zip",
+      "bytes": 1623535,
+      "sha256": "a80fb9ca9d93ecbaa9e126a151b1e1f5f8e8872c6e96e9083f610aeb8fca4a66",
+      "soundings_with_derived_parameters": 3204,
+      "url": "https://www.ncei.noaa.gov/pub/data/igra/derived/derived-por/ARM00087934-drvd.txt.zip"
+    },
+    {
+      "station_id": "ARM00087938",
+      "file": "datos/fuentes-externas/radiosondeos/igra/derivados-originales/ARM00087938-drvd.txt.zip",
+      "bytes": 847743,
+      "sha256": "441c450c454ce597bf984e6dc6091d77b9514d962344f47bc9be55310995b57d",
+      "soundings_with_derived_parameters": 1822,
+      "url": "https://www.ncei.noaa.gov/pub/data/igra/derived/derived-por/ARM00087938-drvd.txt.zip"
+    },
+    {
+      "station_id": "ARM00088946",
+      "file": "datos/fuentes-externas/radiosondeos/igra/derivados-originales/ARM00088946-drvd.txt.zip",
+      "bytes": 111902,
+      "sha256": "f7158e2ceda3351dffb29b1d365c2e68202e480f9c67999bdcf9ce3dbb103c74",
+      "soundings_with_derived_parameters": 272,
+      "url": "https://www.ncei.noaa.gov/pub/data/igra/derived/derived-por/ARM00088946-drvd.txt.zip"
+    }
+  ],
+  "errors": [],
+  "variables_note": "Raw integer values are preserved. Apply scale factors and units from NOAA's IGRA derived-parameter format documentation before plotting; missing/QA-removed codes -99999 and -8888 are stored as null.",
+  "coverage_note": "Derived parameters are available only for a subset of IGRA soundings; absence does not mean no sounding exists."
+}
