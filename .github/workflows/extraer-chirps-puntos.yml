@@ -1,0 +1,57 @@
+name: Extraer puntos diarios CHIRPS — estaciones IGRA
+
+on:
+  push:
+    branches:
+      - "data/initial-radiosonde-inventory-2026-11-07"
+    paths:
+      - ".github/workflows/extraer-chirps-puntos.yml"
+      - "scripts/extraer_chirps_puntos.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: extraer-chirps-puntos
+  cancel-in-progress: false
+
+jobs:
+  extraer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Checkout rama aislada
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar cliente de catálogo
+        run: python -m pip install --upgrade pip && python -m pip install "dynamical-catalog>=0.8.0" numpy
+
+      - name: Extraer series diarias CHIRPS en estaciones IGRA
+        run: python scripts/extraer_chirps_puntos.py
+
+      - name: Guardar puntos y manifiesto
+        if: always()
+        env:
+          TARGET_BRANCH: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for path in datos/fuentes-externas/precipitacion/chirps-v3/argentina/puntos-diarios datos/fuentes-externas/precipitacion/chirps-v3/manifiestos; do
+            if [ -d "$path" ]; then git add "$path"; fi
+          done
+          if git diff --cached --quiet; then
+            echo "No hay nuevos puntos CHIRPS."
+          else
+            git commit -m "data: archive daily CHIRPS station point series"
+            bash scripts/push_branch_retry.sh
+          fi
