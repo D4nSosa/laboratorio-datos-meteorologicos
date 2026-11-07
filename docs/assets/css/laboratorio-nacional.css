@@ -108,7 +108,6 @@ table{max-width:100%}
 .satellite-panel{margin:18px 0 22px}.satellite-layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(220px,.5fr);gap:16px;padding:14px 18px;align-items:center}.satellite-image-wrap{display:grid;place-items:center;min-height:260px;background:#050d12;border:1px solid var(--line);border-radius:12px;overflow:hidden}.satellite-image-wrap img{display:block;width:100%;height:auto;max-height:640px;object-fit:contain}.satellite-meta{font-size:11px;color:var(--muted);line-height:1.7}.satellite-meta p{margin:12px 0}.satellite-meta a{color:var(--accent);text-decoration:none}.satellite-meta a:hover{text-decoration:underline}
 @media(max-width:760px){.satellite-layout{grid-template-columns:1fr;padding:10px 12px}.satellite-image-wrap{min-height:180px}.satellite-image-wrap img{max-height:420px}}
 
-/* Consola de vigilancia atmosférica y análisis espacial nacional */
 .radar-console,.weather-grid-console,.goes-loop-panel{margin:18px 0;padding:16px 18px;background:var(--surface);border:1px solid var(--line);border-radius:14px}
 .radar-console-head{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
 .radar-console-head b{display:block;color:var(--text);font-size:14px;margin:3px 0}
@@ -122,24 +121,12 @@ table{max-width:100%}
 .radar-source-links{display:flex;gap:14px;flex-wrap:wrap;align-items:center;color:var(--muted);font-size:10px}
 .radar-source-links a,.goes-loop-panel a{color:var(--accent);text-decoration:none}
 .radar-source-links a:hover,.goes-loop-panel a:hover{text-decoration:underline}
-.weather-grid-controls{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;align-items:end;margin:16px 0 10px}
-.weather-grid-controls label,.goes-loop-controls label{display:grid;gap:6px;font-size:10px;color:var(--muted)}
-.weather-grid-controls select,.weather-grid-controls input,.goes-loop-controls select{min-width:0;width:100%;background:var(--surface2);color:var(--text);border:1px solid var(--line);padding:9px;border-radius:8px;font-size:11px}
-.weather-grid-controls button{white-space:nowrap}
-.weather-map-toggles{display:flex;gap:16px;flex-wrap:wrap;font-size:11px;color:var(--muted);margin:8px 0}
-.weather-map-toggles label{display:flex;align-items:center;gap:6px}
-.weather-legend{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:10px 0;padding:9px 11px;border-radius:9px;background:var(--surface2);font-size:10px;color:var(--muted)}
-.weather-legend-item{display:flex;gap:5px;align-items:center;white-space:nowrap}
-.weather-legend-item i{width:10px;height:10px;border-radius:3px;display:inline-block}
-.weather-map-status{font-size:11px;color:var(--muted);line-height:1.6;margin:8px 0}
 .goes-loop-controls{display:flex;gap:10px;align-items:end;flex-wrap:wrap}
 .goes-loop-controls label{min-width:220px}
 .goes-loop-controls .btn{font-size:11px;padding:9px 12px}
 .goes-iframe-wrap{margin-top:12px;height:620px;overflow:hidden;border:1px solid var(--line);border-radius:10px;background:#061014}
 .goes-iframe-wrap iframe{width:100%;height:100%;border:0;background:#061014}
-.province-weather-popup{font-size:12px;line-height:1.55}
-@media(max-width:1000px){.weather-grid-controls{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:680px){.radar-console,.weather-grid-console,.goes-loop-panel{padding:12px}.weather-grid-controls{grid-template-columns:repeat(2,minmax(0,1fr))}.radar-timeline{grid-template-columns:1fr}.radar-timeline strong{white-space:normal}.goes-iframe-wrap{height:480px}.goes-loop-controls{width:100%}.goes-loop-controls label{min-width:0;flex:1}}
+@media(max-width:680px){.radar-console,.goes-loop-panel{padding:12px}.radar-timeline{grid-template-columns:1fr}.radar-timeline strong{white-space:normal}.goes-iframe-wrap{height:480px}.goes-loop-controls{width:100%}.goes-loop-controls label{min-width:0;flex:1}}
 
 .radar-dbz-legend{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:8px 0 12px;font-size:10px;color:var(--muted)}.radar-dbz-legend b{color:var(--text);margin-right:4px}.radar-dbz-legend span{display:flex;align-items:center;gap:4px}.radar-dbz-legend i{display:inline-block;width:12px;height:12px;border-radius:3px}.radar-dbz-legend .radar-gradient{display:inline-block;width:140px;height:10px;border-radius:6px;background:linear-gradient(90deg,#1d4ed8 0%,#00a3e0 25%,#00b76b 50%,#ffdf00 70%,#f97316 85%,#dc2626 100%)}.radar-dbz-legend small{flex-basis:100%;font-size:9px}
 
