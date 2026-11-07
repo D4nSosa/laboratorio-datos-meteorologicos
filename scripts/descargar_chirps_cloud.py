@@ -50,8 +50,8 @@ def main():
     # Argentina bounding window, followed by an exact national polygon mask.
     lat_values=np.asarray(da.latitude.values)
     lon_values=np.asarray(da.longitude.values)
-    lat_slice=slice(-20,-60) if lat_values[0]>lat_values[-1] else slice(-60,-20)
-    lon_slice=slice(-50,-80) if lon_values[0]>lon_values[-1] else slice(-80,-50)
+    lat_slice=slice(-21,-56) if lat_values[0]>lat_values[-1] else slice(-56,-21)
+    lon_slice=slice(-53,-75) if lon_values[0]>lon_values[-1] else slice(-75,-53)
     da=da.sel(latitude=lat_slice,longitude=lon_slice)
     lat=np.asarray(da.latitude.values)
     lon=np.asarray(da.longitude.values)
@@ -60,7 +60,6 @@ def main():
     spatial_mask=contains_xy(polygon,xx,yy)
     mask_da=xr.DataArray(spatial_mask,dims=("latitude","longitude"),
                          coords={"latitude":da.latitude,"longitude":da.longitude})
-    da=da.where(mask_da)
 
     first=np.datetime_as_string(np.asarray(da.time.values)[0],unit="D")
     last=np.datetime_as_string(np.asarray(da.time.values)[-1],unit="D")
@@ -103,6 +102,8 @@ def main():
         year_da=da.where((da.time >= np.datetime64(start)) & (da.time < np.datetime64(stop)),drop=True)
         if year_da.sizes.get("time",0)==0:
             continue
+        # Apply the polygon after slicing one year to bound peak memory.
+        year_da=year_da.where(mask_da)
         # The daily product is an average rate over each 24-hour interval.
         monthly=(year_da*86400.0).resample(time="MS").sum(skipna=True,min_count=1)
         monthly=monthly.astype("float32").load()
