@@ -42,6 +42,9 @@ jobs:
           if [ -d datos/fuentes-externas/radiosondeos/igra/derivados-originales ]; then
             git add datos/fuentes-externas/radiosondeos/igra/derivados-originales
           fi
+          if [ -d datos/fuentes-externas/radiosondeos/igra/niveles-derivados ]; then
+            git add datos/fuentes-externas/radiosondeos/igra/niveles-derivados
+          fi
           if [ -f datos/fuentes-externas/radiosondeos/igra/parametros-derivados-por-sondeo.csv.gz ]; then
             git add datos/fuentes-externas/radiosondeos/igra/parametros-derivados-por-sondeo.csv.gz
           fi
