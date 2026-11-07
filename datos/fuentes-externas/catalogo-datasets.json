@@ -128,7 +128,18 @@
       },
       "variable": "precipitation_mm_day",
       "units": "mm/day",
-      "note": "Muestreo en celdas cercanas a radiosondeos argentinos; no es una grilla completa. Cada día conserva el número de intervalos válidos. IMERG Late no es intercambiable con Final."
+      "note": "Muestreo en celdas cercanas a radiosondeos argentinos; no es una grilla completa. precipitation_mm_day usa la tasa media de los intervalos válidos multiplicada por 24 h; se conserva también la suma de intervalos válidos y la completitud. No es un archivo oficial IMERG Daily y Late no es intercambiable con Final.",
+      "primary_fields": [
+        "station_id",
+        "date",
+        "precipitation_mm_day",
+        "precipitation_sum_valid_intervals_mm",
+        "valid_half_hour_intervals",
+        "expected_half_hour_intervals",
+        "completeness_pct",
+        "selected_latitude",
+        "selected_longitude"
+      ]
     },
     {
       "id": "gpm-imerg-final-v07b",
