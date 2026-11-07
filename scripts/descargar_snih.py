@@ -166,12 +166,15 @@ def raw_telemetry(station_id, start=date(2009,1,1), end=None):
             rows=recent_window(station_id,block_cursor,stop)
             if not rows:
                 break
+            new_rows=[row for row in rows if row["datetime"] not in found]
             for row in rows:
                 found.setdefault(row["datetime"],row)
             last=date.fromisoformat(rows[-1]["date"])
             if last>=stop:
                 break
-            next_cursor=last if last>block_cursor else last+timedelta(days=1)
+            # Re-query the last day only when the response contains new data;
+            # otherwise advance one day to avoid an endless repeated block.
+            next_cursor=last if new_rows and last>block_cursor else last+timedelta(days=1)
             if next_cursor<=block_cursor:
                 next_cursor=block_cursor+timedelta(days=1)
             block_cursor=next_cursor
