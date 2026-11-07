@@ -14,7 +14,7 @@ permissions:
 
 concurrency:
   group: ingesta-datasets-historicos
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   descargar-y-procesar:
@@ -38,7 +38,7 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install requests numpy pandas rasterio shapely xarray netCDF4
 
-      - name: Descargar y procesar IGRA, CHIRPS e inventarios INA
+      - name: Descargar perfiles IGRA e inventarios INA-DSIyAH
         continue-on-error: true
         run: python scripts/descargar_datasets_historicos.py
 
@@ -56,13 +56,14 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add datos/fuentes-externas/radiosondeos/igra
-          git add datos/fuentes-externas/precipitacion/chirps-v3
-          git add datos/fuentes-externas/hidrologia/ina-dsiyah
-          git add datos/fuentes-externas/manifiestos
+          for path in datos/fuentes-externas/radiosondeos/igra datos/fuentes-externas/precipitacion/chirps-v3 datos/fuentes-externas/hidrologia/ina-dsiyah datos/fuentes-externas/manifiestos; do
+            if [ -d "$path" ]; then git add "$path"; fi
+          done
           if git diff --cached --quiet; then
             echo "No hay nuevos archivos para guardar."
           else
             git commit -m "data: archive IGRA and CHIRPS historical datasets"
+            git fetch origin "${TARGET_BRANCH}"
+            git rebase "origin/${TARGET_BRANCH}"
             git push origin "HEAD:${TARGET_BRANCH}"
           fi
