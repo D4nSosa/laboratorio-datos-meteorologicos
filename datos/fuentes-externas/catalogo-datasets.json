@@ -127,7 +127,7 @@
       "daily_point_units": {
         "precipitation_mm_day": "mm/day"
       },
-      "daily_point_note": "Nearest 0.05-degree CHIRPS grid cell to each Argentine IGRA station; Final/rnl uses ERA5-based daily disaggregation. Daily dates are consistent labels, not uniform local observation windows."
+      "daily_point_note": "Nearest 0.05-degree CHIRPS grid cell to each of the 20 ARM radiosonde IDs; includes one Argentine-operated South Orkney Islands/Antarctic reference station. Final/rnl uses ERA5-based daily disaggregation. Daily dates are consistent labels, not uniform local observation windows."
     },
     {
       "id": "gpm-imerg-late-v07-argentina-points",
