@@ -49,7 +49,7 @@ def value(line,a,b):
     if not s:return None
     try:
         n=int(s)
-        return None if n in (-99999,-8888) else n
+        return None if n == -99999 else n
     except ValueError:return None
 
 def parse_headers(text):
@@ -70,9 +70,11 @@ def parse_headers(text):
             "release_time_hhmm_utc":line[27:31].strip(),
             "num_levels":numlev,
             "precipitable_water_raw":value(line,37,43),
+            "precipitable_water_mm":(value(line,37,43)/100 if value(line,37,43) is not None else None),
             "inversion_pressure_raw":value(line,43,49),
             "inversion_height_m":value(line,49,55),
             "inversion_temp_difference_raw":value(line,55,61),
+            "inversion_temp_difference_k":(value(line,55,61)/10 if value(line,55,61) is not None else None),
             "mixing_pressure_raw":value(line,61,67),
             "mixing_height_m":value(line,67,73),
             "freezing_pressure_raw":value(line,73,79),
@@ -83,12 +85,12 @@ def parse_headers(text):
             "lfc_height_m":value(line,103,109),
             "lnb_pressure_raw":value(line,109,115),
             "lnb_height_m":value(line,115,121),
-            "lifted_index_raw":value(line,121,127),
-            "showalter_index_raw":value(line,127,133),
-            "k_index_raw":value(line,133,139),
-            "total_totals_index_raw":value(line,139,145),
-            "cape_raw":value(line,145,151),
-            "cin_raw":value(line,151,157)
+            "lifted_index_c":value(line,121,127),
+            "showalter_index_c":value(line,127,133),
+            "k_index_c":value(line,133,139),
+            "total_totals_index_c":value(line,139,145),
+            "cape_j_kg":value(line,145,151),
+            "cin_j_kg":value(line,151,157)
         }
         rows.append(row)
         i+=1+max(0,numlev)
@@ -105,11 +107,11 @@ def main():
         m=re.fullmatch(r"([A-Z0-9]{11})-drvd\.txt\.zip",name)
         if m and m.group(1) in ids:urls[m.group(1)]=urljoin(BASE,href)
     OUT.mkdir(parents=True,exist_ok=True)
-    files=[];all_rows=[];errors=[]
+    files=[];all_rows=[];errors=[];not_available=[]
     for n,sid in enumerate(sorted(ids),1):
         url=urls.get(sid)
         if not url:
-            errors.append({"station_id":sid,"error":"No derived-por ZIP in official index."})
+            not_available.append(sid)
             continue
         path=OUT/f"{sid}-drvd.txt.zip"
         if not path.exists() or path.stat().st_size==0:
@@ -151,6 +153,7 @@ def main():
         "source":BASE,"documentation":"https://www.ncei.noaa.gov/pub/data/igra/derived/igra2-derived-format.txt",
         "retrieved_utc":datetime.now(timezone.utc).isoformat(),
         "station_ids_requested":len(ids),"files_downloaded":len(files),
+        "stations_without_derived_product":not_available,
         "soundings_with_derived_parameters":len(all_rows),
         "normalized_csv":{"file":str(CSV_OUT),"bytes":CSV_OUT.stat().st_size,"sha256":sha(CSV_OUT)},
         "files":files,"errors":errors,
