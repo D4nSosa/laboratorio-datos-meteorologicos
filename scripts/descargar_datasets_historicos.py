@@ -144,11 +144,9 @@ def ingest_chirps(manifest: dict):
             if src.crs.to_string() != "EPSG:4326":
                 from rasterio.warp import transform_geom
                 geom = transform_geom("EPSG:4326", src.crs, mapping(argentina))
-            arr, transform = mask(src, [mapping(geom) if hasattr(geom, "geom_type") else geom],
-                                  crop=True, filled=True, nodata=np.nan, indexes=1)
-            if arr.ndim == 3:
-                arr = arr[0]
-            arr = np.asarray(arr, dtype=np.float32)
+            masked, transform = mask(src, [mapping(geom) if hasattr(geom, "geom_type") else geom],
+                                     crop=True, filled=False, indexes=1)
+            arr = masked.astype(np.float32).filled(np.nan)
             lat = transform.f + (np.arange(arr.shape[0]) + 0.5) * transform.e
             lon = transform.c + (np.arange(arr.shape[1]) + 0.5) * transform.a
             by_year.setdefault(year, []).append(
@@ -251,8 +249,20 @@ def main():
             errors[name] = f"{type(exc).__name__}: {exc}"
             manifest["datasets"][name] = {"estado": "fallido", "error": errors[name]}
             print(f"ERROR {name}: {errors[name]}")
+    manifest["datasets"]["GPM_IMERG"] = {
+        "estado": "pendiente_de_autenticacion_y_submuestreo",
+        "producto_objetivo": "GPM IMERG Final V07B (mensual o diario, recorte Argentina)",
+        "fuente": "https://disc.gsfc.nasa.gov/datasets/GPM_3IMERGDF_07/summary",
+        "motivo": "GES DISC/PPS requiere autenticación Earthdata para descargas masivas. No se sustituye IMERG por CHIRPS sat: CHIRPS sat usa IMERG Late para desagregar pentadas y no es un archivo IMERG independiente.",
+        "requisito": "Configurar credenciales/tokens NASA Earthdata como secrets del repositorio y definir extracción espacial eficiente antes de incorporar gran volumen."
+    }
+    manifest["datasets"]["SNIH"] = {
+        "estado": "pendiente_de_conector_oficial_verificado",
+        "fuente": "https://snih.hidricosargentina.gob.ar/",
+        "nota": "No se declara descargada la base nacional SNIH. El catálogo INA-DSIyAH descargado corresponde a la cuenca del Plata y no debe presentarse como cobertura nacional completa."
+    }
     manifest["errores"] = errors
-    manifest["estado_general"] = "completo_sin_errores" if not errors else "parcial_con_errores"
+    manifest["estado_general"] = "parcial_con_bloqueos_externos" if manifest["datasets"].get("GPM_IMERG", {}).get("estado", "").startswith("pendiente") or manifest["datasets"].get("SNIH", {}).get("estado", "").startswith("pendiente") or errors else "completo_sin_errores"
     manifest_path = ROOT / "manifiestos" / "ingesta-meteorologica-hidrologica.json"
     save_json(manifest_path, manifest)
     print(json.dumps(manifest, ensure_ascii=False, indent=2))
