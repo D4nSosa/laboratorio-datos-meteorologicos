@@ -11,6 +11,12 @@ on:
       - "datos/fuentes-externas/inta-siga/estaciones-cobertura.csv"
       - "datos/fuentes-externas/inta-siga/precipitacion-anual-estaciones.csv"
       - "datos/fuentes-externas/corrientes/**"
+      - "datos/fuentes-externas/precipitacion/chirps-v3/argentina/puntos-diarios/**"
+      - "datos/fuentes-externas/precipitacion/gpm-imerg/late-v07/daily-points-argentina/**"
+      - "datos/fuentes-externas/radiosondeos/igra/estaciones-argentina.csv"
+      - "datos/fuentes-externas/hidrologia/ina-dsiyah/catalogos/series-argentina.csv.gz"
+      - "datos/fuentes-externas/hidrologia/ina-dsiyah/catalogos/resumen-series-argentina.json"
+      - "datos/fuentes-externas/hidrologia/snih/manifiestos/snih-ingesta.json"
 
 permissions:
   contents: read
@@ -42,6 +48,17 @@ jobs:
           mkdir -p docs/datos/fuentes-externas/corrientes
           cp datos/fuentes-externas/corrientes/rainfall-daily.csv docs/datos/fuentes-externas/corrientes/
           cp datos/fuentes-externas/corrientes/qa-summary.json docs/datos/fuentes-externas/corrientes/
+          mkdir -p docs/datos/fuentes-externas/precipitacion/chirps-v3/argentina/puntos-diarios
+          cp -a datos/fuentes-externas/precipitacion/chirps-v3/argentina/puntos-diarios/. docs/datos/fuentes-externas/precipitacion/chirps-v3/argentina/puntos-diarios/
+          mkdir -p docs/datos/fuentes-externas/precipitacion/gpm-imerg/late-v07/daily-points-argentina
+          cp -a datos/fuentes-externas/precipitacion/gpm-imerg/late-v07/daily-points-argentina/. docs/datos/fuentes-externas/precipitacion/gpm-imerg/late-v07/daily-points-argentina/
+          mkdir -p docs/datos/fuentes-externas/radiosondeos/igra
+          cp datos/fuentes-externas/radiosondeos/igra/estaciones-argentina.csv docs/datos/fuentes-externas/radiosondeos/igra/
+          mkdir -p docs/datos/fuentes-externas/hidrologia/ina-dsiyah/catalogos
+          cp datos/fuentes-externas/hidrologia/ina-dsiyah/catalogos/series-argentina.csv.gz docs/datos/fuentes-externas/hidrologia/ina-dsiyah/catalogos/
+          cp datos/fuentes-externas/hidrologia/ina-dsiyah/catalogos/resumen-series-argentina.json docs/datos/fuentes-externas/hidrologia/ina-dsiyah/catalogos/
+          mkdir -p docs/datos/fuentes-externas/hidrologia/snih/manifiestos
+          cp datos/fuentes-externas/hidrologia/snih/manifiestos/snih-ingesta.json docs/datos/fuentes-externas/hidrologia/snih/manifiestos/
       - name: Validar estructura pública
         run: |
           test -s docs/index.html
@@ -58,6 +75,11 @@ jobs:
           test -s docs/explorador-interactivo.html
           test -s docs/datos/fuentes-externas/corrientes/rainfall-daily.csv
           test -s docs/datos/fuentes-externas/corrientes/qa-summary.json
+          test -s docs/datos/fuentes-externas/precipitacion/chirps-v3/argentina/puntos-diarios/chirps-v3-final-diario-ARM00087155.csv.gz
+          test -s docs/datos/fuentes-externas/precipitacion/gpm-imerg/late-v07/daily-points-argentina/imerg-late-daily-argentina-2026-09.csv.gz
+          test -s docs/datos/fuentes-externas/radiosondeos/igra/estaciones-argentina.csv
+          test -s docs/datos/fuentes-externas/hidrologia/ina-dsiyah/catalogos/series-argentina.csv.gz
+          test -s docs/datos/fuentes-externas/hidrologia/snih/manifiestos/snih-ingesta.json
       - name: Empaquetar sitio
         uses: actions/upload-pages-artifact@v3
         with:

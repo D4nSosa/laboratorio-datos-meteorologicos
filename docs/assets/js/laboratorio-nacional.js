@@ -38,6 +38,35 @@ function latestPowerDate(){const d=new Date();d.setUTCHours(0,0,0,0);d.setUTCDat
 async function forecast(){const lat=Number($('lab-lat').value),lon=Number($('lab-lon').value);if(!Number.isFinite(lat)||!Number.isFinite(lon)||lat < -56||lat > -21||lon < -74||lon > -53){status('forecast-status','Primero buscá y seleccioná una localidad argentina o ingresá coordenadas válidas. No se consulta una ubicación por defecto.');return;}status('forecast-status','Consultando pronóstico para las coordenadas seleccionadas…');try{const d=await json(qs(api+'/forecast',{latitude:lat,longitude:lon,forecast_days:16,timezone:'auto',daily:'weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,wind_speed_10m_max,wind_gusts_10m_max,cloud_cover_mean,relative_humidity_2m_mean,pressure_msl_mean',hourly:'temperature_2m,relative_humidity_2m,dew_point_2m,precipitation,precipitation_probability,cloud_cover,pressure_msl,wind_speed_10m,wind_direction_10m,wind_gusts_10m,cape'}));const rows=(d.daily.time||[]).map((date,i)=>({date:date,tmax:d.daily.temperature_2m_max?.[i],tmin:d.daily.temperature_2m_min?.[i],rain:d.daily.precipitation_sum?.[i],prob:d.daily.precipitation_probability_max?.[i],cloud:d.daily.cloud_cover_mean?.[i],humidity:d.daily.relative_humidity_2m_mean?.[i],pressure:d.daily.pressure_msl_mean?.[i],wind:d.daily.wind_speed_10m_max?.[i],gust:d.daily.wind_gusts_10m_max?.[i]}));table('forecast-table',rows,[['date','Fecha'],['tmax','Máx. °C'],['tmin','Mín. °C'],['rain','Lluvia mm'],['prob','Prob. lluvia %'],['cloud','Nubosidad media %'],['humidity','Humedad media %'],['pressure','Presión hPa'],['wind','Viento máx. km/h'],['gust','Ráfagas km/h']]);const h=(d.hourly.time||[]).slice(0,48).map((time,i)=>({time:time.replace('T',' '),temp:d.hourly.temperature_2m?.[i],humidity:d.hourly.relative_humidity_2m?.[i],dew:d.hourly.dew_point_2m?.[i],rain:d.hourly.precipitation?.[i],prob:d.hourly.precipitation_probability?.[i],cloud:d.hourly.cloud_cover?.[i],pressure:d.hourly.pressure_msl?.[i],wind:d.hourly.wind_speed_10m?.[i],direction:d.hourly.wind_direction_10m?.[i],gust:d.hourly.wind_gusts_10m?.[i],cape:d.hourly.cape?.[i]}));table('forecast-hourly-table',h,[['time','Hora local'],['temp','Temp. °C'],['humidity','Humedad %'],['dew','P. rocío °C'],['rain','Precip. mm'],['prob','Prob. lluvia %'],['cloud','Nubosidad %'],['pressure','Presión hPa'],['wind','Viento km/h'],['direction','Dirección °'],['gust','Ráfagas km/h'],['cape','CAPE J/kg']]);status('forecast-status','Pronóstico de Open-Meteo · '+(d.timezone||'zona horaria del proveedor')+' · hasta 16 días. Salida de modelo, no observación ni pronóstico oficial del SMN.');}catch(e){status('forecast-status','Pronóstico no disponible: '+e.message);}}
 async function searchPlace(){const name=$('lab-place-search').value.trim();if(name.length<2){status('lab-query-status','Escribí al menos dos caracteres para buscar una localidad.');return;}status('lab-query-status','Buscando localidades en Argentina…');try{const d=await json(qs('https://geocoding-api.open-meteo.com/v1/search',{name:name,count:10,language:'es',format:'json',countryCode:'AR'}));const items=d.results||[];const select=$('lab-geocode-results');if(!items.length){select.hidden=true;status('lab-query-status','No se encontraron localidades argentinas con ese nombre.');return;}select.innerHTML=items.map((x,i)=>'<option value="'+i+'">'+esc([x.name,x.admin1,x.admin2].filter(Boolean).join(' · '))+'</option>').join('');select.hidden=false;select._items=items;select.onchange=()=>{const x=items[Number(select.value)];if(!x)return;$('lab-lat').value=Number(x.latitude).toFixed(4);$('lab-lon').value=Number(x.longitude).toFixed(4);status('lab-query-status','Ubicación seleccionada: '+[x.name,x.admin1,x.country].filter(Boolean).join(', ')+' · '+Number(x.latitude).toFixed(4)+', '+Number(x.longitude).toFixed(4)+'.');};select.value='0';select.onchange();}catch(e){status('lab-query-status','No se pudo buscar la localidad: '+e.message);}}
 
+function initForecastSearch(){
+ const input=$('forecast-place-search'),run=$('forecast-place-search-run'),select=$('forecast-place-results'),note=$('forecast-place-status');
+ if(!input||!run||!select||!note)return;
+ let items=[];
+ const search=async()=>{
+  const name=input.value.trim();
+  if(name.length<2){note.textContent='Escribí al menos dos caracteres para buscar una localidad.';return;}
+  run.disabled=true;note.textContent='Buscando localidades argentinas…';
+  try{
+   const data=await json(qs('https://geocoding-api.open-meteo.com/v1/search',{name,count:10,language:'es',format:'json',countryCode:'AR'}));
+   items=data.results||[];
+   if(!items.length){select.hidden=true;note.textContent='No se encontraron localidades argentinas con ese nombre.';return;}
+   select.replaceChildren(...items.map((x,i)=>new Option([x.name,x.admin1,x.admin2].filter(Boolean).join(' · '),String(i))));
+   select.hidden=false;
+   const choose=()=>{
+    const x=items[Number(select.value)];
+    if(!x)return;
+    $('lab-lat').value=Number(x.latitude).toFixed(4);
+    $('lab-lon').value=Number(x.longitude).toFixed(4);
+    note.textContent='Ubicación seleccionada: '+[x.name,x.admin1,x.country].filter(Boolean).join(', ')+' · '+Number(x.latitude).toFixed(4)+', '+Number(x.longitude).toFixed(4)+'.';
+    status('forecast-status','Localidad seleccionada. Ya podés consultar el pronóstico.');
+   };
+   select.onchange=choose;select.value='0';choose();
+  }catch(e){note.textContent='No se pudo buscar la localidad: '+e.message;}
+  finally{run.disabled=false;}
+ };
+ run.addEventListener('click',search);
+ input.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();search();}});
+}
 function initDataResearchPicker(){
   const input=$('data-place-search'),run=$('data-place-search-run'),select=$('data-place-results'),investigate=$('data-place-investigate'),note=$('data-place-status');
   if(!input||!run||!select||!investigate||!note)return;
@@ -98,6 +127,6 @@ function initInaResearch(){
  const today=new Date().toISOString().slice(0,10),from=new Date();from.setUTCDate(from.getUTCDate()-90);
  end.value=today;start.value=from.toISOString().slice(0,10);run.addEventListener('click',queryInaSeries);
 }
-function init(){initGoes();initDataResearchPicker();initInaResearch();if(!$('national-lab'))return;const latest=latestEra5Date();$('lab-end').value=latest;$('lab-end').max=latest;const d=new Date(latest+'T00:00:00Z');d.setUTCDate(d.getUTCDate()-364);$('lab-start').value=d.toISOString().slice(0,10);$('lab-run').onclick=historical;$('forecast-run').onclick=forecast;$('lab-geocode-run').onclick=searchPlace;$('lab-place-search').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();searchPlace();}});$('lab-download').onclick=()=>{if(!queryRows.length)return;const k=Object.keys(queryRows[0]),q=v=>'"'+String(v??'').replace(/"/g,'""')+'"';const b=new Blob([k.map(q).join(',')+'\n'+queryRows.map(r=>k.map(x=>q(r[x])).join(',')).join('\n')],{type:'text/csv'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='consulta-laboratorio.csv';a.click();URL.revokeObjectURL(a.href);};$('lab-preset-virasoro').onclick=()=>{$('lab-lat').value='-28.05';$('lab-lon').value='-56.02';$('lab-place-search').value='Gobernador Virasoro, Corrientes';$('lab-geocode-results').hidden=true;status('lab-query-status','Referencia local: Gobernador Virasoro, Corrientes.');};}
+function init(){initGoes();initDataResearchPicker();initInaResearch();initForecastSearch();if(!$('national-lab'))return;const latest=latestEra5Date();$('lab-end').value=latest;$('lab-end').max=latest;const d=new Date(latest+'T00:00:00Z');d.setUTCDate(d.getUTCDate()-364);$('lab-start').value=d.toISOString().slice(0,10);$('lab-run').onclick=historical;$('forecast-run').onclick=forecast;$('lab-geocode-run').onclick=searchPlace;$('lab-place-search').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();searchPlace();}});$('lab-download').onclick=()=>{if(!queryRows.length)return;const k=Object.keys(queryRows[0]),q=v=>'"'+String(v??'').replace(/"/g,'""')+'"';const b=new Blob([k.map(q).join(',')+'\n'+queryRows.map(r=>k.map(x=>q(r[x])).join(',')).join('\n')],{type:'text/csv'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='consulta-laboratorio.csv';a.click();URL.revokeObjectURL(a.href);};$('lab-preset-virasoro').onclick=()=>{$('lab-lat').value='-28.05';$('lab-lon').value='-56.02';$('lab-place-search').value='Gobernador Virasoro, Corrientes';$('lab-geocode-results').hidden=true;status('lab-query-status','Referencia local: Gobernador Virasoro, Corrientes.');};}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
