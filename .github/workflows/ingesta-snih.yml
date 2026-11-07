@@ -14,7 +14,7 @@ permissions:
 
 concurrency:
   group: ingesta-snih
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   descargar-snih:
@@ -59,7 +59,5 @@ jobs:
             echo "No hay archivos nuevos para guardar."
           else
             git commit -m "data: archive SNIH station inventory and snow series"
-            git fetch origin "${TARGET_BRANCH}"
-            git rebase "origin/${TARGET_BRANCH}"
-            git push origin "HEAD:${TARGET_BRANCH}"
+            bash scripts/push_branch_retry.sh
           fi
