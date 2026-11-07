@@ -28,6 +28,7 @@ La relación lluvia–ENSO no está calculada. La severidad y frecuencia de torm
 ## Fuentes e integraciones
 
 - INA/DSIyAH cuenta con un adaptador de consulta directa de series. Para obtener resultados se necesita un `seriesId` válido y un período disponible; la selección, catalogación y validación sistemática de series sigue siendo trabajo pendiente.
+- La consulta en vivo de AgroClima devolvió 200 para el catálogo (192 estaciones, 187 con coordenadas) y para una estación con observaciones estructuradas. Las fechas de las últimas observaciones varían: se detectaron fichas con datos de mayo y otras con datos de octubre de 2026. La hora de descarga de la página no equivale a la hora de observación.
 - GOES-19 ABI y GLM FED están disponibles mediante visores/productos NOAA, sujetos a disponibilidad y limitaciones documentadas.
 - RainViewer es un mosaico compuesto de cobertura parcial, no una red radar oficial nacional.
 - GPM IMERG, CHIRPS, radiosondeos y SNIH no deben presentarse como conectores completos mientras no se pruebe y documente su flujo de datos.
