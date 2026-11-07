@@ -7,6 +7,7 @@ on:
     paths:
       - ".github/workflows/normalizar-igra-perfiles.yml"
       - "scripts/normalizar_igra_perfiles.py"
+      - "scripts/push_branch_retry.sh"
       - "datos/fuentes-externas/radiosondeos/igra/originales/*.zip"
   workflow_dispatch:
 
