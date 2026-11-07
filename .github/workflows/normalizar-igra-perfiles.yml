@@ -1,0 +1,60 @@
+name: Normalizar perfiles IGRA — Argentina
+
+on:
+  push:
+    branches:
+      - "data/initial-radiosonde-inventory-2026-11-07"
+    paths:
+      - ".github/workflows/normalizar-igra-perfiles.yml"
+      - "scripts/normalizar_igra_perfiles.py"
+      - "scripts/push_branch_retry.sh"
+      - "datos/fuentes-externas/radiosondeos/igra/originales/*.zip"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: normalizar-igra-perfiles
+  cancel-in-progress: false
+
+jobs:
+  normalizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - name: Checkout rama aislada
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - name: Convertir sondeos IGRA a tablas anuales
+        run: python scripts/normalizar_igra_perfiles.py
+
+      - name: Verificar tamaño de tablas
+        if: always()
+        run: |
+          du -sh datos/fuentes-externas/radiosondeos/igra/perfiles-estandar datos/fuentes-externas/radiosondeos/igra/indice-sondeos 2>/dev/null || true
+          find datos/fuentes-externas/radiosondeos/igra/perfiles-estandar datos/fuentes-externas/radiosondeos/igra/indice-sondeos -type f -printf '%s %p\n' 2>/dev/null | sort -nr | head -30 || true
+
+      - name: Guardar perfiles normalizados
+        if: always()
+        env:
+          TARGET_BRANCH: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for path in datos/fuentes-externas/radiosondeos/igra/perfiles-estandar datos/fuentes-externas/radiosondeos/igra/indice-sondeos; do
+            if [ -d "$path" ]; then git add "$path"; fi
+          done
+          if [ -f datos/fuentes-externas/radiosondeos/igra/manifiesto-perfiles-normalizados.json ]; then
+            git add datos/fuentes-externas/radiosondeos/igra/manifiesto-perfiles-normalizados.json
+          fi
+          if git diff --cached --quiet; then
+            echo "No hay perfiles normalizados nuevos."
+          else
+            git commit -m "data: publish normalized Argentine IGRA profiles"
+            bash scripts/push_branch_retry.sh
+          fi

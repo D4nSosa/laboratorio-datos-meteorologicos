@@ -1,0 +1,69 @@
+name: Ingesta de datasets meteorologicos e hidrologicos
+
+on:
+  push:
+    branches:
+      - "data/initial-radiosonde-inventory-2026-11-07"
+    paths:
+      - ".github/workflows/ingesta-datasets-historicos.yml"
+      - "scripts/descargar_datasets_historicos.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ingesta-datasets-historicos
+  cancel-in-progress: true
+
+jobs:
+  descargar-y-procesar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - name: Checkout de la rama aislada
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 1
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Instalar herramientas geoespaciales
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install requests numpy pandas rasterio shapely xarray netCDF4
+
+      - name: Descargar perfiles IGRA e inventarios INA-DSIyAH
+        continue-on-error: true
+        run: python scripts/descargar_datasets_historicos.py
+
+      - name: Revisar volumen descargado
+        if: always()
+        run: |
+          du -sh datos/fuentes-externas/radiosondeos datos/fuentes-externas/precipitacion datos/fuentes-externas/hidrologia datos/fuentes-externas/manifiestos 2>/dev/null || true
+          find datos/fuentes-externas -type f -printf '%s %p\n' | sort -nr | head -30 || true
+
+      - name: Guardar datos en esta rama (nunca en main)
+        if: always()
+        env:
+          TARGET_BRANCH: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for path in datos/fuentes-externas/radiosondeos/igra datos/fuentes-externas/precipitacion/chirps-v3 datos/fuentes-externas/hidrologia/ina-dsiyah datos/fuentes-externas/manifiestos; do
+            if [ -d "$path" ]; then git add "$path"; fi
+          done
+          if git diff --cached --quiet; then
+            echo "No hay nuevos archivos para guardar."
+          else
+            git commit -m "data: archive IGRA and CHIRPS historical datasets"
+            git fetch origin "${TARGET_BRANCH}"
+            git rebase "origin/${TARGET_BRANCH}"
+            git push origin "HEAD:${TARGET_BRANCH}"
+          fi

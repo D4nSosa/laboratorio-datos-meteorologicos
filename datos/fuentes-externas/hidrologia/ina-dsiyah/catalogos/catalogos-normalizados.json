@@ -1,0 +1,196 @@
+{
+  "redes": {
+    "status": "normalized",
+    "top_level_type": "dict",
+    "top_level_keys": [
+      "requestHeader",
+      "responseHeader",
+      "data"
+    ],
+    "records": 21,
+    "record_fields": [
+      "id",
+      "nombre",
+      "public",
+      "public_his_plata",
+      "tabla_id",
+      "user_id"
+    ],
+    "sample": {
+      "tabla_id": "red_acumar",
+      "id": 1,
+      "nombre": "red ACUMAR",
+      "public": true,
+      "public_his_plata": true,
+      "user_id": 4
+    },
+    "normalized_file": "datos/fuentes-externas/hidrologia/ina-dsiyah/catalogos/redes-normalizado.csv.gz",
+    "normalized_rows": 21
+  },
+  "estaciones": {
+    "status": "normalized",
+    "top_level_type": "dict",
+    "top_level_keys": [
+      "requestHeader",
+      "responseHeader",
+      "data"
+    ],
+    "records": 1955,
+    "record_fields": [
+      "abrev",
+      "automatica",
+      "cero_ign",
+      "distrito",
+      "id_externo",
+      "lat",
+      "lon",
+      "nivel_de_aguas_bajas",
+      "nivel_de_alerta",
+      "nivel_de_evacuacion",
+      "nombre",
+      "nombre_red",
+      "pais",
+      "propietario",
+      "real",
+      "redes_id",
+      "rio",
+      "sitecode",
+      "tabla_id",
+      "tipo",
+      "tipo_nombre",
+      "url",
+      "var"
+    ],
+    "sample": {
+      "sitecode": 1,
+      "nombre": "Ruta Provincial nº 39",
+      "distrito": "Entre Rios",
+      "pais": "Argentina",
+      "tipo": "H",
+      "tipo_nombre": "Hidrológica",
+      "propietario": null,
+      "id_externo": "3030",
+      "url": null,
+      "var": "H",
+      "tabla_id": "alturas_bdhi",
+      "nombre_red": "Red Hidrológica Nacional - SSRH",
+      "redes_id": 5,
+      "abrev": "Gualeguaychu",
+      "lon": -58.5548888888889,
+      "lat": -32.4451666666667,
+      "cero_ign": null,
+      "automatica": false,
+      "rio": "GUALEGUAYCHU",
+      "real": true,
+      "nivel_de_alerta": null,
+      "nivel_de_evacuacion": null,
+      "nivel_de_aguas_bajas": null
+    },
+    "normalized_file": "datos/fuentes-externas/hidrologia/ina-dsiyah/catalogos/estaciones-normalizado.csv.gz",
+    "normalized_rows": 1955
+  },
+  "variables": {
+    "status": "normalized",
+    "top_level_type": "dict",
+    "top_level_keys": [
+      "requestHeader",
+      "responseHeader",
+      "data"
+    ],
+    "records": 95,
+    "record_fields": [
+      "SampleMedium",
+      "VariableName",
+      "abrev",
+      "arr_names",
+      "datatype",
+      "def_unit_id",
+      "id",
+      "nombre",
+      "type",
+      "valuetype",
+      "var"
+    ],
+    "sample": {
+      "id": 1,
+      "var": "P",
+      "nombre": "precipitación diaria 12Z",
+      "abrev": "precip_diaria_met",
+      "type": "num",
+      "datatype": "Succeeding Total",
+      "valuetype": "Field Observation",
+      "VariableName": "Precipitation",
+      "SampleMedium": "Precipitation",
+      "arr_names": null,
+      "def_unit_id": 22
+    },
+    "normalized_file": "datos/fuentes-externas/hidrologia/ina-dsiyah/catalogos/variables-normalizado.csv.gz",
+    "normalized_rows": 95
+  },
+  "unidades": {
+    "status": "normalized",
+    "top_level_type": "dict",
+    "top_level_keys": [
+      "requestHeader",
+      "responseHeader",
+      "data"
+    ],
+    "records": 30,
+    "record_fields": [
+      "abrev",
+      "id",
+      "nombre"
+    ],
+    "sample": {
+      "id": 0,
+      "nombre": "Unknown",
+      "abrev": ""
+    },
+    "normalized_file": "datos/fuentes-externas/hidrologia/ina-dsiyah/catalogos/unidades-normalizado.csv.gz",
+    "normalized_rows": 30
+  },
+  "series": {
+    "status": "normalized",
+    "top_level_type": "dict",
+    "top_level_keys": [
+      "requestHeader",
+      "responseHeader",
+      "data"
+    ],
+    "records": 10847,
+    "record_fields": [
+      "estacion_nombre",
+      "estacion_tabla",
+      "from_date",
+      "obs_count",
+      "proc_nombre",
+      "procid",
+      "red_nombre",
+      "seriesid",
+      "sitecode",
+      "to_date",
+      "unit_nombre",
+      "unitid",
+      "var_nombre",
+      "varid"
+    ],
+    "sample": {
+      "seriesid": 1,
+      "sitecode": 1,
+      "estacion_nombre": "Ruta Provincial nº 39",
+      "estacion_tabla": "alturas_bdhi",
+      "red_nombre": "Red Hidrológica Nacional - SSRH",
+      "varid": 2,
+      "var_nombre": "Altura hidrométrica",
+      "procid": 1,
+      "proc_nombre": "medición directa",
+      "unitid": 11,
+      "unit_nombre": "metros",
+      "from_date": "2001-05-01T09:00:00",
+      "to_date": "2026-06-30T20:00:00",
+      "obs_count": 13699
+    },
+    "normalized_file": "datos/fuentes-externas/hidrologia/ina-dsiyah/catalogos/series-normalizado.csv.gz",
+    "normalized_rows": 10847
+  }
+}

@@ -1,0 +1,58 @@
+name: Derivar climatología y anomalías CHIRPS
+
+on:
+  push:
+    branches:
+      - "data/initial-radiosonde-inventory-2026-11-07"
+    paths:
+      - ".github/workflows/procesar-chirps-climatologia.yml"
+      - "scripts/procesar_chirps_climatologia.py"
+      - "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/*.nc"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: procesar-chirps-climatologia
+  cancel-in-progress: false
+
+jobs:
+  procesar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - name: Checkout rama aislada
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar herramientas científicas
+        run: python -m pip install --upgrade pip && python -m pip install xarray netCDF4 numpy
+
+      - name: Calcular climatología 1991-2020 y anomalías mensuales
+        run: python scripts/procesar_chirps_climatologia.py
+
+      - name: Guardar productos derivados
+        if: always()
+        env:
+          TARGET_BRANCH: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for path in datos/fuentes-externas/precipitacion/chirps-v3/argentina/climatologia datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias datos/fuentes-externas/precipitacion/chirps-v3/argentina/manifiestos; do
+            if [ -d "$path" ]; then git add "$path"; fi
+          done
+          if git diff --cached --quiet; then
+            echo "No hay productos derivados nuevos."
+          else
+            git commit -m "data: archive CHIRPS monthly climatology and anomalies"
+            bash scripts/push_branch_retry.sh
+          fi

@@ -1,0 +1,66 @@
+name: Ingesta CHIRPS v3 Final — Argentina
+
+on:
+  push:
+    branches:
+      - "data/initial-radiosonde-inventory-2026-11-07"
+    paths:
+      - ".github/workflows/ingesta-chirps-cloud.yml"
+      - "scripts/descargar_chirps_cloud.py"
+      - "scripts/push_branch_retry.sh"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ingesta-chirps-cloud
+  cancel-in-progress: false
+
+jobs:
+  descargar-chirps:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - name: Checkout rama aislada
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar cliente de catálogo y formato científico
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install "dynamical-catalog>=0.8.0" netCDF4 shapely requests
+
+      - name: Descargar y agregar CHIRPS v3 Final diario a mensual
+        run: python scripts/descargar_chirps_cloud.py
+
+      - name: Verificar volumen y productos
+        if: always()
+        run: |
+          du -sh datos/fuentes-externas/precipitacion/chirps-v3 2>/dev/null || true
+          find datos/fuentes-externas/precipitacion/chirps-v3 -type f -printf '%s %p\n' | sort -nr | head -40 || true
+
+      - name: Guardar productos en la rama aislada
+        if: always()
+        env:
+          TARGET_BRANCH: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -d datos/fuentes-externas/precipitacion/chirps-v3 ]; then
+            git add datos/fuentes-externas/precipitacion/chirps-v3
+          fi
+          if git diff --cached --quiet; then
+            echo "No hay productos nuevos para guardar."
+          else
+            git commit -m "data: archive CHIRPS v3 final Argentina monthly grids"
+            bash scripts/push_branch_retry.sh
+          fi

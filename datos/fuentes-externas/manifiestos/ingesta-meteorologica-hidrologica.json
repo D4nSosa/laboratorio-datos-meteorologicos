@@ -1,0 +1,218 @@
+{
+  "titulo": "Ingesta inicial de datasets meteorológicos e hidrológicos",
+  "creado_utc": "2026-11-07T17:11:55.823153+00:00",
+  "repositorio": "D4nSosa/laboratorio-datos-meteorologicos",
+  "alcance": "Argentina; archivos fuente originales y subconjuntos procesados",
+  "datasets": {
+    "IGRA": {
+      "estado": "descargado_y_validado",
+      "producto": "IGRA 2.2 period-of-record sounding files",
+      "estaciones_archivo": 20,
+      "estaciones_argentina_inventario": 20,
+      "estaciones_contexto_sudamerica": 71,
+      "pares_cercanos_para_revision": 3,
+      "archivos": [
+        {
+          "archivo": "ARM00087047-data.txt.zip",
+          "bytes": 5585244,
+          "sha256": "8ea8c56e9b498069b35d98875c097363877bcbbd95f83288b0bccd6cb6d8a07c",
+          "url": "https://www.ncei.noaa.gov/pub/data/igra/data/data-por/ARM00087047-data.txt.zip"
+        },
+        {
+          "archivo": "ARM00087155-data.txt.zip",
+          "bytes": 20147491,
+          "sha256": "8a228fa5c20534ef458406701e53ce4b5c0a7d0d296501bde6d59220154dd8ec",
+          "url": "https://www.ncei.noaa.gov/pub/data/igra/data/data-por/ARM00087155-data.txt.zip"
+        },
+        {
+          "archivo": "ARM00087157-data.txt.zip",
+          "bytes": 168102,
+          "sha256": "08da357f3e9891f2683102fb99d7ebe1ffd06d0e1e73060f58d2bc53d2554192",
+          "url": "https://www.ncei.noaa.gov/pub/data/igra/data/data-por/ARM00087157-data.txt.zip"
+        },
+        {
+          "archivo": "ARM00087244-data.txt.zip",
+          "bytes": 116940,
+          "sha256": "1923b19027e366ed5b3297a0be4823df5da556476166d56ade05464f26022a34",
+          "url": "https://www.ncei.noaa.gov/pub/data/igra/data/data-por/ARM00087244-data.txt.zip"
+        },
+        {
+          "archivo": "ARM00087344-data.txt.zip",
+          "bytes": 17655217,
+          "sha256": "3b1d3d45bac9e8887b055ed079aaad7cea46f192a9cbe09c7f3fc627362f227a",
+          "url": "https://www.ncei.noaa.gov/pub/data/igra/data/data-por/ARM00087344-data.txt.zip"
+        },
+        {
+          "archivo": "ARM00087418-data.txt.zip",
+          "bytes": 9538610,
+          "sha256": "98dc4afc008e20d65789c2e72ec04203beb5cc56c237da3ffcadad41d904fdc9",
+          "url": "https://www.ncei.noaa.gov/pub/data/igra/data/data-por/ARM00087418-data.txt.zip"
+        },
+        {
+          "archivo": "ARM00087420-data.txt.zip",
+          "bytes": 489574,
+          "sha256": "3fdda2bfbd634397da7488e80ebcaa1a1e469ab13ed3350e5ab6a77b663a596e",
+          "url": "https://www.ncei.noaa.gov/pub/data/igra/data/data-por/ARM00087420-data.txt.zip"
+        },
+        {
+          "archivo": "ARM00087576-data.txt.zip",
+          "bytes": 25407617,
+          "sha256": "82dc9f25ed0ceb6be7096d976ce1a47d7ac0847c1b5dff74583230eddac9a018",
+          "url": "https://www.ncei.noaa.gov/pub/data/igra/data/data-por/ARM00087576-data.txt.zip"
+        },
+        {
+          "archivo": "ARM00087582-data.txt.zip",
+          "bytes": 1124260,
+          "sha256": "5b1c83f3f05b304f7481366221976da732ba68d94b7b5718b11dbf0f1beb08c2",
+          "url": "https://www.ncei.noaa.gov/pub/data/igra/data/data-por/ARM00087582-data.txt.zip"
+        },
+        {
+          "archivo": "ARM00087585-data.txt.zip",
+          "bytes": 1401643,
+          "sha256": "c64448c83556b154582a3fdae96547300b9028fe38302d0c9704503c7263fd8a",
+          "url": "https://www.ncei.noaa.gov/pub/data/igra/data/data-por/ARM00087585-data.txt.zip"
+        },
+        {
+          "archivo": "ARM00087596-data.txt.zip",
+          "bytes": 5907,
+          "sha256": "d7a81056f94a0f80d14212ad6b0ed2ffd640104df103b74d8dda12b2f505c9a5",
+          "url": "https://www.ncei.noaa.gov/pub/data/igra/data/data-por/ARM00087596-data.txt.zip"
+        },
+        {
+          "archivo": "ARM00087623-data.txt.zip",
+          "bytes": 15094842,
+          "sha256": "71b48b652bd815d1236215cb22f67d1d6baa741873df6587a3e5d3e728779845",
+          "url": "https://www.ncei.noaa.gov/pub/data/igra/data/data-por/ARM00087623-data.txt.zip"
+        },
+        {
+          "archivo": "ARM00087715-data.txt.zip",
+          "bytes": 9860351,
+          "sha256": "2bd00fff1be9bb85be1b23e214f292d461a91ea5c87478c501bc5af3dd6b84e7",
+          "url": "https://www.ncei.noaa.gov/pub/data/igra/data/data-por/ARM00087715-data.txt.zip"
+        },
+        {
+          "archivo": "ARM00087748-data.txt.zip",
+          "bytes": 2801976,
+          "sha256": "0a8222dcffec226e9affd90b2a43011120741d3a79bb98f4b78dae707719493b",
+          "url": "https://www.ncei.noaa.gov/pub/data/igra/data/data-por/ARM00087748-data.txt.zip"
+        },
+        {
+          "archivo": "ARM00087827-data.txt.zip",
+          "bytes": 170463,
+          "sha256": "21c21d67d051401cbc0ea9c29c89071adbc4f180baa49793700de17c0c272030",
+          "url": "https://www.ncei.noaa.gov/pub/data/igra/data/data-por/ARM00087827-data.txt.zip"
+        },
+        {
+          "archivo": "ARM00087860-data.txt.zip",
+          "bytes": 17416873,
+          "sha256": "ec00a7d173bd95ac1e4c6c713c30133446cee4562e10bda793a8664c5234be6b",
+          "url": "https://www.ncei.noaa.gov/pub/data/igra/data/data-por/ARM00087860-data.txt.zip"
+        },
+        {
+          "archivo": "ARM00087926-data.txt.zip",
+          "bytes": 614199,
+          "sha256": "745cc6b490d1531ac6a0503b7deddb8a678cde1482c25e219012a649483f3be1",
+          "url": "https://www.ncei.noaa.gov/pub/data/igra/data/data-por/ARM00087926-data.txt.zip"
+        },
+        {
+          "archivo": "ARM00087934-data.txt.zip",
+          "bytes": 497701,
+          "sha256": "18cbea71b63f030d7c0efa3ccc905178354694fd22c68f6777f71b83b1380716",
+          "url": "https://www.ncei.noaa.gov/pub/data/igra/data/data-por/ARM00087934-data.txt.zip"
+        },
+        {
+          "archivo": "ARM00087938-data.txt.zip",
+          "bytes": 261705,
+          "sha256": "fe6436d43a74a97b8776bdd2f53c910c8ba4aec9108af0e5422b32d8760059b1",
+          "url": "https://www.ncei.noaa.gov/pub/data/igra/data/data-por/ARM00087938-data.txt.zip"
+        },
+        {
+          "archivo": "ARM00088946-data.txt.zip",
+          "bytes": 34000,
+          "sha256": "d026136ab78f43f9f1a01b0b386765936f0b059249854cffd247736e478a54ad",
+          "url": "https://www.ncei.noaa.gov/pub/data/igra/data/data-por/ARM00088946-data.txt.zip"
+        }
+      ],
+      "inventario_oficial": {
+        "archivo": "datos/fuentes-externas/radiosondeos/igra/igra2-station-list.txt",
+        "bytes": 260950,
+        "sha256": "c2f011295f4e6115803ca4610050e51b9865d32981605f101a6ee038c5dde806",
+        "url": "https://www.ncei.noaa.gov/pub/data/igra/igra2-station-list.txt"
+      },
+      "fuente": "https://www.ncei.noaa.gov/pub/data/igra/data/data-por/",
+      "nota": "Se descargaron todos los ficheros cuyo identificador comienza con ARM en el directorio oficial. Los identificadores se conservan separados; no se fusionan automáticamente estaciones cercanas o trasladadas."
+    },
+    "INA_DSIYAH": {
+      "estado": "catalogos_descargados",
+      "catalogos": {
+        "redes": {
+          "estado": "descargado",
+          "url": "https://alerta.ina.gob.ar/pub/datos/redes?format=json",
+          "archivo": "datos/fuentes-externas/hidrologia/ina-dsiyah/catalogos/redes.json.gz",
+          "bytes_comprimidos": 708,
+          "sha256": "7e11b0de1ffb15ff41d75a0c91a71ad5e33d61d7753be1228c5e782161ce20e6",
+          "tipo": "dict",
+          "registros": 3
+        },
+        "estaciones": {
+          "estado": "descargado",
+          "url": "https://alerta.ina.gob.ar/pub/datos/estaciones?format=json",
+          "archivo": "datos/fuentes-externas/hidrologia/ina-dsiyah/catalogos/estaciones.json.gz",
+          "bytes_comprimidos": 73062,
+          "sha256": "c9c863a9cd752ec370ba3e3bef923887a89c303ba5d3bdf0af8922da731c1353",
+          "tipo": "dict",
+          "registros": 3
+        },
+        "variables": {
+          "estado": "descargado",
+          "url": "https://alerta.ina.gob.ar/pub/datos/variables?format=json",
+          "archivo": "datos/fuentes-externas/hidrologia/ina-dsiyah/catalogos/variables.json.gz",
+          "bytes_comprimidos": 2898,
+          "sha256": "97e40ace19563095dd5819d0740984589b6fb95a72f3548f4f43af254e5e79e8",
+          "tipo": "dict",
+          "registros": 3
+        },
+        "unidades": {
+          "estado": "descargado",
+          "url": "https://alerta.ina.gob.ar/pub/datos/unidades?format=json",
+          "archivo": "datos/fuentes-externas/hidrologia/ina-dsiyah/catalogos/unidades.json.gz",
+          "bytes_comprimidos": 650,
+          "sha256": "839a5b4f674f4967662757788b91c04e7fdacef545aacc6dc820cbca07f31be5",
+          "tipo": "dict",
+          "registros": 3
+        },
+        "series": {
+          "estado": "descargado",
+          "url": "https://alerta.ina.gob.ar/pub/datos/series?format=json",
+          "archivo": "datos/fuentes-externas/hidrologia/ina-dsiyah/catalogos/series.json.gz",
+          "bytes_comprimidos": 144269,
+          "sha256": "e4fbfb8c96786227ffbe5e451034b3a49e19a37f4d9747de14234940d7323e2a",
+          "tipo": "dict",
+          "registros": 3
+        }
+      },
+      "fuente": "https://alerta.ina.gob.ar/pub/gui",
+      "nota": "El portal consultado corresponde al sistema DSIyAH de la cuenca del Plata; no equivale por sí solo a cobertura hidrológica nacional completa. Se archivan catálogos de redes, estaciones, variables, unidades y series. Las observaciones de cada serie requieren una extracción posterior con rangos temporales y control de volumen."
+    },
+    "CHIRPS_v3": {
+      "estado": "ingesta_separada",
+      "workflow": ".github/workflows/ingesta-chirps-cloud.yml",
+      "producto": "CHIRPS v3 Final diario, agregado a mensual sobre Argentina",
+      "nota": "La ingesta CHIRPS se ejecuta por separado desde el archivo cloud público para evitar el HTTP 429 del índice de GeoTIFFs original. El manifiesto específico está en precipitacion/chirps-v3/manifiestos/chirps-v3-final-argentina.json."
+    },
+    "GPM_IMERG": {
+      "estado": "pendiente_de_autenticacion_y_submuestreo",
+      "producto_objetivo": "GPM IMERG Final V07B (mensual o diario, recorte Argentina)",
+      "fuente": "https://disc.gsfc.nasa.gov/datasets/GPM_3IMERGDF_07/summary",
+      "motivo": "GES DISC/PPS requiere autenticación Earthdata para descargas masivas. No se sustituye IMERG por CHIRPS sat: CHIRPS sat usa IMERG Late para desagregar pentadas y no es un archivo IMERG independiente.",
+      "requisito": "Configurar credenciales/tokens NASA Earthdata como secrets del repositorio y definir extracción espacial eficiente antes de incorporar gran volumen."
+    },
+    "SNIH": {
+      "estado": "pendiente_de_conector_oficial_verificado",
+      "fuente": "https://snih.hidricosargentina.gob.ar/",
+      "nota": "No se declara descargada la base nacional SNIH. El catálogo INA-DSIyAH descargado corresponde a la cuenca del Plata y no debe presentarse como cobertura nacional completa."
+    }
+  },
+  "errores": {},
+  "estado_general": "parcial_con_bloqueos_externos"
+}

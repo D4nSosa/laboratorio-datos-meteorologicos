@@ -1,0 +1,348 @@
+{
+  "dataset": "CHIRPS v3 Final Argentina climatology and monthly anomalies",
+  "source_dataset": "UCSB CHC CHIRPS v3 Final/rnl daily (ERA5-based), monthly sums derived",
+  "baseline_period": "1991-2020",
+  "input_months": 549,
+  "climatology_variables": [
+    "precipitation_mean_mm",
+    "precipitation_std_mm",
+    "precipitation_p10_mm",
+    "precipitation_p50_mm",
+    "precipitation_p90_mm"
+  ],
+  "anomaly_variables": [
+    "precipitation_mm",
+    "anomaly_mm",
+    "standardized_anomaly"
+  ],
+  "files": [
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/climatologia/chirps-v3-climatologia-mensual-1991-2020.nc",
+      "bytes": 20755762,
+      "sha256": "75f28f3462fc789e903822d92b86d68bfa1545df90361f8cdccd2dd267f536e1"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-1981.nc",
+      "year": 1981,
+      "months": 12,
+      "bytes": 13007219,
+      "sha256": "9f3999f4c4ff845bb784a4754b7670a4d0590705d02f1f2096aad20e6a6340f1"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-1982.nc",
+      "year": 1982,
+      "months": 12,
+      "bytes": 13176777,
+      "sha256": "3e4c62f909f54040a0a203a0efeabd49aaff2a1aac324e51d71c919d940c158d"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-1983.nc",
+      "year": 1983,
+      "months": 12,
+      "bytes": 13176398,
+      "sha256": "a36e42d6cc7313fe8d25379f158774e25b5f3091a70be66974a93ed008b2d53e"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-1984.nc",
+      "year": 1984,
+      "months": 12,
+      "bytes": 13148371,
+      "sha256": "6f0fda40e82b0dd1b9887bf42d25b2864389547bc16ae13a00240115eb074da6"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-1985.nc",
+      "year": 1985,
+      "months": 12,
+      "bytes": 12995934,
+      "sha256": "f8dc2ccd3f5e9260eeb3240207c0725d8f02cd069a8261404d620ec381815e9c"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-1986.nc",
+      "year": 1986,
+      "months": 12,
+      "bytes": 13126441,
+      "sha256": "ece778a994c3a413eb7ff643358374cc63c7f24d3621f019ed23d095fecf345b"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-1987.nc",
+      "year": 1987,
+      "months": 12,
+      "bytes": 13083630,
+      "sha256": "5a2109721653f49c0c7032d9d6e3013cc96bf2e9510d951d8eeedb2fc0d3059c"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-1988.nc",
+      "year": 1988,
+      "months": 12,
+      "bytes": 12932748,
+      "sha256": "859a7c3d61b88819eb61ee5f9d29c8fa9f5a295d4a4674fe12eb2e4ae243822c"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-1989.nc",
+      "year": 1989,
+      "months": 12,
+      "bytes": 13069993,
+      "sha256": "97b87cd1cdf4cfc020e2f36322efadda2a8dcceb7c35a5c3e75bed14f25f11b0"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-1990.nc",
+      "year": 1990,
+      "months": 12,
+      "bytes": 13072631,
+      "sha256": "987c06505cb7538c74dceecfca395b30654fa716596299909da98ec4e267a1df"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-1991.nc",
+      "year": 1991,
+      "months": 12,
+      "bytes": 13155781,
+      "sha256": "a6e67495f37970a93770b7af8387a06d76798b31c146ba7e692f0b692e5bae5f"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-1992.nc",
+      "year": 1992,
+      "months": 12,
+      "bytes": 13081855,
+      "sha256": "96db5163c935e2d3909f169a2ec85b83d0a66bbc6e012eec7c0db96e892364b2"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-1993.nc",
+      "year": 1993,
+      "months": 12,
+      "bytes": 13068593,
+      "sha256": "dd42d13b81d51b50612b28f2d0ec43e2ca225953cceca9fbb7ce727830fff300"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-1994.nc",
+      "year": 1994,
+      "months": 12,
+      "bytes": 13225230,
+      "sha256": "dd6081f18c57269f3324c48c25fa31e78db5f1ee25a4885bb6909dbc25ab8368"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-1995.nc",
+      "year": 1995,
+      "months": 12,
+      "bytes": 13036500,
+      "sha256": "a72f9313f53af1a241f3be03590b55421c2806970806431086d7853335f626b3"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-1996.nc",
+      "year": 1996,
+      "months": 12,
+      "bytes": 13051667,
+      "sha256": "948dd0a94dcd5886dc5e489ae450ffa669fd6d923c6c9055e46f0e8cbc20f2a8"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-1997.nc",
+      "year": 1997,
+      "months": 12,
+      "bytes": 13200310,
+      "sha256": "c4328a09cd4d02c12db859bfa2fed63fcc232e9664fc6e28cb586671ab596c4f"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-1998.nc",
+      "year": 1998,
+      "months": 12,
+      "bytes": 13049744,
+      "sha256": "fc79dc64b7087781466f5ba4f4f4f68a210fadb373a92f6456ae32b70d1fdea3"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-1999.nc",
+      "year": 1999,
+      "months": 12,
+      "bytes": 13046741,
+      "sha256": "e92e1a4382fbd7505e8abc96819f8523b2ef5d2c6817d4590f0096ad203cfcf8"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-2000.nc",
+      "year": 2000,
+      "months": 12,
+      "bytes": 13039571,
+      "sha256": "1b32a11abe749bcc1b1b0509fce3449ef098b331d1c7540a97bf0203ace70bdf"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-2001.nc",
+      "year": 2001,
+      "months": 12,
+      "bytes": 13039707,
+      "sha256": "e0989f188a6490adc7368745c04068432fadb92770a9509679360707151caa41"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-2002.nc",
+      "year": 2002,
+      "months": 12,
+      "bytes": 13050248,
+      "sha256": "517ea257a476f59f806cbcb35c17765bad6dd527dc495491fcad766dcbd9c495"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-2003.nc",
+      "year": 2003,
+      "months": 12,
+      "bytes": 13011400,
+      "sha256": "fa00aee80237ab2d36c4ed6c33226b68410e4e84f4cbf8657d31774ca995f29c"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-2004.nc",
+      "year": 2004,
+      "months": 12,
+      "bytes": 12948982,
+      "sha256": "9c791ea7689367c05e7057d131b5393761a3d6ffa6a7c7867daad38bdca8399d"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-2005.nc",
+      "year": 2005,
+      "months": 12,
+      "bytes": 12922683,
+      "sha256": "09c40514b0543dc9841327a99d0f7f2bdca13e667cf35dec4330e2d64d15c4b6"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-2006.nc",
+      "year": 2006,
+      "months": 12,
+      "bytes": 13030637,
+      "sha256": "85ba9190fd8f0de6e6915baffdb65bf62c0836cf411ba62c1d62a7e2a8f72502"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-2007.nc",
+      "year": 2007,
+      "months": 12,
+      "bytes": 12980212,
+      "sha256": "bf9566695d5a74c1920bb030f9931c8f50d26de747cea57d0b003c6234d286e6"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-2008.nc",
+      "year": 2008,
+      "months": 12,
+      "bytes": 12892413,
+      "sha256": "ceb64fde2c9a24302b027a6971e2b9ef7aea80b1932f77d5b611b7bdbe97e4d6"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-2009.nc",
+      "year": 2009,
+      "months": 12,
+      "bytes": 12939886,
+      "sha256": "160742b18ce0d762f3778a83f562c12d4ae56ccce155c4a5e5cb5487311bb466"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-2010.nc",
+      "year": 2010,
+      "months": 12,
+      "bytes": 12746520,
+      "sha256": "bc0086abb6d3307f273261ba1929a8753c95b76f0882f74c00d9afd3c8b07bfd"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-2011.nc",
+      "year": 2011,
+      "months": 12,
+      "bytes": 12925418,
+      "sha256": "48c1b3490efe6d014befcf073fe3459a347659aae4f09c2b94f6a10725252328"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-2012.nc",
+      "year": 2012,
+      "months": 12,
+      "bytes": 12931390,
+      "sha256": "3773bb87ae1139a1606188f31bfe8599bbabdf9abf68e16d657d92f90991cdc6"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-2013.nc",
+      "year": 2013,
+      "months": 12,
+      "bytes": 13021072,
+      "sha256": "dfd88250cb63f84c7f7a4d2b145e69f5889da6005ee50c7f173343bef4c06400"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-2014.nc",
+      "year": 2014,
+      "months": 12,
+      "bytes": 12921453,
+      "sha256": "4d3047e2495a0ef7f25c5cf342c0ff03e436fa2139226041950bd28f66acd0a7"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-2015.nc",
+      "year": 2015,
+      "months": 12,
+      "bytes": 12979266,
+      "sha256": "789f5bcf48089b995ed7f46fc34a60c9b5c7b8e4676ed604eefd937ea56dcbb3"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-2016.nc",
+      "year": 2016,
+      "months": 12,
+      "bytes": 12949860,
+      "sha256": "414a56f922e5dfc2d246ebb1364e65c1719edf2af27f5c67dd3312088d36c794"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-2017.nc",
+      "year": 2017,
+      "months": 12,
+      "bytes": 13017640,
+      "sha256": "0cfcec47fc11ecff8fbfe95d89603536e323a966771f2c5119c09123cbe7590a"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-2018.nc",
+      "year": 2018,
+      "months": 12,
+      "bytes": 13071456,
+      "sha256": "713c78dd7fd7a0726409762cf7b74b59c41b1b08463c518e3bc4332ad797667c"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-2019.nc",
+      "year": 2019,
+      "months": 12,
+      "bytes": 13002320,
+      "sha256": "073586aa90a8b116e84e59075e97d9ba7ea9fed6bc64c825c1ce3bc6ed6f71e4"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-2020.nc",
+      "year": 2020,
+      "months": 12,
+      "bytes": 12870169,
+      "sha256": "debcce4255ebd2c97e801565b2a51565802b22e1bc64b883a405fdc88dc06287"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-2021.nc",
+      "year": 2021,
+      "months": 12,
+      "bytes": 12893579,
+      "sha256": "9e30daddae19caf2862ef1f1a93f8657f0d673d297649fcf6ba4ec9e42577f91"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-2022.nc",
+      "year": 2022,
+      "months": 12,
+      "bytes": 12884672,
+      "sha256": "d17277426e2221bc75c26ef0ee21536a747069ca032b9c64e88cea5828637a54"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-2023.nc",
+      "year": 2023,
+      "months": 12,
+      "bytes": 13008009,
+      "sha256": "c711f7bd234fd589c30bdcacf7ba0970d5794cb3ba1d3795300a0795aaa8013f"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-2024.nc",
+      "year": 2024,
+      "months": 12,
+      "bytes": 12979987,
+      "sha256": "93c373c5f3d5018446e642c34c36bde1c47475547f1847bf3cfb22a076e32e3a"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-2025.nc",
+      "year": 2025,
+      "months": 12,
+      "bytes": 13014948,
+      "sha256": "f65bc04b61198906f7f8d7a2a11550a2c090c01a018d4f81f3780e7e3ac846c5"
+    },
+    {
+      "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-2026.nc",
+      "year": 2026,
+      "months": 9,
+      "bytes": 9843753,
+      "sha256": "fe489b6b3a4f0d5246ab4fca41d0d2f6440bc89a951ed6fd4748864f725843d1"
+    }
+  ],
+  "created_utc": "2026-11-07T17:38:37.119391+00:00"
+}

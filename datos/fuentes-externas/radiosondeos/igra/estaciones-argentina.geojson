@@ -1,0 +1,406 @@
+{
+  "type": "FeatureCollection",
+  "name": "IGRA_Argentina",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.4758,
+          -24.8443
+        ]
+      },
+      "properties": {
+        "station_id": "ARM00087047",
+        "elevation_m": 1221.0,
+        "station_name": "SALTA AERO",
+        "geographic_scope": "Argentina continental",
+        "first_year": 1965,
+        "last_year": 2014,
+        "observation_count": 19838,
+        "source_version": "IGRA 2.2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.046,
+          -27.4389
+        ]
+      },
+      "properties": {
+        "station_id": "ARM00087155",
+        "elevation_m": 53.0,
+        "station_name": "RESISTENCIA AERO",
+        "geographic_scope": "Argentina continental",
+        "first_year": 1961,
+        "last_year": 2026,
+        "observation_count": 32066,
+        "source_version": "IGRA 2.2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.9833,
+          -27.4667
+        ]
+      },
+      "properties": {
+        "station_id": "ARM00087157",
+        "elevation_m": 52.0,
+        "station_name": "RESISTENCIA",
+        "geographic_scope": "Argentina continental",
+        "first_year": 1957,
+        "last_year": 1961,
+        "observation_count": 1200,
+        "source_version": "IGRA 2.2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.7276,
+          -29.9058
+        ]
+      },
+      "properties": {
+        "station_id": "ARM00087244",
+        "elevation_m": 341.0,
+        "station_name": "VILLA DE MARIA DEL RIO SECO",
+        "geographic_scope": "Argentina continental",
+        "first_year": 2018,
+        "last_year": 2018,
+        "observation_count": 103,
+        "source_version": "IGRA 2.2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.2119,
+          -31.2966
+        ]
+      },
+      "properties": {
+        "station_id": "ARM00087344",
+        "elevation_m": 493.0,
+        "station_name": "CORDOBA AERO",
+        "geographic_scope": "Argentina continental",
+        "first_year": 1959,
+        "last_year": 2026,
+        "observation_count": 27075,
+        "source_version": "IGRA 2.2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.7963,
+          -32.8438
+        ]
+      },
+      "properties": {
+        "station_id": "ARM00087418",
+        "elevation_m": 705.0,
+        "station_name": "MENDOZA AERO",
+        "geographic_scope": "Argentina continental",
+        "first_year": 1974,
+        "last_year": 2026,
+        "observation_count": 17767,
+        "source_version": "IGRA 2.2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.85,
+          -32.8833
+        ]
+      },
+      "properties": {
+        "station_id": "ARM00087420",
+        "elevation_m": 827.0,
+        "station_name": "OBSERV MENDOZA",
+        "geographic_scope": "Argentina continental",
+        "first_year": 1965,
+        "last_year": 1973,
+        "observation_count": 3075,
+        "source_version": "IGRA 2.2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.5423,
+          -34.8186
+        ]
+      },
+      "properties": {
+        "station_id": "ARM00087576",
+        "elevation_m": 20.0,
+        "station_name": "EZEIZA AERO",
+        "geographic_scope": "Argentina continental",
+        "first_year": 1957,
+        "last_year": 2022,
+        "observation_count": 39228,
+        "source_version": "IGRA 2.2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4198,
+          -34.5589
+        ]
+      },
+      "properties": {
+        "station_id": "ARM00087582",
+        "elevation_m": 6.0,
+        "station_name": "AEROPARQUE AERO",
+        "geographic_scope": "Argentina continental",
+        "first_year": 2022,
+        "last_year": 2024,
+        "observation_count": 733,
+        "source_version": "IGRA 2.2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.484,
+          -34.5902
+        ]
+      },
+      "properties": {
+        "station_id": "ARM00087585",
+        "elevation_m": 25.0,
+        "station_name": "BUENOS AIRES OBSERVATORIO",
+        "geographic_scope": "Argentina continental",
+        "first_year": 1957,
+        "last_year": 2026,
+        "observation_count": 818,
+        "source_version": "IGRA 2.2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.283,
+          -35.367
+        ]
+      },
+      "properties": {
+        "station_id": "ARM00087596",
+        "elevation_m": 22.0,
+        "station_name": "PUNTA INDIO B.A.",
+        "geographic_scope": "Argentina continental",
+        "first_year": 1975,
+        "last_year": 1978,
+        "observation_count": 151,
+        "source_version": "IGRA 2.2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.2799,
+          -36.5931
+        ]
+      },
+      "properties": {
+        "station_id": "ARM00087623",
+        "elevation_m": 190.0,
+        "station_name": "SANTA ROSA AERO",
+        "geographic_scope": "Argentina continental",
+        "first_year": 1965,
+        "last_year": 2026,
+        "observation_count": 26915,
+        "source_version": "IGRA 2.2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.1367,
+          -38.952
+        ]
+      },
+      "properties": {
+        "station_id": "ARM00087715",
+        "elevation_m": 270.0,
+        "station_name": "NEUQUEN AERO",
+        "geographic_scope": "Argentina continental",
+        "first_year": 1957,
+        "last_year": 2026,
+        "observation_count": 20288,
+        "source_version": "IGRA 2.2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.1667,
+          -38.7333
+        ]
+      },
+      "properties": {
+        "station_id": "ARM00087748",
+        "elevation_m": 75.0,
+        "station_name": "COMANDANTE ESPORA",
+        "geographic_scope": "Argentina continental",
+        "first_year": 1964,
+        "last_year": 1993,
+        "observation_count": 13733,
+        "source_version": "IGRA 2.2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.3,
+          -43.2333
+        ]
+      },
+      "properties": {
+        "station_id": "ARM00087827",
+        "elevation_m": 42.0,
+        "station_name": "ALMIRANTE ZAR",
+        "geographic_scope": "Argentina continental",
+        "first_year": 1973,
+        "last_year": 1975,
+        "observation_count": 1150,
+        "source_version": "IGRA 2.2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -67.4619,
+          -45.7923
+        ]
+      },
+      "properties": {
+        "station_id": "ARM00087860",
+        "elevation_m": 46.0,
+        "station_name": "COMODORO RIVADAVIA AERO",
+        "geographic_scope": "Argentina continental",
+        "first_year": 1958,
+        "last_year": 2026,
+        "observation_count": 26731,
+        "source_version": "IGRA 2.2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -69.2167,
+          -51.6333
+        ]
+      },
+      "properties": {
+        "station_id": "ARM00087926",
+        "elevation_m": 20.0,
+        "station_name": "RIO GALLEGOS B. A.",
+        "geographic_scope": "Argentina continental",
+        "first_year": 1967,
+        "last_year": 1977,
+        "observation_count": 4526,
+        "source_version": "IGRA 2.2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -67.75,
+          -53.8
+        ]
+      },
+      "properties": {
+        "station_id": "ARM00087934",
+        "elevation_m": 22.0,
+        "station_name": "RIO GRANDE AIRPORT",
+        "geographic_scope": "Argentina continental",
+        "first_year": 1977,
+        "last_year": 1984,
+        "observation_count": 3267,
+        "source_version": "IGRA 2.2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.3167,
+          -54.8
+        ]
+      },
+      "properties": {
+        "station_id": "ARM00087938",
+        "elevation_m": 6.0,
+        "station_name": "USHUAIA",
+        "geographic_scope": "Argentina continental",
+        "first_year": 1957,
+        "last_year": 1967,
+        "observation_count": 1943,
+        "source_version": "IGRA 2.2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -27.267,
+          -59.45
+        ]
+      },
+      "properties": {
+        "station_id": "ARM00088946",
+        "elevation_m": 15.0,
+        "station_name": "CORBETA URUGUAY DN",
+        "geographic_scope": "Islas Orcadas del Sur / Antártida (estación argentina)",
+        "first_year": 1980,
+        "last_year": 1981,
+        "observation_count": 275,
+        "source_version": "IGRA 2.2"
+      }
+    }
+  ]
+}
