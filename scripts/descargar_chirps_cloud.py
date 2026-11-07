@@ -85,7 +85,7 @@ def main():
         "source_units":"kg m-2 s-1 (equivalent to mm/s)",
         "conversion":"daily_mm = precipitation_surface * 86400; monthly_mm = sum(daily_mm)",
         "spatial_extent":"Argentina national polygon; source grid retained at 0.05 degrees",
-        "temporal_note":"Monthly grids are derived by summing CHIRPS v3 Final daily values. They are not the original CHIRPS monthly source rasters.",
+        "temporal_note":"Monthly grids are derived by summing CHIRPS v3 Final/rnl daily values. The rnl daily series uses ERA5 to disaggregate pentadal totals; these are not the native CHIRPS monthly source rasters. Daily dates are consistent labels, not a uniform station-observation window.",
         "files":[],
         "errors":[]
     }
@@ -130,7 +130,7 @@ def main():
                 "temporal_aggregation":"sum of daily precipitation totals within calendar month",
                 "conversion":"precipitation_surface (kg m-2 s-1) * 86400 seconds/day; sum over month",
                 "retrieved_utc":datetime.now(timezone.utc).isoformat(),
-                "quality_note":"Derived monthly total from the CHIRPS v3 Final daily product; do not label as the native monthly CHIRPS raster."
+                "quality_note":"Derived monthly total from CHIRPS v3 Final/rnl daily values; rnl uses ERA5-based pentad-to-daily disaggregation. Do not label as the native monthly CHIRPS raster."
             }
         )
         out.to_netcdf(path,engine="netcdf4",encoding={
