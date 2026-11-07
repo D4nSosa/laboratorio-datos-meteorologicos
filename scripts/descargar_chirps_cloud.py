@@ -89,16 +89,18 @@ def main():
     for year in range(first_year,last_year+1):
         path=OUT/f"chirps-v3-final-mensual-argentina-{year}.nc"
         if path.exists() and path.stat().st_size>0:
-            manifest["files"].append({"file":str(path),"status":"already_present",
-                "bytes":path.stat().st_size,"sha256":sha256(path)})
+            with xr.open_dataset(path) as existing:
+                existing_months=int(existing.sizes.get("time",0))
+            manifest["files"].append({"file":str(path),"year":year,"months":existing_months,
+                "status":"already_present","bytes":path.stat().st_size,"sha256":sha256(path)})
             continue
         start=f"{year}-01-01"
         stop=f"{year+1}-01-01"
-        year_da=da.sel(time=slice(start,stop))
+        year_da=da.where((da.time >= np.datetime64(start)) & (da.time < np.datetime64(stop)),drop=True)
         if year_da.sizes.get("time",0)==0:
             continue
         # The daily product is an average rate over each 24-hour interval.
-        monthly=(year_da*86400.0).resample(time="MS").sum(skipna=True)
+        monthly=(year_da*86400.0).resample(time="MS").sum(skipna=True,min_count=1)
         monthly=monthly.astype("float32").load()
         if monthly.sizes.get("time",0)==0:
             continue
