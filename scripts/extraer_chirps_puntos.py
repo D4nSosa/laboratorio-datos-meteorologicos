@@ -34,7 +34,7 @@ def main():
         selected_lat=float(point.latitude.values);selected_lon=float(point.longitude.values)
         path=OUT/f"chirps-v3-final-diario-{sid}.csv.gz"
         with gzip.open(path,"wt",encoding="utf-8",newline="",compresslevel=9) as f:
-            fields=["station_id","station_name","requested_latitude","requested_longitude",
+            fields=["station_id","station_name","geographic_scope","requested_latitude","requested_longitude",
                     "grid_latitude","grid_longitude","date","precipitation_mm_day"]
             w=csv.DictWriter(f,fieldnames=fields);w.writeheader()
             for dt,value in zip(dates,values):
@@ -56,7 +56,7 @@ def main():
         "conversion":"daily_mm = precipitation_surface * 86400",
         "source_temporal_resolution":"daily",
         "source_spatial_resolution":"0.05 degree",
-        "sampling":"Nearest native grid cell for each IGRA station coordinate; selected cell coordinates are included per row.",
+        "sampling":"Nearest native grid cell for each IGRA station coordinate; selected cell coordinates and geographic scope are included per row.",
         "retrieved_utc":datetime.now(timezone.utc).isoformat(),
         "files":files,
         "note":"These are daily point samples from the Final/rnl product (ERA5-based daily disaggregation), not a complete gridded daily Argentina archive. Use alongside the monthly national NetCDF grids. The date is a consistent product label, not a uniform local station observation window."
