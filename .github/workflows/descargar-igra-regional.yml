@@ -7,6 +7,7 @@ on:
     paths:
       - ".github/workflows/descargar-igra-regional.yml"
       - "scripts/descargar_igra_regional.py"
+      - "scripts/push_branch_retry.sh"
   workflow_dispatch:
 
 permissions:
