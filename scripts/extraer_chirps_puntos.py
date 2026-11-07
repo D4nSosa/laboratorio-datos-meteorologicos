@@ -43,8 +43,8 @@ def main():
                     "geographic_scope":s.get("geographic_scope",""),"requested_latitude":lat,"requested_longitude":lon,
                     "grid_latitude":selected_lat,"grid_longitude":selected_lon,
                     "date":day,"precipitation_mm_day":round(float(value),3) if np.isfinite(value) else None})
-        files.append({"station_id":sid,"file":str(path),"rows":len(dates),
-            "selected_grid_latitude":selected_lat,"selected_grid_longitude":selected_lon,
+        files.append({"station_id":sid,"station_name":s["station_name"],"geographic_scope":s.get("geographic_scope",""),
+            "file":str(path),"rows":len(dates),"selected_grid_latitude":selected_lat,"selected_grid_longitude":selected_lon,
             "bytes":path.stat().st_size,"sha256":sha(path)})
         print(f"CHIRPS point {n}/{len(stations)} {sid}: {len(dates)} daily rows",flush=True)
     manifest={
