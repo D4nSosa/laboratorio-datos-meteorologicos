@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Download and normalize NOAA IGRA 2.2 sounding-derived stability parameters."""
+"""Download and normalize NOAA IGRA 2.2 sounding-derived parameters and levels."""
 import csv,gzip,hashlib,json,re,time,urllib.error,urllib.request,zipfile,io
 from datetime import datetime,timezone
 from pathlib import Path
@@ -10,9 +10,28 @@ BASE="https://www.ncei.noaa.gov/pub/data/igra/derived/derived-por/"
 ROOT=Path("datos/fuentes-externas/radiosondeos/igra")
 INVENTORY=ROOT/"estaciones-argentina.csv"
 OUT=ROOT/"derivados-originales"
+LEVEL_OUT=ROOT/"niveles-derivados"
 CSV_OUT=ROOT/"parametros-derivados-por-sondeo.csv.gz"
 MANIFEST=ROOT/"manifiesto-parametros-derivados.json"
 UA="LaboratorioDatosMeteorologicos/1.0"
+
+HEADER_FIELDS=[
+"station_id","year","month","day","hour_utc","release_time_hhmm_utc","sounding_time_utc","num_levels",
+"precipitable_water_raw","precipitable_water_mm","inversion_pressure_raw","inversion_height_m",
+"inversion_temp_difference_raw","inversion_temp_difference_k","mixing_pressure_raw","mixing_height_m",
+"freezing_pressure_raw","freezing_height_m","lcl_pressure_raw","lcl_height_m","lfc_pressure_raw",
+"lfc_height_m","lnb_pressure_raw","lnb_height_m","lifted_index_c","showalter_index_c","k_index_c",
+"total_totals_index_c","cape_j_kg","cin_j_kg","source_file"
+]
+LEVEL_FIELDS=[
+"station_id","sounding_time_utc","year","month","day","hour_utc","release_time_hhmm_utc","level_index",
+"pressure_pa","pressure_hpa","reported_geopotential_height_m","calculated_geopotential_height_m",
+"temperature_k","temperature_c","temperature_gradient_k_per_km","potential_temperature_k",
+"potential_temperature_gradient_k_per_km","virtual_temperature_k","virtual_potential_temperature_k",
+"vapor_pressure_mb","saturation_vapor_pressure_mb","relative_humidity_reported_pct",
+"relative_humidity_calculated_pct","relative_humidity_gradient_pct_per_km","u_wind_ms",
+"u_wind_gradient_ms_per_km","v_wind_ms","v_wind_gradient_ms_per_km","refractive_index"
+]
 
 class Parser(HTMLParser):
     def __init__(self):super().__init__();self.hrefs=[]
@@ -44,57 +63,71 @@ def sha(path):
         for b in iter(lambda:f.read(1024*1024),b""):h.update(b)
     return h.hexdigest()
 
-def value(line,a,b):
+def val(line,a,b):
     s=line[a:b].strip()
     if not s:return None
     try:
         n=int(s)
-        return None if n == -99999 else n
+        return None if n==-99999 else n
     except ValueError:return None
 
-def parse_headers(text):
-    lines=text.splitlines()
-    rows=[];i=0
-    while i<len(lines):
-        line=lines[i]
-        if not line.startswith("#"):
-            i+=1;continue
-        if len(line)<157:
-            i+=1;continue
-        try:numlev=int(line[31:36].strip() or "0")
-        except ValueError:numlev=0
-        row={
-            "station_id":line[1:12].strip(),
-            "year":value(line,13,17),"month":value(line,18,20),
-            "day":value(line,21,23),"hour_utc":value(line,24,26),
-            "release_time_hhmm_utc":line[27:31].strip(),
-            "num_levels":numlev,
-            "precipitable_water_raw":value(line,37,43),
-            "precipitable_water_mm":(value(line,37,43)/100 if value(line,37,43) is not None else None),
-            "inversion_pressure_raw":value(line,43,49),
-            "inversion_height_m":value(line,49,55),
-            "inversion_temp_difference_raw":value(line,55,61),
-            "inversion_temp_difference_k":(value(line,55,61)/10 if value(line,55,61) is not None else None),
-            "mixing_pressure_raw":value(line,61,67),
-            "mixing_height_m":value(line,67,73),
-            "freezing_pressure_raw":value(line,73,79),
-            "freezing_height_m":value(line,79,85),
-            "lcl_pressure_raw":value(line,85,91),
-            "lcl_height_m":value(line,91,97),
-            "lfc_pressure_raw":value(line,97,103),
-            "lfc_height_m":value(line,103,109),
-            "lnb_pressure_raw":value(line,109,115),
-            "lnb_height_m":value(line,115,121),
-            "lifted_index_c":value(line,121,127),
-            "showalter_index_c":value(line,127,133),
-            "k_index_c":value(line,133,139),
-            "total_totals_index_c":value(line,139,145),
-            "cape_j_kg":value(line,145,151),
-            "cin_j_kg":value(line,151,157)
-        }
-        rows.append(row)
-        i+=1+max(0,numlev)
-    return rows
+def scaled(n,divisor,ndigits=3,offset=0.0):
+    return round(n/divisor+offset,ndigits) if n is not None else None
+
+def parse_header(line,source_file):
+    year=val(line,13,17);month=val(line,18,20);day=val(line,21,23);hour=val(line,24,26)
+    release=line[27:31].strip()
+    sounding=(f"{year:04d}-{month:02d}-{day:02d}T{hour:02d}:00:00Z"
+              if None not in (year,month,day,hour) and hour!=99 else None)
+    pw=val(line,37,43);invtemp=val(line,55,61)
+    return {
+        "station_id":line[1:12].strip(),"year":year,"month":month,"day":day,
+        "hour_utc":None if hour==99 else hour,
+        "release_time_hhmm_utc":None if not release or release=="9999" else release,
+        "sounding_time_utc":sounding,"num_levels":val(line,31,36) or 0,
+        "precipitable_water_raw":pw,"precipitable_water_mm":scaled(pw,100,2),
+        "inversion_pressure_raw":val(line,43,49),"inversion_height_m":val(line,49,55),
+        "inversion_temp_difference_raw":invtemp,"inversion_temp_difference_k":scaled(invtemp,10,1),
+        "mixing_pressure_raw":val(line,61,67),"mixing_height_m":val(line,67,73),
+        "freezing_pressure_raw":val(line,73,79),"freezing_height_m":val(line,79,85),
+        "lcl_pressure_raw":val(line,85,91),"lcl_height_m":val(line,91,97),
+        "lfc_pressure_raw":val(line,97,103),"lfc_height_m":val(line,103,109),
+        "lnb_pressure_raw":val(line,109,115),"lnb_height_m":val(line,115,121),
+        "lifted_index_c":val(line,121,127),"showalter_index_c":val(line,127,133),
+        "k_index_c":val(line,133,139),"total_totals_index_c":val(line,139,145),
+        "cape_j_kg":val(line,145,151),"cin_j_kg":val(line,151,157),
+        "source_file":source_file
+    }
+
+def parse_level(line,header,index):
+    p=val(line,0,7);temp=val(line,24,31);ptemp=val(line,40,47)
+    vtemp=val(line,56,63);vptemp=val(line,64,71)
+    vp=val(line,72,79);sat=val(line,80,87)
+    return {
+        "station_id":header["station_id"],"sounding_time_utc":header["sounding_time_utc"],
+        "year":header["year"],"month":header["month"],"day":header["day"],
+        "hour_utc":header["hour_utc"],"release_time_hhmm_utc":header["release_time_hhmm_utc"],
+        "level_index":index,
+        "pressure_pa":p,"pressure_hpa":scaled(p,100,2),
+        "reported_geopotential_height_m":val(line,8,15),
+        "calculated_geopotential_height_m":val(line,16,23),
+        "temperature_k":scaled(temp,10,1),"temperature_c":scaled(temp,10,2,-273.15),
+        "temperature_gradient_k_per_km":scaled(val(line,32,39),10,2),
+        "potential_temperature_k":scaled(ptemp,10,1),
+        "potential_temperature_gradient_k_per_km":scaled(val(line,48,55),10,2),
+        "virtual_temperature_k":scaled(vtemp,10,1),
+        "virtual_potential_temperature_k":scaled(vptemp,10,1),
+        "vapor_pressure_mb":scaled(vp,1000,3),
+        "saturation_vapor_pressure_mb":scaled(sat,1000,3),
+        "relative_humidity_reported_pct":scaled(val(line,88,95),10,1),
+        "relative_humidity_calculated_pct":scaled(val(line,96,103),10,1),
+        "relative_humidity_gradient_pct_per_km":scaled(val(line,104,111),10,2),
+        "u_wind_ms":scaled(val(line,112,119),10,1),
+        "u_wind_gradient_ms_per_km":scaled(val(line,120,127),10,2),
+        "v_wind_ms":scaled(val(line,128,135),10,1),
+        "v_wind_gradient_ms_per_km":scaled(val(line,136,143),10,2),
+        "refractive_index":val(line,144,151)
+    }
 
 def main():
     with INVENTORY.open(encoding="utf-8",newline="") as f:
@@ -106,59 +139,91 @@ def main():
         name=href.rsplit("/",1)[-1]
         m=re.fullmatch(r"([A-Z0-9]{11})-drvd\.txt\.zip",name)
         if m and m.group(1) in ids:urls[m.group(1)]=urljoin(BASE,href)
-    OUT.mkdir(parents=True,exist_ok=True)
-    files=[];all_rows=[];errors=[];not_available=[]
-    for n,sid in enumerate(sorted(ids),1):
-        url=urls.get(sid)
-        if not url:
-            not_available.append(sid)
-            continue
-        path=OUT/f"{sid}-drvd.txt.zip"
-        if not path.exists() or path.stat().st_size==0:
-            tmp=path.with_suffix(".zip.part")
+    OUT.mkdir(parents=True,exist_ok=True);LEVEL_OUT.mkdir(parents=True,exist_ok=True)
+    files=[];errors=[];not_available=[];soundings_total=0;levels_total=0
+    with gzip.open(CSV_OUT,"wt",encoding="utf-8",newline="",compresslevel=9) as header_file:
+        header_writer=csv.DictWriter(header_file,fieldnames=HEADER_FIELDS);header_writer.writeheader()
+        for n,sid in enumerate(sorted(ids),1):
+            url=urls.get(sid)
+            if not url:
+                not_available.append(sid);continue
+            path=OUT/f"{sid}-drvd.txt.zip"
             try:
-                with req(url) as r,tmp.open("wb") as f:
-                    while True:
-                        b=r.read(1024*1024)
-                        if not b:break
-                        f.write(b)
-                with zipfile.ZipFile(tmp) as z:
+                if not path.exists() or path.stat().st_size==0:
+                    tmp=path.with_suffix(".zip.part")
+                    with req(url) as r,tmp.open("wb") as f:
+                        while True:
+                            b=r.read(1024*1024)
+                            if not b:break
+                            f.write(b)
+                    with zipfile.ZipFile(tmp) as z:
+                        bad=z.testzip()
+                        if bad:raise RuntimeError(f"ZIP corrupto: {bad}")
+                    tmp.replace(path)
+                with zipfile.ZipFile(path) as z:
                     bad=z.testzip()
                     if bad:raise RuntimeError(f"ZIP corrupto: {bad}")
-                tmp.replace(path)
+                    member=next((x for x in z.namelist() if x.endswith(".txt")),None)
+                    if not member:raise RuntimeError("ZIP sin TXT")
+                    level_path=LEVEL_OUT/f"{sid}-niveles-derivados.csv.gz"
+                    station_soundings=0;station_levels=0
+                    with z.open(member) as raw,io.TextIOWrapper(raw,encoding="ascii",errors="replace") as text, gzip.open(level_path,"wt",encoding="utf-8",newline="",compresslevel=8) as level_file:
+                        level_writer=csv.DictWriter(level_file,fieldnames=LEVEL_FIELDS);level_writer.writeheader()
+                        iterator=iter(text)
+                        for line in iterator:
+                            line=line.rstrip("\r\n")
+                            if not line.startswith("#") or len(line)<157:continue
+                            header=parse_header(line,path.name)
+                            header_writer.writerow(header)
+                            station_soundings+=1
+                            numlev=header["num_levels"]
+                            for idx in range(numlev):
+                                data_line=next(iterator,"").rstrip("\r\n")
+                                if len(data_line)<151:continue
+                                level_writer.writerow(parse_level(data_line,header,idx))
+                                station_levels+=1
+                    if level_path.stat().st_size>90*1024*1024:
+                        raise RuntimeError(f"Tabla derivada supera 90 MiB: {level_path.stat().st_size}")
+                    soundings_total+=station_soundings;levels_total+=station_levels
+                    files.append({"station_id":sid,"source_file":str(path),"source_bytes":path.stat().st_size,
+                        "source_sha256":sha(path),"soundings":station_soundings,
+                        "derived_levels":station_levels,"levels_file":str(level_path),
+                        "levels_bytes":level_path.stat().st_size,"levels_sha256":sha(level_path),
+                        "source_url":url})
+                    print(f"[{n}/{len(ids)}] {sid}: {station_soundings} soundings, {station_levels} derived levels",flush=True)
+                    time.sleep(2)
             except Exception as e:
-                tmp.unlink(missing_ok=True);errors.append({"station_id":sid,"error":str(e)});continue
-        try:
-            with zipfile.ZipFile(path) as z:
-                bad=z.testzip()
-                if bad:raise RuntimeError(f"ZIP corrupto: {bad}")
-                member=next((x for x in z.namelist() if x.endswith(".txt")),None)
-                if not member:raise RuntimeError("ZIP sin archivo TXT")
-                text=z.read(member).decode("ascii","replace")
-            rows=parse_headers(text)
-            for row in rows:
-                row["source_product"]="IGRA 2.2 derived parameters"
-                row["source_file"]=path.name
-            all_rows.extend(rows)
-            files.append({"station_id":sid,"file":str(path),"bytes":path.stat().st_size,
-                "sha256":sha(path),"soundings_with_derived_parameters":len(rows),"url":url})
-            print(f"[{n}/{len(ids)}] {sid}: {len(rows)} soundings with derived parameters",flush=True)
-            time.sleep(3)
-        except Exception as e:errors.append({"station_id":sid,"error":str(e)})
-    fields=list(all_rows[0].keys()) if all_rows else []
-    with gzip.open(CSV_OUT,"wt",encoding="utf-8",newline="",compresslevel=9) as f:
-        w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows(all_rows)
+                errors.append({"station_id":sid,"error":f"{type(e).__name__}: {e}"})
+                print(f"ERROR {sid}: {e}",flush=True)
     manifest={
-        "dataset":"NOAA/NCEI IGRA 2.2 sounding-derived parameters",
-        "source":BASE,"documentation":"https://www.ncei.noaa.gov/pub/data/igra/derived/igra2-derived-format.txt",
+        "dataset":"NOAA/NCEI IGRA 2.2 sounding-derived parameters and pressure-level diagnostics",
+        "source":BASE,"documentation":"https://www.ncei.noaa.gov/data/integrated-global-radiosonde-archive/doc/igra2-derived-format.txt",
         "retrieved_utc":datetime.now(timezone.utc).isoformat(),
         "station_ids_requested":len(ids),"files_downloaded":len(files),
         "stations_without_derived_product":not_available,
-        "soundings_with_derived_parameters":len(all_rows),
-        "normalized_csv":{"file":str(CSV_OUT),"bytes":CSV_OUT.stat().st_size,"sha256":sha(CSV_OUT)},
+        "soundings_with_derived_parameters":soundings_total,"derived_pressure_levels":levels_total,
+        "header_csv":{"file":str(CSV_OUT),"bytes":CSV_OUT.stat().st_size,"sha256":sha(CSV_OUT)},
         "files":files,"errors":errors,
-        "variables_note":"Raw integer values are preserved. Apply scale factors and units from NOAA's IGRA derived-parameter format documentation before plotting; missing/QA-removed codes -99999 and -8888 are stored as null.",
-        "coverage_note":"Derived parameters are available only for a subset of IGRA soundings; absence does not mean no sounding exists."
+        "header_units":{
+            "precipitable_water_mm":"PW raw / 100; source unit mm*100",
+            "inversion_temp_difference_k":"raw / 10; source unit K*10",
+            "pressure_fields":"raw Pa or mb*100 as specified by NOAA; preserve raw integer",
+            "heights":"meters above surface",
+            "stability_indices":"degrees Celsius",
+            "cape_j_kg":"J/kg","cin_j_kg":"J/kg"
+        },
+        "level_units":{
+            "pressure_hpa":"raw Pa / 100","temperature_k":"raw / 10","temperature_c":"raw / 10 - 273.15",
+            "temperature_gradient_k_per_km":"raw / 10","potential_temperature_k":"raw / 10",
+            "potential_temperature_gradient_k_per_km":"raw / 10","virtual_temperature_k":"raw / 10",
+            "virtual_potential_temperature_k":"raw / 10","vapor_pressure_mb":"raw / 1000",
+            "saturation_vapor_pressure_mb":"raw / 1000","relative_humidity_pct":"raw / 10",
+            "relative_humidity_gradient_pct_per_km":"raw / 10","u_wind_ms":"raw / 10",
+            "u_wind_gradient_ms_per_km":"raw / 10","v_wind_ms":"raw / 10",
+            "v_wind_gradient_ms_per_km":"raw / 10","refractive_index":"dimensionless"
+        },
+        "quality_note":"NOAA missing code -99999 becomes null. Original ZIP files remain archived unchanged.",
+        "coverage_note":"Derived parameters are published only for a subset of IGRA soundings. Station IDs absent from the derived index are expected omissions, not failures."
     }
     MANIFEST.write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print(json.dumps({k:v for k,v in manifest.items() if k!="files"},ensure_ascii=False,indent=2))
