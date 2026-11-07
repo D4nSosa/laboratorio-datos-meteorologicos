@@ -1,0 +1,68 @@
+name: Descargar series observadas INA — Argentina
+
+on:
+  push:
+    branches:
+      - "data/initial-radiosonde-inventory-2026-11-07"
+    paths:
+      - ".github/workflows/ingesta-ina-series.yml"
+      - "scripts/descargar_ina_series.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ingesta-ina-series
+  cancel-in-progress: false
+
+jobs:
+  descargar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - name: Checkout rama aislada
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar cliente HTTP
+        run: python -m pip install --upgrade requests
+
+      - name: Descargar todas las series argentinas del catálogo INA
+        run: python scripts/descargar_ina_series.py
+
+      - name: Verificar progreso y volumen
+        if: always()
+        run: |
+          du -sh datos/fuentes-externas/hidrologia/ina-dsiyah 2>/dev/null || true
+          find datos/fuentes-externas/hidrologia/ina-dsiyah/series-observadas -type f -printf '%s %p\n' 2>/dev/null | sort -nr | head -30 || true
+
+      - name: Guardar series y manifiesto en rama aislada
+        if: always()
+        env:
+          TARGET_BRANCH: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -d datos/fuentes-externas/hidrologia/ina-dsiyah/series-observadas ]; then
+            git add datos/fuentes-externas/hidrologia/ina-dsiyah/series-observadas
+          fi
+          if [ -f datos/fuentes-externas/hidrologia/ina-dsiyah/manifiestos/series-argentina.json ]; then
+            git add datos/fuentes-externas/hidrologia/ina-dsiyah/manifiestos/series-argentina.json
+          fi
+          if git diff --cached --quiet; then
+            echo "No hay series nuevas para guardar."
+          else
+            git commit -m "data: archive Argentine INA observed series"
+            git fetch origin "${TARGET_BRANCH}"
+            git rebase "origin/${TARGET_BRANCH}"
+            git push origin "HEAD:${TARGET_BRANCH}"
+          fi
