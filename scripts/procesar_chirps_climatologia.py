@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Build CHIRPS v3 Argentina 1991-2020 climatology and monthly anomalies."""
-import hashlib,json
+import hashlib,json,warnings
+warnings.filterwarnings("ignore",message="All-NaN slice encountered")
 from datetime import datetime,timezone
 from pathlib import Path
 import numpy as np
@@ -33,9 +34,9 @@ def main():
     grouped=baseline.groupby("time.month")
     mean=grouped.mean("time",skipna=True)
     std=grouped.std("time",skipna=True)
-    p10=grouped.quantile(0.10,dim="time",skipna=True)
-    p50=grouped.quantile(0.50,dim="time",skipna=True)
-    p90=grouped.quantile(0.90,dim="time",skipna=True)
+    p10=grouped.quantile(0.10,dim="time",skipna=True).drop_vars("quantile")
+    p50=grouped.quantile(0.50,dim="time",skipna=True).drop_vars("quantile")
+    p90=grouped.quantile(0.90,dim="time",skipna=True).drop_vars("quantile")
     clim=xr.Dataset({
         "precipitation_mean_mm":mean.astype("float32"),
         "precipitation_std_mm":std.astype("float32"),
