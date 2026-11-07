@@ -389,13 +389,19 @@ def main():
         "datasets": {}
     }
     errors = {}
-    for name, fn in (("IGRA", ingest_igra), ("CHIRPS_v3", ingest_chirps), ("INA_DSIYAH", ingest_ina)):
+    for name, fn in (("IGRA", ingest_igra), ("INA_DSIYAH", ingest_ina)):
         try:
             fn(manifest["datasets"])
         except Exception as exc:
             errors[name] = f"{type(exc).__name__}: {exc}"
             manifest["datasets"][name] = {"estado": "fallido", "error": errors[name]}
             print(f"ERROR {name}: {errors[name]}")
+    manifest["datasets"]["CHIRPS_v3"] = {
+        "estado": "ingesta_separada",
+        "workflow": ".github/workflows/ingesta-chirps-cloud.yml",
+        "producto": "CHIRPS v3 Final diario, agregado a mensual sobre Argentina",
+        "nota": "La ingesta CHIRPS se ejecuta por separado desde el archivo cloud público para evitar el HTTP 429 del índice de GeoTIFFs original. El manifiesto específico está en precipitacion/chirps-v3/manifiestos/chirps-v3-final-argentina.json."
+    }
     manifest["datasets"]["GPM_IMERG"] = {
         "estado": "pendiente_de_autenticacion_y_submuestreo",
         "producto_objetivo": "GPM IMERG Final V07B (mensual o diario, recorte Argentina)",
