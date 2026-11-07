@@ -42,7 +42,8 @@
         "relative_humidity_pct": "%",
         "wind_speed_ms": "m/s"
       },
-      "source_url": "https://www.ncei.noaa.gov/pub/data/igra/"
+      "source_url": "https://www.ncei.noaa.gov/pub/data/igra/",
+      "note": "El inventario ARM incluye 19 estaciones continentales y una estación argentina en Islas Orcadas del Sur/Antártida (ARM00088946). La columna geographic_scope permite separarlas en la interfaz. Los pares cercanos se marcan para revisión; no se fusionan."
     },
     {
       "id": "igra-south-america-context",
