@@ -112,7 +112,7 @@
         "longitude"
       ],
       "source_url": "https://dynamical.org/catalog/ucsb-chc-chirps-analysis-final/",
-      "note": "Los totales mensuales se calcularon sumando el producto diario CHIRPS v3 Final. No son los GeoTIFF mensuales nativos del proveedor.",
+      "note": "Monthly grids are derived from CHIRPS v3 Final/rnl daily values. The rnl daily distribution uses ERA5 to disaggregate pentadal totals; it is not the sat variant based on IMERG Late. Daily dates are consistent labels, not uniform station-observation windows.",
       "derived_products_status": "in_progress",
       "daily_point_fields": [
         "station_id",
@@ -124,7 +124,7 @@
       "daily_point_units": {
         "precipitation_mm_day": "mm/day"
       },
-      "daily_point_note": "Nearest 0.05-degree CHIRPS grid cell to each Argentine IGRA station; 20 point files, separate from the nationwide monthly grid."
+      "daily_point_note": "Nearest 0.05-degree CHIRPS grid cell to each Argentine IGRA station; Final/rnl uses ERA5-based daily disaggregation. Daily dates are consistent labels, not uniform local observation windows."
     },
     {
       "id": "gpm-imerg-late-v07-argentina-points",
