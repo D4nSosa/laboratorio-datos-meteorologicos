@@ -55,7 +55,5 @@ jobs:
             echo "No hay perfiles normalizados nuevos."
           else
             git commit -m "data: publish normalized Argentine IGRA profiles"
-            git fetch origin "${TARGET_BRANCH}"
-            git rebase "origin/${TARGET_BRANCH}"
-            git push origin "HEAD:${TARGET_BRANCH}"
+            bash scripts/push_branch_retry.sh
           fi
