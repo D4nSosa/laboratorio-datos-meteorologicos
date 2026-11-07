@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 set -euo pipefail
-target="\${TARGET_BRANCH:?TARGET_BRANCH is required}"
+target="${TARGET_BRANCH:?TARGET_BRANCH is required}"
 for attempt in $(seq 1 12); do
-  echo "Push attempt \${attempt}/12 to \${target}"
-  git fetch origin "\${target}"
+  echo "Push attempt ${attempt}/12 to ${target}"
+  git fetch origin "${target}"
   if ! git rebase FETCH_HEAD; then
-    echo "Rebase conflict; aborting attempt \${attempt}"
+    echo "Rebase conflict; aborting attempt ${attempt}"
     git rebase --abort || true
     sleep 3
     continue
   fi
-  if git push origin "HEAD:\${target}"; then
+  if git push origin "HEAD:${target}"; then
     echo "Push succeeded."
     exit 0
   fi
