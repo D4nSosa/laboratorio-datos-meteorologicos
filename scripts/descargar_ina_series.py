@@ -13,7 +13,7 @@ OUT=ROOT/"series-observadas"
 MANIFEST=ROOT/"manifiestos"/"series-argentina.json"
 BASE="https://alerta.ina.gob.ar/pub/datos"
 LIMIT=20000
-WORKERS=5
+WORKERS=2
 HEADERS={"User-Agent":"LaboratorioDatosMeteorologicos/1.0","Accept":"application/json"}
 
 def sha256(path):
@@ -50,10 +50,11 @@ def get_window(series_id,start,end,depth=0):
                     combined=[]
                     for part in (left,right):
                         rr=requests.get(part,headers=HEADERS,timeout=120);rr.raise_for_status()
-                        pp=rr.json();combined.extend(pp.get("data") or [])
+                        pp=rr.json();combined.extend(pp.get("data") or []);time.sleep(0.8)
                     return combined
                 # Overlap midpoint by one day; timestamp deduplication below prevents duplicates.
                 return get_window(series_id,start,mid,depth+1)+get_window(series_id,mid,end,depth+1)
+            time.sleep(0.8)
             return data
         except Exception as exc:
             last=exc
