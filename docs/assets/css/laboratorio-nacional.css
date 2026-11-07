@@ -108,7 +108,7 @@ table{max-width:100%}
 .satellite-panel{margin:18px 0 22px}.satellite-layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(220px,.5fr);gap:16px;padding:14px 18px;align-items:center}.satellite-image-wrap{display:grid;place-items:center;min-height:260px;background:#050d12;border:1px solid var(--line);border-radius:12px;overflow:hidden}.satellite-image-wrap img{display:block;width:100%;height:auto;max-height:640px;object-fit:contain}.satellite-meta{font-size:11px;color:var(--muted);line-height:1.7}.satellite-meta p{margin:12px 0}.satellite-meta a{color:var(--accent);text-decoration:none}.satellite-meta a:hover{text-decoration:underline}
 @media(max-width:760px){.satellite-layout{grid-template-columns:1fr;padding:10px 12px}.satellite-image-wrap{min-height:180px}.satellite-image-wrap img{max-height:420px}}
 
-.radar-console,.weather-grid-console,.goes-loop-panel{margin:18px 0;padding:16px 18px;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.radar-console,.goes-loop-panel{margin:18px 0;padding:16px 18px;background:var(--surface);border:1px solid var(--line);border-radius:14px}
 .radar-console-head{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
 .radar-console-head b{display:block;color:var(--text);font-size:14px;margin:3px 0}
 .radar-console-head small{display:block;color:var(--muted);font-size:11px;line-height:1.5;max-width:720px}
