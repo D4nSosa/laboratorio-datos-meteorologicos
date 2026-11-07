@@ -7,7 +7,7 @@
   "stac_url": "https://stac.dynamical.org/ucsb-chc-chirps-analysis-final/collection.json",
   "license": "CC BY 4.0",
   "citation": "Funk et al. (2026), CHIRPS v3, https://doi.org/10.15780/G2JQ0P; processed cloud archive by dynamical.org.",
-  "retrieved_utc": "2026-11-07T17:20:52.679969+00:00",
+  "retrieved_utc": "2026-11-07T17:30:38.863409+00:00",
   "source_time_start": "1981-01-01",
   "source_time_end": "2026-09-30",
   "source_resolution_degrees": 0.05,
@@ -16,425 +16,379 @@
   "source_units": "kg m-2 s-1 (equivalent to mm/s)",
   "conversion": "daily_mm = precipitation_surface * 86400; monthly_mm = sum(daily_mm)",
   "spatial_extent": "Argentina national polygon; source grid retained at 0.05 degrees",
-  "temporal_note": "Monthly grids are derived by summing CHIRPS v3 Final daily values. They are not the original CHIRPS monthly source rasters.",
+  "temporal_note": "Monthly grids are derived by summing CHIRPS v3 Final/rnl daily values. The rnl daily series uses ERA5 to disaggregate pentadal totals; these are not the native CHIRPS monthly source rasters. Daily dates are consistent labels, not a uniform station-observation window.",
   "files": [
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-1981.nc",
       "year": 1981,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4157031,
-      "sha256": "2eee9b6f5c1f2c7d5e4b318a435f97eb69082b26494a0ef047c0310df0239e7a",
-      "status": "downloaded_and_processed"
+      "sha256": "2eee9b6f5c1f2c7d5e4b318a435f97eb69082b26494a0ef047c0310df0239e7a"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-1982.nc",
       "year": 1982,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4276492,
-      "sha256": "03bf6c2ff32688c62a788d0a15e66c6d46c8f093641b947c41ff1557413ecd31",
-      "status": "downloaded_and_processed"
+      "sha256": "03bf6c2ff32688c62a788d0a15e66c6d46c8f093641b947c41ff1557413ecd31"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-1983.nc",
       "year": 1983,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4276425,
-      "sha256": "c70c6906cd90706ae4a1c59a125d668885f17698f44b58cca8fdb7353909379f",
-      "status": "downloaded_and_processed"
+      "sha256": "c70c6906cd90706ae4a1c59a125d668885f17698f44b58cca8fdb7353909379f"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-1984.nc",
       "year": 1984,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4265960,
-      "sha256": "8188b045ee9826f80c226260f0c345d4a6d76ad42973b2b5f46ec3f0a7f9af23",
-      "status": "downloaded_and_processed"
+      "sha256": "8188b045ee9826f80c226260f0c345d4a6d76ad42973b2b5f46ec3f0a7f9af23"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-1985.nc",
       "year": 1985,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4157931,
-      "sha256": "10dfbd3e81c84ea34d0d6737b1df72dbab4b25bf8f6e4d2701b2c2c6c9a5020e",
-      "status": "downloaded_and_processed"
+      "sha256": "10dfbd3e81c84ea34d0d6737b1df72dbab4b25bf8f6e4d2701b2c2c6c9a5020e"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-1986.nc",
       "year": 1986,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4237030,
-      "sha256": "3488d5e706b5e58916638fc20f0aa6f7762e537c3aeeab47deb822fb0c26ab15",
-      "status": "downloaded_and_processed"
+      "sha256": "3488d5e706b5e58916638fc20f0aa6f7762e537c3aeeab47deb822fb0c26ab15"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-1987.nc",
       "year": 1987,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4238378,
-      "sha256": "7a2124012157ab8dc4ecb9ee0b549177b384a0221c8cf75d1ead84b9324297b9",
-      "status": "downloaded_and_processed"
+      "sha256": "7a2124012157ab8dc4ecb9ee0b549177b384a0221c8cf75d1ead84b9324297b9"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-1988.nc",
       "year": 1988,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4163107,
-      "sha256": "0de57167518c1a55b1b51eab62aac9a37e032d29c8942163823e8b40361af6f4",
-      "status": "downloaded_and_processed"
+      "sha256": "0de57167518c1a55b1b51eab62aac9a37e032d29c8942163823e8b40361af6f4"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-1989.nc",
       "year": 1989,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4249097,
-      "sha256": "f4acf398a804848c646e629bc26c361b780b39281c7fefa3ef5d67bd3e33bdb0",
-      "status": "downloaded_and_processed"
+      "sha256": "f4acf398a804848c646e629bc26c361b780b39281c7fefa3ef5d67bd3e33bdb0"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-1990.nc",
       "year": 1990,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4222808,
-      "sha256": "26fa1c8ab6f5238fb5b87f38efb2cf0fa051fdfd1a82b5e13bfa1907847dad3a",
-      "status": "downloaded_and_processed"
+      "sha256": "26fa1c8ab6f5238fb5b87f38efb2cf0fa051fdfd1a82b5e13bfa1907847dad3a"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-1991.nc",
       "year": 1991,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4274539,
-      "sha256": "1dad67b9ea25e756e2e8cab50cb28035f718de600f7c46507075dbccad57f157",
-      "status": "downloaded_and_processed"
+      "sha256": "1dad67b9ea25e756e2e8cab50cb28035f718de600f7c46507075dbccad57f157"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-1992.nc",
       "year": 1992,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4211093,
-      "sha256": "5d5701b98a8c5ab51254cca41b52452d681034531c0d64e2facbcb854580126e",
-      "status": "downloaded_and_processed"
+      "sha256": "5d5701b98a8c5ab51254cca41b52452d681034531c0d64e2facbcb854580126e"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-1993.nc",
       "year": 1993,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4182223,
-      "sha256": "fb9705123d891bbca0ed6af5528701f9d14e61ad0f8bdfa9cdf6c7755b02a521",
-      "status": "downloaded_and_processed"
+      "sha256": "fb9705123d891bbca0ed6af5528701f9d14e61ad0f8bdfa9cdf6c7755b02a521"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-1994.nc",
       "year": 1994,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4276106,
-      "sha256": "81a74a13a50eebd64551b0e436928060c17465b7a05850ca7d4c4a5f2ba08aeb",
-      "status": "downloaded_and_processed"
+      "sha256": "81a74a13a50eebd64551b0e436928060c17465b7a05850ca7d4c4a5f2ba08aeb"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-1995.nc",
       "year": 1995,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4178520,
-      "sha256": "a3b0db9f02f404dcf951fcda9f38d99c6e4c03508b21e27105b31d36b6ab660a",
-      "status": "downloaded_and_processed"
+      "sha256": "a3b0db9f02f404dcf951fcda9f38d99c6e4c03508b21e27105b31d36b6ab660a"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-1996.nc",
       "year": 1996,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4171413,
-      "sha256": "9dfc11fdf9609ff67eeee870dd66a7e0ce3bc97008c2e12e0ae17fcc2cd3c3dc",
-      "status": "downloaded_and_processed"
+      "sha256": "9dfc11fdf9609ff67eeee870dd66a7e0ce3bc97008c2e12e0ae17fcc2cd3c3dc"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-1997.nc",
       "year": 1997,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4290683,
-      "sha256": "d3ba04d4cbf5187b808b15ab62f553acfac6472af74c08893ea0abea734f4608",
-      "status": "downloaded_and_processed"
+      "sha256": "d3ba04d4cbf5187b808b15ab62f553acfac6472af74c08893ea0abea734f4608"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-1998.nc",
       "year": 1998,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4174443,
-      "sha256": "ead1ca2c549ab7063521c703cec20abedfeb2885b014e6a66beaa2cf3636b6fc",
-      "status": "downloaded_and_processed"
+      "sha256": "ead1ca2c549ab7063521c703cec20abedfeb2885b014e6a66beaa2cf3636b6fc"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-1999.nc",
       "year": 1999,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4152282,
-      "sha256": "75af33211bebaae4ff914c20582b5de6a63c6745327a6c4e5eefd9ca5a144788",
-      "status": "downloaded_and_processed"
+      "sha256": "75af33211bebaae4ff914c20582b5de6a63c6745327a6c4e5eefd9ca5a144788"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-2000.nc",
       "year": 2000,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4225048,
-      "sha256": "6d622a8ca92457db72bebb3b4c5d37f37022ed75790638eb44e7c37e94ab8dce",
-      "status": "downloaded_and_processed"
+      "sha256": "6d622a8ca92457db72bebb3b4c5d37f37022ed75790638eb44e7c37e94ab8dce"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-2001.nc",
       "year": 2001,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4264803,
-      "sha256": "368ca4af707a2da0e9809206abc9717f2df75df2a8445fcd831950cc9f96b2cd",
-      "status": "downloaded_and_processed"
+      "sha256": "368ca4af707a2da0e9809206abc9717f2df75df2a8445fcd831950cc9f96b2cd"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-2002.nc",
       "year": 2002,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4266196,
-      "sha256": "6f148c7a680382bbdac027e7a248f89a04b452f2c7839a8dba078d71055d0fe6",
-      "status": "downloaded_and_processed"
+      "sha256": "6f148c7a680382bbdac027e7a248f89a04b452f2c7839a8dba078d71055d0fe6"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-2003.nc",
       "year": 2003,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4229983,
-      "sha256": "353e272d3e2479a96b15320789fc5e2af85a920551be7b52e4fd328463745327",
-      "status": "downloaded_and_processed"
+      "sha256": "353e272d3e2479a96b15320789fc5e2af85a920551be7b52e4fd328463745327"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-2004.nc",
       "year": 2004,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4186512,
-      "sha256": "9fb3319f3e6814aab070e5f981d7086fc1acbeedcfcea87e1232071d1eda2cd3",
-      "status": "downloaded_and_processed"
+      "sha256": "9fb3319f3e6814aab070e5f981d7086fc1acbeedcfcea87e1232071d1eda2cd3"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-2005.nc",
       "year": 2005,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4168439,
-      "sha256": "7989d6720ba33253b088d297e2f180bec882a6c50cdb34442dfed7971a8d587f",
-      "status": "downloaded_and_processed"
+      "sha256": "7989d6720ba33253b088d297e2f180bec882a6c50cdb34442dfed7971a8d587f"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-2006.nc",
       "year": 2006,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4262048,
-      "sha256": "cc259ed761eccbfa0afaf52cf1691eddecc977d30a271d5414e54caa5f9fc261",
-      "status": "downloaded_and_processed"
+      "sha256": "cc259ed761eccbfa0afaf52cf1691eddecc977d30a271d5414e54caa5f9fc261"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-2007.nc",
       "year": 2007,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4233240,
-      "sha256": "8faa9b1889fb7f8aaaa39cc8ad18fb815ddacdcd80127a7b9c36744215c038a9",
-      "status": "downloaded_and_processed"
+      "sha256": "8faa9b1889fb7f8aaaa39cc8ad18fb815ddacdcd80127a7b9c36744215c038a9"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-2008.nc",
       "year": 2008,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4152575,
-      "sha256": "19296e513fd1e02c9f56c0503ef123f8db1d4d18897dd9f9a1b453ec53f88e59",
-      "status": "downloaded_and_processed"
+      "sha256": "19296e513fd1e02c9f56c0503ef123f8db1d4d18897dd9f9a1b453ec53f88e59"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-2009.nc",
       "year": 2009,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4209437,
-      "sha256": "68d7aa8a318831494270df58c65f7043dc55c99035a22e13deb50cf8f295410d",
-      "status": "downloaded_and_processed"
+      "sha256": "68d7aa8a318831494270df58c65f7043dc55c99035a22e13deb50cf8f295410d"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-2010.nc",
       "year": 2010,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4030566,
-      "sha256": "919207a56780d75b45fa04add33f16a872297ec22476c2e25b30a3e256572991",
-      "status": "downloaded_and_processed"
+      "sha256": "919207a56780d75b45fa04add33f16a872297ec22476c2e25b30a3e256572991"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-2011.nc",
       "year": 2011,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4177049,
-      "sha256": "f97d4acbc248b3b6b245be5eb9112b428d1152616986404b2ddc55b8d0b5d9bd",
-      "status": "downloaded_and_processed"
+      "sha256": "f97d4acbc248b3b6b245be5eb9112b428d1152616986404b2ddc55b8d0b5d9bd"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-2012.nc",
       "year": 2012,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4194239,
-      "sha256": "e91629b8f346cd3d4174227d33740fd2513861f2925029495989cd498d10fb74",
-      "status": "downloaded_and_processed"
+      "sha256": "e91629b8f346cd3d4174227d33740fd2513861f2925029495989cd498d10fb74"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-2013.nc",
       "year": 2013,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4252422,
-      "sha256": "cf5b95178b139d626ffedef9fce195f339b6a79d8573f34ddfab3fdf03e03bf5",
-      "status": "downloaded_and_processed"
+      "sha256": "cf5b95178b139d626ffedef9fce195f339b6a79d8573f34ddfab3fdf03e03bf5"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-2014.nc",
       "year": 2014,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4149283,
-      "sha256": "fc81db1f7c8d4268cad1c699590fd5733f1f94f3b7238f401829eebbb2a193dd",
-      "status": "downloaded_and_processed"
+      "sha256": "fc81db1f7c8d4268cad1c699590fd5733f1f94f3b7238f401829eebbb2a193dd"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-2015.nc",
       "year": 2015,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4218296,
-      "sha256": "3bfa4a9c7c0576de7ee440ca1bd5f0e48aad6361fc5f7212218c3b84d5de808e",
-      "status": "downloaded_and_processed"
+      "sha256": "3bfa4a9c7c0576de7ee440ca1bd5f0e48aad6361fc5f7212218c3b84d5de808e"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-2016.nc",
       "year": 2016,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4201490,
-      "sha256": "95397b447e91118d4e384f40f058c155a02e046b85b2503ed25521a82a6520cc",
-      "status": "downloaded_and_processed"
+      "sha256": "95397b447e91118d4e384f40f058c155a02e046b85b2503ed25521a82a6520cc"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-2017.nc",
       "year": 2017,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4231880,
-      "sha256": "95cabd7d6153803e115faa830058ab389c006453e54e896ed3b52189986cd871",
-      "status": "downloaded_and_processed"
+      "sha256": "95cabd7d6153803e115faa830058ab389c006453e54e896ed3b52189986cd871"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-2018.nc",
       "year": 2018,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4273330,
-      "sha256": "4c3d9a0a7f0145773a9c118e4db4ad08115c677c1cf2c17f849f915fedd2f9d5",
-      "status": "downloaded_and_processed"
+      "sha256": "4c3d9a0a7f0145773a9c118e4db4ad08115c677c1cf2c17f849f915fedd2f9d5"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-2019.nc",
       "year": 2019,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4219985,
-      "sha256": "04d475754d51f62ff1339be9a4fe1120fa86878d8f5799eb55a23c261c0b5182",
-      "status": "downloaded_and_processed"
+      "sha256": "04d475754d51f62ff1339be9a4fe1120fa86878d8f5799eb55a23c261c0b5182"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-2020.nc",
       "year": 2020,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4129135,
-      "sha256": "8321baa3be93d6d3cff27b537f5925d181d17aba793b27f86bec541666aa9e64",
-      "status": "downloaded_and_processed"
+      "sha256": "8321baa3be93d6d3cff27b537f5925d181d17aba793b27f86bec541666aa9e64"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-2021.nc",
       "year": 2021,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4117593,
-      "sha256": "0b963aec5cf0dc322de2c29a64dfc8e7d696f45350b45c74cd5a99cc652a5310",
-      "status": "downloaded_and_processed"
+      "sha256": "0b963aec5cf0dc322de2c29a64dfc8e7d696f45350b45c74cd5a99cc652a5310"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-2022.nc",
       "year": 2022,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4139906,
-      "sha256": "dc54855730c12e61302e83a113505a9e27a297274b8f9f0179663ba68d0a9085",
-      "status": "downloaded_and_processed"
+      "sha256": "dc54855730c12e61302e83a113505a9e27a297274b8f9f0179663ba68d0a9085"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-2023.nc",
       "year": 2023,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4219831,
-      "sha256": "c4da4c128926dd458a583b00a65bd7cad856be0b1d506f7f383e45c48216317d",
-      "status": "downloaded_and_processed"
+      "sha256": "c4da4c128926dd458a583b00a65bd7cad856be0b1d506f7f383e45c48216317d"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-2024.nc",
       "year": 2024,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4206746,
-      "sha256": "8096ad31dc81bba4e020aec8b1e2c5b0212b6e0024c17c3517b86f855a02a02f",
-      "status": "downloaded_and_processed"
+      "sha256": "8096ad31dc81bba4e020aec8b1e2c5b0212b6e0024c17c3517b86f855a02a02f"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-2025.nc",
       "year": 2025,
       "months": 12,
-      "valid_grid_values": 1336884,
+      "status": "already_present",
       "bytes": 4211151,
-      "sha256": "6f01b2bc8fd22ebaf820e4ada612a4915e1b363512dec497074b206cbf5128d6",
-      "status": "downloaded_and_processed"
+      "sha256": "6f01b2bc8fd22ebaf820e4ada612a4915e1b363512dec497074b206cbf5128d6"
     },
     {
       "file": "datos/fuentes-externas/precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-2026.nc",
       "year": 2026,
       "months": 9,
-      "valid_grid_values": 1002663,
+      "status": "already_present",
       "bytes": 3212578,
-      "sha256": "6282aa63c14da1998f93a6a5b397e93baff8d42232d01aeaddefce65324fedda",
-      "status": "downloaded_and_processed"
+      "sha256": "6282aa63c14da1998f93a6a5b397e93baff8d42232d01aeaddefce65324fedda"
     }
   ],
   "errors": [],
   "months_total": 549,
   "years_total": 46,
-  "retrieved_utc_finished": "2026-11-07T17:22:05.273569+00:00"
+  "retrieved_utc_finished": "2026-11-07T17:30:39.278262+00:00"
 }
