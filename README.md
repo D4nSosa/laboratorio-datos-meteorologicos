@@ -41,7 +41,7 @@ La interfaz pública reúne las siguientes capacidades existentes:
 - El repositorio conserva un consolidado comunitario atribuido a SIGA-INTA con 1.177.258 filas y un catálogo de 182 estaciones. La integridad del archivo no demuestra calibración, homogeneidad ni validación instrumental. Hay claves estación-fecha repetidas que requieren tratamiento antes de producir estadísticas definitivas.
 - El snapshot provincial de Corrientes contiene registros diarios y mensuales con cobertura desigual. Los agregados departamentales no son equivalentes a mediciones puntuales.
 - El conector de AgroClima consulta observaciones publicadas por estación. Su ventana reciente no reemplaza un archivo histórico diario de precipitaciones.
-- GOES-19 ABI GeoColor y la secuencia sectorial ABI de NOAA ya se muestran en la interfaz; el visor permite seleccionar bandas visibles e infrarrojas. GLM FED ya se muestra en el visor NOAA para el sector sur de Sudamérica; GPM IMERG, CHIRPS, radiosondeos, INA-SIyAH y SNIH siguen documentados o pendientes de integración.
+- GOES-19 ABI GeoColor y la secuencia sectorial ABI de NOAA ya se muestran en la interfaz; el visor permite seleccionar bandas visibles e infrarrojas. GLM FED ya se muestra en el visor NOAA para el sector sur de Sudamérica. INA/DSIyAH dispone de un adaptador de consulta directa de series que requiere un `seriesId` válido; la selección y validación sistemática de series sigue pendiente. GPM IMERG, CHIRPS, radiosondeos y SNIH permanecen documentados o en evaluación, sin integración completa.
 - RainViewer aporta una capa radar compuesta con cobertura parcial; no equivale a la red oficial completa. El visor del SMN y el visor SINARAME se ofrecen como referencias oficiales externas, todavía sin ingestión propia de sus productos.
 - La capa provincial se calcula con puntos de muestreo aproximados de 1° dentro de polígonos IGN/Georef. No es una grilla nativa de modelo, una interpolación ni un promedio areal oficial. Los puntos válidos y las provincias sin muestra se explicitan.
 
@@ -74,6 +74,7 @@ No convertimos datos faltantes en cero, no inventamos mediciones y no presentamo
 - [Actualización de fuentes meteorológicas e hidrológicas — 6 de noviembre de 2026](fuentes/actualizacion_fuentes_meteorologicas_hidrologicas_2026-11-06.md)
 - [Catálogo público de fuentes](docs/datos/catalogo-fuentes.json)
 - [Auditoría técnica y de datos](investigaciones/auditoria-tecnica-datos-2026-10-29.md)
+- [Cierre de estabilización y estado de respuestas — 7 de noviembre de 2026](investigaciones/cierre-estabilizacion-2026-11-07.md)
 - [Conector AgroClima en Vercel](docs/agroclima-vercel.md)
 - [Archivo y criterios de revisión de eventos](research/events/README.md)
 - [Entorno experimental de investigación neuronal](research/neural/README.md)
