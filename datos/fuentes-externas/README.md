@@ -16,7 +16,7 @@ Esta carpeta conserva conjuntos de datos meteorológicos e hidrológicos con pro
 
 ## Productos ya archivados
 
-- **IGRA Argentina:** 20 estaciones, 240.882 sondeos en el índice normalizado y 2.703.005 registros de niveles estándar/superficie listos para series y perfiles verticales. Los ZIP originales siguen conservados.
+- **IGRA Argentina:** 20 identificadores ARM (19 estaciones continentales y una estación argentina en Islas Orcadas del Sur/Antártida), 240.882 sondeos en el índice normalizado y 2.703.005 registros de niveles estándar/superficie listos para series y perfiles verticales. Los ZIP originales siguen conservados.
 - **CHIRPS v3 Final:** 46 archivos NetCDF anuales, 549 pasos mensuales, desde enero de 1981 hasta septiembre de 2026; grilla nacional a 0,05°. Los totales mensuales son agregaciones del producto diario Final.
 - **INA DSIyAH:** catálogo normalizado con 1.908 estaciones argentinas y 10.797 series; el manifiesto de descarga de observaciones se completa en segundo plano.
 - **IGRA regional, derivados, IMERG Late y SNIH:** sus workflows de descarga/normalización siguen en ejecución o reintento. Consultar siempre `catalogo-datasets.json` y los manifiestos antes de asumir que una ruta ya está disponible.
@@ -42,7 +42,7 @@ Esta carpeta conserva conjuntos de datos meteorológicos e hidrológicos con pro
 ### IGRA 2.2 — NOAA/NCEI
 Inventario y perfiles originales: https://www.ncei.noaa.gov/pub/data/igra/ y https://www.ncei.noaa.gov/pub/data/igra/data/data-por/
 
-Los archivos de perfil se distribuyen por identificador. Dos IDs cercanos pueden reflejar cambios de emplazamiento, series distintas o sitios separados; no se deduplican automáticamente. El inventario de estaciones es una tabla de disponibilidad, no un perfil atmosférico.
+Los archivos de perfil se distribuyen por identificador. El inventario ARM incluye una estación argentina en Islas Orcadas del Sur, fuera del territorio continental. Dos IDs cercanos pueden reflejar cambios de emplazamiento, series distintas o sitios separados; no se deduplican automáticamente. El inventario de estaciones es una tabla de disponibilidad, no un perfil atmosférico.
 
 ### CHIRPS v3 Final — UCSB CHC
 Fuente y producto procesado de acceso público: https://dynamical.org/catalog/ucsb-chc-chirps-analysis-final/ (CHIRPS v3 Final/rnl). El producto cubre 60°S–60°N a 0,05° sobre tierra. Las fechas diarias son etiquetas coherentes de la desagregación, no ventanas uniformes de observación de pluviómetros.
