@@ -64,7 +64,7 @@ def has_current_schema(path):
     try:
         with gzip.open(path,"rt",encoding="utf-8") as f:
             header=f.readline()
-        return "precipitation_sum_valid_intervals_mm" in header
+        return "precipitation_sum_valid_intervals_mm" in header and "geographic_scope" in header
     except Exception:
         return False
 
