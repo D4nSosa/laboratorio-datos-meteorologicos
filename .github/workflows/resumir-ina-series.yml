@@ -1,0 +1,37 @@
+name: Resumir cobertura INA DSIyAH
+
+on:
+  push:
+    branches:
+      - "data/initial-radiosonde-inventory-2026-11-07"
+    paths:
+      - ".github/workflows/resumir-ina-series.yml"
+      - "scripts/resumir_ina_series.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  resumen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+      - name: Generar resumen de cobertura
+        run: python scripts/resumir_ina_series.py
+      - name: Guardar resumen
+        env:
+          TARGET_BRANCH: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add datos/fuentes-externas/hidrologia/ina-dsiyah/catalogos
+          git commit -m "data: publish INA Argentina series coverage summary"
+          git fetch origin "${TARGET_BRANCH}"
+          git rebase "origin/${TARGET_BRANCH}"
+          git push origin "HEAD:${TARGET_BRANCH}"
