@@ -1,0 +1,58 @@
+name: Descargar perfiles IGRA — Sudamerica
+
+on:
+  push:
+    branches:
+      - "data/initial-radiosonde-inventory-2026-11-07"
+    paths:
+      - ".github/workflows/descargar-igra-regional.yml"
+      - "scripts/descargar_igra_regional.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: descargar-igra-regional
+  cancel-in-progress: false
+
+jobs:
+  descargar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - name: Checkout rama aislada
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - name: Descargar y validar ZIP de perfiles
+        run: python scripts/descargar_igra_regional.py
+
+      - name: Revisar volumen
+        if: always()
+        run: |
+          du -sh datos/fuentes-externas/radiosondeos/igra/originales 2>/dev/null || true
+          find datos/fuentes-externas/radiosondeos/igra/originales -type f -printf '%s %p\n' | sort -nr | head -30 || true
+
+      - name: Guardar perfiles y manifiesto en rama aislada
+        if: always()
+        env:
+          TARGET_BRANCH: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add datos/fuentes-externas/radiosondeos/igra/originales
+          if [ -f datos/fuentes-externas/radiosondeos/igra/manifiesto-perfiles-sudamerica.json ]; then
+            git add datos/fuentes-externas/radiosondeos/igra/manifiesto-perfiles-sudamerica.json
+          fi
+          if git diff --cached --quiet; then
+            echo "No hay nuevos perfiles para guardar."
+          else
+            git commit -m "data: archive South American IGRA sounding profiles"
+            git fetch origin "${TARGET_BRANCH}"
+            git rebase "origin/${TARGET_BRANCH}"
+            git push origin "HEAD:${TARGET_BRANCH}"
+          fi
