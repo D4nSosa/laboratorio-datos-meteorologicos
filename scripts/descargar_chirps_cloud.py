@@ -48,7 +48,11 @@ def main():
         raise RuntimeError(f"Dimensiones inesperadas: {da.dims}")
 
     # Argentina bounding window, followed by an exact national polygon mask.
-    da=da.sel(latitude=slice(-60,-20),longitude=slice(-80,-50))
+    lat_values=np.asarray(da.latitude.values)
+    lon_values=np.asarray(da.longitude.values)
+    lat_slice=slice(-20,-60) if lat_values[0]>lat_values[-1] else slice(-60,-20)
+    lon_slice=slice(-50,-80) if lon_values[0]>lon_values[-1] else slice(-80,-50)
+    da=da.sel(latitude=lat_slice,longitude=lon_slice)
     lat=np.asarray(da.latitude.values)
     lon=np.asarray(da.longitude.values)
     polygon=argentina_polygon()
