@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "catalog_updated": "2026-11-06",
+  "catalog_updated": "2026-11-07",
   "coverage": "Argentina a escala nacional mediante redes de estaciones, radar compuesto, satélite, grillas de reanálisis y pronóstico. Las capas tienen distinta cobertura, resolución, latencia y calidad; no se presume disponibilidad homogénea en todas las localidades.",
   "status_definitions": {
     "archived": "Dataset stored in this repository; scientific validation may remain incomplete.",
@@ -248,6 +248,30 @@
       "coverage": "Global, incluidas localidades argentinas; consulta puntual por coordenadas, no visualización ráster nacional integrada",
       "url": "https://open-meteo.com/en/docs",
       "limitations": "La consulta de punto y el pronóstico de hasta 16 días están integrados en Laboratorio abierto. La API no equivale a una red de estaciones. La disponibilidad de variables depende del modelo y la región. CAPE es un diagnóstico de inestabilidad, no una garantía de tormenta; la probabilidad de tormenta es una salida de modelo y no una alerta oficial. ERA5 tiene retraso de publicación; las predicciones cambian con cada ciclo y no sustituyen al SMN."
+    },
+    {
+      "id": "nasa_power",
+      "name": "NASA POWER · Daily Point",
+      "organization": "NASA Langley Research Center / POWER Project",
+      "type": "satellite_reanalysis_daily",
+      "status": "operational",
+      "products": [
+        "Consulta puntual diaria por coordenadas: precipitación corregida, temperatura media/máxima/mínima, humedad relativa, viento y radiación solar"
+      ],
+      "variables": [
+        "precipitation",
+        "temperature_mean",
+        "temperature_max",
+        "temperature_min",
+        "relative_humidity",
+        "wind_speed",
+        "solar_radiation"
+      ],
+      "temporal_resolution": "Diaria; disponibilidad reciente con latencia variable (el Laboratorio limita el final a 3 días antes de la fecha actual)",
+      "spatial_resolution": "Grilla global aproximada de 0,5° × 0,625° para el producto meteorológico diario; no representa una estación puntual",
+      "coverage": "Cobertura global terrestre, incluida Argentina; consulta por coordenadas",
+      "url": "https://power.larc.nasa.gov/docs/services/api/temporal/daily/",
+      "limitations": "Producto de estimación/modelado derivado de múltiples fuentes, no observación directa. Las variables pueden tener fuentes y disponibilidad diferentes. Los valores faltantes o -999 se conservan como ausentes. La resolución espacial es más gruesa que CHIRPS y ERA5-Land."
     },
     {
       "id": "hydrology_networks",
