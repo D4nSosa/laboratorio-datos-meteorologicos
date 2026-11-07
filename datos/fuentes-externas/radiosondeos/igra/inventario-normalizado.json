@@ -1,7 +1,9 @@
 {
   "source": "datos/fuentes-externas/radiosondeos/igra/igra2-station-list.txt",
   "source_version": "IGRA 2.2",
-  "stations_argentina": 20,
+  "stations_argentina_ids": 20,
+  "stations_continental": 19,
+  "stations_antarctic_reference": 1,
   "stations_regional_context": 71,
   "nearby_pairs_for_review": 3,
   "files": [
