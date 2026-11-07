@@ -101,9 +101,9 @@
         "manifest": "precipitacion/chirps-v3/manifiestos/chirps-v3-final-argentina.json",
         "climatology_1991_2020": "precipitacion/chirps-v3/argentina/climatologia/chirps-v3-climatologia-mensual-1991-2020.nc",
         "monthly_anomalies_pattern": "precipitacion/chirps-v3/argentina/anomalias/chirps-v3-anomalias-mensuales-argentina-{year}.nc",
-        "derived_manifest": "precipitacion/chirps-v3/manifiestos/chirps-v3-productos-derivados.json",
+        "derived_manifest": "precipitacion/chirps-v3/argentina/manifiestos/chirps-v3-productos-derivados.json",
         "daily_station_points_pattern": "precipitacion/chirps-v3/argentina/puntos-diarios/chirps-v3-final-diario-{station_id}.csv.gz",
-        "daily_points_manifest": "precipitacion/chirps-v3/manifiestos/chirps-v3-puntos-diarios.json"
+        "daily_points_manifest": "precipitacion/chirps-v3/argentina/manifiestos/chirps-v3-puntos-diarios.json"
       },
       "variable": "precipitation",
       "units": "mm month-1",
