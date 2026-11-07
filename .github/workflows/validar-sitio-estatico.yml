@@ -64,9 +64,8 @@ jobs:
           inline = max(scripts, key=len)
           Path("/tmp/explorador-inline.js").write_text(inline, encoding="utf-8")
           assert 'id="workspace-picker"' in page
-          assert 'id="weather-mode"' in page and 'id="weather-load"' in page
-          assert 'id="weather-variable"' in page and 'id="weather-day"' in page
-          assert 'id="show-provinces"' in page and 'id="show-weather-points"' in page
+          assert 'id="map-stage"' in page, "Falta el contenedor del mapa meteorológico"
+          assert 'id="lnm-weather-state"' in page and 'id="lnm-weather-state-detail"' in page
           assert 'function initNav()' in inline and 'Promise.allSettled' in inline
           print("OK navegación, controles meteorológicos y arranque resiliente")
           PY
