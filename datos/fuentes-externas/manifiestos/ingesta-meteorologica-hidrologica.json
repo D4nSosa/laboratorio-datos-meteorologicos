@@ -1,0 +1,85 @@
+{
+  "titulo": "Ingesta inicial de datasets meteorológicos e hidrológicos",
+  "creado_utc": "2026-11-07T16:47:41.359680+00:00",
+  "repositorio": "D4nSosa/laboratorio-datos-meteorologicos",
+  "alcance": "Argentina; archivos fuente originales y subconjuntos procesados",
+  "datasets": {
+    "IGRA": {
+      "estado": "fallido",
+      "error": "ValueError: 'datos/fuentes-externas/radiosondeos/igra/igra2-station-list.txt' is not in the subpath of '/home/runner/work/laboratorio-datos-meteorologicos/laboratorio-datos-meteorologicos'"
+    },
+    "CHIRPS_v3": {
+      "estado": "fallido",
+      "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://data.chc.ucsb.edu/products/CHIRPS/v3.0/monthly/latam/tifs/chirps-v3.0.1983.01.tif"
+    },
+    "INA_DSIYAH": {
+      "estado": "catalogos_descargados",
+      "catalogos": {
+        "redes": {
+          "estado": "descargado",
+          "url": "https://alerta.ina.gob.ar/pub/datos/redes?format=json",
+          "archivo": "datos/fuentes-externas/hidrologia/ina-dsiyah/catalogos/redes.json.gz",
+          "bytes_comprimidos": 703,
+          "sha256": "6942c658d7a27454836aaafc3414d4422248f25f7758266be527b9f998b746fe",
+          "tipo": "dict",
+          "registros": 3
+        },
+        "estaciones": {
+          "estado": "descargado",
+          "url": "https://alerta.ina.gob.ar/pub/datos/estaciones?format=json",
+          "archivo": "datos/fuentes-externas/hidrologia/ina-dsiyah/catalogos/estaciones.json.gz",
+          "bytes_comprimidos": 73063,
+          "sha256": "f842f8d482fa97469b094791ebd91aae7e47aa28283d6cfd42bd422401b7ff16",
+          "tipo": "dict",
+          "registros": 3
+        },
+        "variables": {
+          "estado": "descargado",
+          "url": "https://alerta.ina.gob.ar/pub/datos/variables?format=json",
+          "archivo": "datos/fuentes-externas/hidrologia/ina-dsiyah/catalogos/variables.json.gz",
+          "bytes_comprimidos": 2900,
+          "sha256": "00820aa151aa7df599fbcdff3986bb199e83b70cd0e1c1dbfa81482f6e0f37ad",
+          "tipo": "dict",
+          "registros": 3
+        },
+        "unidades": {
+          "estado": "descargado",
+          "url": "https://alerta.ina.gob.ar/pub/datos/unidades?format=json",
+          "archivo": "datos/fuentes-externas/hidrologia/ina-dsiyah/catalogos/unidades.json.gz",
+          "bytes_comprimidos": 652,
+          "sha256": "28f3fcbec72aa6c7dd20279ad06010d54e19452a6ae7c65d3a181cc572602bf1",
+          "tipo": "dict",
+          "registros": 3
+        },
+        "series": {
+          "estado": "descargado",
+          "url": "https://alerta.ina.gob.ar/pub/datos/series?format=json",
+          "archivo": "datos/fuentes-externas/hidrologia/ina-dsiyah/catalogos/series.json.gz",
+          "bytes_comprimidos": 144225,
+          "sha256": "85fcbe30c0d29236f0a1658ba08ce779ef8627c2a60928f5fad6968f0b81f472",
+          "tipo": "dict",
+          "registros": 3
+        }
+      },
+      "fuente": "https://alerta.ina.gob.ar/pub/gui",
+      "nota": "El portal consultado corresponde al sistema DSIyAH de la cuenca del Plata; no equivale por sí solo a cobertura hidrológica nacional completa. Se archivan catálogos de redes, estaciones, variables, unidades y series. Las observaciones de cada serie requieren una extracción posterior con rangos temporales y control de volumen."
+    },
+    "GPM_IMERG": {
+      "estado": "pendiente_de_autenticacion_y_submuestreo",
+      "producto_objetivo": "GPM IMERG Final V07B (mensual o diario, recorte Argentina)",
+      "fuente": "https://disc.gsfc.nasa.gov/datasets/GPM_3IMERGDF_07/summary",
+      "motivo": "GES DISC/PPS requiere autenticación Earthdata para descargas masivas. No se sustituye IMERG por CHIRPS sat: CHIRPS sat usa IMERG Late para desagregar pentadas y no es un archivo IMERG independiente.",
+      "requisito": "Configurar credenciales/tokens NASA Earthdata como secrets del repositorio y definir extracción espacial eficiente antes de incorporar gran volumen."
+    },
+    "SNIH": {
+      "estado": "pendiente_de_conector_oficial_verificado",
+      "fuente": "https://snih.hidricosargentina.gob.ar/",
+      "nota": "No se declara descargada la base nacional SNIH. El catálogo INA-DSIyAH descargado corresponde a la cuenca del Plata y no debe presentarse como cobertura nacional completa."
+    }
+  },
+  "errores": {
+    "IGRA": "ValueError: 'datos/fuentes-externas/radiosondeos/igra/igra2-station-list.txt' is not in the subpath of '/home/runner/work/laboratorio-datos-meteorologicos/laboratorio-datos-meteorologicos'",
+    "CHIRPS_v3": "HTTPError: 429 Client Error: Too Many Requests for url: https://data.chc.ucsb.edu/products/CHIRPS/v3.0/monthly/latam/tifs/chirps-v3.0.1983.01.tif"
+  },
+  "estado_general": "parcial_con_bloqueos_externos"
+}
