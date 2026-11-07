@@ -41,6 +41,26 @@ def get(url: str, *, stream: bool = False):
     response.raise_for_status()
     return response
 
+
+def get_with_retry(url: str, *, stream: bool = False, attempts: int = 6):
+    last_error = None
+    for attempt in range(attempts):
+        try:
+            return get(url, stream=stream)
+        except requests.HTTPError as exc:
+            last_error = exc
+            status = exc.response.status_code if exc.response is not None else None
+            if status not in (429, 500, 502, 503, 504) or attempt == attempts - 1:
+                raise
+            retry_after = exc.response.headers.get("Retry-After") if exc.response is not None else None
+            try:
+                delay = int(retry_after) if retry_after else min(60 * (2 ** attempt), 900)
+            except ValueError:
+                delay = min(60 * (2 ** attempt), 900)
+            print(f"HTTP {status} en {url}; reintento {attempt + 1}/{attempts} en {delay}s")
+            time.sleep(delay)
+    raise last_error
+
 def links(url: str) -> list[str]:
     parser = Links()
     parser.feed(get(url).text)
@@ -96,7 +116,7 @@ def ingest_igra(manifest: dict):
         "estaciones_archivo": len(downloaded),
         "archivos": downloaded,
         "inventario_oficial": {
-            "archivo": str(station_list.relative_to(Path.cwd())),
+            "archivo": str(station_list),
             "bytes": station_list.stat().st_size,
             "sha256": sha256(station_list),
             "url": station_list_url
@@ -117,7 +137,9 @@ def argentina_geometry():
 def ingest_chirps(manifest: dict):
     index = "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/monthly/latam/tifs/"
     out = ROOT / "precipitacion" / "chirps-v3" / "argentina" / "mensual-netcdf"
+    cache_dir = out.parent / "cache-mensual"
     out.mkdir(parents=True, exist_ok=True)
+    cache_dir.mkdir(parents=True, exist_ok=True)
     candidates = []
     for url in links(index):
         name = url.rsplit("/", 1)[-1]
@@ -128,72 +150,107 @@ def ingest_chirps(manifest: dict):
     if not candidates:
         raise RuntimeError("No se encontraron GeoTIFF mensuales CHIRPS v3 LATAM")
     argentina = argentina_geometry()
-    by_year: dict[int, list[tuple[pd.Timestamp, np.ndarray, tuple, dict]]] = {}
-    tmp_dir = Path("/tmp/chirps")
-    tmp_dir.mkdir(exist_ok=True)
+    by_year: dict[int, list[tuple[int, str]]] = {}
     for year, month, url in candidates:
-        target = tmp_dir / url.rsplit("/", 1)[-1]
-        with get(url, stream=True) as r, target.open("wb") as f:
-            for chunk in r.iter_content(1024 * 1024):
-                if chunk:
-                    f.write(chunk)
-        with rasterio.open(target) as src:
-            if src.crs is None:
-                raise RuntimeError(f"CHIRPS sin CRS: {target.name}")
-            geom = argentina
-            if src.crs.to_string() != "EPSG:4326":
-                from rasterio.warp import transform_geom
-                geom = transform_geom("EPSG:4326", src.crs, mapping(argentina))
-            masked, transform = mask(src, [mapping(geom) if hasattr(geom, "geom_type") else geom],
-                                     crop=True, filled=False, indexes=1)
-            arr = masked.astype(np.float32).filled(np.nan)
-            lat = transform.f + (np.arange(arr.shape[0]) + 0.5) * transform.e
-            lon = transform.c + (np.arange(arr.shape[1]) + 0.5) * transform.a
-            by_year.setdefault(year, []).append(
-                (pd.Timestamp(year=year, month=month, day=1), arr, lat, lon)
-            )
-        target.unlink()
-        time.sleep(0.5)
+        by_year.setdefault(year, []).append((month, url))
     outputs = []
-    for year, records in sorted(by_year.items()):
-        records.sort(key=lambda x: x[0])
-        lat, lon = records[0][2], records[0][3]
-        for rec in records[1:]:
-            if rec[1].shape != records[0][1].shape:
-                raise RuntimeError(f"Grilla CHIRPS inconsistente en {year}")
-        cube = np.stack([r[1] for r in records], axis=0)
-        times = pd.DatetimeIndex([r[0] for r in records])
-        ds = xr.Dataset(
-            {"precipitation": (("time", "lat", "lon"), cube,
-              {"long_name": "Monthly precipitation", "units": "mm/month"})},
-            coords={"time": times, "lat": lat, "lon": lon},
-            attrs={
-                "title": f"CHIRPS v3 monthly precipitation clipped to Argentina ({year})",
-                "source": "Climate Hazards Center UCSB",
-                "source_product": "CHIRPS v3 monthly LATAM GeoTIFF",
-                "source_url": index,
-                "spatial_subset": "Argentina polygon; native 0.05 degree grid",
-                "created_utc": datetime.now(timezone.utc).isoformat(),
-                "temporal_note": "Monthly final product; values are not daily observations."
-            }
-        )
-        path = out / f"chirps-v3-mensual-argentina-{year}.nc"
-        ds.to_netcdf(path, engine="netcdf4", encoding={
-            "precipitation": {"zlib": True, "complevel": 4, "dtype": "float32", "_FillValue": -9999.0}
-        })
-        outputs.append({
-            "archivo": str(path), "meses": len(records), "bytes": path.stat().st_size,
-            "sha256": sha256(path), "desde": str(times.min().date()), "hasta": str(times.max().date())
-        })
+    cached_months = []
+    errors = []
+    for year, months in sorted(by_year.items()):
+        annual_path = out / f"chirps-v3-mensual-argentina-{year}.nc"
+        if annual_path.exists() and annual_path.stat().st_size > 0:
+            outputs.append({
+                "archivo": str(annual_path), "bytes": annual_path.stat().st_size,
+                "sha256": sha256(annual_path), "estado": "ya_existia"
+            })
+            continue
+        year_records = []
+        for month, url in months:
+            cache_path = cache_dir / f"chirps-v3-mensual-argentina-{year}-{month:02d}.npz"
+            if cache_path.exists() and cache_path.stat().st_size > 0:
+                with np.load(cache_path) as z:
+                    arr, lat, lon = z["precipitation"], z["lat"], z["lon"]
+                cached_months.append(str(cache_path))
+            else:
+                try:
+                    response = get_with_retry(url, stream=True)
+                    tmp = Path("/tmp") / url.rsplit("/", 1)[-1]
+                    with response as r, tmp.open("wb") as f:
+                        for chunk in r.iter_content(1024 * 1024):
+                            if chunk:
+                                f.write(chunk)
+                    with rasterio.open(tmp) as src:
+                        if src.crs is None:
+                            raise RuntimeError(f"CHIRPS sin CRS: {tmp.name}")
+                        geom = argentina
+                        if src.crs.to_string() != "EPSG:4326":
+                            from rasterio.warp import transform_geom
+                            geom = transform_geom("EPSG:4326", src.crs, mapping(argentina))
+                        masked, transform = mask(
+                            src, [mapping(geom) if hasattr(geom, "geom_type") else geom],
+                            crop=True, filled=False, indexes=1
+                        )
+                        arr = masked.astype(np.float32).filled(np.nan)
+                        lat = transform.f + (np.arange(arr.shape[0]) + 0.5) * transform.e
+                        lon = transform.c + (np.arange(arr.shape[1]) + 0.5) * transform.a
+                    np.savez_compressed(cache_path, precipitation=arr, lat=lat, lon=lon)
+                    tmp.unlink(missing_ok=True)
+                    time.sleep(3.0)
+                except Exception as exc:
+                    errors.append({
+                        "fecha": f"{year}-{month:02d}",
+                        "url": url,
+                        "error": f"{type(exc).__name__}: {exc}"
+                    })
+                    print(f"CHIRPS pendiente {year}-{month:02d}: {errors[-1]['error']}")
+                    break
+            year_records.append((pd.Timestamp(year=year, month=month, day=1), arr, lat, lon))
+        if len(year_records) == len(months):
+            year_records.sort(key=lambda x: x[0])
+            lat, lon = year_records[0][2], year_records[0][3]
+            for rec in year_records[1:]:
+                if rec[1].shape != year_records[0][1].shape:
+                    raise RuntimeError(f"Grilla CHIRPS inconsistente en {year}")
+            cube = np.stack([r[1] for r in year_records], axis=0)
+            times = pd.DatetimeIndex([r[0] for r in year_records])
+            ds = xr.Dataset(
+                {"precipitation": (("time", "lat", "lon"), cube,
+                  {"long_name": "Monthly precipitation", "units": "mm/month"})},
+                coords={"time": times, "lat": lat, "lon": lon},
+                attrs={
+                    "title": f"CHIRPS v3 monthly precipitation clipped to Argentina ({year})",
+                    "source": "Climate Hazards Center UCSB",
+                    "source_product": "CHIRPS v3 monthly LATAM GeoTIFF",
+                    "source_url": index,
+                    "spatial_subset": "Argentina polygon; native 0.05 degree grid",
+                    "created_utc": datetime.now(timezone.utc).isoformat(),
+                    "temporal_note": "Monthly final product; values are not daily observations."
+                }
+            )
+            ds.to_netcdf(annual_path, engine="netcdf4", encoding={
+                "precipitation": {"zlib": True, "complevel": 4, "dtype": "float32", "_FillValue": -9999.0}
+            })
+            for month, _ in months:
+                (cache_dir / f"chirps-v3-mensual-argentina-{year}-{month:02d}.npz").unlink(missing_ok=True)
+            outputs.append({
+                "archivo": str(annual_path), "meses": len(year_records),
+                "bytes": annual_path.stat().st_size, "sha256": sha256(annual_path),
+                "desde": str(times.min().date()), "hasta": str(times.max().date())
+            })
+        if errors:
+            break
     manifest["CHIRPS_v3"] = {
-        "estado": "descargado_y_recortado",
+        "estado": "descargado_y_recortado" if not errors else "descarga_parcial_reintentable",
         "producto": "CHIRPS v3 monthly final, LATAM subset",
         "archivos_anuales": outputs,
-        "meses_totales": sum(x["meses"] for x in outputs),
+        "meses_totales": sum(x.get("meses", 0) for x in outputs),
+        "meses_en_cache_reintentable": len(list(cache_dir.glob("*.npz"))),
         "fuente": index,
         "limite_espacial": "Polígono nacional de Argentina, resolución nativa 0.05°",
-        "nota": "Se conserva la precipitación mensual en NetCDF. No se infieren valores diarios. La versión diaria CHIRPS sat se deriva de IMERG Late y no se considera una descarga independiente de IMERG."
+        "errores": errors,
+        "nota": "Se conserva la precipitación mensual en NetCDF. No se infieren valores diarios. Los archivos mensuales parciales quedan en cache-mensual para reanudar sin repetir descargas."
     }
+
 
 def fetch_ina_catalog(name: str, base: str, out: Path):
     attempts = [f"{base}/{name}?format=json", f"{base}/{name}&format=json"]
