@@ -250,8 +250,18 @@ def main():
     historical_results=[]
     def do_history(job):
         sid,code=job
-        payload=historical_series(sid,code)
         name,units=VARIABLES[code]
+        raw_path=hist_dir/"originales"/f"{sid}-{code}-{name}.json.gz"
+        csv_path=hist_dir/"procesadas"/f"{sid}-{code}-{name}.csv.gz"
+        if raw_path.exists() and csv_path.exists():
+            with gzip.open(csv_path,"rt",encoding="utf-8",newline="") as f:
+                existing_count=max(0,sum(1 for _ in f)-1)
+            return {"station_id":sid,"variable_code":code,"variable":name,
+                "records":existing_count,"raw_file":str(raw_path),"raw_bytes":raw_path.stat().st_size,
+                "raw_sha256":sha256(raw_path),"csv_file":str(csv_path),
+                "csv_bytes":csv_path.stat().st_size,"csv_sha256":sha256(csv_path),
+                "estado":"ya_existia"}
+        payload=historical_series(sid,code)
         rows=[]
         for m in payload.get("Mediciones") or []:
             ts=parse_dotnet_date(m.get("FechaHora"))
@@ -262,9 +272,7 @@ def main():
                 "validated":m.get("Validado"),"source_interval":"historical"})
         rows.sort(key=lambda x:x["datetime"])
         slug=f"{sid}-{code}-{name}"
-        raw_path=hist_dir/"originales"/f"{slug}.json.gz"
         json_gz(raw_path,payload)
-        csv_path=hist_dir/"procesadas"/f"{slug}.csv.gz"
         csv_gz(csv_path,rows,list(rows[0].keys()) if rows else
             ["station_id","variable_code","variable","units","datetime","date","value","qualifier","validated","source_interval"])
         return {"station_id":sid,"variable_code":code,"variable":name,"records":len(rows),
@@ -283,8 +291,13 @@ def main():
     pillow_ids=sorted({a["station_id"] for a in snow_associations if int(a["variable_code"])==73 and a["station_id"] in station_by_id})
     telemetry_results=[]
     def do_telemetry(sid):
-        rows=raw_telemetry(sid)
         path=rawobs_dir/f"{sid}-73-swe-telemetria.csv.gz"
+        if path.exists():
+            with gzip.open(path,"rt",encoding="utf-8",newline="") as f:
+                existing_count=max(0,sum(1 for _ in f)-1)
+            return {"station_id":sid,"records":existing_count,"file":str(path),
+                    "bytes":path.stat().st_size,"sha256":sha256(path),"estado":"ya_existia"}
+        rows=raw_telemetry(sid)
         csv_gz(path,rows,["station_id","variable_code","variable","units","datetime","date","value","validation","source_interval"])
         return {"station_id":sid,"records":len(rows),"file":str(path),
                 "bytes":path.stat().st_size,"sha256":sha256(path)}
