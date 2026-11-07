@@ -6,7 +6,7 @@ from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urljoin
 
-BASE="https://www.ncei.noaa.gov/pub/data/igra/derived-por/"
+BASE="https://www.ncei.noaa.gov/pub/data/igra/derived/derived-por/"
 ROOT=Path("datos/fuentes-externas/radiosondeos/igra")
 INVENTORY=ROOT/"estaciones-argentina.csv"
 OUT=ROOT/"derivados-originales"
@@ -148,7 +148,7 @@ def main():
         w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows(all_rows)
     manifest={
         "dataset":"NOAA/NCEI IGRA 2.2 sounding-derived parameters",
-        "source":BASE,"documentation":"https://www.ncei.noaa.gov/pub/data/igra/igra2-derived-format.txt",
+        "source":BASE,"documentation":"https://www.ncei.noaa.gov/pub/data/igra/derived/igra2-derived-format.txt",
         "retrieved_utc":datetime.now(timezone.utc).isoformat(),
         "station_ids_requested":len(ids),"files_downloaded":len(files),
         "soundings_with_derived_parameters":len(all_rows),
