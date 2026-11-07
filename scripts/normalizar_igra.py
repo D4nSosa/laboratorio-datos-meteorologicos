@@ -4,7 +4,7 @@ import csv, json, math, re
 from pathlib import Path
 
 ROOT=Path("datos/fuentes-externas/radiosondeos/igra")
-SOURCE=Path("datos/fuentes-externas/radiosondeos/igra2-station-list.txt")
+SOURCE=Path("datos/fuentes-externas/radiosondeos/igra/igra2-station-list.txt")
 PATTERN=re.compile(r"^(\S+)\s+(-?\d+(?:\.\d+)?)\s+(-?\d+(?:\.\d+)?)\s+(-?\d+(?:\.\d+)?)\s+(.*?)\s+(\d{4})\s+(\d{4})\s+(\d+)\s*$")
 
 def parse():
