@@ -1,0 +1,58 @@
+name: Ingesta SNIH — estaciones y series nivometricas
+
+on:
+  push:
+    branches:
+      - "data/initial-radiosonde-inventory-2026-11-07"
+    paths:
+      - ".github/workflows/ingesta-snih.yml"
+      - "scripts/descargar_snih.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ingesta-snih
+  cancel-in-progress: false
+
+jobs:
+  descargar-snih:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - name: Checkout rama aislada
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 1
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Descargar inventario, asociaciones y series SNIH
+        run: python scripts/descargar_snih.py
+
+      - name: Verificar volumen y archivos
+        if: always()
+        run: |
+          du -sh datos/fuentes-externas/hidrologia/snih 2>/dev/null || true
+          find datos/fuentes-externas/hidrologia/snih -type f -printf '%s %p\n' | sort -nr | head -40 || true
+
+      - name: Guardar datos en la rama aislada
+        if: always()
+        env:
+          TARGET_BRANCH: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add datos/fuentes-externas/hidrologia/snih
+          if git diff --cached --quiet; then
+            echo "No hay archivos nuevos para guardar."
+          else
+            git commit -m "data: archive SNIH station inventory and snow series"
+            git push origin "HEAD:${TARGET_BRANCH}"
+          fi
