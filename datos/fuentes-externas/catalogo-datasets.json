@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "catalog_name": "Laboratorio de Datos Meteorológicos — catálogo de datasets externos",
+  "updated_date": "2026-11-07",
+  "note": "Catálogo de integración. Los estados distinguen archivos realmente archivados, catálogos disponibles y descargas aún en curso. Esta rama está aislada y no modifica main.",
+  "datasets": [
+    {
+      "id": "igra-argentina-profiles",
+      "title": "Radiosondeos IGRA 2.2 — Argentina",
+      "provider": "NOAA / NCEI",
+      "status": "available",
+      "stations": 20,
+      "soundings": 240882,
+      "all_level_records": 10394552,
+      "normalized_standard_surface_records": 2703005,
+      "temporal_coverage": "1957–2026 (según estación)",
+      "spatial_reference": "estaciones fijas; coordenadas WGS84",
+      "paths": {
+        "station_csv": "radiosondeos/igra/estaciones-argentina.csv",
+        "station_geojson": "radiosondeos/igra/estaciones-argentina.geojson",
+        "sounding_index_pattern": "radiosondeos/igra/indice-sondeos/{year}.csv.gz",
+        "standard_surface_levels_pattern": "radiosondeos/igra/perfiles-estandar/{year}.csv.gz",
+        "original_profile_zip_pattern": "radiosondeos/igra/originales/{station_id}-data.txt.zip",
+        "station_inventory": "radiosondeos/igra/igra2-station-list.txt",
+        "normalization_manifest": "radiosondeos/igra/manifiesto-perfiles-normalizados.json"
+      },
+      "primary_fields": [
+        "station_id",
+        "sounding_time_utc",
+        "pressure_hpa",
+        "geopotential_height_m",
+        "temperature_c",
+        "relative_humidity_pct",
+        "dewpoint_depression_c",
+        "wind_direction_deg",
+        "wind_speed_ms"
+      ],
+      "units": {
+        "pressure_hpa": "hPa",
+        "geopotential_height_m": "m",
+        "temperature_c": "°C",
+        "relative_humidity_pct": "%",
+        "wind_speed_ms": "m/s"
+      },
+      "source_url": "https://www.ncei.noaa.gov/pub/data/igra/"
+    },
+    {
+      "id": "igra-south-america-context",
+      "title": "Inventario y perfiles IGRA — contexto sudamericano",
+      "provider": "NOAA / NCEI",
+      "status": "in_progress",
+      "paths": {
+        "station_csv": "radiosondeos/igra/estaciones-contexto-sudamerica.csv",
+        "nearby_station_review": "radiosondeos/igra/posibles-estaciones-cercanas.csv",
+        "original_profile_zip_pattern": "radiosondeos/igra/originales/{station_id}-data.txt.zip",
+        "download_manifest": "radiosondeos/igra/manifiesto-perfiles-sudamerica.json"
+      },
+      "note": "Incluye estaciones cercanas de países limítrofes; no son estaciones argentinas ni se fusionan con las ARM."
+    },
+    {
+      "id": "igra-derived-stability",
+      "title": "Parámetros derivados y estabilidad atmosférica IGRA",
+      "provider": "NOAA / NCEI",
+      "status": "in_progress",
+      "paths": {
+        "sounding_indices": "radiosondeos/igra/parametros-derivados-por-sondeo.csv.gz",
+        "derived_levels_pattern": "radiosondeos/igra/niveles-derivados/{station_id}-niveles-derivados.csv.gz",
+        "original_zip_pattern": "radiosondeos/igra/derivados-originales/{station_id}-drvd.txt.zip",
+        "manifest": "radiosondeos/igra/manifiesto-parametros-derivados.json"
+      },
+      "variables": [
+        "precipitable_water_mm",
+        "lifted_index_c",
+        "showalter_index_c",
+        "k_index_c",
+        "total_totals_index_c",
+        "cape_j_kg",
+        "cin_j_kg"
+      ],
+      "units": {
+        "precipitable_water_mm": "mm",
+        "cape_j_kg": "J/kg",
+        "cin_j_kg": "J/kg",
+        "lifted_index_c": "°C"
+      },
+      "note": "Los parámetros derivados están disponibles solo para una parte de los sondeos."
+    },
+    {
+      "id": "chirps-v3-final-argentina-monthly",
+      "title": "CHIRPS v3 Final — precipitación mensual derivada",
+      "provider": "UCSB Climate Hazards Center / dynamical.org cloud archive",
+      "status": "available",
+      "temporal_coverage": "1981-01 a 2026-09",
+      "time_steps": 549,
+      "years": 46,
+      "spatial_resolution": "0.05°",
+      "spatial_reference": "polígono nacional de Argentina",
+      "paths": {
+        "annual_netcdf_pattern": "precipitacion/chirps-v3/argentina/mensual-netcdf/chirps-v3-final-mensual-argentina-{year}.nc",
+        "manifest": "precipitacion/chirps-v3/manifiestos/chirps-v3-final-argentina.json"
+      },
+      "variable": "precipitation",
+      "units": "mm month-1",
+      "dimensions": [
+        "time",
+        "latitude",
+        "longitude"
+      ],
+      "source_url": "https://dynamical.org/catalog/ucsb-chc-chirps-analysis-final/",
+      "note": "Los totales mensuales se calcularon sumando el producto diario CHIRPS v3 Final. No son los GeoTIFF mensuales nativos del proveedor."
+    },
+    {
+      "id": "gpm-imerg-late-v07-argentina-points",
+      "title": "NASA GPM IMERG Late V07 — series diarias en puntos de referencia",
+      "provider": "NASA GPM / dynamical.org",
+      "status": "in_progress",
+      "spatial_resolution": "0.1°",
+      "temporal_resolution_source": "30 minutos",
+      "paths": {
+        "monthly_csv_gzip_pattern": "precipitacion/gpm-imerg/late-v07/daily-points-argentina/imerg-late-daily-argentina-{year}-{month}.csv.gz",
+        "manifest": "precipitacion/gpm-imerg/late-v07/manifiesto-imerg-late-puntos.json"
+      },
+      "variable": "precipitation_mm_day",
+      "units": "mm/day",
+      "note": "Muestreo en celdas cercanas a radiosondeos argentinos; no es una grilla completa. Cada día conserva el número de intervalos válidos. IMERG Late no es intercambiable con Final."
+    },
+    {
+      "id": "gpm-imerg-final-v07b",
+      "title": "NASA GPM IMERG Final V07B — grilla nacional",
+      "provider": "NASA GPM / NASA GES DISC",
+      "status": "blocked_authentication",
+      "source_url": "https://disc.gsfc.nasa.gov/datasets/GPM_3IMERGDF_07/summary",
+      "note": "Descarga masiva requiere autenticación NASA Earthdata; no se marca como descargada."
+    },
+    {
+      "id": "ina-dsiyah-argentina",
+      "title": "INA DSIyAH — catálogo y series observadas argentinas",
+      "provider": "Instituto Nacional del Agua",
+      "status": "catalog_available_series_download_in_progress",
+      "stations": 1908,
+      "series": 10797,
+      "catalog_observation_count": 55972367,
+      "paths": {
+        "station_catalog": "hidrologia/ina-dsiyah/catalogos/estaciones-normalizado.csv.gz",
+        "series_catalog": "hidrologia/ina-dsiyah/catalogos/series-argentina.csv.gz",
+        "coverage_summary": "hidrologia/ina-dsiyah/catalogos/resumen-series-argentina.json",
+        "per_series_csv_gzip_pattern": "hidrologia/ina-dsiyah/series-observadas/series-{seriesId}.csv.gz",
+        "manifest": "hidrologia/ina-dsiyah/manifiestos/series-argentina.json"
+      },
+      "variables": [
+        "precipitación",
+        "altura hidrométrica",
+        "caudal",
+        "temperatura",
+        "viento",
+        "humedad relativa",
+        "presión barométrica",
+        "radiación solar",
+        "humedad del suelo",
+        "temperatura del suelo",
+        "nivel freático"
+      ],
+      "source_url": "https://alerta.ina.gob.ar/pub/gui",
+      "note": "El catálogo cubre series de la cuenca del Plata y estaciones argentinas; la descarga de observaciones está en ejecución y se particiona por seriesId."
+    },
+    {
+      "id": "snih-argentina",
+      "title": "SNIH — inventario, asociaciones y series nivométricas",
+      "provider": "Subsecretaría de Recursos Hídricos / SNIH",
+      "status": "in_progress",
+      "paths": {
+        "stations_geojson": "hidrologia/snih/estaciones.geojson",
+        "stations_csv": "hidrologia/snih/estaciones.csv.gz",
+        "associations_csv": "hidrologia/snih/asociaciones.csv.gz",
+        "historical_series": "hidrologia/snih/series-historicas/procesadas/",
+        "raw_telemetry": "hidrologia/snih/telemetria-cruda/",
+        "manifest": "hidrologia/snih/manifiesto-snih.json"
+      },
+      "note": "Se mantiene separada la serie histórica validada de la telemetría cruda no validada."
+    }
+  ]
+}
