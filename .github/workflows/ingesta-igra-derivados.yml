@@ -38,7 +38,9 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add datos/fuentes-externas/radiosondeos/igra/derivados-originales
+          if [ -d datos/fuentes-externas/radiosondeos/igra/derivados-originales ]; then
+            git add datos/fuentes-externas/radiosondeos/igra/derivados-originales
+          fi
           if [ -f datos/fuentes-externas/radiosondeos/igra/parametros-derivados-por-sondeo.csv.gz ]; then
             git add datos/fuentes-externas/radiosondeos/igra/parametros-derivados-por-sondeo.csv.gz
           fi
