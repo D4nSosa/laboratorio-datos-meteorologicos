@@ -40,7 +40,7 @@ def main():
             for dt,value in zip(dates,values):
                 day=np.datetime_as_string(dt,unit="D")
                 w.writerow({"station_id":sid,"station_name":s["station_name"],
-                    "requested_latitude":lat,"requested_longitude":lon,
+                    "geographic_scope":s.get("geographic_scope",""),"requested_latitude":lat,"requested_longitude":lon,
                     "grid_latitude":selected_lat,"grid_longitude":selected_lon,
                     "date":day,"precipitation_mm_day":round(float(value),3) if np.isfinite(value) else None})
         files.append({"station_id":sid,"file":str(path),"rows":len(dates),
