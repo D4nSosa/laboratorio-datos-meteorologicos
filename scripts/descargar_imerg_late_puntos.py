@@ -60,6 +60,14 @@ def post_json(url,payload,attempts=5):
             time.sleep(delay)
     raise last
 
+def has_current_schema(path):
+    try:
+        with gzip.open(path,"rt",encoding="utf-8") as f:
+            header=f.readline()
+        return "precipitation_sum_valid_intervals_mm" in header
+    except Exception:
+        return False
+
 def month_iter(start,end):
     y,m=start.year,start.month
     while (y,m)<=(end.year,end.month):
@@ -100,7 +108,7 @@ def main():
         "catalog_url":"https://dynamical.org/catalog/nasa-imerg-analysis-late/",
         "source_extent_start":str(start),"source_extent_end":str(end),
         "variable":VARIABLE,"source_units":"kg m-2 s-1",
-        "conversion":"daily precipitation (mm/day) = sum(rate * 1800 seconds) across available half-hourly intervals",
+        "conversion":"precipitation_mm_day = mean(valid half-hourly rate) * 86400 seconds; precipitation_sum_valid_intervals_mm = sum(rate * 1800 seconds). Both fields and valid interval count are retained; the first is an IMERG-style daily mean-rate estimate, not a separate official Daily file.",
         "source_temporal_resolution":"30 minutes",
         "source_spatial_resolution":"0.1 degree",
         "sampling":"Nearest 0.1-degree grid cell to each Argentine IGRA radiosonde station; not a complete gridded Argentina download.",
@@ -108,7 +116,7 @@ def main():
         "retrieved_utc":datetime.now(timezone.utc).isoformat(),
         "stations_requested":len(points),
         "files":[],"errors":[],
-        "quality_note":"IMERG Late is a lower-latency product and is not interchangeable with IMERG Final. Daily totals are derived from half-hourly rates. Each row includes valid interval count so incomplete days remain identifiable.",
+        "quality_note":"IMERG Late is a lower-latency product and is not interchangeable with IMERG Final. Daily mean-rate estimates are derived from valid half-hourly rates using the product's daily scaling approach; raw valid-interval sums and completeness are also retained. Incomplete days remain identifiable.",
         "imerg_final_status":"not_downloaded",
         "imerg_final_note":"NASA IMERG Final V07B bulk access requires NASA Earthdata authentication. This archive is explicitly Late V07 and must not be relabeled Final."
     }
@@ -119,7 +127,7 @@ def main():
         last=min(last,end)
         month_key=f"{first.year}-{first.month:02d}"
         path=OUT/f"imerg-late-daily-argentina-{month_key}.csv.gz"
-        if path.exists() and path.stat().st_size>0:
+        if path.exists() and path.stat().st_size>0 and has_current_schema(path):
             manifest["files"].append({"file":str(path),"month":month_key,
                 "status":"already_present","bytes":path.stat().st_size,"sha256":sha256(path)})
             continue
@@ -173,7 +181,8 @@ def main():
                             rows.append({
                                 "station_id":p["station_id"],"station_name":p["name"],
                                 "date":day,
-                                "precipitation_mm_day":round(rec["sum"],4) if rec["valid"] else None,
+                                "precipitation_mm_day":round(rec["sum"]*48/rec["valid"],4) if rec["valid"] else None,
+                                "precipitation_sum_valid_intervals_mm":round(rec["sum"],4) if rec["valid"] else None,
                                 "valid_half_hour_intervals":rec["valid"],
                                 "expected_half_hour_intervals":48,
                                 "completeness_pct":round(rec["valid"]/48*100,2),
@@ -195,7 +204,7 @@ def main():
                 buf=io.StringIO()
                 fields=list(rows[0].keys()) if rows else [
                     "station_id","station_name","date","precipitation_mm_day",
-                    "valid_half_hour_intervals","expected_half_hour_intervals","completeness_pct",
+                    "precipitation_sum_valid_intervals_mm","valid_half_hour_intervals","expected_half_hour_intervals","completeness_pct",
                     "selected_latitude","selected_longitude","product","run","version"]
                 w=csv.DictWriter(buf,fieldnames=fields)
                 w.writeheader();w.writerows(rows)
