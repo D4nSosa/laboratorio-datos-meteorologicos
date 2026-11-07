@@ -47,7 +47,7 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          for path in datos/fuentes-externas/precipitacion/chirps-v3/argentina/puntos-diarios datos/fuentes-externas/precipitacion/chirps-v3/manifiestos; do
+          for path in datos/fuentes-externas/precipitacion/chirps-v3/argentina/puntos-diarios datos/fuentes-externas/precipitacion/chirps-v3/argentina/manifiestos; do
             if [ -d "$path" ]; then git add "$path"; fi
           done
           if git diff --cached --quiet; then
