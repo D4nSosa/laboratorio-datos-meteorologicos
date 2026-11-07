@@ -1,0 +1,55 @@
+name: Descargar parámetros derivados IGRA — Argentina
+
+on:
+  push:
+    branches:
+      - "data/initial-radiosonde-inventory-2026-11-07"
+    paths:
+      - ".github/workflows/ingesta-igra-derivados.yml"
+      - "scripts/descargar_igra_derivados.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ingesta-igra-derivados
+  cancel-in-progress: false
+
+jobs:
+  descargar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - name: Checkout rama aislada
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - name: Descargar y validar derivados IGRA
+        run: python scripts/descargar_igra_derivados.py
+
+      - name: Guardar archivos y tabla normalizada
+        if: always()
+        env:
+          TARGET_BRANCH: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add datos/fuentes-externas/radiosondeos/igra/derivados-originales
+          if [ -f datos/fuentes-externas/radiosondeos/igra/parametros-derivados-por-sondeo.csv.gz ]; then
+            git add datos/fuentes-externas/radiosondeos/igra/parametros-derivados-por-sondeo.csv.gz
+          fi
+          if [ -f datos/fuentes-externas/radiosondeos/igra/manifiesto-parametros-derivados.json ]; then
+            git add datos/fuentes-externas/radiosondeos/igra/manifiesto-parametros-derivados.json
+          fi
+          if git diff --cached --quiet; then
+            echo "No hay derivados nuevos para guardar."
+          else
+            git commit -m "data: archive IGRA sounding-derived stability parameters"
+            git fetch origin "${TARGET_BRANCH}"
+            git rebase "origin/${TARGET_BRANCH}"
+            git push origin "HEAD:${TARGET_BRANCH}"
+          fi
