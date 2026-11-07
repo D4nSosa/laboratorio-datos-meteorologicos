@@ -6,9 +6,11 @@ Esta carpeta conserva conjuntos de datos meteorológicos e hidrológicos con pro
 
 | Ruta | Contenido | Uso |
 |---|---|---|
-| `radiosondeos/igra/` | Archivos originales IGRA 2.2, inventario oficial y catálogos derivados | Perfiles atmosféricos verticales y cobertura de estaciones |
+| `radiosondeos/igra/` | Archivos originales IGRA 2.2, inventarios nacional/regional, niveles normalizados e índices de estabilidad | Perfiles verticales, CAPE/CIN y cobertura de estaciones |
 | `precipitacion/chirps-v3/` | CHIRPS v3 Final, recorte nacional y agregados mensuales derivados | Precipitación espacial de largo plazo |
-| `hidrologia/ina-dsiyah/` | Catálogos de estaciones, redes, variables, unidades y series de DSIyAH | Cuenca del Plata; no representa por sí sola todo el país |
+| `precipitacion/gpm-imerg/late-v07/` | IMERG Late V07 diario derivado desde la serie subhoraria en puntos de referencia IGRA | Comparación temporal puntual; no es una grilla nacional descargada |
+| `hidrologia/ina-dsiyah/` | Catálogos y series observadas por identificador de serie | Cobertura argentina dentro de la cuenca del Plata |
+| `hidrologia/snih/` | Inventario nacional SNIH, asociaciones y series nivométricas históricas/telemetría | Nieve; cobertura variable por estación y parámetro |
 | `hidrologia/snih/` | Inventario SNIH, asociaciones de parámetros, series nivométricas y telemetría | Redes integradas al SNIH; cobertura y variables según estación |
 | `manifiestos/` | Manifiestos JSON con fechas, URL, versiones, conteos, errores y SHA-256 | Auditoría y reproducción |
 
@@ -17,7 +19,11 @@ Esta carpeta conserva conjuntos de datos meteorológicos e hidrológicos con pro
 - Geometrías de estaciones: GeoJSON en EPSG:4326; coordenadas como `[longitud, latitud]`.
 - Tablas: CSV o CSV comprimido con gzip; conservar nombres de campos, unidades y fecha/hora UTC o local explícita.
 - Grillas: NetCDF con coordenadas `time`, `latitude`, `longitude`; no asumir que el navegador puede leer NetCDF sin una biblioteca específica o una capa de servicio.
-- Los perfiles IGRA originales son ZIP con archivos de texto por identificador de estación.
+- Los perfiles IGRA originales son ZIP con archivos de texto por identificador de estación. Las tablas `perfiles-estandar/YYYY.csv.gz` conservan niveles estándar y superficie; `indice-sondeos/YYYY.csv.gz` contiene una fila por sondeo.
+- Los parámetros derivados IGRA se archivan en `parametros-derivados-por-sondeo.csv.gz`; los valores enteros originales se conservan y deben escalarse según la documentación NOAA.
+- INA: `series-observadas/series-<seriesId>.csv.gz` contiene una serie observada por archivo, con `timestart`, `valor`, estación, variable y unidad.
+- IMERG Late: `daily-points-argentina/imerg-late-daily-argentina-YYYY-MM.csv.gz` contiene totales diarios derivados de intervalos de 30 minutos en puntos IGRA. No es una descarga raster completa.
+- SNIH: `series-historicas/procesadas/` separa las series históricas de `telemetria-cruda/`; no mezclar observaciones validadas con datos crudos.
 - Las observaciones históricas validadas y la telemetría cruda no validada se mantienen en rutas y variables separadas.
 - No interpolar huecos ni reemplazar valores faltantes por cero.
 - No fusionar estaciones por cercanía geográfica. Los posibles traslados/duplicados se marcan para revisión y se conservan sus identificadores originales.
@@ -46,7 +52,7 @@ Términos: https://snih.hidricosargentina.gob.ar/Terminos.aspx
 El portal distingue datos históricos consolidados y datos a tiempo útil sin validar. Mantener esa diferencia en cualquier visualización. Citar a la Subsecretaría de Recursos Hídricos y/o a la red que corresponda, junto con la fecha de actualización.
 
 ### GPM IMERG
-Producto de referencia: NASA GPM IMERG V07B, resolución aproximada 0,1° y 30 minutos. Los productos Final y Late no son intercambiables: Final tiene ajuste gauge y mayor latencia; Late es de menor latencia y distinta calidad. La descarga masiva del producto NASA Final requiere autenticación Earthdata. No se marca como descargado mientras no existan archivos verificados.
+El archivo público usado en esta rama es IMERG Late V07 (0,1°, 30 minutos), muestreado en puntos de radiosondeo argentinos y agregado a totales diarios. Es un producto puntual de referencia y no una grilla nacional. Los productos Final y Late no son intercambiables: Final tiene ajuste gauge mensual y es preferible para investigación histórica. La descarga masiva NASA Final V07B requiere autenticación Earthdata; no se marca como descargada mientras no existan archivos verificados.
 
 ## Integración sugerida
 
