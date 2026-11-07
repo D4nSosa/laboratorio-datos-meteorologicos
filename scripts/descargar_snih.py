@@ -87,7 +87,7 @@ def station_row(row, network_names):
         lon=None
     try:
         elev=float(row.get("Cota"))
-        if elev <= 0: elev=None
+        if elev < -900: elev=None
     except (TypeError,ValueError):
         elev=None
     red=row.get("Red")
