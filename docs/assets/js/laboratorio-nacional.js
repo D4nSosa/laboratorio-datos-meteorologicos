@@ -77,6 +77,27 @@ function initDataResearchPicker(){
   });
 }
 function initGoes(){const img=$('goes-geocolor-image');if(!img)return;const source='https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/1808x1808.jpg';const label=$('goes-image-status');let lastRequest=0;const refresh=()=>{lastRequest=Date.now();if(label)label.textContent='Solicitando el último archivo GeoColor publicado por NOAA…';img.src=source+'?cache='+lastRequest;};img.addEventListener('load',()=>{if(label)label.textContent='Imagen descargada '+new Date(lastRequest).toLocaleString('es-AR')+'. Esta es la hora de consulta, no la hora de adquisición: consultá la marca temporal impresa en el producto NOAA.';});img.addEventListener('error',()=>{if(label)label.textContent='No se pudo cargar la imagen satelital. El archivo NOAA puede estar temporalmente no disponible.';});const button=$('goes-refresh');if(button)button.addEventListener('click',refresh);refresh();setInterval(()=>{if(!document.hidden)refresh()},10*60*1000);document.addEventListener('visibilitychange',()=>{if(!document.hidden&&Date.now()-lastRequest>10*60*1000)refresh()});}
-function init(){initGoes();initDataResearchPicker();if(!$('national-lab'))return;const latest=latestEra5Date();$('lab-end').value=latest;$('lab-end').max=latest;const d=new Date(latest+'T00:00:00Z');d.setUTCDate(d.getUTCDate()-364);$('lab-start').value=d.toISOString().slice(0,10);$('lab-run').onclick=historical;$('forecast-run').onclick=forecast;$('lab-geocode-run').onclick=searchPlace;$('lab-place-search').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();searchPlace();}});$('lab-download').onclick=()=>{if(!queryRows.length)return;const k=Object.keys(queryRows[0]),q=v=>'"'+String(v??'').replace(/"/g,'""')+'"';const b=new Blob([k.map(q).join(',')+'\n'+queryRows.map(r=>k.map(x=>q(r[x])).join(',')).join('\n')],{type:'text/csv'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='consulta-laboratorio.csv';a.click();URL.revokeObjectURL(a.href);};$('lab-preset-virasoro').onclick=()=>{$('lab-lat').value='-28.05';$('lab-lon').value='-56.02';$('lab-place-search').value='Gobernador Virasoro, Corrientes';$('lab-geocode-results').hidden=true;status('lab-query-status','Referencia local: Gobernador Virasoro, Corrientes.');};}
+async function queryInaSeries(){
+ const id=Number($('ina-series-id')?.value),start=$('ina-start')?.value,end=$('ina-end')?.value;
+ if(!Number.isInteger(id)||id<1||!start||!end||start>end){status('ina-status','Ingresá un ID de serie válido y un período correcto.');return;}
+ status('ina-status','Consultando la API pública INA/DSIyAH…');
+ try{
+  const url=qs('https://alerta.ina.gov.ar/pub/datos/datos',{timeStart:start,timeEnd:end,seriesId:String(id),format:'json'});
+  const payload=await json(url);
+  const rows=Array.isArray(payload)?payload:(payload.data||payload.datos||payload.results||payload.values||[]);
+  if(!Array.isArray(rows)||!rows.length){table('ina-table',[],[]);status('ina-status','La API respondió, pero no devolvió filas reconocibles para esta serie/período. Revisá el ID y el catálogo INA.');return;}
+  const keys=[...new Set(rows.slice(0,500).flatMap(r=>r&&typeof r==='object'?Object.keys(r):[]))];
+  if(!keys.length){status('ina-status','La respuesta no contiene registros tabulares.');return;}
+  table('ina-table',rows,keys.map(k=>[k,k]));
+  status('ina-status',rows.length+' registros recibidos · serie INA '+id+' · '+start+' a '+end+'. Datos originales del proveedor; verificá unidades y validación.');
+ }catch(e){status('ina-status','No se pudo consultar INA desde el navegador: '+e.message+'. Puede ser una restricción CORS, indisponibilidad o ID/período no válido. Abrí el catálogo para construir la consulta.');}
+}
+function initInaResearch(){
+ const start=$('ina-start'),end=$('ina-end'),run=$('ina-run');
+ if(!start||!end||!run)return;
+ const today=new Date().toISOString().slice(0,10),from=new Date();from.setUTCDate(from.getUTCDate()-90);
+ end.value=today;start.value=from.toISOString().slice(0,10);run.addEventListener('click',queryInaSeries);
+}
+function init(){initGoes();initDataResearchPicker();initInaResearch();if(!$('national-lab'))return;const latest=latestEra5Date();$('lab-end').value=latest;$('lab-end').max=latest;const d=new Date(latest+'T00:00:00Z');d.setUTCDate(d.getUTCDate()-364);$('lab-start').value=d.toISOString().slice(0,10);$('lab-run').onclick=historical;$('forecast-run').onclick=forecast;$('lab-geocode-run').onclick=searchPlace;$('lab-place-search').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();searchPlace();}});$('lab-download').onclick=()=>{if(!queryRows.length)return;const k=Object.keys(queryRows[0]),q=v=>'"'+String(v??'').replace(/"/g,'""')+'"';const b=new Blob([k.map(q).join(',')+'\n'+queryRows.map(r=>k.map(x=>q(r[x])).join(',')).join('\n')],{type:'text/csv'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='consulta-laboratorio.csv';a.click();URL.revokeObjectURL(a.href);};$('lab-preset-virasoro').onclick=()=>{$('lab-lat').value='-28.05';$('lab-lon').value='-56.02';$('lab-place-search').value='Gobernador Virasoro, Corrientes';$('lab-geocode-results').hidden=true;status('lab-query-status','Referencia local: Gobernador Virasoro, Corrientes.');};}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
