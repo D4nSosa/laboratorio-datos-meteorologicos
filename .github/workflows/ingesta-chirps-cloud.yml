@@ -61,7 +61,5 @@ jobs:
             echo "No hay productos nuevos para guardar."
           else
             git commit -m "data: archive CHIRPS v3 final Argentina monthly grids"
-            git fetch origin "${TARGET_BRANCH}"
-            git rebase "origin/${TARGET_BRANCH}"
-            git push origin "HEAD:${TARGET_BRANCH}"
+            bash scripts/push_branch_retry.sh
           fi
