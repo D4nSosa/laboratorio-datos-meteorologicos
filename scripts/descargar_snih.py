@@ -212,17 +212,21 @@ def main():
     associations=[]
     snow_associations=[]
     for a in associations_raw:
+        try:
+            code=int(a.get("Codigo"))
+        except (TypeError,ValueError):
+            code=None
+        since_dt=parse_dotnet_date(a.get("Desde"))
         row={
             "station_id":str(a.get("Estacion","")),
-            "variable_code":a.get("Codigo"),
-            "variable":VARIABLES.get(a.get("Codigo"),("unknown",""))[0],
-            "units":VARIABLES.get(a.get("Codigo"),("",""))[1],
-            "since":(parse_dotnet_date(a.get("Desde")).date().isoformat()
-                     if parse_dotnet_date(a.get("Desde")) else None),
+            "variable_code":code,
+            "variable":VARIABLES.get(code,("unknown",""))[0],
+            "units":VARIABLES.get(code,("",""))[1],
+            "since":since_dt.date().isoformat() if since_dt else None,
             "minimum":a.get("Minimo"),"maximum":a.get("Maximo")
         }
         associations.append(row)
-        if row["variable_code"] in VARIABLES:
+        if code in VARIABLES:
             snow_associations.append(row)
 
     csv_gz(cat_dir/"estaciones.csv.gz",stations,list(stations[0].keys()) if stations else ["station_id"])
