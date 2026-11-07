@@ -60,9 +60,9 @@ def main():
     files_out=[{"file":str(clim_path),"bytes":clim_path.stat().st_size,"sha256":sha(clim_path)}]
     for year in sorted(set(int(x) for x in precip.time.dt.year.values)):
         year_data=precip.sel(time=slice(f"{year}-01-01",f"{year}-12-31"))
-        months=year_data.time.dt.month
-        clim_mean=mean.sel(month=months).rename({"month":"time"}).assign_coords(time=year_data.time)
-        clim_std=std.sel(month=months).rename({"month":"time"}).assign_coords(time=year_data.time)
+        month_values=year_data.time.dt.month.values
+        clim_mean=xr.concat([mean.sel(month=int(m)) for m in month_values],dim="time").assign_coords(time=year_data.time)
+        clim_std=xr.concat([std.sel(month=int(m)) for m in month_values],dim="time").assign_coords(time=year_data.time)
         anomaly=year_data-clim_mean
         standardized=xr.where(clim_std>0,anomaly/clim_std,np.nan)
         out=xr.Dataset({
