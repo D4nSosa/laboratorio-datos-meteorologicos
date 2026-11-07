@@ -115,6 +115,7 @@ def main():
                                 wdir=integer(raw_level,40,45)
                                 wspd=integer(raw_level,46,51)
                                 level_count+=1
+                                levels+=1
                                 if major!=1 and minor!=1:continue
                                 selected_count+=1
                                 if year is None:continue
@@ -136,7 +137,7 @@ def main():
                                     "wind_direction_deg":wdir,
                                     "wind_speed_ms":round(wspd/10,1) if wspd is not None else None
                                 })
-                                levels+=1;standard+=1
+                                standard+=1
                             if year is not None:
                                 writer_for(year,"index").writerow({
                                     "station_id":sid,"station_name":names[sid],
