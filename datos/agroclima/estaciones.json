@@ -1,18 +1,18 @@
 {
   "dataset": "AgroClima public station page inventory",
-  "generated_at_utc": "2026-11-02T17:27:08+00:00",
+  "generated_at_utc": "2026-11-09T18:56:17+00:00",
   "source_map": "https://agroclima.com/3/public/mapa.php",
   "scan": {
     "min_id": 1400,
     "max_id": 1700,
     "candidate_ids": 301
   },
-  "station_count": 192,
+  "station_count": 195,
   "metadata_summary": {
-    "with_name": 192,
-    "with_coordinates": 187,
-    "with_last_observation": 138,
-    "complete_metadata": 187
+    "with_name": 195,
+    "with_coordinates": 190,
+    "with_last_observation": 139,
+    "complete_metadata": 190
   },
   "stations": [
     {
@@ -28,7 +28,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:32+00:00"
+      "checked_at_utc": "2026-11-09T18:55:45+00:00"
     },
     {
       "provider": "AgroClima",
@@ -43,7 +43,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:32+00:00"
+      "checked_at_utc": "2026-11-09T18:55:45+00:00"
     },
     {
       "provider": "AgroClima",
@@ -58,7 +58,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:32+00:00"
+      "checked_at_utc": "2026-11-09T18:55:45+00:00"
     },
     {
       "provider": "AgroClima",
@@ -73,7 +73,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:32+00:00"
+      "checked_at_utc": "2026-11-09T18:55:45+00:00"
     },
     {
       "provider": "AgroClima",
@@ -88,7 +88,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:32+00:00"
+      "checked_at_utc": "2026-11-09T18:55:46+00:00"
     },
     {
       "provider": "AgroClima",
@@ -103,7 +103,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:32+00:00"
+      "checked_at_utc": "2026-11-09T18:55:46+00:00"
     },
     {
       "provider": "AgroClima",
@@ -118,7 +118,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:33+00:00"
+      "checked_at_utc": "2026-11-09T18:55:46+00:00"
     },
     {
       "provider": "AgroClima",
@@ -133,7 +133,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:32+00:00"
+      "checked_at_utc": "2026-11-09T18:55:46+00:00"
     },
     {
       "provider": "AgroClima",
@@ -148,7 +148,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:33+00:00"
+      "checked_at_utc": "2026-11-09T18:55:46+00:00"
     },
     {
       "provider": "AgroClima",
@@ -163,7 +163,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:33+00:00"
+      "checked_at_utc": "2026-11-09T18:55:46+00:00"
     },
     {
       "provider": "AgroClima",
@@ -178,7 +178,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:33+00:00"
+      "checked_at_utc": "2026-11-09T18:55:46+00:00"
     },
     {
       "provider": "AgroClima",
@@ -193,7 +193,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:33+00:00"
+      "checked_at_utc": "2026-11-09T18:55:46+00:00"
     },
     {
       "provider": "AgroClima",
@@ -208,7 +208,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:33+00:00"
+      "checked_at_utc": "2026-11-09T18:55:46+00:00"
     },
     {
       "provider": "AgroClima",
@@ -223,7 +223,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:33+00:00"
+      "checked_at_utc": "2026-11-09T18:55:46+00:00"
     },
     {
       "provider": "AgroClima",
@@ -238,7 +238,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:33+00:00"
+      "checked_at_utc": "2026-11-09T18:55:46+00:00"
     },
     {
       "provider": "AgroClima",
@@ -253,7 +253,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:34+00:00"
+      "checked_at_utc": "2026-11-09T18:55:47+00:00"
     },
     {
       "provider": "AgroClima",
@@ -263,12 +263,12 @@
       "latitude": -34.656105,
       "longitude": -61.045472,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:23",
+      "last_observation": "07-11-2026 19:51",
       "page_url": "https://agroclima.com/public/estacion.php?id=1431",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:34+00:00"
+      "checked_at_utc": "2026-11-09T18:55:47+00:00"
     },
     {
       "provider": "AgroClima",
@@ -278,12 +278,12 @@
       "latitude": -27.4646229,
       "longitude": -58.835928,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:22",
+      "last_observation": "09-11-2026 15:50",
       "page_url": "https://agroclima.com/public/estacion.php?id=1433",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:35+00:00"
+      "checked_at_utc": "2026-11-09T18:55:48+00:00"
     },
     {
       "provider": "AgroClima",
@@ -298,7 +298,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:33+00:00"
+      "checked_at_utc": "2026-11-09T18:55:46+00:00"
     },
     {
       "provider": "AgroClima",
@@ -313,7 +313,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:34+00:00"
+      "checked_at_utc": "2026-11-09T18:55:47+00:00"
     },
     {
       "provider": "AgroClima",
@@ -323,12 +323,12 @@
       "latitude": -33.0672174,
       "longitude": -58.3884112,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:26",
+      "last_observation": "09-11-2026 14:41",
       "page_url": "https://agroclima.com/public/estacion.php?id=1436",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:35+00:00"
+      "checked_at_utc": "2026-11-09T18:55:47+00:00"
     },
     {
       "provider": "AgroClima",
@@ -338,12 +338,12 @@
       "latitude": null,
       "longitude": null,
       "coordinate_source": null,
-      "last_observation": "02-11-2026 14:22",
+      "last_observation": "09-11-2026 15:50",
       "page_url": "https://agroclima.com/public/estacion.php?id=1437",
       "catalog_status": "page_validated",
       "metadata_quality": "partial",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:35+00:00"
+      "checked_at_utc": "2026-11-09T18:55:48+00:00"
     },
     {
       "provider": "AgroClima",
@@ -358,7 +358,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:34+00:00"
+      "checked_at_utc": "2026-11-09T18:55:47+00:00"
     },
     {
       "provider": "AgroClima",
@@ -373,7 +373,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:34+00:00"
+      "checked_at_utc": "2026-11-09T18:55:47+00:00"
     },
     {
       "provider": "AgroClima",
@@ -388,7 +388,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:35+00:00"
+      "checked_at_utc": "2026-11-09T18:55:48+00:00"
     },
     {
       "provider": "AgroClima",
@@ -398,12 +398,12 @@
       "latitude": -34.0667741,
       "longitude": -59.1086018,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:25",
+      "last_observation": "09-11-2026 15:52",
       "page_url": "https://agroclima.com/public/estacion.php?id=1442",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:36+00:00"
+      "checked_at_utc": "2026-11-09T18:55:49+00:00"
     },
     {
       "provider": "AgroClima",
@@ -418,7 +418,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:35+00:00"
+      "checked_at_utc": "2026-11-09T18:55:48+00:00"
     },
     {
       "provider": "AgroClima",
@@ -433,7 +433,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:35+00:00"
+      "checked_at_utc": "2026-11-09T18:55:48+00:00"
     },
     {
       "provider": "AgroClima",
@@ -448,7 +448,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:35+00:00"
+      "checked_at_utc": "2026-11-09T18:55:48+00:00"
     },
     {
       "provider": "AgroClima",
@@ -463,7 +463,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:35+00:00"
+      "checked_at_utc": "2026-11-09T18:55:48+00:00"
     },
     {
       "provider": "AgroClima",
@@ -478,7 +478,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:36+00:00"
+      "checked_at_utc": "2026-11-09T18:55:48+00:00"
     },
     {
       "provider": "AgroClima",
@@ -488,12 +488,12 @@
       "latitude": -34.489806,
       "longitude": -58.99305,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:25",
+      "last_observation": "09-11-2026 15:52",
       "page_url": "https://agroclima.com/public/estacion.php?id=1455",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:37+00:00"
+      "checked_at_utc": "2026-11-09T18:55:49+00:00"
     },
     {
       "provider": "AgroClima",
@@ -503,12 +503,12 @@
       "latitude": -38.126802,
       "longitude": -61.805398,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:23",
+      "last_observation": "08-11-2026 21:42",
       "page_url": "https://agroclima.com/public/estacion.php?id=1457",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:37+00:00"
+      "checked_at_utc": "2026-11-09T18:55:49+00:00"
     },
     {
       "provider": "AgroClima",
@@ -523,7 +523,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:36+00:00"
+      "checked_at_utc": "2026-11-09T18:55:48+00:00"
     },
     {
       "provider": "AgroClima",
@@ -538,7 +538,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:36+00:00"
+      "checked_at_utc": "2026-11-09T18:55:48+00:00"
     },
     {
       "provider": "AgroClima",
@@ -553,7 +553,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:36+00:00"
+      "checked_at_utc": "2026-11-09T18:55:48+00:00"
     },
     {
       "provider": "AgroClima",
@@ -563,12 +563,12 @@
       "latitude": -32.526312,
       "longitude": -63.185281,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:25",
+      "last_observation": "09-11-2026 15:53",
       "page_url": "https://agroclima.com/public/estacion.php?id=1461",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:37+00:00"
+      "checked_at_utc": "2026-11-09T18:55:49+00:00"
     },
     {
       "provider": "AgroClima",
@@ -583,7 +583,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:37+00:00"
+      "checked_at_utc": "2026-11-09T18:55:49+00:00"
     },
     {
       "provider": "AgroClima",
@@ -593,12 +593,12 @@
       "latitude": -30.862398,
       "longitude": -64.527204,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:22",
+      "last_observation": "09-11-2026 15:53",
       "page_url": "https://agroclima.com/public/estacion.php?id=1465",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:38+00:00"
+      "checked_at_utc": "2026-11-09T18:55:50+00:00"
     },
     {
       "provider": "AgroClima",
@@ -613,7 +613,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:38+00:00"
+      "checked_at_utc": "2026-11-09T18:55:50+00:00"
     },
     {
       "provider": "AgroClima",
@@ -628,7 +628,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:37+00:00"
+      "checked_at_utc": "2026-11-09T18:55:49+00:00"
     },
     {
       "provider": "AgroClima",
@@ -643,7 +643,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:38+00:00"
+      "checked_at_utc": "2026-11-09T18:55:50+00:00"
     },
     {
       "provider": "AgroClima",
@@ -653,12 +653,12 @@
       "latitude": -27.5199794,
       "longitude": -58.793576,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:22",
+      "last_observation": "09-11-2026 15:54",
       "page_url": "https://agroclima.com/public/estacion.php?id=1471",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:39+00:00"
+      "checked_at_utc": "2026-11-09T18:55:51+00:00"
     },
     {
       "provider": "AgroClima",
@@ -673,7 +673,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:38+00:00"
+      "checked_at_utc": "2026-11-09T18:55:50+00:00"
     },
     {
       "provider": "AgroClima",
@@ -688,7 +688,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:39+00:00"
+      "checked_at_utc": "2026-11-09T18:55:51+00:00"
     },
     {
       "provider": "AgroClima",
@@ -698,12 +698,12 @@
       "latitude": -27.4945402,
       "longitude": -58.83132,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:22",
+      "last_observation": "09-11-2026 15:50",
       "page_url": "https://agroclima.com/public/estacion.php?id=1476",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:39+00:00"
+      "checked_at_utc": "2026-11-09T18:55:51+00:00"
     },
     {
       "provider": "AgroClima",
@@ -718,7 +718,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:39+00:00"
+      "checked_at_utc": "2026-11-09T18:55:51+00:00"
     },
     {
       "provider": "AgroClima",
@@ -733,7 +733,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:40+00:00"
+      "checked_at_utc": "2026-11-09T18:55:52+00:00"
     },
     {
       "provider": "AgroClima",
@@ -748,7 +748,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:39+00:00"
+      "checked_at_utc": "2026-11-09T18:55:51+00:00"
     },
     {
       "provider": "AgroClima",
@@ -763,7 +763,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:39+00:00"
+      "checked_at_utc": "2026-11-09T18:55:51+00:00"
     },
     {
       "provider": "AgroClima",
@@ -778,7 +778,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:39+00:00"
+      "checked_at_utc": "2026-11-09T18:55:51+00:00"
     },
     {
       "provider": "AgroClima",
@@ -793,7 +793,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:39+00:00"
+      "checked_at_utc": "2026-11-09T18:55:51+00:00"
     },
     {
       "provider": "AgroClima",
@@ -803,12 +803,12 @@
       "latitude": -32.195118,
       "longitude": -64.454673,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:24",
+      "last_observation": "09-11-2026 15:31",
       "page_url": "https://agroclima.com/public/estacion.php?id=1486",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:40+00:00"
+      "checked_at_utc": "2026-11-09T18:55:52+00:00"
     },
     {
       "provider": "AgroClima",
@@ -818,12 +818,12 @@
       "latitude": -30.944,
       "longitude": -60.65661,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:24",
+      "last_observation": "09-11-2026 15:52",
       "page_url": "https://agroclima.com/public/estacion.php?id=1488",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:41+00:00"
+      "checked_at_utc": "2026-11-09T18:55:52+00:00"
     },
     {
       "provider": "AgroClima",
@@ -833,12 +833,12 @@
       "latitude": -33.73725,
       "longitude": -59.794885,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:23",
+      "last_observation": "09-11-2026 15:54",
       "page_url": "https://agroclima.com/public/estacion.php?id=1490",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 7,
-      "checked_at_utc": "2026-11-02T17:26:41+00:00"
+      "checked_at_utc": "2026-11-09T18:55:53+00:00"
     },
     {
       "provider": "AgroClima",
@@ -853,7 +853,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:40+00:00"
+      "checked_at_utc": "2026-11-09T18:55:52+00:00"
     },
     {
       "provider": "AgroClima",
@@ -868,7 +868,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:40+00:00"
+      "checked_at_utc": "2026-11-09T18:55:52+00:00"
     },
     {
       "provider": "AgroClima",
@@ -883,7 +883,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:40+00:00"
+      "checked_at_utc": "2026-11-09T18:55:52+00:00"
     },
     {
       "provider": "AgroClima",
@@ -893,12 +893,12 @@
       "latitude": -33.248275,
       "longitude": -61.3619456,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:21",
+      "last_observation": "09-11-2026 15:54",
       "page_url": "https://agroclima.com/public/estacion.php?id=1494",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 7,
-      "checked_at_utc": "2026-11-02T17:26:41+00:00"
+      "checked_at_utc": "2026-11-09T18:55:53+00:00"
     },
     {
       "provider": "AgroClima",
@@ -908,12 +908,12 @@
       "latitude": -35.788985,
       "longitude": -58.564973,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:24",
+      "last_observation": "09-11-2026 15:55",
       "page_url": "https://agroclima.com/public/estacion.php?id=1495",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:41+00:00"
+      "checked_at_utc": "2026-11-09T18:55:53+00:00"
     },
     {
       "provider": "AgroClima",
@@ -928,7 +928,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:41+00:00"
+      "checked_at_utc": "2026-11-09T18:55:52+00:00"
     },
     {
       "provider": "AgroClima",
@@ -943,7 +943,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:42+00:00"
+      "checked_at_utc": "2026-11-09T18:55:53+00:00"
     },
     {
       "provider": "AgroClima",
@@ -958,7 +958,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:41+00:00"
+      "checked_at_utc": "2026-11-09T18:55:53+00:00"
     },
     {
       "provider": "AgroClima",
@@ -973,7 +973,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:42+00:00"
+      "checked_at_utc": "2026-11-09T18:55:54+00:00"
     },
     {
       "provider": "AgroClima",
@@ -988,7 +988,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:42+00:00"
+      "checked_at_utc": "2026-11-09T18:55:53+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1003,7 +1003,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:42+00:00"
+      "checked_at_utc": "2026-11-09T18:55:53+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1018,7 +1018,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:42+00:00"
+      "checked_at_utc": "2026-11-09T18:55:53+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1028,12 +1028,12 @@
       "latitude": -34.169133,
       "longitude": -59.7342967,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:24",
+      "last_observation": "09-11-2026 15:31",
       "page_url": "https://agroclima.com/public/estacion.php?id=1509",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:43+00:00"
+      "checked_at_utc": "2026-11-09T18:55:55+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1048,7 +1048,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:42+00:00"
+      "checked_at_utc": "2026-11-09T18:55:54+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1058,12 +1058,12 @@
       "latitude": -31.3845998,
       "longitude": -64.45596,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:25",
+      "last_observation": "09-11-2026 15:53",
       "page_url": "https://agroclima.com/public/estacion.php?id=1511",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:43+00:00"
+      "checked_at_utc": "2026-11-09T18:55:55+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1078,7 +1078,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:42+00:00"
+      "checked_at_utc": "2026-11-09T18:55:54+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1088,12 +1088,12 @@
       "latitude": -32.7399452,
       "longitude": -64.373466,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:23",
+      "last_observation": "09-11-2026 15:51",
       "page_url": "https://agroclima.com/public/estacion.php?id=1514",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:44+00:00"
+      "checked_at_utc": "2026-11-09T18:55:55+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1103,12 +1103,12 @@
       "latitude": -32.8022458,
       "longitude": -64.683723,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:25",
+      "last_observation": "09-11-2026 15:53",
       "page_url": "https://agroclima.com/public/estacion.php?id=1515",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:44+00:00"
+      "checked_at_utc": "2026-11-09T18:55:55+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1118,12 +1118,12 @@
       "latitude": null,
       "longitude": null,
       "coordinate_source": null,
-      "last_observation": "02-11-2026 14:21",
+      "last_observation": "09-11-2026 15:55",
       "page_url": "https://agroclima.com/public/estacion.php?id=1518",
       "catalog_status": "page_validated",
       "metadata_quality": "partial",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:45+00:00"
+      "checked_at_utc": "2026-11-09T18:55:56+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1138,7 +1138,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "partial",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:44+00:00"
+      "checked_at_utc": "2026-11-09T18:55:55+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1148,12 +1148,12 @@
       "latitude": -32.446768,
       "longitude": -58.435034,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:24",
+      "last_observation": "09-11-2026 15:53",
       "page_url": "https://agroclima.com/public/estacion.php?id=1520",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:45+00:00"
+      "checked_at_utc": "2026-11-09T18:55:56+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1163,12 +1163,12 @@
       "latitude": -33.3781289,
       "longitude": -61.1779526,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:22",
+      "last_observation": "09-11-2026 15:51",
       "page_url": "https://agroclima.com/public/estacion.php?id=1521",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:45+00:00"
+      "checked_at_utc": "2026-11-09T18:55:56+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1178,12 +1178,12 @@
       "latitude": -31.3917528,
       "longitude": -64.47099,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:24",
+      "last_observation": "09-11-2026 15:52",
       "page_url": "https://agroclima.com/public/estacion.php?id=1522",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:45+00:00"
+      "checked_at_utc": "2026-11-09T18:55:56+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1193,12 +1193,12 @@
       "latitude": -35.5720734,
       "longitude": -58.61287,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:23",
+      "last_observation": "09-11-2026 02:26",
       "page_url": "https://agroclima.com/public/estacion.php?id=1524",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:46+00:00"
+      "checked_at_utc": "2026-11-09T18:55:57+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1213,7 +1213,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:45+00:00"
+      "checked_at_utc": "2026-11-09T18:55:56+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1228,7 +1228,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:45+00:00"
+      "checked_at_utc": "2026-11-09T18:55:56+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1238,12 +1238,12 @@
       "latitude": -27.436281,
       "longitude": -55.929538,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:25",
+      "last_observation": "09-11-2026 15:52",
       "page_url": "https://agroclima.com/public/estacion.php?id=1527",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:46+00:00"
+      "checked_at_utc": "2026-11-09T18:55:57+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1253,12 +1253,12 @@
       "latitude": -24.7446876,
       "longitude": -65.41865,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:24",
+      "last_observation": "09-11-2026 15:51",
       "page_url": "https://agroclima.com/public/estacion.php?id=1528",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:46+00:00"
+      "checked_at_utc": "2026-11-09T18:55:57+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1273,7 +1273,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:45+00:00"
+      "checked_at_utc": "2026-11-09T18:55:56+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1288,7 +1288,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:45+00:00"
+      "checked_at_utc": "2026-11-09T18:55:56+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1303,7 +1303,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:46+00:00"
+      "checked_at_utc": "2026-11-09T18:55:57+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1313,12 +1313,12 @@
       "latitude": -28.438285,
       "longitude": -56.087669,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:23",
+      "last_observation": "09-11-2026 15:53",
       "page_url": "https://agroclima.com/public/estacion.php?id=1536",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:47+00:00"
+      "checked_at_utc": "2026-11-09T18:55:58+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1328,12 +1328,12 @@
       "latitude": -27.994448,
       "longitude": -55.957041,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:25",
+      "last_observation": "09-11-2026 15:54",
       "page_url": "https://agroclima.com/public/estacion.php?id=1537",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:47+00:00"
+      "checked_at_utc": "2026-11-09T18:55:58+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1348,7 +1348,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:47+00:00"
+      "checked_at_utc": "2026-11-09T18:55:58+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1363,7 +1363,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:46+00:00"
+      "checked_at_utc": "2026-11-09T18:55:57+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1378,7 +1378,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:47+00:00"
+      "checked_at_utc": "2026-11-09T18:55:58+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1393,7 +1393,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:47+00:00"
+      "checked_at_utc": "2026-11-09T18:55:58+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1403,12 +1403,12 @@
       "latitude": -26.1918056,
       "longitude": -58.2023055,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:26",
+      "last_observation": "09-11-2026 15:54",
       "page_url": "https://agroclima.com/public/estacion.php?id=1543",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:48+00:00"
+      "checked_at_utc": "2026-11-09T18:55:59+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1418,12 +1418,12 @@
       "latitude": -34.345044,
       "longitude": -60.102533,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 10:23",
+      "last_observation": "09-11-2026 07:37",
       "page_url": "https://agroclima.com/public/estacion.php?id=1544",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:48+00:00"
+      "checked_at_utc": "2026-11-09T18:55:59+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1438,7 +1438,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:48+00:00"
+      "checked_at_utc": "2026-11-09T18:55:59+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1448,12 +1448,12 @@
       "latitude": -37.799404,
       "longitude": -58.480773,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:25",
+      "last_observation": "09-11-2026 15:52",
       "page_url": "https://agroclima.com/public/estacion.php?id=1546",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:49+00:00"
+      "checked_at_utc": "2026-11-09T18:56:00+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1463,12 +1463,12 @@
       "latitude": -34.552551,
       "longitude": -59.12393,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:21",
+      "last_observation": "09-11-2026 15:54",
       "page_url": "https://agroclima.com/public/estacion.php?id=1547",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:49+00:00"
+      "checked_at_utc": "2026-11-09T18:56:00+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1478,12 +1478,12 @@
       "latitude": -34.472909,
       "longitude": -63.5399973,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:22",
+      "last_observation": "09-11-2026 15:50",
       "page_url": "https://agroclima.com/public/estacion.php?id=1551",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:49+00:00"
+      "checked_at_utc": "2026-11-09T18:56:00+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1493,12 +1493,12 @@
       "latitude": -32.74275,
       "longitude": -64.60752,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:23",
+      "last_observation": "09-11-2026 15:51",
       "page_url": "https://agroclima.com/public/estacion.php?id=1553",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:50+00:00"
+      "checked_at_utc": "2026-11-09T18:56:00+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1508,12 +1508,12 @@
       "latitude": -39.10804,
       "longitude": -67.08963,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:26",
+      "last_observation": "09-11-2026 15:55",
       "page_url": "https://agroclima.com/public/estacion.php?id=1554",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:50+00:00"
+      "checked_at_utc": "2026-11-09T18:56:01+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1523,12 +1523,12 @@
       "latitude": -35.201121,
       "longitude": -59.34348,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:24",
+      "last_observation": "09-11-2026 15:55",
       "page_url": "https://agroclima.com/public/estacion.php?id=1555",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:50+00:00"
+      "checked_at_utc": "2026-11-09T18:56:00+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1543,7 +1543,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:50+00:00"
+      "checked_at_utc": "2026-11-09T18:56:00+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1553,12 +1553,12 @@
       "latitude": -34.1075762,
       "longitude": -59.1289758,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:24",
+      "last_observation": "04-11-2026 13:37",
       "page_url": "https://agroclima.com/public/estacion.php?id=1557",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:50+00:00"
+      "checked_at_utc": "2026-11-09T18:56:01+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1573,7 +1573,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:50+00:00"
+      "checked_at_utc": "2026-11-09T18:56:01+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1588,7 +1588,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:50+00:00"
+      "checked_at_utc": "2026-11-09T18:56:01+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1603,7 +1603,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:50+00:00"
+      "checked_at_utc": "2026-11-09T18:56:01+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1613,12 +1613,12 @@
       "latitude": -31.8728758,
       "longitude": -64.1672,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:22",
+      "last_observation": "09-11-2026 15:54",
       "page_url": "https://agroclima.com/public/estacion.php?id=1565",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:52+00:00"
+      "checked_at_utc": "2026-11-09T18:56:02+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1628,12 +1628,12 @@
       "latitude": -33.0855707,
       "longitude": -60.626097,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:23",
+      "last_observation": "09-11-2026 15:51",
       "page_url": "https://agroclima.com/public/estacion.php?id=1566",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:52+00:00"
+      "checked_at_utc": "2026-11-09T18:56:02+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1648,7 +1648,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:51+00:00"
+      "checked_at_utc": "2026-11-09T18:56:01+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1658,12 +1658,12 @@
       "latitude": -37.6754328,
       "longitude": -59.1857106,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:22",
+      "last_observation": "09-11-2026 15:50",
       "page_url": "https://agroclima.com/public/estacion.php?id=1570",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:52+00:00"
+      "checked_at_utc": "2026-11-09T18:56:02+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1673,12 +1673,12 @@
       "latitude": -39.7008474,
       "longitude": -71.587085,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:26",
+      "last_observation": "09-11-2026 15:53",
       "page_url": "https://agroclima.com/public/estacion.php?id=1572",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:52+00:00"
+      "checked_at_utc": "2026-11-09T18:56:02+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1688,12 +1688,12 @@
       "latitude": -39.2315758,
       "longitude": -70.92612,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:22",
+      "last_observation": "09-11-2026 15:52",
       "page_url": "https://agroclima.com/public/estacion.php?id=1573",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:53+00:00"
+      "checked_at_utc": "2026-11-09T18:56:03+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1703,12 +1703,12 @@
       "latitude": -38.050245,
       "longitude": -57.5464296,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:24",
+      "last_observation": "09-11-2026 15:55",
       "page_url": "https://agroclima.com/public/estacion.php?id=1574",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 7,
-      "checked_at_utc": "2026-11-02T17:26:53+00:00"
+      "checked_at_utc": "2026-11-09T18:56:03+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1723,7 +1723,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:53+00:00"
+      "checked_at_utc": "2026-11-09T18:56:03+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1733,12 +1733,12 @@
       "latitude": -27.914749,
       "longitude": -55.822988,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:23",
+      "last_observation": "09-11-2026 15:53",
       "page_url": "https://agroclima.com/public/estacion.php?id=1576",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:54+00:00"
+      "checked_at_utc": "2026-11-09T18:56:04+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1753,7 +1753,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:54+00:00"
+      "checked_at_utc": "2026-11-09T18:56:04+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1768,7 +1768,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:53+00:00"
+      "checked_at_utc": "2026-11-09T18:56:04+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1783,7 +1783,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:54+00:00"
+      "checked_at_utc": "2026-11-09T18:56:04+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1798,7 +1798,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:54+00:00"
+      "checked_at_utc": "2026-11-09T18:56:04+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1808,12 +1808,12 @@
       "latitude": -34.457773,
       "longitude": -59.304035,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:26",
+      "last_observation": "09-11-2026 15:53",
       "page_url": "https://agroclima.com/public/estacion.php?id=1582",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:55+00:00"
+      "checked_at_utc": "2026-11-09T18:56:05+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1823,12 +1823,12 @@
       "latitude": -37.8086316,
       "longitude": -58.2204501,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:23",
+      "last_observation": "09-11-2026 15:51",
       "page_url": "https://agroclima.com/public/estacion.php?id=1583",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:55+00:00"
+      "checked_at_utc": "2026-11-09T18:56:05+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1843,7 +1843,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:55+00:00"
+      "checked_at_utc": "2026-11-09T18:56:05+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1858,7 +1858,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:54+00:00"
+      "checked_at_utc": "2026-11-09T18:56:04+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1868,12 +1868,12 @@
       "latitude": -35.4293128,
       "longitude": -60.8970136,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:24",
+      "last_observation": "09-11-2026 15:52",
       "page_url": "https://agroclima.com/public/estacion.php?id=1586",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:55+00:00"
+      "checked_at_utc": "2026-11-09T18:56:05+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1888,7 +1888,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:55+00:00"
+      "checked_at_utc": "2026-11-09T18:56:05+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1903,7 +1903,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:56+00:00"
+      "checked_at_utc": "2026-11-09T18:56:06+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1918,7 +1918,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:55+00:00"
+      "checked_at_utc": "2026-11-09T18:56:05+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1928,12 +1928,12 @@
       "latitude": -38.1179469,
       "longitude": -57.7340126,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:06",
+      "last_observation": "09-11-2026 15:55",
       "page_url": "https://agroclima.com/public/estacion.php?id=1591",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:56+00:00"
+      "checked_at_utc": "2026-11-09T18:56:06+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1948,7 +1948,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:55+00:00"
+      "checked_at_utc": "2026-11-09T18:56:05+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1958,12 +1958,12 @@
       "latitude": -31.8010416,
       "longitude": -61.1617255,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:22",
+      "last_observation": "09-11-2026 15:55",
       "page_url": "https://agroclima.com/public/estacion.php?id=1595",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:57+00:00"
+      "checked_at_utc": "2026-11-09T18:56:07+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1973,12 +1973,12 @@
       "latitude": -26.536044,
       "longitude": -65.244461,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:23",
+      "last_observation": "09-11-2026 15:52",
       "page_url": "https://agroclima.com/public/estacion.php?id=1596",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:56+00:00"
+      "checked_at_utc": "2026-11-09T18:56:06+00:00"
     },
     {
       "provider": "AgroClima",
@@ -1993,7 +1993,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:56+00:00"
+      "checked_at_utc": "2026-11-09T18:56:06+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2008,7 +2008,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:56+00:00"
+      "checked_at_utc": "2026-11-09T18:56:06+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2018,12 +2018,12 @@
       "latitude": -27.004515,
       "longitude": -54.499886,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:24",
+      "last_observation": "09-11-2026 15:53",
       "page_url": "https://agroclima.com/public/estacion.php?id=1601",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:57+00:00"
+      "checked_at_utc": "2026-11-09T18:56:07+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2033,12 +2033,12 @@
       "latitude": -32.199056,
       "longitude": -61.700506,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:24",
+      "last_observation": "09-11-2026 15:52",
       "page_url": "https://agroclima.com/public/estacion.php?id=1602",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:58+00:00"
+      "checked_at_utc": "2026-11-09T18:56:07+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2053,7 +2053,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:57+00:00"
+      "checked_at_utc": "2026-11-09T18:56:06+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2063,12 +2063,12 @@
       "latitude": -33.732342,
       "longitude": -60.180792,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:24",
+      "last_observation": "09-11-2026 15:51",
       "page_url": "https://agroclima.com/public/estacion.php?id=1605",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:57+00:00"
+      "checked_at_utc": "2026-11-09T18:56:07+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2078,12 +2078,12 @@
       "latitude": -28.021186,
       "longitude": -55.705265,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:22",
+      "last_observation": "09-11-2026 15:52",
       "page_url": "https://agroclima.com/public/estacion.php?id=1607",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:57+00:00"
+      "checked_at_utc": "2026-11-09T18:56:07+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2093,12 +2093,12 @@
       "latitude": -28.089279,
       "longitude": -56.029585,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:20",
+      "last_observation": "09-11-2026 15:50",
       "page_url": "https://agroclima.com/public/estacion.php?id=1609",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:58+00:00"
+      "checked_at_utc": "2026-11-09T18:56:07+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2113,7 +2113,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:58+00:00"
+      "checked_at_utc": "2026-11-09T18:56:07+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2128,7 +2128,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:58+00:00"
+      "checked_at_utc": "2026-11-09T18:56:07+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2143,7 +2143,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:26:58+00:00"
+      "checked_at_utc": "2026-11-09T18:56:07+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2153,12 +2153,12 @@
       "latitude": -30.9456065,
       "longitude": -61.85797,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:26",
+      "last_observation": "09-11-2026 15:55",
       "page_url": "https://agroclima.com/public/estacion.php?id=1613",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:59+00:00"
+      "checked_at_utc": "2026-11-09T18:56:09+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2168,12 +2168,12 @@
       "latitude": -34.6170898,
       "longitude": -58.9397811,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:25",
+      "last_observation": "09-11-2026 15:55",
       "page_url": "https://agroclima.com/public/estacion.php?id=1614",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:59+00:00"
+      "checked_at_utc": "2026-11-09T18:56:08+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2188,7 +2188,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:58+00:00"
+      "checked_at_utc": "2026-11-09T18:56:08+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2198,12 +2198,12 @@
       "latitude": -30.06706,
       "longitude": -59.533397,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "19-08-2025 12:47",
+      "last_observation": "09-11-2026 15:53",
       "page_url": "https://agroclima.com/public/estacion.php?id=1616",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:58+00:00"
+      "checked_at_utc": "2026-11-09T18:56:08+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2213,12 +2213,12 @@
       "latitude": -32.994794,
       "longitude": -58.5380865,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:25",
+      "last_observation": "09-11-2026 15:53",
       "page_url": "https://agroclima.com/public/estacion.php?id=1617",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:00+00:00"
+      "checked_at_utc": "2026-11-09T18:56:10+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2233,7 +2233,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:58+00:00"
+      "checked_at_utc": "2026-11-09T18:56:09+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2248,7 +2248,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:26:59+00:00"
+      "checked_at_utc": "2026-11-09T18:56:09+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2258,12 +2258,12 @@
       "latitude": -33.684758,
       "longitude": -59.643043,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:21",
+      "last_observation": "09-11-2026 15:52",
       "page_url": "https://agroclima.com/public/estacion.php?id=1620",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:00+00:00"
+      "checked_at_utc": "2026-11-09T18:56:09+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2278,7 +2278,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:00+00:00"
+      "checked_at_utc": "2026-11-09T18:56:09+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2288,12 +2288,12 @@
       "latitude": -35.6031352,
       "longitude": -59.81213,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:26",
+      "last_observation": "09-11-2026 15:54",
       "page_url": "https://agroclima.com/public/estacion.php?id=1623",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:01+00:00"
+      "checked_at_utc": "2026-11-09T18:56:11+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2308,7 +2308,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:27:00+00:00"
+      "checked_at_utc": "2026-11-09T18:56:09+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2323,7 +2323,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:00+00:00"
+      "checked_at_utc": "2026-11-09T18:56:09+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2333,12 +2333,12 @@
       "latitude": -33.8919516,
       "longitude": -60.576922,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:26",
+      "last_observation": "09-11-2026 15:56",
       "page_url": "https://agroclima.com/public/estacion.php?id=1626",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:04+00:00"
+      "checked_at_utc": "2026-11-09T18:56:12+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2348,12 +2348,12 @@
       "latitude": -32.9682844,
       "longitude": -60.6535649,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "26-10-2026 19:23",
+      "last_observation": "09-11-2026 15:53",
       "page_url": "https://agroclima.com/public/estacion.php?id=1627",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:01+00:00"
+      "checked_at_utc": "2026-11-09T18:56:11+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2363,12 +2363,12 @@
       "latitude": -32.78806,
       "longitude": -58.528701,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:25",
+      "last_observation": "09-11-2026 15:53",
       "page_url": "https://agroclima.com/public/estacion.php?id=1629",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:02+00:00"
+      "checked_at_utc": "2026-11-09T18:56:12+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2378,12 +2378,12 @@
       "latitude": -39.0374559,
       "longitude": -67.548372,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:25",
+      "last_observation": "09-11-2026 15:52",
       "page_url": "https://agroclima.com/public/estacion.php?id=1630",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:02+00:00"
+      "checked_at_utc": "2026-11-09T18:56:12+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2393,12 +2393,12 @@
       "latitude": -31.765436,
       "longitude": -64.186097,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:24",
+      "last_observation": "09-11-2026 15:55",
       "page_url": "https://agroclima.com/public/estacion.php?id=1631",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:02+00:00"
+      "checked_at_utc": "2026-11-09T18:56:13+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2413,7 +2413,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:03+00:00"
+      "checked_at_utc": "2026-11-09T18:56:13+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2423,12 +2423,12 @@
       "latitude": -33.8134813,
       "longitude": -61.294493,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:22",
+      "last_observation": "09-11-2026 15:52",
       "page_url": "https://agroclima.com/public/estacion.php?id=1633",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:03+00:00"
+      "checked_at_utc": "2026-11-09T18:56:13+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2438,12 +2438,12 @@
       "latitude": -34.8936753,
       "longitude": -60.0055325,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:24",
+      "last_observation": "09-11-2026 15:53",
       "page_url": "https://agroclima.com/public/estacion.php?id=1634",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:03+00:00"
+      "checked_at_utc": "2026-11-09T18:56:13+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2453,12 +2453,12 @@
       "latitude": -34.194936,
       "longitude": -59.396863,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:26",
+      "last_observation": "09-11-2026 15:52",
       "page_url": "https://agroclima.com/public/estacion.php?id=1635",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:04+00:00"
+      "checked_at_utc": "2026-11-09T18:56:13+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2468,12 +2468,12 @@
       "latitude": -31.5121658,
       "longitude": -60.6766,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "30-10-2026 09:23",
+      "last_observation": "09-11-2026 15:55",
       "page_url": "https://agroclima.com/public/estacion.php?id=1636",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:04+00:00"
+      "checked_at_utc": "2026-11-09T18:56:14+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2488,7 +2488,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:04+00:00"
+      "checked_at_utc": "2026-11-09T18:56:13+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2503,7 +2503,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:04+00:00"
+      "checked_at_utc": "2026-11-09T18:56:13+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2518,7 +2518,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:04+00:00"
+      "checked_at_utc": "2026-11-09T18:56:13+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2528,12 +2528,12 @@
       "latitude": -36.9330173,
       "longitude": -60.1643048,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:26",
+      "last_observation": "09-11-2026 15:52",
       "page_url": "https://agroclima.com/public/estacion.php?id=1640",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 7,
-      "checked_at_utc": "2026-11-02T17:27:05+00:00"
+      "checked_at_utc": "2026-11-09T18:56:14+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2548,7 +2548,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:04+00:00"
+      "checked_at_utc": "2026-11-09T18:56:13+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2563,7 +2563,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:05+00:00"
+      "checked_at_utc": "2026-11-09T18:56:14+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2573,12 +2573,12 @@
       "latitude": -43.2913497,
       "longitude": -65.502716,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:26",
+      "last_observation": "09-11-2026 15:54",
       "page_url": "https://agroclima.com/public/estacion.php?id=1643",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:05+00:00"
+      "checked_at_utc": "2026-11-09T18:56:14+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2593,7 +2593,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:05+00:00"
+      "checked_at_utc": "2026-11-09T18:56:14+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2603,12 +2603,12 @@
       "latitude": -42.2111009,
       "longitude": -71.405854,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:27",
+      "last_observation": "09-11-2026 15:55",
       "page_url": "https://agroclima.com/public/estacion.php?id=1645",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:05+00:00"
+      "checked_at_utc": "2026-11-09T18:56:14+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2618,12 +2618,12 @@
       "latitude": -33.4982997,
       "longitude": -58.741772,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:22",
+      "last_observation": "09-11-2026 15:52",
       "page_url": "https://agroclima.com/public/estacion.php?id=1647",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:06+00:00"
+      "checked_at_utc": "2026-11-09T18:56:15+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2633,12 +2633,12 @@
       "latitude": -31.5188495,
       "longitude": -64.23191,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:23",
+      "last_observation": "09-11-2026 15:53",
       "page_url": "https://agroclima.com/public/estacion.php?id=1648",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:06+00:00"
+      "checked_at_utc": "2026-11-09T18:56:15+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2648,12 +2648,12 @@
       "latitude": -37.062975,
       "longitude": -61.938385,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:23",
+      "last_observation": "09-11-2026 15:55",
       "page_url": "https://agroclima.com/public/estacion.php?id=1649",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:06+00:00"
+      "checked_at_utc": "2026-11-09T18:56:15+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2668,7 +2668,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:27:06+00:00"
+      "checked_at_utc": "2026-11-09T18:56:15+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2683,7 +2683,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:06+00:00"
+      "checked_at_utc": "2026-11-09T18:56:15+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2698,7 +2698,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:06+00:00"
+      "checked_at_utc": "2026-11-09T18:56:15+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2708,12 +2708,12 @@
       "latitude": -32.7478897,
       "longitude": -64.4729588,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:23",
+      "last_observation": "09-11-2026 15:54",
       "page_url": "https://agroclima.com/public/estacion.php?id=1657",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:06+00:00"
+      "checked_at_utc": "2026-11-09T18:56:15+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2723,12 +2723,12 @@
       "latitude": -26.157088,
       "longitude": -59.350287,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:25",
+      "last_observation": "09-11-2026 15:54",
       "page_url": "https://agroclima.com/public/estacion.php?id=1658",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:06+00:00"
+      "checked_at_utc": "2026-11-09T18:56:15+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2738,12 +2738,12 @@
       "latitude": null,
       "longitude": null,
       "coordinate_source": null,
-      "last_observation": "02-11-2026 14:25",
+      "last_observation": "09-11-2026 15:55",
       "page_url": "https://agroclima.com/public/estacion.php?id=1659",
       "catalog_status": "page_validated",
       "metadata_quality": "partial",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:06+00:00"
+      "checked_at_utc": "2026-11-09T18:56:15+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2753,12 +2753,12 @@
       "latitude": -36.756279,
       "longitude": -62.49831,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:22",
+      "last_observation": "09-11-2026 15:03",
       "page_url": "https://agroclima.com/public/estacion.php?id=1660",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:06+00:00"
+      "checked_at_utc": "2026-11-09T18:56:15+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2773,22 +2773,22 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:06+00:00"
+      "checked_at_utc": "2026-11-09T18:56:15+00:00"
     },
     {
       "provider": "AgroClima",
       "station_id": 1662,
       "name": "Estación: Capilla",
       "name_source": "heading",
-      "latitude": -34.3307852,
-      "longitude": -59.10524,
+      "latitude": -34.330785,
+      "longitude": -59.105241,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "01-11-2026 03:09",
+      "last_observation": "09-11-2026 07:29",
       "page_url": "https://agroclima.com/public/estacion.php?id=1662",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:07+00:00"
+      "checked_at_utc": "2026-11-09T18:56:15+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2803,7 +2803,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:27:06+00:00"
+      "checked_at_utc": "2026-11-09T18:56:15+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2813,12 +2813,12 @@
       "latitude": null,
       "longitude": null,
       "coordinate_source": null,
-      "last_observation": "02-11-2026 14:26",
+      "last_observation": "09-11-2026 15:52",
       "page_url": "https://agroclima.com/public/estacion.php?id=1664",
       "catalog_status": "page_validated",
       "metadata_quality": "partial",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:07+00:00"
+      "checked_at_utc": "2026-11-09T18:56:15+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2833,7 +2833,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 5,
-      "checked_at_utc": "2026-11-02T17:27:06+00:00"
+      "checked_at_utc": "2026-11-09T18:56:15+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2848,7 +2848,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:07+00:00"
+      "checked_at_utc": "2026-11-09T18:56:15+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2863,7 +2863,7 @@
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:07+00:00"
+      "checked_at_utc": "2026-11-09T18:56:15+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2873,12 +2873,12 @@
       "latitude": -34.4755535,
       "longitude": -58.64829,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "02-11-2026 14:27",
+      "last_observation": "09-11-2026 15:55",
       "page_url": "https://agroclima.com/public/estacion.php?id=1668",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:07+00:00"
+      "checked_at_utc": "2026-11-09T18:56:15+00:00"
     },
     {
       "provider": "AgroClima",
@@ -2888,12 +2888,57 @@
       "latitude": -31.4369591,
       "longitude": -64.1876756,
       "coordinate_source": "unlabelled_pair",
-      "last_observation": "13-10-2026 14:08",
+      "last_observation": "06-11-2026 13:44",
       "page_url": "https://agroclima.com/public/estacion.php?id=1669",
       "catalog_status": "page_validated",
       "metadata_quality": "complete",
       "evidence_terms": 6,
-      "checked_at_utc": "2026-11-02T17:27:07+00:00"
+      "checked_at_utc": "2026-11-09T18:56:15+00:00"
+    },
+    {
+      "provider": "AgroClima",
+      "station_id": 1670,
+      "name": "Estación: La Violeta",
+      "name_source": "heading",
+      "latitude": -33.733039,
+      "longitude": -60.168588,
+      "coordinate_source": "unlabelled_pair",
+      "last_observation": "09-11-2026 14:22",
+      "page_url": "https://agroclima.com/public/estacion.php?id=1670",
+      "catalog_status": "page_validated",
+      "metadata_quality": "complete",
+      "evidence_terms": 6,
+      "checked_at_utc": "2026-11-09T18:56:15+00:00"
+    },
+    {
+      "provider": "AgroClima",
+      "station_id": 1671,
+      "name": "Guerrico",
+      "name_source": "heading",
+      "latitude": -33.733039,
+      "longitude": -60.168588,
+      "coordinate_source": "unlabelled_pair",
+      "last_observation": null,
+      "page_url": "https://agroclima.com/3/public/estacion.php?id=1671",
+      "catalog_status": "page_validated",
+      "metadata_quality": "complete",
+      "evidence_terms": 5,
+      "checked_at_utc": "2026-11-09T18:56:15+00:00"
+    },
+    {
+      "provider": "AgroClima",
+      "station_id": 1672,
+      "name": "Guerrico",
+      "name_source": "heading",
+      "latitude": -33.733039,
+      "longitude": -60.168588,
+      "coordinate_source": "unlabelled_pair",
+      "last_observation": null,
+      "page_url": "https://agroclima.com/3/public/estacion.php?id=1672",
+      "catalog_status": "page_validated",
+      "metadata_quality": "complete",
+      "evidence_terms": 5,
+      "checked_at_utc": "2026-11-09T18:56:16+00:00"
     }
   ],
   "limitations": [
